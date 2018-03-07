@@ -1,0 +1,10 @@
+/BLXAlphaCrossover.class
+/Crossover.class
+/CrossoverFactory.class
+/DifferentialEvolutionCrossover.class
+/HUXCrossover.class
+/PMXCrossover.class
+/SBXCrossover.class
+/SBXSinglePointCrossover.class
+/SinglePointCrossover.class
+/TwoPointsCrossover.class
