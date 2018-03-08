@@ -2,5 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Rodolfo Arnaldo/git/ES2-2018-LIGE-PL-82/libs/mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
