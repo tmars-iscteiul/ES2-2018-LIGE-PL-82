@@ -1,9 +1,11 @@
 package main;
 
+import communication.EmailSender;
+
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		EmailSender.sendMail(null, null, null, null, null);
 
 	}
 

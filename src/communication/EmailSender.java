@@ -6,30 +6,30 @@ import javax.mail.internet.*;
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 
-public class EmailSender {
+public final class EmailSender {
 
-    private String from;
-    private String to;
-    private String subject;
-    private String messageBody;
-    private String fileName;
-    private String host;
+    private static String from;
+    private static String to;
+    private static String subject;
+    private static String messageBody;
+    private static String fileName;
+    private static String host;
 
-    private Properties properties;
+    private static Properties properties;
 
-    private MimeMessage message;
-    private BodyPart messageBodyPart;
-    private Multipart multipart;
+    private static MimeMessage message;
+    private static BodyPart messageBodyPart;
+    private static Multipart multipart;
 
-    private Authenticator authenticator;
+    private static Authenticator authenticator;
 
-    public EmailSender () {
+    private EmailSender () {
         from = "geral.nemesis@gmail.com";
-        to = "rodolfo.afa@gmail.com";
+        /*to = "rodolfo.afa@gmail.com";
         subject = "Subject Testing";
         messageBody = "<html><body><h1>HAVE FAITH, AND STAY" +
                     " CALM :-) I AM WITH YOU, OKAY :-)</h1></body></html>";
-        fileName = "quiz.txt";
+        fileName = "quiz.txt";*/
         host = "smtp.gmail.com";
 
         authenticator = new SMTPAuthenticator ();
@@ -40,7 +40,7 @@ public class EmailSender {
         properties.put ( "mail.smtp.auth", "true" );
     }
 
-    public void sendMail ( String from, String to,
+    public static void sendMail ( String from, String to,
                     String subject, String messageBody, String fileName ) {
         try {
             Session session = Session.getDefaultInstance ( properties, authenticator );
@@ -70,13 +70,13 @@ public class EmailSender {
         }
     } 
 
-    private void performTask () {
+    /*private void performTask () {
         sendMail ( from, to, subject, messageBody, fileName );
     }
 
     public static void main ( String[] args ) {
         new EmailSender ().performTask ();
-    }
+    }*/
 }
 
 /**
