@@ -20,6 +20,9 @@ public class Main {
 		
 		email1.welcome_email("rodolfo.afa@gmail.com");
 		emailsender.sendMail(email1);*/
+		
+		Engine engine = new Engine();
+		engine.load_configuration("config.xml");
 
 	}
 

@@ -18,6 +18,9 @@ public class Engine {
 
 	private Administrator admin;
 	
+	public Engine() {
+		
+	}
 	
 	public void load_configuration(String config) {
 		try {
@@ -26,14 +29,15 @@ public class Engine {
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(inputFile);
 			doc.getDocumentElement().normalize();
-			System.out.println("\n----- Search the XML document with xpath queries -----");
+			/*System.out.println("\n----- Search the XML document with xpath queries -----");
 			// Query 1
-			System.out.println("Query 1: ");
+			System.out.println("Query 1: ");*/
 			XPathFactory xpathFactory = XPathFactory.newInstance();
 			XPath xpath = xpathFactory.newXPath();
 			XPathExpression expr = xpath.compile("/XML/Administrator/@*");
 			NodeList nl = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
 			for (int i = 0; i < nl.getLength(); i++) {
+				
 				System.out.print(nl.item(i).getNodeName() + ":");
 				System.out.println(nl.item(i).getFirstChild().getNodeValue() + " ");
 			}
