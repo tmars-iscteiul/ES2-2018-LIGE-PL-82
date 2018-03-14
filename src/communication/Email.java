@@ -1,5 +1,7 @@
 package communication;
 
+import problem.Problem;
+
 public class Email {
 
 	private String from;
@@ -8,6 +10,7 @@ public class Email {
 	private String subject;
 	private String messageBody;
 	private String fileName;
+	private Problem problem;
 
 	public Email() {
 		from = "geral.nemesis@gmail.com";

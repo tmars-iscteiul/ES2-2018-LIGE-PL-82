@@ -6,7 +6,7 @@ import communication.EmailSender;
 public class Main {
 
 	public static void main(String[] args) {
-		Email email1 = new Email();
+		/*Email email1 = new Email();
 		email1.success_email("rodolfo.afa@gmail.com");
 		
 		EmailSender emailsender = new EmailSender();
@@ -19,7 +19,7 @@ public class Main {
 		emailsender.sendMail(email1);
 		
 		email1.welcome_email("rodolfo.afa@gmail.com");
-		emailsender.sendMail(email1);
+		emailsender.sendMail(email1);*/
 
 	}
 
