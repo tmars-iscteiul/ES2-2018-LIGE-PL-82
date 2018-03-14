@@ -10,6 +10,7 @@ public class Email {
 	private String fileName;
 
 	public Email() {
+		System.out.println("Email created");
 		from = "geral.nemesis@gmail.com";
 		admin = "geral.nemesis@gmail.com";
 		fileName = "quiz.txt";
