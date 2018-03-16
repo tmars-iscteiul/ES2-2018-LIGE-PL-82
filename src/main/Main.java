@@ -21,7 +21,7 @@ public class Main {
 		email1.welcome_email("tmars@iscte-iul.pt");
 		emailsender.sendMail(email1);
 		
-		Tools engine = new Tools();
+		Engine engine = new Engine();
 		engine.load_configuration("config.xml");
 
 	}
