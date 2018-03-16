@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <CommunicationClass name="communication.EmailSender" x="445" y="315">
+        <Communication destinationClassName="communication.Email"/>
+    </CommunicationClass>
+    <CommunicationClass name="communication.SMTPAuthenticator" x="661" y="371"/>
+    <CommunicationClass name="communication.Email" x="460" y="128">
+        <Association destinationClassName="problem.Problem"
+            endpointName="problem" kind="Simple"/>
+    </CommunicationClass>
+    <CommunicationClass name="stakeholders.Administrator" x="938" y="246"/>
+    <CommunicationClass name="problem.Problem" x="244" y="29">
+        <Association destinationClassName="problem.Variable"
+            endpointName="variableList" kind="Simple"/>
+        <Association destinationClassName="stakeholders.User"
+            endpointName="user" kind="Simple"/>
+    </CommunicationClass>
+    <CommunicationClass name="main.Tools" x="94" y="174">
+        <Association destinationClassName="stakeholders.Administrator"
+            endpointName="admin" kind="Simple"/>
+    </CommunicationClass>
+    <CommunicationClass name="stakeholders.User" x="180" y="27"/>
+    <CommunicationClass name="main.Main" x="95" y="310">
+        <Communication destinationClassName="communication.EmailSender"/>
+        <Communication destinationClassName="communication.Email"/>
+        <Communication destinationClassName="main.Tools"/>
+    </CommunicationClass>
+    <CommunicationClass name="problem.Variable" x="328" y="29"/>
+</ClassDiagram>

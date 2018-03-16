@@ -44,7 +44,7 @@ public class Email {
 
 	public void fail_email(String to) {
 		subject = "Interrupção da Optimização: " + "(Nome do problema)" + "(Ano-Mês-Dia Hora:Minuto)";
-		messageBody = "<html><body><p>O processo de optimização foi conluido devido a um erro.<br /><br />"
+		messageBody = "<html><body><p>O processo de optimização não foi conluido devido a um erro.<br /><br />"
 				+ "Siga os passos para resolução do problema:<br />"
 				+ "1 - Recarregue o ficheiro com a definição do problema;<br />"
 				+ "2 - Verifique se todos os campos estão correctamente preenchidos;<br />"

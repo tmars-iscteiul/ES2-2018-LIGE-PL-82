@@ -12,17 +12,17 @@ public class Variable {
 	private ArrayList<String> restrictions;
 	//add more variable types as needed, which variable type has to have a constructor
 	
-	public Variable(String name, String value) {
+	public Variable(String name/*, String value*/) {
 		this.name = name;
-		stringValue = value;
+		//stringValue = value;
 	}
 	
-	public Variable(String name, int value, double limitSuperior, double limitInferior) {
+	/*public Variable(String name, int value, double limitSuperior, double limitInferior) {
 		this.name = name;
 		intValue = value;
 		this.limitSuperior = limitSuperior;
 		this.limitInferior = limitInferior;
-	}
+	}*/
 	
 	
 }

@@ -14,11 +14,11 @@ import org.w3c.dom.NodeList;
 
 import stakeholders.Administrator;
 
-public class Engine {
+public class Tools {
 
 	private Administrator admin;
 	
-	public Engine() {
+	public Tools() {
 		
 	}
 	
