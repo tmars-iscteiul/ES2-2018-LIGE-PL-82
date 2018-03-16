@@ -2,7 +2,8 @@
 This application is ready to use. For that reason, after you pull it into you local repository,
 open a command prompt, go to nemesis-app folder and run the command `ng serve`.
 
-After the start of the server go to: [http://localhost:4200/](http://localhost:4200/)
+After the start of the server go to: [http://localhost:4200/](http://localhost:4200/).
+
 If the server returns a error or doesn't start, do the next steps:
 1. Delete the folder node_modules
 2. Follow the instructions below
