@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@lightweightform/bootstrap-theme/scss/index";
+html,
+body,
+lf-app {
+  height: 100%;
+  overflow: hidden;
+}

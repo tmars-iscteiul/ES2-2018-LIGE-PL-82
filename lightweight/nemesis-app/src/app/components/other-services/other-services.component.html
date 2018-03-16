@@ -1,0 +1,40 @@
+<lf-form name="otherServices"
+         title="Other Services">
+  <lf-form-content>
+    <div class="col-sm-6">
+      <lf-radio name="laundryService"
+                label="Laundry Service?"
+                [options]="optionsYN">
+      </lf-radio>
+    </div>
+    <div class="col-sm-6">
+      <lf-table name="otherGuestsTable" label="Gym Service">
+        <ng-template #lfTableHeaderTemplate>
+          <thead lf-table-header>
+          <lf-table-column-index></lf-table-column-index>
+          <lf-table-column label="Name"></lf-table-column>
+          <lf-table-column label="Days With Personal Trainer"></lf-table-column>
+          </thead>
+        </ng-template>
+
+        <ng-template #lfTableRowTemplate let-i="index">
+          <tr lf-table-row [index]="i">
+            <th lf-table-cell-index>
+              {{i + 1}}
+            </th>
+
+            <td lf-table-cell>
+              <lf-select name="name" [options]="guestsInfo">
+              </lf-select>
+            </td>
+            <td lf-table-cell>
+              <lf-number name="personalTrainer"
+                         [min]="0">
+              </lf-number>
+            </td>
+          </tr>
+        </ng-template>
+      </lf-table>
+    </div>
+  </lf-form-content>
+</lf-form>

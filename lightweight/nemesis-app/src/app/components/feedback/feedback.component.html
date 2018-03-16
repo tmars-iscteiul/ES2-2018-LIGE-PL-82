@@ -1,0 +1,39 @@
+<lf-form name="feedback"
+         title="6. Feedback"
+         [isRequired]="true">
+
+   <lf-form-content>
+  		<div class="row">
+      		<div class="col-sm-12">
+        		<p style="text-align: justify; padding-right: 30px">Send us an email if you have something to ask ou inform. We will reply within 24 hours.</p>
+      		</div>
+    	</div>
+
+    	<div class="row">
+      		<div class="col-sm-6">
+        		<lf-text name="name" title="Your name" label="Your name"></lf-text>
+      		</div>
+    	</div>
+
+    	<div class="row">
+      		<div class="col-sm-6">
+        		<lf-text name="email" title="Your email" label="Your email" [isValid]="emailValidator()"></lf-text>
+      		</div>
+    	</div>
+
+    	<div class="row">
+      		<div class="col-sm-6">
+        		<lf-text name="subject" title="Subject" label="Subject"></lf-text>
+      		</div>
+    	</div>
+
+    	<div class="row">
+    		<div class="col-sm-12">
+        		<lf-textarea name="emailText" title="Email text" label="Email text"></lf-textarea>
+      		</div>
+    	</div>
+
+  		<button style="margin-top: 20px" class="btn btn-outline-success" type="button">
+  			<i aria-hidden="true" class="fa fa-send"></i> Send message</button>
+    </lf-form-content>
+</lf-form>

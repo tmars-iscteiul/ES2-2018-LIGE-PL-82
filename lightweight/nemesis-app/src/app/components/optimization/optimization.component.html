@@ -1,0 +1,32 @@
+<lf-form name="optimization"
+         title="5. Optimization Options"
+         [isRequired]="true">
+
+  <lf-form-content>
+  	<div class="row">
+      <div class="col">
+        <lf-radio #lfRadioBlock
+                  name="optimizersSelection"
+                  label="What kind of optimizer's selection you want to use:"
+                  [options]="options"
+                  [initialValue]="auto"
+        ></lf-radio>
+      </div>
+  	</div>
+	<br/>
+
+    <bs-card [style]="optionsCard.style"
+                 [headerStyle]="optionsCard.headerStyle"
+                 [bodyStyle]="optionsCard.bodyStyle">
+          <bs-card-header>
+          	<p>Optimizers selection - 
+            <code style="color: black">{{lfRadioBlock.value}}</code></p>
+          </bs-card-header>
+          <bs-card-body>
+            
+
+
+          </bs-card-body>
+        </bs-card>
+  </lf-form-content>
+</lf-form>
