@@ -1,0 +1,32 @@
+<lf-table #lfTable
+          [name]="name"
+          [label]="label">
+  <ng-template #lfTableHeaderTemplate>
+    <thead lf-table-header>
+    <lf-table-column-index></lf-table-column-index>
+    <lf-table-column label="Name"></lf-table-column>
+    <lf-table-column label="Type"></lf-table-column>
+    <lf-table-column label="Description"></lf-table-column>
+    </thead>
+  </ng-template>
+
+  <ng-template #lfTableRowTemplate let-i="index">
+    <tr lf-table-row [index]="i">
+      <th lf-table-cell-index>
+        {{i + 1}}
+      </th>
+
+      <td lf-table-cell>
+        <lf-text name="name"></lf-text>
+      </td>
+      <td lf-table-cell>
+        <lf-select name="type"
+                   [options]="optionsTypeInput"
+        ></lf-select>
+      </td>
+      <td lf-table-cell>
+        <lf-text name="description"></lf-text>
+      </td>
+    </tr>
+  </ng-template>
+</lf-table>

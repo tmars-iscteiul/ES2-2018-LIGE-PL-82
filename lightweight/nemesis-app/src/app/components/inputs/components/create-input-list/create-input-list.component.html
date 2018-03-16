@@ -1,0 +1,35 @@
+<lf-form name="createInputList"
+         title="Create input list"
+         [isRequired]="true">
+
+  <lf-form-content>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <lf-text name="name" code="1.1" title="Problem Name" label="Problem Name"></lf-text>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <lf-textarea name="fullDescription" code="1.2" title="Full Description" label="Full Description"></lf-textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 style="padding-top: 20px">Performance Optimization Options</h5>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <lf-number name="averageDuration" code="1.3" title="Average Duration" label="Average Duration" [initialValue]=30 [min]="0"></lf-number>
+      </div>
+      <div class="col-sm-2">
+        <lf-select name="averageScale" label="Time scale" [options]="optionsScaleInput"></lf-select>
+      </div>
+    </div>
+
+  </lf-form-content>
+</lf-form>
