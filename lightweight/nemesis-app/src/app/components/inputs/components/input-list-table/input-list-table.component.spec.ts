@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateInputListComponent } from './create-input-list.component';
+import { InputListTableComponent } from './input-list-table.component';
 
-describe('CreateInputListComponent', () => {
-  let component: CreateInputListComponent;
-  let fixture: ComponentFixture<CreateInputListComponent>;
+describe('InputListTableComponent', () => {
+  let component: InputListTableComponent;
+  let fixture: ComponentFixture<InputListTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateInputListComponent ]
+      declarations: [ InputListTableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateInputListComponent);
+    fixture = TestBed.createComponent(InputListTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

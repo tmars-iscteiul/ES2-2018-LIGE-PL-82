@@ -13,10 +13,10 @@ import { InputsComponent } from './components/inputs/inputs.component';
 import { SystemInformationComponent } from './components/system-information/system-information.component';
 import { IntrodutionComponent } from './components/introdution/introdution.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
-import { CreateInputListComponent } from './components/inputs/components/create-input-list/create-input-list.component';
 import { CreateInputItemsComponent } from './components/inputs/components/create-input-items/create-input-items.component';
 import { OptimizationComponent } from './components/optimization/optimization.component';
 import { FitnessAppComponent } from './components/fitness-app/fitness-app.component';
+import { InputListTableComponent } from './components/inputs/components/input-list-table/input-list-table.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +29,10 @@ import { FitnessAppComponent } from './components/fitness-app/fitness-app.compon
     SystemInformationComponent,
     IntrodutionComponent,
     FeedbackComponent,
-    CreateInputListComponent,
     CreateInputItemsComponent,
     OptimizationComponent,
-    FitnessAppComponent
+    FitnessAppComponent,
+    InputListTableComponent
   ],
   imports: [
     BrowserModule,
