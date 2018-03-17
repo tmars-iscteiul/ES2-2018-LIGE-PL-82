@@ -31,7 +31,7 @@ export class AppComponent {
       style: 'outline-success',
       icon: 'send',
       callback: () => {
-        alert('submit not implemented');
+        submit();
       },
     },
   ];

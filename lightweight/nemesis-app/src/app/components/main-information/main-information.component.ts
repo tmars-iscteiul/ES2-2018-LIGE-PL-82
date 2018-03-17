@@ -23,4 +23,8 @@ export class MainInformationComponent implements OnInit {
     return (email: string) => this.appService.isValidEmail(email);
   }
 
+  nameValidator() {
+    return (name: string) => this.appService.isValidName(name);
+  }
+
 }

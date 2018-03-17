@@ -22,6 +22,12 @@ export class AppService {
     return emailRegExp.test(email);
   }
 
+  isValidName(name: string) {
+    const nameRegExp = /^[^`~!@#$%\^&*()_+={}|[\]\\:';"<>?,./1-9]*$/;
+
+    return nameRegExp.test(name);
+  }
+
    age(dateLeft, dateRight): number {
      return differenceInYears(dateLeft, dateRight);
    }
