@@ -2,10 +2,17 @@ package main;
 
 import communication.Email;
 import communication.EmailSender;
+import data.FloatVariable;
+
+/*
+ * GENERAL NOTES
+ * 
+ */
 
 public class Main {
 
 	public static void main(String[] args) {
+		/*
 		Email email1 = new Email();
 		email1.success_email("tmars@iscte-iul.pt");
 		
@@ -22,8 +29,8 @@ public class Main {
 		emailsender.sendMail(email1);
 		
 		Engine engine = new Engine();
-		engine.load_configuration("config.xml");
-
+		//engine.load_configuration("config.xml");
+		*/
 	}
 
 }

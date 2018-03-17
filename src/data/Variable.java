@@ -1,28 +1,26 @@
-package problem;
-
-import java.util.ArrayList;
+package data;
 
 public class Variable {
 	
-	private String name;
-	private int intValue;
-	private String stringValue;
-	private double limitSuperior;
-	private double limitInferior;
-	private ArrayList<String> restrictions;
-	//add more variable types as needed, which variable type has to have a constructor
+	private String name;	/** Name of the variable*/
 	
-	public Variable(String name/*, String value*/) {
+	private float upperLimit;	/** Upper bound for the float value*/
+	private float lowerLimit;	/** Lower bound for the float value*/
+	//private ArrayList<String> restrictions;
+
+	public Variable(String name) {
 		this.name = name;
-		//stringValue = value;
 	}
 	
-	/*public Variable(String name, int value, double limitSuperior, double limitInferior) {
-		this.name = name;
-		intValue = value;
-		this.limitSuperior = limitSuperior;
-		this.limitInferior = limitInferior;
-	}*/
-	
+	/**
+	 * Sets the bounds of the value variable. 
+	 * The end points are included in the value intervals [lowerLimit, upperLimit]
+	 * @param low The lower limit
+	 * @param up The upper limit
+	 */
+	public void setLimits(float low, float up)	{
+		lowerLimit = low;
+		upperLimit = up;
+	}
 	
 }
