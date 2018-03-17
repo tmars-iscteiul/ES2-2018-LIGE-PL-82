@@ -17,6 +17,7 @@ import { CreateInputItemsComponent } from './components/inputs/components/create
 import { OptimizationComponent } from './components/optimization/optimization.component';
 import { FitnessAppComponent } from './components/fitness-app/fitness-app.component';
 import { InputListTableComponent } from './components/inputs/components/input-list-table/input-list-table.component';
+import { FitnessTableComponent } from './components/fitness-app/components/fitness-table/fitness-table.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { InputListTableComponent } from './components/inputs/components/input-li
     CreateInputItemsComponent,
     OptimizationComponent,
     FitnessAppComponent,
-    InputListTableComponent
+    InputListTableComponent,
+    FitnessTableComponent
   ],
   imports: [
     BrowserModule,

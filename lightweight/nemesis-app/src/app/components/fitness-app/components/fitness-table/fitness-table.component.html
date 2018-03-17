@@ -1,0 +1,26 @@
+<lf-table #lfTable
+          [name]="name"
+          [label]="label">
+  <ng-template #lfTableHeaderTemplate>
+    <thead lf-table-header>
+    <lf-table-column-index></lf-table-column-index>
+    <lf-table-column label="Fitness name"></lf-table-column>
+    <lf-table-column label="File URL"></lf-table-column>
+    </thead>
+  </ng-template>
+
+  <ng-template #lfTableRowTemplate let-i="index">
+    <tr lf-table-row [index]="i">
+      <th lf-table-cell-index>
+        {{i + 1}}
+      </th>
+
+      <td lf-table-cell>
+        <lf-text name="fitness-name"></lf-text>
+      </td>
+      <td lf-table-cell>
+        <lf-text name="file-url"></lf-text>
+      </td>
+    </tr>
+  </ng-template>
+</lf-table>
