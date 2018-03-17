@@ -1,12 +1,10 @@
-<lf-table #lfTable
-          [name]="name"
-          [label]="label">
+<lf-table #lfTable>
   <ng-template #lfTableHeaderTemplate>
     <thead lf-table-header>
     <lf-table-column-index></lf-table-column-index>
-    <lf-table-column label="Name"></lf-table-column>
-    <lf-table-column label="Type"></lf-table-column>
-    <lf-table-column label="Description"></lf-table-column>
+    <lf-table-column label="Variable name / List name"></lf-table-column>
+    <lf-table-column label="Symbol"></lf-table-column>
+    <lf-table-column label="Value"></lf-table-column>
     </thead>
   </ng-template>
 
@@ -17,15 +15,15 @@
       </th>
 
       <td lf-table-cell>
-        <lf-text name="name"></lf-text>
+        <lf-text name="variable-name"></lf-text>
       </td>
       <td lf-table-cell>
-        <lf-select name="type"
-                   [options]="optionsTypeInput"
+        <lf-select name="symbol"
+                   [options]="optionsSymbolInput"
         ></lf-select>
       </td>
       <td lf-table-cell>
-        <lf-text name="description"></lf-text>
+        <lf-number name="value"></lf-number>
       </td>
     </tr>
   </ng-template>

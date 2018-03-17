@@ -3,11 +3,17 @@
          [isRequired]="true">
 
   <lf-form-content>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <p style="padding: 10px 0px">What kind of optimizer's selection you want to use:</p>
+      </div>
+    </div>
+
   	<div class="row">
       <div class="col">
         <lf-radio #lfRadioBlock
                   name="optimizersSelection"
-                  label="What kind of optimizer's selection you want to use:"
                   [options]="options"
                   [initialValue]="auto"
         ></lf-radio>

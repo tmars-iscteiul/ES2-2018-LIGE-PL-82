@@ -1,15 +1,13 @@
-<lf-table #lfTable
-          [name]="name"
-          [label]="label">
+<lf-table #lfTable>
   <ng-template #lfTableHeaderTemplate>
     <thead lf-table-header>
     <lf-table-column-index></lf-table-column-index>
-    <lf-table-column label="Group name"></lf-table-column>
+    <lf-table-column label="List name"></lf-table-column>
     <lf-table-column label="Type"></lf-table-column>
-    <lf-table-column label="Nr of variables"></lf-table-column>
+    <lf-table-column label="Nr variables"></lf-table-column>
     <lf-table-column label="Min value"></lf-table-column>
     <lf-table-column label="Max value"></lf-table-column>
-    <lf-table-column label="Description"></lf-table-column>
+    <lf-table-column label="Description of the list"></lf-table-column>
     </thead>
   </ng-template>
 
@@ -20,7 +18,7 @@
       </th>
 
       <td lf-table-cell>
-        <lf-text name="group-name"></lf-text>
+        <lf-text name="list-name"></lf-text>
       </td>
       <td lf-table-cell>
         <lf-select name="type"

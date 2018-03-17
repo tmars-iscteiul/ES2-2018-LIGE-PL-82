@@ -6,8 +6,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./input-list-table.component.scss']
 })
 export class InputListTableComponent implements OnInit {
-  @Input() label: string;
-  @Input() name: string;
 
   public optionsTypeInput: object[] = [
     {value: 'int', text: 'Integer'},
@@ -15,7 +13,8 @@ export class InputListTableComponent implements OnInit {
     {value: 'boolean', text: 'Boolean'},
   ];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

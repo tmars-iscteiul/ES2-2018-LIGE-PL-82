@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputsTableComponent } from './inputs-table.component';
+import { RestrictionsTableComponent } from './restrictions-table.component';
 
-describe('InputsTableComponent', () => {
-  let component: InputsTableComponent;
-  let fixture: ComponentFixture<InputsTableComponent>;
+describe('RestrictionsTableComponent', () => {
+  let component: RestrictionsTableComponent;
+  let fixture: ComponentFixture<RestrictionsTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputsTableComponent ]
+      declarations: [ RestrictionsTableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InputsTableComponent);
+    fixture = TestBed.createComponent(RestrictionsTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

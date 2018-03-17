@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { LFBootstrapThemeModule } from '@lightweightform/bootstrap-theme';
 import { OtherServicesComponent } from './components/other-services/other-services.component';
 import { AppService } from './services/app.service';
-import { AddInputsComponent } from './components/add-inputs/add-inputs.component';
-import { InputsTableComponent } from './components/add-inputs/inputs-table/inputs-table.component';
 import { MainInformationComponent } from './components/main-information/main-information.component';
 import { InputsComponent } from './components/inputs/inputs.component';
 import { SystemInformationComponent } from './components/system-information/system-information.component';
@@ -18,13 +16,15 @@ import { OptimizationComponent } from './components/optimization/optimization.co
 import { FitnessAppComponent } from './components/fitness-app/fitness-app.component';
 import { InputListTableComponent } from './components/inputs/components/input-list-table/input-list-table.component';
 import { FitnessTableComponent } from './components/fitness-app/components/fitness-table/fitness-table.component';
+import { FaqsComponent } from './components/faqs/faqs.component';
+import { InputsNameTableComponent } from './components/inputs/components/create-input-items/components/inputs-name-table/inputs-name-table.component';
+import { RestrictionsComponent } from './components/inputs/components/restrictions/restrictions.component';
+import { RestrictionsTableComponent } from './components/inputs/components/restrictions/components/restrictions-table/restrictions-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OtherServicesComponent,
-    AddInputsComponent,
-    InputsTableComponent,
     MainInformationComponent,
     InputsComponent,
     SystemInformationComponent,
@@ -34,7 +34,11 @@ import { FitnessTableComponent } from './components/fitness-app/components/fitne
     OptimizationComponent,
     FitnessAppComponent,
     InputListTableComponent,
-    FitnessTableComponent
+    FitnessTableComponent,
+    FaqsComponent,
+    InputsNameTableComponent,
+    RestrictionsComponent,
+    RestrictionsTableComponent
   ],
   imports: [
     BrowserModule,
