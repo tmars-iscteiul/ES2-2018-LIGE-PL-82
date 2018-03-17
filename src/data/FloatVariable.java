@@ -2,7 +2,6 @@ package data;
 
 public class FloatVariable extends Variable {
 
-	private float value;	/** Value for the variable as Float*/
 	
 	/**
 	 * Constructor
@@ -15,8 +14,4 @@ public class FloatVariable extends Variable {
 		setLimits(up, low);
 	}
 
-	// FIND A WAY TO GET IT DONE THROUGH THE VARIABLE SUPERCLASS, USING AN INTERFACE TO IMPLEMENT THE VARIABLE TYPE CONSISTENCY
-	private void setValue(float value)	{
-		this.value = value;
-	}
 }

@@ -1,8 +1,6 @@
 package main;
 
-import communication.Email;
-import communication.EmailSender;
-import data.FloatVariable;
+import data.*;
 
 /*
  * GENERAL NOTES
@@ -30,6 +28,19 @@ public class Main {
 		
 		Engine engine = new Engine();
 		//engine.load_configuration("config.xml");
+		*/
+		
+		/*// Testing variable class
+		FloatVariable a = new FloatVariable("floatvartest", 2f, 10f, -10f);
+		if(a.getValue() instanceof String)	{
+			System.out.println("String");
+		}	else if(a.getValue() instanceof Float)	{
+			System.out.println("Float");
+		}	else if(a.getValue() instanceof Integer)		{
+			System.out.println("Integer");
+		}	else	{
+			System.out.println("Something went wrong.");
+		}
 		*/
 	}
 

@@ -7,8 +7,9 @@ public class Variable {
 	private float upperLimit;	/** Upper bound for the float value*/
 	private float lowerLimit;	/** Lower bound for the float value*/
 	//private ArrayList<String> restrictions;
+	private Object value;
 
-	public Variable(String name) {
+	protected Variable(String name) {
 		this.name = name;
 	}
 	
@@ -21,6 +22,14 @@ public class Variable {
 	public void setLimits(float low, float up)	{
 		lowerLimit = low;
 		upperLimit = up;
+	}
+	
+	public void setValue(Object value)	{
+		this.value = value;
+	}
+	
+	public Object getValue()	{
+		return value;
 	}
 	
 }
