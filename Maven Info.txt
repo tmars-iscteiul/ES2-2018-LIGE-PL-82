@@ -6,7 +6,6 @@ Open Eclipse and refresh the project. Right click -> Run as -> Maven Install
 Once done, Right click -> Run as -> Maven Clean.
 
 If you navigate to your Local Repository, you should have the new target folder, which is where Maven compiles the project.
-The bin folder contains the classes compiled by eclipse iteself.
 After installing the dependencies, jmetal jars will be located on the .m2 folder, under the Window's user documents folder.
 
 
