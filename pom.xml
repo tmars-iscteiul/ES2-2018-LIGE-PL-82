@@ -11,6 +11,8 @@
   <url>http://maven.apache.org</url>
 
   <properties>
+	<maven.compiler.source>1.6</maven.compiler.source>
+	<maven.compiler.target>1.6</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -46,6 +48,14 @@
     			<artifactId>json</artifactId>
     			<version>20180130</version>
 			</dependency>  
+			<dependency>
+				<groupId>mail</groupId>
+				<artifactId>mail-lib</artifactId>
+				<version>1.0</version>
+				<scope>system</scope>
+				<systemPath>${project.basedir}/lib/mail.jar</systemPath>
+			</dependency>
   </dependencies>
-  
+
+
 </project>
