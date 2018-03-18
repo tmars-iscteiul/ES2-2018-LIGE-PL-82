@@ -31,7 +31,7 @@ export class AppComponent {
       style: 'outline-success',
       icon: 'send',
       callback: () => {
-        submit();
+        this.submit();
       },
     },
   ];
@@ -40,7 +40,7 @@ export class AppComponent {
 
   submit() {
     if (this.lfApp.isValid) {
-      fetch('https://selfcheckin.opensoft.pt/reservations', {
+      fetch('../../outputs/outputs-list.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ export class AppComponent {
         mode: 'cors'
       }).then((response) => {
         console.log(response);
-        alert('Check-in successful. Enjoy your stay.');
+        alert('The process started with sucess. Check your email for details.');
       }).catch((ex) => {
         console.log(ex);
         alert(ex);
