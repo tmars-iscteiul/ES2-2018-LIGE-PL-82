@@ -16,6 +16,13 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <build>
+    <sourceDirectory>${basedir}/src</sourceDirectory>
+    <testSourceDirectory>${basedir}/jUnit</testSourceDirectory>
+    <outputDirectory>${basedir}/target/classes</outputDirectory>
+    <testOutputDirectory>${basedir}/target/test-classes</testOutputDirectory>
+  </build>
+  
   <dependencies>
             <dependency>
                 <groupId>org.uma.jmetal</groupId>
