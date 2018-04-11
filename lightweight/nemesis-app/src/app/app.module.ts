@@ -4,11 +4,9 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LFBootstrapThemeModule } from '@lightweightform/bootstrap-theme';
-import { OtherServicesComponent } from './components/other-services/other-services.component';
 import { AppService } from './services/app.service';
 import { MainInformationComponent } from './components/main-information/main-information.component';
 import { InputsComponent } from './components/inputs/inputs.component';
-import { SystemInformationComponent } from './components/system-information/system-information.component';
 import { IntrodutionComponent } from './components/introdution/introdution.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { CreateInputItemsComponent } from './components/inputs/components/create-input-items/create-input-items.component';
@@ -24,10 +22,8 @@ import { RestrictionsTableComponent } from './components/inputs/components/restr
 @NgModule({
   declarations: [
     AppComponent,
-    OtherServicesComponent,
     MainInformationComponent,
     InputsComponent,
-    SystemInformationComponent,
     IntrodutionComponent,
     FeedbackComponent,
     CreateInputItemsComponent,

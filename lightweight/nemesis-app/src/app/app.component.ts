@@ -15,15 +15,21 @@ export class AppComponent {
       style: 'outline-secondary',
       icon: 'save',
       callback: () => {
-        alert('save not implemented');
-      },
+        this.appService.saveValueToFile('nemesis_saved.json', {
+          onSuccess: () => console.log('Value saved successfully'),
+          onError: err => console.error('Error saving file: ', err),
+        });
+      }
     },
     {
       name: 'Load optimization',
       style: 'outline-secondary',
       icon: 'folder-open',
       callback: () => {
-        alert('load not implemented');
+        this.appService.setValueFromFile({
+          onSuccess: () => console.log('Value loaded successfully'),
+          onError: err => console.error('Error loading file: ', err),
+        });
       },
     },
     {
@@ -40,7 +46,7 @@ export class AppComponent {
 
   submit() {
     if (this.lfApp.isValid) {
-      fetch('../../outputs/outputs-list.php', {
+      fetch('../../outputs/outputs-file.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
