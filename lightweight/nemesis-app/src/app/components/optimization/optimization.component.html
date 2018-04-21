@@ -26,24 +26,40 @@
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
                        label="Diferencial Evolution"></lf-checkbox>
+          <lf-checkbox name="cmaes"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="Covariance Matrix Adaptation Evolution Strategy"></lf-checkbox>
       </div>
 
       <div class="col">
-          <lf-checkbox name="evolutionStrategy"
+          <lf-checkbox name="ees"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
-                       label="Evolution Strategy"></lf-checkbox>
-          <lf-checkbox name="geneticAlgorithm"
+                       label="Elitist Evolution Strategy"></lf-checkbox>
+          <lf-checkbox name="nees"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
-                       label="Genetic Algorithm"></lf-checkbox>
+                       label="Non Elitist Evolution Strategy"></lf-checkbox>
+          <lf-checkbox name="gga"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="Generational Genetic Algorithm"></lf-checkbox>
       </div>
 
       <div class="col">
-          <lf-checkbox name="particlesWarmOptimization"
+          <lf-checkbox name="ssga"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
-                       label="Particles Warm Optimization"></lf-checkbox>
+                       label="Steady State Genetic Algorithm"></lf-checkbox>
+          <lf-checkbox name="pwo2007"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="Particles Warm Optimization - PSO2007"></lf-checkbox>
+          <lf-checkbox name="pwo2011"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="Particles Warm Optimization - PSO2011"></lf-checkbox>
       </div>
     </div>
 
@@ -55,15 +71,19 @@
           <lf-checkbox name="abyss"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
-                       label="ABYSS"></lf-checkbox>
+                       label="AbYSS"></lf-checkbox>
           <lf-checkbox name="cellde"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
-                       label="CELL DE"></lf-checkbox>
+                       label="Cell DE"></lf-checkbox>
           <lf-checkbox name="dmopso"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
-                       label="DMOPSO"></lf-checkbox>
+                       label="dMOPSO"></lf-checkbox>
+          <lf-checkbox name="dmopsom"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="dMOPSO Measures"></lf-checkbox>
           <lf-checkbox name="gde3"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
@@ -79,10 +99,7 @@
           <lf-checkbox name="mocell"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
-                       label="MOCELL"></lf-checkbox>
-      </div>
-
-      <div class="col">
+                       label="MOCell"></lf-checkbox>
           <lf-checkbox name="mochc"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
@@ -90,19 +107,53 @@
           <lf-checkbox name="moead"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
-                       label="MOEAD"></lf-checkbox>
+                       label="MOEA/D"></lf-checkbox>
+      </div>
+
+      <div class="col">
+          <lf-checkbox name="cmoead"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="cMOEA/D"></lf-checkbox>
+          <lf-checkbox name="moeaddd"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="MOEA/D-DD"></lf-checkbox>
+          <lf-checkbox name="moeaddra"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="MOEA/D-DRA"></lf-checkbox>
+          <lf-checkbox name="moeadstm"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="MOEA/D-STM"></lf-checkbox>
           <lf-checkbox name="mombi"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
                        label="MOMBI"></lf-checkbox>
+          <lf-checkbox name="mombi2"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="MOMBI2"></lf-checkbox>
           <lf-checkbox name="nsgaii"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
                        label="NSGAII"></lf-checkbox>
+          <lf-checkbox name="nsgaiim"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="NSGAII Measures"></lf-checkbox>
+          <lf-checkbox name="ssnsgaii"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="ssNSGAII"></lf-checkbox>
           <lf-checkbox name="nsgaiii"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
                        label="NSGAIII"></lf-checkbox>
+      </div>
+
+      <div class="col">
           <lf-checkbox name="omopso"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
@@ -111,9 +162,6 @@
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
                        label="PAES"></lf-checkbox>
-      </div>
-
-      <div class="col">
           <lf-checkbox name="pesa2"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
@@ -126,6 +174,10 @@
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
                        label="SMPSO"></lf-checkbox>
+          <lf-checkbox name="smpsom"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="SMPSO Measures"></lf-checkbox>
           <lf-checkbox name="smsemoa"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
@@ -137,7 +189,11 @@
           <lf-checkbox name="wasfga"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"
-                       label="WASFGA"></lf-checkbox>             
+                       label="WASFGA"></lf-checkbox>
+          <lf-checkbox name="wasfga"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="WASFGA Measures"></lf-checkbox>
       </div>
     </div>
 

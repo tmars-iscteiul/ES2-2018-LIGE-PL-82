@@ -1,0 +1,97 @@
+{
+  "introdution": {},
+  "main-information": {
+    "name": "spamRulesProblem",
+    "fullDescription": "Description of the problem. This field can be big, with many words and lines.",
+    "averageDuration": 20,
+    "averageScale": "min",
+    "maxDuration": 20,
+    "maxScale": "min",
+    "userEmail": "tm.alves.rodrigues@gmail.com"
+  },
+  "inputs": {
+    "undefined": [
+      {
+        "list-name": "rulesList",
+        "type": "double",
+        "number-var": 10,
+        "min-value": -5,
+        "max-value": 5,
+        "description": "List of rules weights"
+      }
+    ],
+    "createInputItems": {
+      "undefined": [
+        {
+          "list": "rulesList",
+          "description": "HTML_ONLY, BAYES30, BAYES40, DRUGS_MAIL, BIGFONT20, BIGFONT50, NO_SPACES, UNK_LINKS, UNK_SENDER, SEX_WORDS"
+        }
+      ]
+    },
+    "restrictions": {
+      "undefined": [
+        {
+          "variable-name": "rulesList",
+          "symbol": "different",
+          "value": 0
+        }
+      ]
+    }
+  },
+  "fitness-app": {
+    "undefined": [
+      {
+        "fitness-name": "fnfp_calculation",
+        "file-url": "https://drive.google.com/drive/folders/1_3vTkPFmZrh-lpn2Dy7kI0a4bsoJHBqu"
+      }
+    ]
+  },
+  "optimization": {
+    "optimizersSelection": "manual",
+    "coralReefOptimization": true,
+    "diferencialEvolution": false,
+    "cmaes": false,
+    "ees": true,
+    "nees": false,
+    "gga": false,
+    "ssga": false,
+    "pwo2007": false,
+    "pwo2011": true,
+    "abyss": true,
+    "cellde": false,
+    "dmopso": true,
+    "dmopsom": false,
+    "gde3": false,
+    "gwasfga": true,
+    "ibea": true,
+    "mocell": false,
+    "mochc": false,
+    "moead": true,
+    "cmoead": true,
+    "moeaddd": false,
+    "moeaddra": false,
+    "moeadstm": true,
+    "mombi": false,
+    "mombi2": false,
+    "nsgaii": true,
+    "nsgaiim": true,
+    "ssnsgaii": false,
+    "nsgaiii": true,
+    "omopso": true,
+    "paes": false,
+    "pesa2": false,
+    "ramdomsearch": true,
+    "smpso": false,
+    "smpsom": false,
+    "smsemoa": false,
+    "spea2": false,
+    "wasfga": false
+  },
+  "feedback": {
+    "name": null,
+    "email": null,
+    "subject": null,
+    "emailText": null
+  },
+  "faqs": {}
+}
