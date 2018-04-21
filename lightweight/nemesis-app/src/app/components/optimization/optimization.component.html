@@ -4,35 +4,142 @@
 
   <lf-form-content>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <p style="padding: 10px 0px">What kind of optimizer's selection you want to use:</p>
-      </div>
-    </div>
-
   	<div class="row">
       <div class="col">
         <lf-radio #lfRadioBlock
                   name="optimizersSelection"
                   [options]="options"
-                  [initialValue]="auto"
         ></lf-radio>
       </div>
   	</div>
-	<br/>
 
-    <bs-card [style]="optionsCard.style"
-                 [headerStyle]="optionsCard.headerStyle"
-                 [bodyStyle]="optionsCard.bodyStyle">
-          <bs-card-header>
-          	<p>Optimizers selection - 
-            <code style="color: black">{{lfRadioBlock.value}}</code></p>
-          </bs-card-header>
-          <bs-card-body>
-            
+    <br/>
+    <h5>Single Objective Algorithm</h5>
+	 
+    <div class="row mt-3">
+      <div class="col">
+          <lf-checkbox name="coralReefOptimization"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="Coral Reef Optimization"></lf-checkbox>
+          <lf-checkbox name="diferencialEvolution"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="Diferencial Evolution"></lf-checkbox>
+      </div>
 
+      <div class="col">
+          <lf-checkbox name="evolutionStrategy"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="Evolution Strategy"></lf-checkbox>
+          <lf-checkbox name="geneticAlgorithm"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="Genetic Algorithm"></lf-checkbox>
+      </div>
 
-          </bs-card-body>
-        </bs-card>
+      <div class="col">
+          <lf-checkbox name="particlesWarmOptimization"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="Particles Warm Optimization"></lf-checkbox>
+      </div>
+    </div>
+
+    <br/>
+    <h5>Multi Objective Algorithm</h5>
+   
+    <div class="row mt-3">
+      <div class="col">
+          <lf-checkbox name="abyss"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="ABYSS"></lf-checkbox>
+          <lf-checkbox name="cellde"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="CELL DE"></lf-checkbox>
+          <lf-checkbox name="dmopso"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="DMOPSO"></lf-checkbox>
+          <lf-checkbox name="gde3"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="GDE 3"></lf-checkbox>
+          <lf-checkbox name="gwasfga"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="GWASFGA"></lf-checkbox>
+          <lf-checkbox name="ibea"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="IBEA"></lf-checkbox>
+          <lf-checkbox name="mocell"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="MOCELL"></lf-checkbox>
+      </div>
+
+      <div class="col">
+          <lf-checkbox name="mochc"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="MOCHC"></lf-checkbox>
+          <lf-checkbox name="moead"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="MOEAD"></lf-checkbox>
+          <lf-checkbox name="mombi"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="MOMBI"></lf-checkbox>
+          <lf-checkbox name="nsgaii"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="NSGAII"></lf-checkbox>
+          <lf-checkbox name="nsgaiii"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="NSGAIII"></lf-checkbox>
+          <lf-checkbox name="omopso"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="OMOPSO"></lf-checkbox>
+          <lf-checkbox name="paes"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="PAES"></lf-checkbox>
+      </div>
+
+      <div class="col">
+          <lf-checkbox name="pesa2"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="PESA 2"></lf-checkbox>
+          <lf-checkbox name="ramdomsearch"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="RANDOM SEARCH"></lf-checkbox>
+          <lf-checkbox name="smpso"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="SMPSO"></lf-checkbox>
+          <lf-checkbox name="smsemoa"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="SMSEMOA"></lf-checkbox>
+          <lf-checkbox name="spea2"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="SPEA 2"></lf-checkbox>
+          <lf-checkbox name="wasfga"
+                       [initialValue]="true"
+                       [isDisabled]="isDisabled()"
+                       label="WASFGA"></lf-checkbox>             
+      </div>
+    </div>
+
   </lf-form-content>
 </lf-form>

@@ -9,9 +9,9 @@ import {RadioComponent} from '@lightweightform/bootstrap-theme';
 export class OptimizationComponent implements OnInit {
 
   public options: object[] = [
-    {value: 'Automatic', text: 'Automatic selection'},
-    {value: 'Semi-automatic', text: 'Semiautomatic selection'},
-    {value: 'Manual', text: 'Manual selection'},
+    {value: 'automatic', text: 'Automatic selection'},
+    {value: 'semi-automatic', text: 'Semiautomatic selection'},
+    {value: 'manual', text: 'Manual selection'},
   ];
 
   public optionsCard = {
@@ -22,10 +22,8 @@ export class OptimizationComponent implements OnInit {
 
   constructor() {}
 
-  public onRadio1Change(event) {
-    if (event.newValue) {
-      
-    }
+  public isDisabled() {
+    return ([parentForm]) => {(parentForm.optimizersSelection.value == 'automatic') ? 'true' : 'false';};
   }
 
   ngOnInit() {
