@@ -1,26 +1,38 @@
 package main;
 
-import java.io.File;
+import java.util.ArrayList;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathFactory;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-
+import data.Variable;
+import data.problem.Problem;
 import stakeholders.Administrator;
 
-public class Engine {
+public class Engine extends Thread	{
 
-	private Administrator admin;
+	//private Administrator admin; TODO Why do we need this?
+	private ArrayList<Problem> problemList; // Queue?
 	
 	public Engine() {
 		
 	}
 	
+	@Override
+	public void run()	{
+		/*
+		 * Receives input from WEB GUI through JSON to run JMETAL'S ALGORITHMS. Sends results through email.
+		 *   Imports JSON and reads it (needs JSON's final structure)
+		 *   Splits every algorithm run with jMetalHandler, using data.Variables
+		 *   Executes every algorithm (jMetalHandler, after given the right inputs)
+		 *   During execution, jMetalHandler calls EmailSender to send emails on progress (Progress, ETA and other stats...)
+		 *   After generating, saves results (how? TBD) and sends to email.
+		 *   Closes.
+		 *   
+		 */
+		
+		
+	}
+	
+	public void importProblem(Problem problem)	{
+		problemList.add(problem);
+	}
 	
 }
