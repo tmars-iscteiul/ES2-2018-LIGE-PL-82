@@ -2,7 +2,7 @@ package data.problem;
 
 import java.util.ArrayList;
 
-import data.Variable;
+import data.Configuration;
 import stakeholders.User;
 import sun.util.calendar.LocalGregorianCalendar.Date;
 
@@ -14,7 +14,7 @@ public class Problem {
 	private String description;
 	private Date timeLimit;
 	private Date timeIdeal;
-	private ArrayList<Variable> variableList;
+	private ArrayList<Configuration> variableList;
 	
 	/*
 	 * introduction
