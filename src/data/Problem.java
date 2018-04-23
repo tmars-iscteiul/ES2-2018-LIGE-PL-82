@@ -17,4 +17,12 @@ public class Problem {
 	public void load_problem (String file) {
 		
 	}
+	
+	public void solve_problem(){
+		for(int i =0; i<= variableList.size();i++){
+			if (variableList.get(i).getValue().equals("StringVariable")){
+				
+			}
+		}
+	}
 }
