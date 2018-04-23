@@ -2,7 +2,7 @@ package main;
 
 import java.util.ArrayList;
 
-import data.Variable;
+import data.Configuration;
 import data.problem.Problem;
 import stakeholders.Administrator;
 
