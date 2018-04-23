@@ -1,6 +1,6 @@
 package communication;
 
-import data.Problem;
+import data.problem.Problem;
 
 public class Email {
 
