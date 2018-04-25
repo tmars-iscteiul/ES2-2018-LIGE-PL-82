@@ -1,7 +1,6 @@
 package data.problem;
 
 import data.Configuration;
-import utils.VariableType;
 
 public class ProblemInputs {
 

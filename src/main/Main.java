@@ -1,7 +1,5 @@
 package main;
 
-import data.*;
-
 /*
  * GENERAL NOTES
  * 
@@ -10,6 +8,8 @@ import data.*;
 public class Main {
 
 	public static void main(String[] args) {
+
+
 		/*
 		Email email1 = new Email();
 		email1.success_email("tmars@iscte-iul.pt");

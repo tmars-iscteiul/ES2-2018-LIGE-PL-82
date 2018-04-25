@@ -16,7 +16,7 @@ public class Problem {
 	private Date timeIdeal;
 	private ArrayList<Configuration> variableList;
 	
-	/*
+	/* 
 	 * introduction
 	 * - main information {name, fullDescription, averageDuration, averageScale, maxDuration, maxScale, userEmail}
 	 * 
@@ -32,7 +32,7 @@ public class Problem {
 	 * feedback {name, email, subject, emailText}
 	 * 
 	 * faqs {}
-	 *  
+	 * 
 	 */
 	
 	
