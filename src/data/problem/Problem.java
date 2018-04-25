@@ -15,7 +15,6 @@ package data.problem;
  * | - @see ProblemFitnessApp TODO: Still unknown how we'll implement this. What link can we use? How do we download the .jar file? ...
  * | - @see ProblemFeedback
  * 
- * 
  * @author skner
  *
  */
@@ -24,19 +23,23 @@ public class Problem {
 	
 	private ProblemIntroduction introduction;
 	private ProblemInputs inputs;
+	private ProblemOptimization optimization;
 	private ProblemFitnessApp fitnessApp;
 	private ProblemFeedback feedback;
 
 	public Problem()	{
 		this.introduction = null;
 		this.inputs = null;
+		this.optimization = null;
 		this.fitnessApp = null;
 		this.feedback = null;
 	}
 	
-	public Problem(ProblemIntroduction introduction, ProblemInputs inputs, ProblemFitnessApp fitnessApp, ProblemFeedback feedback)	{
+	public Problem(ProblemIntroduction introduction, ProblemInputs inputs, ProblemOptimization optimization, 
+			ProblemFitnessApp fitnessApp, ProblemFeedback feedback)	{
 		this.introduction = introduction;
 		this.inputs = inputs;
+		this.optimization = optimization;
 		this.fitnessApp = fitnessApp;
 		this.feedback = feedback;
 	}
@@ -52,6 +55,9 @@ public class Problem {
 		this.inputs = inputs;
 	}
 
+	public void setOptimization(ProblemOptimization optimization)	{
+		this.optimization = optimization;
+	}
 
 	public void setFitnessApp(ProblemFitnessApp fitnessApp) {
 		this.fitnessApp = fitnessApp;
@@ -72,6 +78,10 @@ public class Problem {
 		return inputs;
 	}
 
+	public ProblemOptimization getOptimization()	{
+		return optimization;
+	}
+	
 	public ProblemFitnessApp getFitnessApp() {
 		return fitnessApp;
 	}
