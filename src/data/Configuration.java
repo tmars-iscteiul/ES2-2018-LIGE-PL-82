@@ -17,12 +17,12 @@ public class Configuration {
 	
 	private String name;	/** Name of the variable*/
 	
-	private float upperLimit;	/** Upper bound for the float value*/
-	private float lowerLimit;	/** Lower bound for the float value*/
+	private double upperLimit;	/** Upper bound for the float value*/
+	private double lowerLimit;	/** Lower bound for the float value*/
 	private VariableType varType; /** Helper to verify the object type, if defined */
 	private Object[] valueArray; /** Defined as Object, since we can have multiple values there. To be tweaked in case of non compatibility */
 
-	public Configuration(String name, float low, float up, String type, int configSize) {
+	public Configuration(String name, double low, double up, String type, int configSize) {
 		this.name = name;
 		setLimits(low, up);
 		setArrayType(type);
@@ -35,7 +35,7 @@ public class Configuration {
 	 * @param low The lower limit
 	 * @param up The upper limit
 	 */
-	public void setLimits(float low, float up)	{
+	public void setLimits(double low, double up)	{
 		lowerLimit = low;
 		upperLimit = up;
 	}

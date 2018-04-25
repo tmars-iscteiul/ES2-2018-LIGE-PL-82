@@ -11,6 +11,7 @@ package data.problem;
  * | | - @see Configuration 
  * | | - @see * 
  * | | - @see Restriction 
+ * | - @see ProblemOptimization
  * | - @see ProblemFitnessApp TODO: Still unknown how we'll implement this. What link can we use? How do we download the .jar file? ...
  * | - @see ProblemFeedback
  * 

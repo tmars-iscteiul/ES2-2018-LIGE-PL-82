@@ -37,11 +37,11 @@ public class ProblemInputs {
 		restrictionList.add(r);
 	}
 	
-	public void addConfiguration(String listName, String type, int size, float minValue, float maxValue) {
+	public void addConfiguration(String listName, double minValue, double maxValue, String type, int size) {
 		configList.add(new Configuration(listName, minValue, maxValue, type, size));
 	}
 	
-	public void addRestriction(Configuration c)	{
+	public void addConfiguration(Configuration c)	{
 		configList.add(c);
 	}
 
