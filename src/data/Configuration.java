@@ -13,7 +13,6 @@ import utils.VariableType;
  * @author skner
  *
  */
-
 public class Configuration {
 	
 	private String name;	/** Name of the variable*/
