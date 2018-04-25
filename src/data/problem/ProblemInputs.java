@@ -20,4 +20,10 @@ public class ProblemInputs {
 		}
 	}
 
+	public Configuration getConfig() {
+		return config;
+	}
+	
+	
+
 }
