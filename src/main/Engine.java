@@ -23,8 +23,8 @@ public class Engine extends Thread	{
 	//private Administrator admin; TODO Why do we need this?
 	private Problem problem;
 	
-	public Engine() {
-		
+	public Engine(Problem problem) {
+		this.problem = problem;
 	}
 	
 	/**
