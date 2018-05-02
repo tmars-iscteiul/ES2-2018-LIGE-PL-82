@@ -1,0 +1,7 @@
+Refactoring Type	Source Entity	Target Class	Source/Target accessed members	Rate it!
+Move Method	org.jfree.chart.axis.DateAxis::calculateDateForPosition(org.jfree.data.time.RegularTimePeriod, org.jfree.chart.axis.DateTickMarkPosition):java.util.Date	org.jfree.data.time.RegularTimePeriod	0/3	
+Move Method	org.jfree.chart.axis.Axis::labelLocationX(org.jfree.chart.axis.AxisLabelLocation, java.awt.geom.Rectangle2D):double	org.jfree.chart.axis.AxisLabelLocation	0/1	
+Move Method	org.jfree.chart.axis.Axis::labelLocationY(org.jfree.chart.axis.AxisLabelLocation, java.awt.geom.Rectangle2D):double	org.jfree.chart.axis.AxisLabelLocation	0/1	
+Move Method	org.jfree.chart.axis.Axis::labelAnchorH(org.jfree.chart.axis.AxisLabelLocation):org.jfree.ui.TextAnchor	org.jfree.chart.axis.AxisLabelLocation	0/1	
+Move Method	org.jfree.chart.axis.Axis::labelAnchorV(org.jfree.chart.axis.AxisLabelLocation):org.jfree.ui.TextAnchor	org.jfree.chart.axis.AxisLabelLocation	0/1	
+Move Method	org.jfree.chart.axis.ModuloAxis::mapValueToFixedRange(double):double	org.jfree.data.Range	1/2	
