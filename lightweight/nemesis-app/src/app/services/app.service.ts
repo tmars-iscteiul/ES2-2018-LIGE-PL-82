@@ -10,11 +10,6 @@ export class AppService {
     return format(Date.now(), 'YYYY-MM-DD');
   }
 
-  eighteenYearsAgo() {
-    const now = new Date();
-    return format(now.setFullYear(now.getFullYear() - 18), 'YYYY-MM-DD');
-  }
-
   isValidEmail(email: string) {
     const emailRegExp =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -23,12 +18,8 @@ export class AppService {
   }
 
   isValidName(name: string) {
-    const nameRegExp = /^[^`~!@#$%\^&*()_+={}|[\]\\:';"<>?,./1-9]*$/;
+    const nameRegExp = /^[^`~!@#$%\^&*()_+={}|[\]\\:\s';"<>?,./0-9]*$/;
 
     return nameRegExp.test(name);
   }
-
-   age(dateLeft, dateRight): number {
-     return differenceInYears(dateLeft, dateRight);
-   }
 }

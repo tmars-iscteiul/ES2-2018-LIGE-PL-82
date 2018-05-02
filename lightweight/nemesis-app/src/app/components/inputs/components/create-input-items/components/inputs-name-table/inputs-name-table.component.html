@@ -1,4 +1,4 @@
-<lf-table #lfTable>
+<lf-table #lfTable [isRequired]="true">
   <ng-template #lfTableHeaderTemplate>
     <thead lf-table-header>
     <lf-table-column-index></lf-table-column-index>
@@ -15,8 +15,8 @@
 
       <td lf-table-cell>
         <lf-text name="list"
-                   [options]="optionsListInput"
-        ></lf-text>
+                 [isValid]="isValidName()">
+        </lf-text>
       </td>
       <td lf-table-cell>
         <lf-text name="description"></lf-text>

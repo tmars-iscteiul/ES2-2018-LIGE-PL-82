@@ -15,10 +15,10 @@ export class AppComponent {
       style: 'outline-secondary',
       icon: 'save',
       callback: () => {
-        this.appService.saveValueToFile('nemesis_saved.json', {
-          onSuccess: () => console.log('Value saved successfully'),
-          onError: err => console.error('Error saving file: ', err),
-        });
+          this.appService.saveValueToFile('nemesis_saved.json', {
+            onSuccess: () => console.log('Value saved successfully'),
+            onError: err => console.error('Error saving file: ', err),
+          });
       }
     },
     {
@@ -61,5 +61,6 @@ export class AppComponent {
         alert(ex);
       });
     }
+    else {window.alert('Not all variables are defined.');}
   }
 }

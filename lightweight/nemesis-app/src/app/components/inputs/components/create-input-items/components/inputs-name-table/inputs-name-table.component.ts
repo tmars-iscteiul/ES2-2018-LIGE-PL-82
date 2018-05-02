@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputsNameTableComponent implements OnInit {
 
-  public optionsListInput: object[] = [
-    
-  ];
-
   constructor() { }
 
   ngOnInit() {
   }
 
+  isValidName(name: string) {
+    return (name: string) => {const nameRegExp = /^[^`~!@#$%\^&*()_+={}|[\]\\:\s';"<>?,./0-9]*$/;
+      return nameRegExp.test(name);}
+  }
 }

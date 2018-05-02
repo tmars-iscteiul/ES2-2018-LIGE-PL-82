@@ -14,12 +14,6 @@ export class OptimizationComponent implements OnInit {
     {value: 'manual', text: 'Manual selection'},
   ];
 
-  public optionsCard = {
-    style: 'border-secondary',
-    headerStyle: 'border-secondary',
-    bodyStyle: '',
-  };
-
   constructor() {}
 
   public isDisabled() {

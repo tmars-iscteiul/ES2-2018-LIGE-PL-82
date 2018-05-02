@@ -1,4 +1,4 @@
-<lf-table #lfTable>
+<lf-table #lfTable [isRequired]="true">
   <ng-template #lfTableHeaderTemplate>
     <thead lf-table-header>
     <lf-table-column-index></lf-table-column-index>
@@ -7,7 +7,7 @@
     <lf-table-column label="Nr variables"></lf-table-column>
     <lf-table-column label="Min value"></lf-table-column>
     <lf-table-column label="Max value"></lf-table-column>
-    <lf-table-column label="Description of the list"></lf-table-column>
+    <lf-table-column label="Description"></lf-table-column>
     </thead>
   </ng-template>
 
@@ -18,7 +18,10 @@
       </td>
 
       <td lf-table-cell>
-        <lf-text name="list-name"></lf-text>
+        <lf-text name="list-name"
+                 [isValid]="isValidName()"
+                 [isRequired]="true">
+        </lf-text>
       </td>
       <td lf-table-cell>
         <lf-select name="type"
@@ -26,7 +29,7 @@
         ></lf-select>
       </td>
       <td lf-table-cell>
-        <lf-number name="number-var"></lf-number>
+        <lf-number name="number-var" [isRequired]="true"></lf-number>
       </td>
       <td lf-table-cell>
         <lf-number name="min-value"></lf-number>

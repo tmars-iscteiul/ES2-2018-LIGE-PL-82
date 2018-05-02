@@ -1,6 +1,7 @@
 <lf-table #lfTable
           [name]="name"
-          [label]="label">
+          [label]="label"
+          [isRequired]="true">
   <ng-template #lfTableHeaderTemplate>
     <thead lf-table-header>
     <lf-table-column-index></lf-table-column-index>
@@ -16,7 +17,7 @@
       </td>
 
       <td lf-table-cell>
-        <lf-text name="fitness-name"></lf-text>
+        <lf-text name="fitness-name" [isValid]="isValidName()"></lf-text>
       </td>
       <td lf-table-cell>
         <lf-text name="file-url"></lf-text>

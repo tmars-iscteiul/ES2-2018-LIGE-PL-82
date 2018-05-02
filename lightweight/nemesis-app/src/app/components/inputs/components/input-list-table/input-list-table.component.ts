@@ -19,4 +19,8 @@ export class InputListTableComponent implements OnInit {
   ngOnInit() {
   }
 
+  isValidName(name: string) {
+    return (name: string) => {const nameRegExp = /^[^`~!@#$%\^&*()_+={}|[\]\\:\s';"<>?,./0-9]*$/;
+      return nameRegExp.test(name);}
+  }
 }
