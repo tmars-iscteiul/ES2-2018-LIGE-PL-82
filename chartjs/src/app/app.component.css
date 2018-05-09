@@ -1,0 +1,18 @@
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+h2 {
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 180%;
+}
+
+h3 {
+  background-color: rgba(0, 102, 102,1); font-size:2rem;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
