@@ -23,4 +23,8 @@ export class InputListTableComponent implements OnInit {
     return (name: string) => {const nameRegExp = /^[^`~!@#$%\^&*()_+={}|[\]\\:\s';"<>?,./0-9]*$/;
       return nameRegExp.test(name);}
   }
+
+  tableIsValid() {
+    return table => table.every(row => row.listName !== null && row.nrVariables !== null);
+  }
 }

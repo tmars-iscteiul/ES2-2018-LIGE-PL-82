@@ -17,7 +17,11 @@ export class OptimizationComponent implements OnInit {
   constructor() {}
 
   public isDisabled() {
-    return ([parentForm]) => {(parentForm.optimizersSelection.value == 'automatic') ? 'true' : 'false';};
+    return ([parentForm]) => parentForm.optimizersSelection === 'automatic';
+  }
+
+  public isSelectedTypeA() {
+    return ([parentForm]) => parentForm.optimizersSelection === 'automatic' && parentForm.optimizersSelection === 'semi-automatic';
   }
 
   ngOnInit() {

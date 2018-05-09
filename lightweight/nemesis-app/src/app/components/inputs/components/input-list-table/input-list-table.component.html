@@ -1,4 +1,4 @@
-<lf-table #lfTable [isRequired]="true">
+<lf-table #lfTable [isRequired]="true" [isValid]="tableIsValid()">
   <ng-template #lfTableHeaderTemplate>
     <thead lf-table-header>
     <lf-table-column-index></lf-table-column-index>
@@ -19,8 +19,7 @@
 
       <td lf-table-cell>
         <lf-text name="list-name"
-                 [isValid]="isValidName()"
-                 [isRequired]="true">
+                 [isValid]="isValidName()">
         </lf-text>
       </td>
       <td lf-table-cell>
@@ -29,7 +28,7 @@
         ></lf-select>
       </td>
       <td lf-table-cell>
-        <lf-number name="number-var" [isRequired]="true"></lf-number>
+        <lf-number name="number-var"></lf-number>
       </td>
       <td lf-table-cell>
         <lf-number name="min-value"></lf-number>
