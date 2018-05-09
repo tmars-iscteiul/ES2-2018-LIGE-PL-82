@@ -1,0 +1,7 @@
+Nao - org.jfree.data.DataUtilities	public static org.jfree.data.KeyedValues getCumulativePercentages(org.jfree.data.KeyedValues) 	total	B1	0/5
+Nao - org.jfree.data.DefaultKeyedValues	public void sortByKeys(org.jfree.util.SortOrder) 	data	B1	0/4
+Nao - org.jfree.data.DefaultKeyedValues	public void sortByValues(org.jfree.util.SortOrder) 	data	B1	0/4
+Nao - org.jfree.data.DataUtilities	public static org.jfree.data.KeyedValues getCumulativePercentages(org.jfree.data.KeyedValues) 	runningTotal	B7	0/3
+Sim - org.jfree.data.ComparableObjectSeries	protected void add(org.jfree.data.ComparableObjectItem, boolean) 	index	B4	2/5
+Nao - org.jfree.data.ComparableObjectSeries	public void setMaximumItemCount(int) 	dataRemoved	B1	1/3
+Sim (Refactor to setNegativeRowValue) - org.jfree.data.DefaultKeyedValues2D	public void setValue(java.lang.Number, Comparable#RAW, Comparable#RAW) 	rowIndex	B3	1/2
