@@ -1,0 +1,274 @@
+SIM	org.jfree.chart.axis.DateAxis	protected void autoAdjustRange() 	dr	B4	0/23
+NAO	org.jfree.chart.axis.LogAxis	protected void selectHorizontalAutoTickUnit(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	candidate	B1	0/21
+REFACTORING	SIM	org.jfree.chart.axis.DateAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tick	B13	0/19
+SIM	org.jfree.chart.axis.DateAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tick	B13	0/19
+REFACTORING	SIM	org.jfree.chart.axis.ColorBar	public double draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	colorBarArea	B1	0/18
+
+org.jfree.chart.axis.DateAxis	protected void selectVerticalAutoTickUnit(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	finalUnit	B1	0/16
+org.jfree.chart.axis.DateAxis	protected void selectHorizontalAutoTickUnit(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	unit2	B1	0/16
+org.jfree.chart.axis.DateAxis	protected void selectHorizontalAutoTickUnit(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	unit2	B3	0/13
+org.jfree.chart.axis.DateAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	result	B1	0/15
+org.jfree.chart.axis.DateAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	result	B5	0/4
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tick	B24	0/15
+org.jfree.chart.axis.CategoryAxis3D	public double getCategoryJava2DCoordinate(org.jfree.chart.axis.CategoryAnchor, int, int, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	adjustedArea	B1	0/14
+org.jfree.chart.axis.CategoryAxis3D	public double getCategoryJava2DCoordinate(org.jfree.chart.axis.CategoryAnchor, int, int, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	adjustedArea	B2	0/10
+org.jfree.chart.axis.DateAxis	public void zoomRange(double, double) 	adjusted	B1	0/13
+org.jfree.chart.axis.DateAxis	public void zoomRange(double, double) 	adjusted	B4	0/3
+org.jfree.chart.axis.DateAxis	public void zoomRange(double, double) 	adjusted	B1	0/13
+org.jfree.chart.axis.DateAxis	public void zoomRange(double, double) 	adjusted	B4	0/3
+org.jfree.chart.axis.NumberAxis	protected void selectVerticalAutoTickUnit(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	unit2	B1	0/12
+org.jfree.chart.axis.NumberAxis	protected void selectVerticalAutoTickUnit(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	unit2	B3	0/5
+org.jfree.chart.axis.ValueAxis	protected org.jfree.chart.axis.AxisState drawTickMarksAndLabels(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	mark	B14	0/12
+org.jfree.chart.axis.Axis	protected void drawAxisLine(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	axisLine	B1	0/11
+org.jfree.chart.axis.CyclicNumberAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	space	B1	0/11
+org.jfree.chart.axis.CyclicNumberAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	space	B3	0/10
+org.jfree.chart.axis.NumberAxis	protected void selectHorizontalAutoTickUnit(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	unit2	B1	0/10
+org.jfree.chart.axis.ValueAxis	protected void drawAxisLine(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	axisLine	B1	0/10
+org.jfree.chart.axis.NumberTickUnitSource	public org.jfree.chart.axis.TickUnit getCeilingTickUnit(double) 	done	B3	0/10
+org.jfree.chart.axis.NumberTickUnitSource	public org.jfree.chart.axis.TickUnit getCeilingTickUnit(double) 	done	B5	0/7
+org.jfree.chart.axis.NumberTickUnitSource	public org.jfree.chart.axis.TickUnit getCeilingTickUnit(double) 	done	B6	0/5
+org.jfree.chart.axis.CyclicNumberAxis	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	mark	B2	0/10
+org.jfree.chart.axis.CyclicNumberAxis	protected org.jfree.chart.axis.AxisState drawTickMarksAndLabels(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	mark	B7	0/10
+org.jfree.chart.axis.Axis	protected void createAndAddEntity(double, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	hotspot	B3	0/9
+org.jfree.chart.axis.ValueAxis	protected double findMaximumTickLabelHeight(List#RAW, java.awt.Graphics2D, java.awt.geom.Rectangle2D, boolean) 	labelBounds	B4	0/8
+org.jfree.chart.axis.ValueAxis	protected double findMaximumTickLabelWidth(List#RAW, java.awt.Graphics2D, java.awt.geom.Rectangle2D, boolean) 	labelBounds	B4	0/8
+org.jfree.chart.axis.SubCategoryAxis	private double getMaxDim(java.awt.Graphics2D, org.jfree.ui.RectangleEdge) 	dim	B3	0/7
+org.jfree.chart.axis.PeriodAxis	protected org.jfree.chart.axis.AxisState drawTickLabels(int, java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	used	B30	0/7
+org.jfree.chart.axis.PeriodAxis	protected org.jfree.chart.axis.AxisState drawTickLabels(int, java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	used	B31	0/5
+org.jfree.chart.axis.DateAxis	public void setMaximumDate(java.util.Date) 	minDate	B1	0/7
+org.jfree.chart.axis.DateAxis	public void setMaximumDate(java.util.Date) 	minDate	B2	0/3
+org.jfree.chart.axis.DateAxis	public void setMinimumDate(java.util.Date) 	maxDate	B1	0/7
+org.jfree.chart.axis.DateAxis	public void setMinimumDate(java.util.Date) 	maxDate	B2	0/3
+org.jfree.chart.axis.ColorBar	public double draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	length	B3	0/6
+org.jfree.chart.axis.DateAxis	protected void autoAdjustRange() 	r	B4	0/6
+org.jfree.chart.axis.DateAxis	protected void autoAdjustRange() 	r	B5	0/3
+org.jfree.chart.axis.DateAxis	protected void autoAdjustRange() 	r	B4	0/6
+org.jfree.chart.axis.DateAxis	protected void autoAdjustRange() 	r	B5	0/3
+org.jfree.chart.axis.CategoryAxis	protected double calculateCategoryGapSize(int, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	available	B1	0/5
+org.jfree.chart.axis.CategoryAxis	protected double calculateCategorySize(int, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	available	B1	0/5
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabel	B8	0/5
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshVerticalTicks(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabel	B8	0/5
+org.jfree.chart.axis.CyclicNumberAxis	protected org.jfree.chart.axis.AxisState drawTickMarksAndLabels(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	ol	B3	0/5
+org.jfree.chart.axis.MarkerAxisBand	private void drawStringInRect(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.Font, java.lang.String) 	x	B1	0/5
+org.jfree.chart.axis.PeriodAxis	protected void drawTickMarksHorizontal(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	state	B20	0/5
+org.jfree.chart.axis.PeriodAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	tickMarkSpace	B14	0/5
+org.jfree.chart.axis.SubCategoryAxis	protected org.jfree.chart.axis.AxisState drawSubCategoryLabels(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState, org.jfree.chart.plot.PlotRenderingInfo) 	categoryCount	B1	0/5
+org.jfree.chart.axis.PeriodAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	tickLabelBandsDimension	B7	0/5
+org.jfree.chart.axis.PeriodAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	tickLabelBandsDimension	B8	0/4
+org.jfree.chart.axis.PeriodAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	tickLabelBandsDimension	B9	0/3
+org.jfree.chart.axis.DateAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabel	B13	0/5
+org.jfree.chart.axis.DateAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabel	B13	0/5
+org.jfree.chart.axis.LogAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	textAnchor	B1	0/4
+org.jfree.chart.axis.LogAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	textAnchor	B1	0/4
+org.jfree.chart.axis.LogarithmicAxis	public double adjustedPow10(double) 	res	B3	0/4
+org.jfree.chart.axis.ModuloAxis	public double lengthToJava2D(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	areaLength	B4	0/4
+org.jfree.chart.axis.ModuloAxis	public double lengthToJava2D(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	axisLength	B1	0/4
+org.jfree.chart.axis.SymbolAxis	protected void drawGridBandsHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, boolean, List#RAW) 	band	B5	0/4
+org.jfree.chart.axis.SymbolAxis	protected void drawGridBandsHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, boolean, List#RAW) 	outlineStrokeWidth	B1	0/4
+org.jfree.chart.axis.SymbolAxis	protected void drawGridBandsVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, boolean, List#RAW) 	band	B5	0/4
+org.jfree.chart.axis.SymbolAxis	protected void drawGridBandsVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, boolean, List#RAW) 	outlineStrokeWidth	B1	0/4
+org.jfree.chart.axis.TickUnits	public org.jfree.chart.axis.TickUnit getLargerTickUnit(org.jfree.chart.axis.TickUnit) 	index	B1	0/4
+org.jfree.chart.axis.LogAxis	protected void autoAdjustRange() 	r	B4	0/4
+org.jfree.chart.axis.NumberAxis	protected void autoAdjustRange() 	r	B4	0/4
+org.jfree.chart.axis.PeriodAxis	protected void autoAdjustRange() 	r	B4	0/4
+org.jfree.chart.axis.ColorBar	public double draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	thickness	B1	0/3
+org.jfree.chart.axis.CompassFormat	public java.lang.String getDirectionCode(double) 	direction	B1	0/3
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	cyclenow	B6	0/3
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshVerticalTicks(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	cyclenow	B6	0/3
+org.jfree.chart.axis.DateAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	minorTickSpaces	B7	0/3
+org.jfree.chart.axis.DateAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	minorTickSpaces	B7	0/3
+org.jfree.chart.axis.DateAxis	protected void selectHorizontalAutoTickUnit(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	shift	B1	0/3
+org.jfree.chart.axis.LogAxis	protected java.text.AttributedString createTickLabel(double) 	baseStr	B3	0/3
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	jEndCount	B7	0/3
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	lowerBoundVal	B1	0/3
+org.jfree.chart.axis.SegmentedTimeline	public long toTimelineValue(long) 	millisecond	B4	0/3
+org.jfree.chart.axis.SegmentedTimeline	public long toTimelineValue(long) 	millisecond	B5	0/2
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	minorTickSpaces	B4	0/3
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	minorTickSpaces	B4	0/3
+org.jfree.chart.axis.Axis	protected java.awt.geom.Rectangle2D getLabelEnclosure(java.awt.Graphics2D, org.jfree.ui.RectangleEdge) 	angle	B6	0/3
+org.jfree.chart.axis.LogarithmicAxis	public void autoAdjustRange() 	expVal	B21	0/3
+org.jfree.chart.axis.PeriodAxis	protected org.jfree.chart.axis.AxisState drawTickLabels(int, java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	p	B27	0/2
+org.jfree.chart.axis.PeriodAxis	public void setFirst(org.jfree.data.time.RegularTimePeriod) 	first	B1	0/2
+org.jfree.chart.axis.PeriodAxis	public void setFirst(org.jfree.data.time.RegularTimePeriod) 	first	B1	0/2
+org.jfree.chart.axis.PeriodAxis	public void setLast(org.jfree.data.time.RegularTimePeriod) 	last	B1	0/2
+org.jfree.chart.axis.PeriodAxis	public void setLast(org.jfree.data.time.RegularTimePeriod) 	last	B1	0/2
+org.jfree.chart.axis.PeriodAxis	public void setTimeZone(java.util.TimeZone) 	first	B1	0/2
+org.jfree.chart.axis.PeriodAxis	public void setTimeZone(java.util.TimeZone) 	last	B1	0/2
+org.jfree.chart.axis.ValueAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	tickLabelWidth	B10	0/2
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tick	B10	1/23
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tick	B13	0/17
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tick	B10	1/20
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tick	B13	0/14
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tick	B9	1/17
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tick	B12	0/15
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tick	B9	1/17
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tick	B12	0/15
+org.jfree.chart.axis.LogarithmicAxis	public void autoAdjustRange() 	logAbs	B17	1/4
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	l	B4	1/7
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	l	B6	0/6
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B24	1/5
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B25	0/3
+org.jfree.chart.axis.LogarithmicAxis	public void autoAdjustRange() 	logAbs	B9	1/4
+org.jfree.chart.axis.DateAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B16	1/5
+org.jfree.chart.axis.DateAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B17	0/3
+org.jfree.chart.axis.DateAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B16	1/5
+org.jfree.chart.axis.DateAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B17	0/3
+org.jfree.chart.axis.ValueAxis	protected void drawAxisLine(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	arrow	B24	2/5
+org.jfree.chart.axis.ValueAxis	protected void drawAxisLine(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	x	B24	2/5
+org.jfree.chart.axis.ValueAxis	protected void drawAxisLine(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	y	B24	2/5
+org.jfree.chart.axis.ValueAxis	protected void drawAxisLine(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	arrow	B18	2/5
+org.jfree.chart.axis.ValueAxis	protected void drawAxisLine(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	x	B18	2/5
+org.jfree.chart.axis.ValueAxis	protected void drawAxisLine(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	y	B18	2/5
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	r	B4	1/4
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	anchor	B24	2/6
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	rotationAnchor	B24	2/6
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	anchor	B40	3/8
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	rotationAnchor	B40	3/8
+org.jfree.chart.axis.CategoryAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	tickLabelWidth	B8	1/5
+org.jfree.chart.axis.CategoryAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	tickLabelWidth	B10	0/4
+org.jfree.chart.axis.CategoryAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	adjustedX	B4	2/5
+org.jfree.chart.axis.CategoryAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	adjustedX	B6	0/2
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B13	1/5
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B14	0/3
+org.jfree.chart.axis.CategoryAxis3D	public double getCategoryJava2DCoordinate(org.jfree.chart.axis.CategoryAnchor, int, int, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	adjustedX	B2	2/5
+org.jfree.chart.axis.CategoryAxis3D	public double getCategoryJava2DCoordinate(org.jfree.chart.axis.CategoryAnchor, int, int, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	adjustedX	B4	0/2
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B40	2/5
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B41	1/3
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B11	1/5
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B12	0/3
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B12	1/5
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B13	0/3
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B12	1/5
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B13	0/3
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	j	B8	1/3
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	j	B14	0/2
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	j	B10	1/3
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	j	B22	0/2
+org.jfree.chart.axis.CategoryAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	adjustedY	B4	2/4
+org.jfree.chart.axis.DateAxis	protected java.util.Date previousStandardDate(java.util.Date, org.jfree.chart.axis.DateTickUnit) 	milliseconds	B5	1/6
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabel	B10	1/6
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabel	B10	1/6
+org.jfree.chart.axis.PeriodAxis	protected org.jfree.chart.axis.AxisState drawTickLabels(int, java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	delta1	B1	1/6
+org.jfree.chart.axis.Axis	protected org.jfree.chart.axis.AxisState drawAttributedLabel(java.text.AttributedString, java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState) 	labelBounds	B3	4/18
+org.jfree.chart.axis.Axis	protected org.jfree.chart.axis.AxisState drawLabel(java.lang.String, java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState) 	labelBounds	B3	4/18
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	lowerBoundVal	B1	1/4
+org.jfree.chart.axis.CategoryAxis3D	public double getCategoryJava2DCoordinate(org.jfree.chart.axis.CategoryAnchor, int, int, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	adjustedY	B2	2/4
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabelsOverlapping	B3	9/14
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabelsOverlapping	B6	2/7
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabelsOverlapping	B7	0/3
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabelsOverlapping	B3	9/14
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabelsOverlapping	B6	2/7
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabelsOverlapping	B7	0/3
+org.jfree.chart.axis.DateAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	hasRolled	B12	1/3
+org.jfree.chart.axis.DateAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	hasRolled	B12	1/3
+org.jfree.chart.axis.PeriodAxis	protected org.jfree.chart.axis.AxisState drawTickLabels(int, java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	anchor	B8	1/3
+org.jfree.chart.axis.SubCategoryAxis	protected org.jfree.chart.axis.AxisState drawSubCategoryLabels(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState, org.jfree.chart.plot.PlotRenderingInfo) 	xx	B15	1/3
+org.jfree.chart.axis.SubCategoryAxis	protected org.jfree.chart.axis.AxisState drawSubCategoryLabels(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState, org.jfree.chart.plot.PlotRenderingInfo) 	yy	B15	1/3
+org.jfree.chart.axis.ValueAxis	public void resizeRange2(double, double) 	adjusted	B2	2/3
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	categoryIndex	B11	2/4
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	categoryIndex	B12	1/2
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	anchor	B12	2/6
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	rotationAnchor	B12	2/6
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	anchor	B12	2/6
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	rotationAnchor	B12	2/6
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	anchor	B13	3/8
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	rotationAnchor	B13	3/8
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B13	2/5
+org.jfree.chart.axis.NumberAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B14	1/3
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshVerticalTicks(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B11	2/5
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshVerticalTicks(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	angle	B12	1/3
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabel	B10	12/31
+org.jfree.chart.axis.CyclicNumberAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	jmax	B1	2/5
+org.jfree.chart.axis.CyclicNumberAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	jmin	B1	2/5
+org.jfree.chart.axis.CyclicNumberAxis	public double valueToJava2D(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	jmax	B3	2/5
+org.jfree.chart.axis.CyclicNumberAxis	public double valueToJava2D(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	jmin	B3	2/5
+org.jfree.chart.axis.DateAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B1	2/5
+org.jfree.chart.axis.DateAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	min	B1	2/5
+org.jfree.chart.axis.LogAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B1	2/5
+org.jfree.chart.axis.LogAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	min	B1	2/5
+org.jfree.chart.axis.LogAxis	public double valueToJava2D(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B1	2/5
+org.jfree.chart.axis.LogAxis	public double valueToJava2D(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	min	B1	2/5
+org.jfree.chart.axis.LogarithmicAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	plotMax	B1	2/5
+org.jfree.chart.axis.LogarithmicAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	plotMin	B1	2/5
+org.jfree.chart.axis.LogarithmicAxis	public double valueToJava2D(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B1	2/5
+org.jfree.chart.axis.LogarithmicAxis	public double valueToJava2D(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	min	B1	2/5
+org.jfree.chart.axis.ModuloAxis	private double trans(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B1	2/5
+org.jfree.chart.axis.ModuloAxis	private double trans(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	min	B1	2/5
+org.jfree.chart.axis.ModuloAxis	private double transEnd(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, double, double) 	max	B1	2/5
+org.jfree.chart.axis.ModuloAxis	private double transEnd(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, double, double) 	min	B1	2/5
+org.jfree.chart.axis.ModuloAxis	private double transStart(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, double, double) 	max	B1	2/5
+org.jfree.chart.axis.ModuloAxis	private double transStart(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, double, double) 	min	B1	2/5
+org.jfree.chart.axis.NumberAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B1	2/5
+org.jfree.chart.axis.NumberAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	min	B1	2/5
+org.jfree.chart.axis.NumberAxis	public double valueToJava2D(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B1	2/5
+org.jfree.chart.axis.NumberAxis	public double valueToJava2D(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	min	B1	2/5
+org.jfree.chart.axis.PeriodAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B1	2/5
+org.jfree.chart.axis.PeriodAxis	public double java2DToValue(double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	min	B1	2/5
+org.jfree.chart.axis.PeriodAxis	protected org.jfree.chart.axis.AxisState drawTickLabels(int, java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	ww	B5	6/14
+org.jfree.chart.axis.LogAxis	public void resizeRange2(double, double) 	adjusted	B2	7/8
+org.jfree.chart.axis.NumberAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	adjustedX	B3	9/12
+org.jfree.chart.axis.NumberAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	adjustedX	B6	1/4
+org.jfree.chart.axis.NumberAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	adjustedX	B8	0/2
+org.jfree.chart.axis.CategoryAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	labelWidth	B16	1/2
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	upperValue	B27	1/2
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshVerticalTicks(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	upperValue	B30	1/2
+org.jfree.chart.axis.LogAxis	protected void selectHorizontalAutoTickUnit(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	prevCandidate	B5	1/2
+org.jfree.chart.axis.PeriodAxis	protected org.jfree.chart.axis.AxisState drawTickLabels(int, java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	b	B21	1/2
+org.jfree.chart.axis.PeriodAxis	protected void drawTickMarks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	state	B1	1/2
+org.jfree.chart.axis.PeriodAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	labelHeight	B10	1/2
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	previousDrawnTickLabelLength	B9	1/2
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	previousDrawnTickLabelPos	B9	1/2
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	previousDrawnTickLabelLength	B9	1/2
+org.jfree.chart.axis.SymbolAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	previousDrawnTickLabelPos	B9	1/2
+org.jfree.chart.axis.SymbolAxis	protected void drawGridBandsHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, boolean, List#RAW) 	xx1	B5	1/2
+org.jfree.chart.axis.SymbolAxis	protected void drawGridBandsHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, boolean, List#RAW) 	xx2	B5	1/2
+org.jfree.chart.axis.SymbolAxis	protected void drawGridBandsVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, boolean, List#RAW) 	yy1	B5	1/2
+org.jfree.chart.axis.SymbolAxis	protected void drawGridBandsVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, boolean, List#RAW) 	yy2	B5	1/2
+org.jfree.chart.axis.ColorBar	public double draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	cursor	B16	4/8
+org.jfree.chart.axis.ValueAxis	protected org.jfree.chart.axis.AxisState drawTickMarksAndLabels(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	used	B23	5/10
+org.jfree.chart.axis.ValueAxis	protected org.jfree.chart.axis.AxisState drawTickMarksAndLabels(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	used	B24	4/8
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	iBegCount	B1	5/8
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksVertical(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	iBegCount	B3	2/5
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	iBegCount	B1	6/9
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	iBegCount	B3	2/5
+org.jfree.chart.axis.CategoryAxis	protected org.jfree.chart.axis.AxisState drawCategoryLabels(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState, org.jfree.chart.plot.PlotRenderingInfo) 	x0	B5	6/11
+org.jfree.chart.axis.CategoryAxis	protected org.jfree.chart.axis.AxisState drawCategoryLabels(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState, org.jfree.chart.plot.PlotRenderingInfo) 	x1	B5	6/11
+org.jfree.chart.axis.CategoryAxis	protected org.jfree.chart.axis.AxisState drawCategoryLabels(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState, org.jfree.chart.plot.PlotRenderingInfo) 	y0	B5	6/11
+org.jfree.chart.axis.CategoryAxis	protected org.jfree.chart.axis.AxisState drawCategoryLabels(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState, org.jfree.chart.plot.PlotRenderingInfo) 	y1	B5	6/11
+org.jfree.chart.axis.SubCategoryAxis	protected org.jfree.chart.axis.AxisState drawSubCategoryLabels(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState, org.jfree.chart.plot.PlotRenderingInfo) 	x0	B5	6/11
+org.jfree.chart.axis.SubCategoryAxis	protected org.jfree.chart.axis.AxisState drawSubCategoryLabels(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState, org.jfree.chart.plot.PlotRenderingInfo) 	x1	B5	6/11
+org.jfree.chart.axis.SubCategoryAxis	protected org.jfree.chart.axis.AxisState drawSubCategoryLabels(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState, org.jfree.chart.plot.PlotRenderingInfo) 	y0	B5	6/11
+org.jfree.chart.axis.SubCategoryAxis	protected org.jfree.chart.axis.AxisState drawSubCategoryLabels(java.awt.Graphics2D, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState, org.jfree.chart.plot.PlotRenderingInfo) 	y1	B5	6/11
+org.jfree.chart.axis.CategoryAxis	public void drawTickMarks(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisState) 	state	B3	5/9
+org.jfree.chart.axis.ValueAxis	protected void drawAxisLine(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	drawDownOrLeft	B9	4/7
+org.jfree.chart.axis.ValueAxis	protected void drawAxisLine(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	drawUpOrRight	B9	4/7
+org.jfree.chart.axis.PeriodAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	labelWidth	B10	2/3
+org.jfree.chart.axis.PeriodAxis	public org.jfree.chart.axis.AxisSpace reserveSpace(java.awt.Graphics2D, org.jfree.chart.plot.Plot, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.axis.AxisSpace) 	labelWidth	B12	1/2
+org.jfree.chart.axis.PeriodAxis	protected org.jfree.chart.axis.AxisState drawTickLabels(int, java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	yDelta	B5	6/8
+org.jfree.chart.axis.PeriodAxis	protected org.jfree.chart.axis.AxisState drawTickLabels(int, java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	yDelta	B8	1/3
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B3	17/22
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B4	14/18
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B6	10/14
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B11	4/8
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B12	3/7
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	max	B13	2/6
+org.jfree.chart.axis.LogAxis	protected void selectVerticalAutoTickUnit(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	prevCandidate	B3	4/5
+org.jfree.chart.axis.LogAxis	protected void selectVerticalAutoTickUnit(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	prevCandidate	B5	1/2
+org.jfree.chart.axis.NumberAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	adjustedY	B3	9/11
+org.jfree.chart.axis.NumberAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	adjustedY	B6	1/3
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tick	B13	2/3
+org.jfree.chart.axis.NumberAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	xOffset	B3	6/8
+org.jfree.chart.axis.NumberAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	xOffset	B4	4/5
+org.jfree.chart.axis.NumberAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	xOffset	B5	1/2
+org.jfree.chart.axis.NumberAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	yOffset	B3	6/8
+org.jfree.chart.axis.NumberAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	yOffset	B4	4/5
+org.jfree.chart.axis.NumberAxis3D	public org.jfree.chart.axis.AxisState draw(java.awt.Graphics2D, double, java.awt.geom.Rectangle2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge, org.jfree.chart.plot.PlotRenderingInfo) 	yOffset	B5	1/2
+org.jfree.chart.axis.SegmentedTimeline	private int binarySearchExceptionSegments(org.jfree.chart.axis.SegmentedTimeline.Segment) 	high	B5	3/4
+org.jfree.chart.axis.SegmentedTimeline	private int binarySearchExceptionSegments(org.jfree.chart.axis.SegmentedTimeline.Segment) 	high	B7	2/3
+org.jfree.chart.axis.LogarithmicAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	tickLabel	B8	10/14
+org.jfree.chart.axis.CategoryAxis	public List#RAW refreshTicks(java.awt.Graphics2D, org.jfree.chart.axis.AxisState, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	state	B3	17/23
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	rotationAnchor	B8	14/18
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshTicksHorizontal(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	rotationAnchor	B11	13/17
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshVerticalTicks(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	rotationAnchor	B8	18/23
+org.jfree.chart.axis.CyclicNumberAxis	protected List#RAW refreshVerticalTicks(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.ui.RectangleEdge) 	rotationAnchor	B11	17/22
+org.jfree.chart.axis.DateAxis	protected java.util.Date previousStandardDate(java.util.Date, org.jfree.chart.axis.DateTickUnit) 	month	B37	6/7
