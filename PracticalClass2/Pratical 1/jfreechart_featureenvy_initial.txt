@@ -1,4 +1,0 @@
-Refactoring Type	Source Entity	Target Class	Source/Target accessed members	Rate it!
-Move Method	org.jfree.chart.ChartTransferable::createBufferedImage(org.jfree.chart.JFreeChart, int, int, int, int, int, int):java.awt.image.BufferedImage	org.jfree.chart.JFreeChart	0/1	
-Move Method	org.jfree.chart.PolarChartPanel::checkChart(org.jfree.chart.JFreeChart):void	org.jfree.chart.JFreeChart	0/1	
-Move Method	org.jfree.chart.MouseWheelHandler::handleZoomable(org.jfree.chart.plot.Zoomable, java.awt.event.MouseWheelEvent):void	org.jfree.chart.ChartPanel	2/4	

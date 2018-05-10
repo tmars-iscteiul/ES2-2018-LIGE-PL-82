@@ -1,3 +1,0 @@
-org.jfree.chart.axis.SubCategoryAxis.java -> drawSubCategoryLabels(...) vars x0,x1,y0,y1
-org.jfree.chart.annotations.XYLineAnnotation.java -> draw(...) vars j2DX1, j2DX2, j2DY1, j2DY2
-org.jfree.chart.axis.ValueAxis.java -> drawAxisLine(...) vars arrow,x,y,arrow,x,y
