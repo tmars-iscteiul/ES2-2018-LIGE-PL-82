@@ -1,6 +1,11 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import data.Configuration;
 import data.Restriction;
@@ -18,28 +23,34 @@ import utils.TimeVariable;
  * @author skner
  *
  */
+@Service
 public class Engine extends Thread	{
 
 	//private Administrator admin; TODO Why do we need this?
+	private BlockingQueue<Problem> problemQueue;
 	private Problem problem;
 	
-	public Engine(Problem problem) {
-		this.problem = problem;
+	public Engine()	{
+		problemQueue = new ArrayBlockingQueue<Problem>(1024);
+		System.out.println("[ENGINE] Engine has been created.");
+		start();
 	}
 	
 	/**
 	 * Receives input from WEB GUI through JSON to run JMETAL'S ALGORITHMS. Sends results through email.
-	 *   Imports JSON and reads it (needs JSON's final structure), returning a PorlbmeInputs class, with Configurations List.
-	 *   This list will hold the information to be passed to the JMETAL algorithms
+	 *   Receives JSON from SPRING APP (needs JSON's final structure)
+	 *   This object will hold the information to be passed to the JMETAL algorithms
 	 *   Splits every algorithm run with jMetalHandler, using data.ProblemInputs's configuration list
 	 *   Executes every algorithm (jMetalHandler, after given the right inputs)
 	 *   During execution, jMetalHandler calls EmailSender to send emails on progress (Progress, ETA and other stats...)
 	 *   After generating, saves results (how? TBD) and sends to email.
-	 *   Closes.
+	 *   
 	 */
 	@Override
 	public void run()	{
-		readJson();
+		//addExampleProblem(); 
+		// Engine doesn't handle JSON Reads, SPRING gives the problem object to the engine instead.
+		System.out.println("[ENGINE] Engine is running and awaiting inputs.");
 		
 	}
 	
@@ -47,7 +58,8 @@ public class Engine extends Thread	{
 	 * Reads the JSON File through Spring's framework. 
 	 * While the framework is being implemented, this method creates place-holders for the data structures
 	 */
-	private void readJson()	{
+	 private void addExampleProblem()	{
+		problem = new Problem();
 		TimeVariable averageDuration = new TimeVariable(60, "min");
 		TimeVariable maxDuration = new TimeVariable(120, "min");
 		ProblemIntroduction pintro = new ProblemIntroduction("Example Problem", "No description", averageDuration, maxDuration, "test@nemesis.com");
@@ -71,5 +83,16 @@ public class Engine extends Thread	{
 	
 	public void executeAlgorithm() {
 	}
+	
+	public void addProblemToQueue(Problem problem)	{
+		problemQueue.add(problem);
+	}
 
+	public String getStatus()	{
+		if(problemQueue.size() < 1)	{
+			return "ENGINE STATUS: Awaiting inputs";
+		}	else	{
+			return "ENGINE STATUS: Computing...";
+		}
+	}
 }
