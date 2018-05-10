@@ -24,12 +24,17 @@ public class SpringController {
 	
 	@RequestMapping("/engine_status")
 	public String getListen()	{
+		// Just a test class
 		return engine.getStatus();
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/problem")
+	@RequestMapping(method = RequestMethod.POST, value = "/send_problem")
 	public void addProblem(@RequestBody Problem problem)	{
-		
+		/*
+		 * Direct problem read doesn't work.
+		 * 
+		 */
+		engine.addProblemToQueue(problem);
 	}
 
 }
