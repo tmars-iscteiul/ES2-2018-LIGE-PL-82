@@ -1,3 +1,0 @@
-Refactoring Type	Source Entity	Target Class	Source/Target accessed members	Rate it!
-Move Method	org.jfree.chart.plot.ContourPlot::drawRangeMarker(java.awt.Graphics2D, org.jfree.chart.plot.ContourPlot, org.jfree.chart.axis.ValueAxis, org.jfree.chart.plot.Marker, java.awt.geom.Rectangle2D):void	org.jfree.chart.axis.ValueAxis	0/2	
-Move Method	org.jfree.chart.plot.XYPlot::drawDomainCrosshair(java.awt.Graphics2D, java.awt.geom.Rectangle2D, org.jfree.chart.plot.PlotOrientation, double, org.jfree.chart.axis.ValueAxis, java.awt.Stroke, java.awt.Paint):void	org.jfree.chart.axis.ValueAxis	0/2	
