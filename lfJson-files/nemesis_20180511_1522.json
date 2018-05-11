@@ -1,9 +1,9 @@
 {
   "introdution": {},
   "main-information": {
-    "name": "antiSpamProblem",
-    "fullDescription": "This is a description.",
-    "averageDuration": 10,
+    "name": "problemOne",
+    "fullDescription": "This is a description",
+    "averageDuration": 30,
     "averageScale": "min",
     "maxDuration": 2,
     "maxScale": "hour",
@@ -12,43 +12,26 @@
   "inputs": {
     "input-list-table": [
       {
-        "list-name": "hamRules",
+        "list-name": "rulesList",
         "type": "double",
         "number-var": 4,
         "min-value": -5,
         "max-value": 5,
-        "description": "list of ham rules"
-      }
-      {
-        "list-name": "spamRules",
-        "type": "int",
-        "number-var": 4,
-        "min-value": -5,
-        "max-value": 5,
-        "description": "list of spam rules"
+        "description": "list of rules"
       }
     ],
     "createInputItems": {
       "inputs-name-table": [
         {
-          "list": "hamRules",
-          "description": "R1,R2,R3,R4"
-        }
-        {
-          "list": "spamRules",
-          "description": "R10,R11,R12,R13"
+          "list": "rulesList",
+          "description": "r1,r2,r3,r4"
         }
       ]
     },
     "restrictions": {
       "restrictions-list": [
         {
-          "variable-name": "hamRules",
-          "symbol": "different",
-          "value": 0
-        }
-        {
-          "variable-name": "spamRules",
+          "variable-name": "rulesList",
           "symbol": "different",
           "value": 0
         }
@@ -65,18 +48,18 @@
   },
   "optimization": {
     "optimizersSelection": "semi-automatic",
-    "coralReefOptimization": false,
-    "diferencialEvolution": true,
-    "cmaes": false,
+    "coralReefOptimization": true,
+    "diferencialEvolution": false,
+    "cmaes": true,
     "ees": true,
     "nees": true,
-    "gga": false,
-    "ssga": false,
+    "gga": true,
+    "ssga": true,
     "pwo2007": false,
     "pwo2011": true,
     "abyss": true,
     "cellde": true,
-    "dmopso": false,
+    "dmopso": true,
     "dmopsom": false,
     "gde3": true,
     "gwasfga": true,
@@ -88,20 +71,20 @@
     "moeaddd": false,
     "moeaddra": true,
     "moeadstm": true,
-    "mombi": true,
-    "mombi2": false,
-    "nsgaii": false,
-    "nsgaiim": true,
+    "mombi": false,
+    "mombi2": true,
+    "nsgaii": true,
+    "nsgaiim": false,
     "ssnsgaii": true,
     "nsgaiii": true,
     "omopso": true,
     "paes": false,
     "pesa2": true,
-    "ramdomsearch": false,
+    "ramdomsearch": true,
     "smpso": true,
     "smpsom": true,
-    "smsemoa": false,
-    "spea2": true,
+    "smsemoa": true,
+    "spea2": false,
     "wasfga": true
   },
   "feedback": {
