@@ -46,7 +46,7 @@ export class AppComponent {
 
   submit() {
     if (this.lfApp.isValid) {
-      fetch('../../outputs/outputs-file.php', {
+      fetch('https://localhost:8080/send_problem', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
