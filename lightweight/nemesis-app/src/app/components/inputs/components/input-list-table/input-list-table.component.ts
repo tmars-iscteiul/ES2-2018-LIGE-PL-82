@@ -24,7 +24,15 @@ export class InputListTableComponent implements OnInit {
       return nameRegExp.test(name);}
   }
 
-  tableIsValid() {
-    return table => table.every(row => row.listName !== null && row.nrVariables !== null);
+  hasBoolean() {
+    return table => table.every(row => row.type === 'boolean');
+  }
+
+  hasDouble() {
+    return table => table.every(row => row.type === 'double');
+  }
+
+  hasInteger() {
+    return table => table.every(row => row.type === 'int');
   }
 }
