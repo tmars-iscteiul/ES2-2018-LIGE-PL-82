@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import data.problem.Problem;
+import data.submission.Submission;
 import main.Engine;
 
 /**
@@ -29,12 +30,10 @@ public class SpringController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/send_problem")
-	public void addProblem(@RequestBody Problem problem)	{
-		/*
-		 * Direct problem read doesn't work.
-		 * 
-		 */
-		engine.addProblemToQueue(problem);
+	public void addProblem(@RequestBody Submission submission)	{
+		
+		System.out.println("WORKED WOW");
+		//engine.addProblemToQueue(problem);
 	}
 
 }
