@@ -1,5 +1,8 @@
 package data.problem.temp;
 
-public class FitnessApp {
+import java.util.List;
 
+public class FitnessApp {
+	private List<FitnessList> fitnessList;
+	
 }

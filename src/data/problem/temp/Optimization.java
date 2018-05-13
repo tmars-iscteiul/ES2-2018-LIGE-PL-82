@@ -1,5 +1,43 @@
 package data.problem.temp;
 
 public class Optimization {
-
+	private String optimizerSelection;
+	private boolean coralReefOptimization;
+	private boolean diferencialEvolution;
+	private boolean cmaes;
+	private boolean ees;
+	private boolean nees;
+	private boolean gga;
+	private boolean ssga;
+	private boolean pwo2007;
+	private boolean pwo2011;
+	private boolean abyss;
+	private boolean cellde;
+	private boolean dmopso;
+	private boolean dmopsom;
+	private boolean gde3;
+	private boolean gwasfga;
+	private boolean ibea;
+	private boolean mocell;
+	private boolean mochc;
+	private boolean moead;
+	private boolean cmoead;
+	private boolean moeaddd;
+	private boolean moeaddra;
+	private boolean moeadstm;
+	private boolean mombi;
+	private boolean mombi2;
+	private boolean nsgaii;
+	private boolean nsgaiim;
+	private boolean ssnsgaii;
+	private boolean nsgaiii;
+	private boolean omopso;
+	private boolean paes;
+	private boolean pesa2;
+	private boolean ramdomsearch;
+	private boolean smpso;
+	private boolean smpsom;
+	private boolean smsemoa;
+	private boolean spea2;
+	private boolean wasfga;
 }
