@@ -13,6 +13,11 @@ public class Feedback {
 		this.subject = subject;
 		this.emailText = emailText;
 	}
+	
+	public Feedback() {
+		super();
+	}
+
 
 	public String getName() {
 		return name;

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import data.problem.Problem;
-import data.submission.Submission;
+import data.problem.temp.Problem;
+
 import main.Engine;
 
 /**
@@ -30,7 +30,7 @@ public class SpringController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/send_problem")
-	public void addProblem(@RequestBody Submission submission)	{
+	public void addProblem(@RequestBody Problem problem)	{
 		
 		System.out.println("WORKED WOW");
 		//engine.addProblemToQueue(problem);

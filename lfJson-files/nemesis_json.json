@@ -1,0 +1,97 @@
+{
+  "introdution": {},
+  "mainInformation": {
+    "name": "spamProblem",
+    "fullDescription": "This is a description of the problem",
+    "averageDuration": 10,
+    "averageScale": "min",
+    "maxDuration": 2,
+    "maxScale": "hour",
+    "userEmail": "tm.alves.rodrigues@gmail.com"
+  },
+  "inputs": {
+    "inputListTable": [
+      {
+        "listName": "rulesList",
+        "type": "double",
+        "numberVar": 4,
+        "minValue": -5,
+        "maxValue": 5,
+        "description": "List of rules"
+      }
+    ],
+    "createInputItems": {
+      "inputsNameTable": [
+        {
+          "list": "rulesList",
+          "description": "R1,R2,R3,R4"
+        }
+      ]
+    },
+    "restrictions": {
+      "restrictionsList": [
+        {
+          "variableName": "rulesList",
+          "symbol": "different",
+          "value": 0
+        }
+      ]
+    }
+  },
+  "fitnessApp": {
+    "fitnessList": [
+      {
+        "fitnessName": "fnfpFitness",
+        "fileURL": "https://github.com/spring-guides/gs-rest-service"
+      }
+    ]
+  },
+  "optimization": {
+    "optimizerSelection": "semi-automatic",
+    "coralReefOptimization": true,
+    "diferencialEvolution": false,
+    "cmaes": true,
+    "ees": true,
+    "nees": false,
+    "gga": true,
+    "ssga": false,
+    "pwo2007": true,
+    "pwo2011": true,
+    "abyss": true,
+    "cellde": false,
+    "dmopso": true,
+    "dmopsom": true,
+    "gde3": false,
+    "gwasfga": true,
+    "ibea": false,
+    "mocell": true,
+    "mochc": true,
+    "moead": true,
+    "cmoead": true,
+    "moeaddd": true,
+    "moeaddra": true,
+    "moeadstm": false,
+    "mombi": true,
+    "mombi2": true,
+    "nsgaii": true,
+    "nsgaiim": false,
+    "ssnsgaii": false,
+    "nsgaiii": true,
+    "omopso": false,
+    "paes": true,
+    "pesa2": true,
+    "ramdomsearch": true,
+    "smpso": false,
+    "smpsom": true,
+    "smsemoa": false,
+    "spea2": true,
+    "wasfga": false
+  },
+  "feedback": {
+    "name": null,
+    "email": null,
+    "subject": null,
+    "emailText": null
+  },
+  "faqs": {}
+}
