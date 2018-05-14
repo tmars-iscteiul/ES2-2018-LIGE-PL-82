@@ -1,52 +1,54 @@
 package data.problem.temp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Optimization {
-	private String optimizerSelection;
-	private boolean coralReefOptimization;
-	private boolean diferencialEvolution;
-	private boolean cmaes;
-	private boolean ees;
-	private boolean nees;
-	private boolean gga;
-	private boolean ssga;
-	private boolean pwo2007;
-	private boolean pwo2011;
-	private boolean abyss;
-	private boolean cellde;
-	private boolean dmopso;
-	private boolean dmopsom;
-	private boolean gde3;
-	private boolean gwasfga;
-	private boolean ibea;
-	private boolean mocell;
-	private boolean mochc;
-	private boolean moead;
-	private boolean cmoead;
-	private boolean moeaddd;
-	private boolean moeaddra;
-	private boolean moeadstm;
-	private boolean mombi;
-	private boolean mombi2;
-	private boolean nsgaii;
-	private boolean nsgaiim;
-	private boolean ssnsgaii;
-	private boolean nsgaiii;
-	private boolean omopso;
-	private boolean paes;
-	private boolean pesa2;
-	private boolean ramdomsearch;
-	private boolean smpso;
-	private boolean smpsom;
-	private boolean smsemoa;
-	private boolean spea2;
-	private boolean wasfga;
+	@JsonProperty("optimizerSelection") private String optimizerSelection;
+	@JsonProperty("coralReefOptimization") private boolean coralReefOptimization;
+	@JsonProperty("diferencialEvolution") private boolean diferencialEvolution;
+	@JsonProperty("cmaes") private boolean cmaes;
+	@JsonProperty("ees") private boolean ees;
+	@JsonProperty("nees") private boolean nees;
+	@JsonProperty("gga") private boolean gga;
+	@JsonProperty("ssga") private boolean ssga;
+	@JsonProperty("pwo2007") private boolean pwo2007;
+	@JsonProperty("pwo2011") private boolean pwo2011;
+	@JsonProperty("abyss") private boolean abyss;
+	@JsonProperty("cellde") private boolean cellde;
+	@JsonProperty("dmopso") private boolean dmopso;
+	@JsonProperty("dmopsom") private boolean dmopsom;
+	@JsonProperty("gde3") private boolean gde3;
+	@JsonProperty("gwasfga") private boolean gwasfga;
+	@JsonProperty("ibea") private boolean ibea;
+	@JsonProperty("mocell") private boolean mocell;
+	@JsonProperty("mochc") private boolean mochc;
+	@JsonProperty("moead") private boolean moead;
+	@JsonProperty("cmoead") private boolean cmoead;
+	@JsonProperty("moeaddd") private boolean moeaddd;
+	@JsonProperty("moeaddra") private boolean moeaddra;
+	@JsonProperty("moeadstm") private boolean moeadstm;
+	@JsonProperty("mombi") private boolean mombi;
+	@JsonProperty("mombi2") private boolean mombi2;
+	@JsonProperty("nsgaii") private boolean nsgaii;
+	@JsonProperty("nsgaiim") private boolean nsgaiim;
+	@JsonProperty("ssnsgaii") private boolean ssnsgaii;
+	@JsonProperty("nsgaiii") private boolean nsgaiii;
+	@JsonProperty("omopso") private boolean omopso;
+	@JsonProperty("paes") private boolean paes;
+	@JsonProperty("pesa2") private boolean pesa2;
+	@JsonProperty("randomsearch") private boolean randomsearch;
+	@JsonProperty("smpso") private boolean smpso;
+	@JsonProperty("smpsom") private boolean smpsom;
+	@JsonProperty("smsemoa") private boolean smsemoa;
+	@JsonProperty("spea2") private boolean spea2;
+	@JsonProperty("wasfga") private boolean wasfga;
 	
 	public Optimization(String optimizerSelection, boolean coralReefOptimization, boolean diferencialEvolution,
 			boolean cmaes, boolean ees, boolean nees, boolean gga, boolean ssga, boolean pwo2007, boolean pwo2011,
 			boolean abyss, boolean cellde, boolean dmopso, boolean dmopsom, boolean gde3, boolean gwasfga, boolean ibea,
 			boolean mocell, boolean mochc, boolean moead, boolean cmoead, boolean moeaddd, boolean moeaddra,
 			boolean moeadstm, boolean mombi, boolean mombi2, boolean nsgaii, boolean nsgaiim, boolean ssnsgaii,
-			boolean nsgaiii, boolean omopso, boolean paes, boolean pesa2, boolean ramdomsearch, boolean smpso,
+			boolean nsgaiii, boolean omopso, boolean paes, boolean pesa2, boolean randomsearch, boolean smpso,
 			boolean smpsom, boolean smsemoa, boolean spea2, boolean wasfga) {
 		super();
 		this.optimizerSelection = optimizerSelection;
@@ -82,12 +84,16 @@ public class Optimization {
 		this.omopso = omopso;
 		this.paes = paes;
 		this.pesa2 = pesa2;
-		this.ramdomsearch = ramdomsearch;
+		this.randomsearch = randomsearch;
 		this.smpso = smpso;
 		this.smpsom = smpsom;
 		this.smsemoa = smsemoa;
 		this.spea2 = spea2;
 		this.wasfga = wasfga;
+	}
+	
+	public Optimization() {
+		
 	}
 
 	public String getOptimizerSelection() {
@@ -354,12 +360,12 @@ public class Optimization {
 		this.pesa2 = pesa2;
 	}
 
-	public boolean isRamdomsearch() {
-		return ramdomsearch;
+	public boolean isRandomsearch() {
+		return randomsearch;
 	}
 
-	public void setRamdomsearch(boolean ramdomsearch) {
-		this.ramdomsearch = ramdomsearch;
+	public void setRandomsearch(boolean randomsearch) {
+		this.randomsearch = randomsearch;
 	}
 
 	public boolean isSmpso() {

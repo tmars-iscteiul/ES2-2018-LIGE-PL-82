@@ -1,7 +1,7 @@
 {
   "introdution": {},
   "mainInformation": {
-    "name": "spamProblem",
+    "problemName": "spamProblem",
     "fullDescription": "This is a description of the problem",
     "averageDuration": 10,
     "averageScale": "min",
@@ -24,7 +24,7 @@
       "inputsNameTable": [
         {
           "list": "rulesList",
-          "description": "R1,R2,R3,R4"
+          "nameDescription": "R1,R2,R3,R4"
         }
       ]
     },
@@ -80,7 +80,7 @@
     "omopso": false,
     "paes": true,
     "pesa2": true,
-    "ramdomsearch": true,
+    "randomsearch": true,
     "smpso": false,
     "smpsom": true,
     "smsemoa": false,

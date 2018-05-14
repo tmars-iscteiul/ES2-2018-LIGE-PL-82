@@ -1,15 +1,21 @@
 package data.problem.temp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class RestrictionsList {
-	private String variableName;
-	private String symbol;
-	private Double value;
+	@JsonProperty("variableName") private String variableName;
+	@JsonProperty("symbol") private String symbol;
+	@JsonProperty("value") private Double value;
 	
 	public RestrictionsList(String variableName, String symbol, Double value) {
 		super();
 		this.variableName = variableName;
 		this.symbol = symbol;
 		this.value = value;
+	}
+	
+	public RestrictionsList() {
+		
 	}
 
 	public String getVariableName() {

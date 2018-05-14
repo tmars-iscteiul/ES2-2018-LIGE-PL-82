@@ -1,10 +1,12 @@
 package data.problem.temp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Feedback {
-	private String name;
-	private String email;
-	private String subject;
-	private String emailText;
+	@JsonProperty("name") private String name;
+	@JsonProperty("email") private String email;
+	@JsonProperty("subject") private String subject;
+	@JsonProperty("emailText") private String emailText;
 	
 	public Feedback(String name, String email, String subject, String emailText) {
 		super();
@@ -15,7 +17,6 @@ public class Feedback {
 	}
 	
 	public Feedback() {
-		super();
 	}
 
 

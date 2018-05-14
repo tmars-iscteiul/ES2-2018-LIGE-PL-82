@@ -1,8 +1,10 @@
 package data.problem.temp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class FitnessList {
-	private String fitnessName;
-	private String fileURL;
+	@JsonProperty("fitnessName") private String fitnessName;
+	@JsonProperty("fileURL") private String fileURL;
 	
 	public FitnessList(String fitnessName, String fileURL) {
 		super();
@@ -10,6 +12,10 @@ public class FitnessList {
 		this.fileURL = fileURL;
 	}
 
+	public FitnessList() {
+		
+	}
+	
 	public String getFitnessName() {
 		return fitnessName;
 	}

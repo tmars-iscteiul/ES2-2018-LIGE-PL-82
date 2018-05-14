@@ -9,6 +9,10 @@ public class Restrictions {
 		super();
 		this.restrictionsList = restrictionsList;
 	}
+	
+	public Restrictions() {
+		
+	}
 
 	public List<RestrictionsList> getRestrictionsList() {
 		return restrictionsList;

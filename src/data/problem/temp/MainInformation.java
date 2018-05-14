@@ -1,13 +1,15 @@
 package data.problem.temp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class MainInformation {
-	private String name;
-	private String fullDescription;
-	private int averageDuration;
-	private String averageScale;
-	private int maxDuration;
-	private String maxScale;
-	private String userEmail;
+	@JsonProperty("name") private String name;
+	@JsonProperty("fullDescription") private String fullDescription;
+	@JsonProperty("averageDuration") private int averageDuration;
+	@JsonProperty("averageScale") private String averageScale;
+	@JsonProperty("maxDuration") private int maxDuration;
+	@JsonProperty("maxScale") private String maxScale;
+	@JsonProperty("userEmail") private String userEmail;
 	
 	public MainInformation(String name, String fullDescription, int averageDuration, String averageScale,
 			int maxDuration, String maxScale, String userEmail) {
@@ -19,6 +21,10 @@ public class MainInformation {
 		this.maxDuration = maxDuration;
 		this.maxScale = maxScale;
 		this.userEmail = userEmail;
+	}
+	
+	public MainInformation() {
+		
 	}
 
 	public String getName() {

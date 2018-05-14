@@ -1,12 +1,14 @@
 package data.problem.temp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class InputListTable {
-	private String listName;
-	private String type;
-	private int numberVar;
-	private int minValue;
-	private int maxValue;
-	private String description;
+	@JsonProperty("listName") private String listName;
+	@JsonProperty("type") private String type;
+	@JsonProperty("numberVar") private int numberVar;
+	@JsonProperty("minValue") private int minValue;
+	@JsonProperty("maxValue") private int maxValue;
+	@JsonProperty("description") private String description;
 	
 	
 	public InputListTable(String listName, String type, int numberVar, int minValue, int maxValue, String description) {
@@ -17,6 +19,10 @@ public class InputListTable {
 		this.minValue = minValue;
 		this.maxValue = maxValue;
 		this.description = description;
+	}
+	
+	public InputListTable() {
+		
 	}
 
 

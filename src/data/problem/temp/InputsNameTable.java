@@ -1,13 +1,19 @@
 package data.problem.temp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class InputsNameTable {
-	private String list;
-	private String description;
+	@JsonProperty("list") private String list;
+	@JsonProperty("nameDescription") private String nameDescription;
 	
 	public InputsNameTable(String list, String description) {
 		super();
 		this.list = list;
-		this.description = description;
+		this.nameDescription = description;
+	}
+	
+	public InputsNameTable() {
+		
 	}
 
 	public String getList() {
@@ -19,11 +25,11 @@ public class InputsNameTable {
 	}
 
 	public String getDescription() {
-		return description;
+		return nameDescription;
 	}
 
 	public void setDescription(String description) {
-		this.description = description;
+		this.nameDescription = description;
 	}
 	
 	

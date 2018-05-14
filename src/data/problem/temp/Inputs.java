@@ -2,16 +2,22 @@ package data.problem.temp;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Inputs {
-	private List<InputListTable> inputListTable;
-	private CreateInputItems createInputItems;
-	private Restrictions restrictions;
+	@JsonProperty("inputListTable") private List<InputListTable> inputListTable;
+	@JsonProperty("createInputItems") private CreateInputItems createInputItems;
+	@JsonProperty("restrictions") private Restrictions restrictions;
 	
 	public Inputs(List<InputListTable> inputListTable, CreateInputItems createInputItems, Restrictions restrictions) {
 		super();
 		this.inputListTable = inputListTable;
 		this.createInputItems = createInputItems;
 		this.restrictions = restrictions;
+	}
+	
+	public Inputs() {
+		
 	}
 
 	public List<InputListTable> getInputListTable() {

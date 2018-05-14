@@ -1,22 +1,18 @@
 package data.problem.temp;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Problem {
-	private Introduction introduction;
-	private MainInformation mainInformation;
-	private Inputs inputs;
-	private FitnessApp fitnessApp;
-	private Optimization optimization;
-	private Feedback feedback;
-	private Faqs faqs;
+	@JsonProperty("introdution") private Introduction introduction;
+	@JsonProperty("mainInformation") private MainInformation mainInformation;
+	@JsonProperty("inputs") private Inputs inputs;
+	@JsonProperty("fitnessApp") private FitnessApp fitnessApp;
+	@JsonProperty("optimization") private Optimization optimization;
+	@JsonProperty("feedback") private Feedback feedback;
+	@JsonProperty("faqs") private Faqs faqs;
 
 	public Problem()	{
-		this.introduction = null;
-		this.mainInformation = null;
-		this.inputs = null;
-		this.optimization = null;
-		this.fitnessApp = null;
-		this.feedback = null;
-		this.faqs = null;
+
 	}
 	
 	public Problem(Introduction introduction,
