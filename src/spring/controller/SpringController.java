@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import data.problem.temp.Problem;
-
+import data.submission.Submission;
 import main.Engine;
 
 /**
@@ -32,10 +31,10 @@ public class SpringController {
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(method = RequestMethod.POST, value = "/send_problem", consumes = "application/json")
-	public void addProblem(@RequestBody Problem problem)	{
+	public void addSubmission(@RequestBody Submission submission)	{
 		
-		System.out.println("WORKED WOW");
-		//engine.addProblemToQueue(problem);
+		System.out.println(submission.getMainInformation().getFullDescription());
+		engine.addProblemToQueue(submission);
 	}
 
 }

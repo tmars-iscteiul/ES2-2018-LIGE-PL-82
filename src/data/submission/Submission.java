@@ -1,54 +1,33 @@
 package data.submission;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+public class Submission {
+	@JsonProperty("introdution") private Introduction introduction;
+	@JsonProperty("mainInformation") private MainInformation mainInformation;
+	@JsonProperty("inputs") private Inputs inputs;
+	@JsonProperty("fitnessApp") private FitnessApp fitnessApp;
+	@JsonProperty("optimization") private Optimization optimization;
+	@JsonProperty("feedback") private Feedback feedback;
+	@JsonProperty("faqs") private Faqs faqs;
 
-/**
- * @author skner
- *
- */
-public class Submission implements Serializable	{
-
-	/*
-	 * 	Submission {
-	 * 		Introduction {}
-	 * 		MainInformation {name, fullDescription, averageDuration, averageScale, maxDuration, maxScale, userEmail}
-	 * 		Inputs {
-	 * 			input-list-table [{list-name, type, number-var, min-value, max-value, description}]
-	 * 			createInputItems {inputs-name-table[list, description]}
-	 * 			restrictions {restrictions-list[variable-name, symbol, value]}
-	 * 		}
-	 * 		FitnessApp	{
-	 * 			fitness-list [{fitness-name, file-url}]
-	 * 		}
-	 * 		Optimization {optimizersSelection, coralReefOptimization, diferencialEvolution, algorithmsList}
-	 * 		Feedback {name, email, subject, emailText}
-	 * 		FAQ
-	 * 
-	 */
-	
-	private Introduction introduction;
-	private MainInformation mainInfo;
-	private Inputs inputs;
-	private FitnessApp fitnessApp;
-	private Optimization optimization;
-	private Feedback feedback;
-	private Faq faq;
-	
 	public Submission()	{
-		
+
 	}
 	
-	public Submission(Introduction introduction, MainInformation mainInfo, Inputs inputs, FitnessApp fitnessApp,
-			Optimization optimization, Feedback feedback, Faq faq) {
+	public Submission(Introduction introduction,
+			MainInformation mainInformation,
+			Inputs inputs,
+			FitnessApp fitnessApp,
+			Optimization optimization,
+			Feedback feedback,
+			Faqs faqs)	{
 		this.introduction = introduction;
-		this.mainInfo = mainInfo;
 		this.inputs = inputs;
-		this.fitnessApp = fitnessApp;
 		this.optimization = optimization;
+		this.fitnessApp = fitnessApp;
 		this.feedback = feedback;
-		this.faq = faq;
+		this.faqs = faqs;
 	}
 
 	public Introduction getIntroduction() {
@@ -59,12 +38,12 @@ public class Submission implements Serializable	{
 		this.introduction = introduction;
 	}
 
-	public MainInformation getMainInfo() {
-		return mainInfo;
+	public MainInformation getMainInformation() {
+		return mainInformation;
 	}
 
-	public void setMainInfo(MainInformation mainInfo) {
-		this.mainInfo = mainInfo;
+	public void setMainInformation(MainInformation mainInformation) {
+		this.mainInformation = mainInformation;
 	}
 
 	public Inputs getInputs() {
@@ -99,12 +78,12 @@ public class Submission implements Serializable	{
 		this.feedback = feedback;
 	}
 
-	public Faq getFaq() {
-		return faq;
+	public Faqs getFaqs() {
+		return faqs;
 	}
 
-	public void setFaq(Faq faq) {
-		this.faq = faq;
+	public void setFaqs(Faqs faqs) {
+		this.faqs = faqs;
 	}
 	
 	

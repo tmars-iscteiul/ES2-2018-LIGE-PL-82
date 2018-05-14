@@ -1,58 +1,26 @@
 package data.submission;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 
-/**
- * @author skner
- *
- */
 public class Restrictions {
+	private List<RestrictionsList> restrictionsList;
 
-	/*
-	 * restrictions {restrictions-list[variable-name, symbol, value]}
-	 */
-	
-	public class RestrictionsList {
-		@JsonProperty("variable-name")private String variableName;
-		@JsonProperty("symbol")private String symbol;
-		@JsonProperty("value")private double value;
-		public RestrictionsList()	{}
-		public RestrictionsList(String variableName, String symbol, double value) {
-			this.variableName = variableName;
-			this.symbol = symbol;
-			this.value = value;
-		}
-		/*
-		 * GETTERS AND SETTERS
-		 */
-		public String getVariableName() {return variableName;}
-		public String getSymbol() {return symbol;}
-		public double getValue() {return value;}
-		public void setVariableName(String variableName) {this.variableName = variableName;}
-		public void setSymbol(String symbol) {this.symbol = symbol;}
-		public void setValue(double value) {this.value = value;}
-	}
-	
-	@JsonProperty("restrictions-list")private RestrictionsList restrictionsList;
-
-	public Restrictions()	{
-	}
-	
-	public Restrictions(RestrictionsList restrictionsList) {
+	public Restrictions(List<RestrictionsList> restrictionsList) {
+		super();
 		this.restrictionsList = restrictionsList;
 	}
 	
-	/*
-	 * GETTERS AND SETTERS
-	 */
-	
-	public RestrictionsList getRestrictionsList() {
+	public Restrictions() {
+		
+	}
+
+	public List<RestrictionsList> getRestrictionsList() {
 		return restrictionsList;
 	}
 
-	public void setRestrictionsList(RestrictionsList restrictionsList) {
+	public void setRestrictionsList(List<RestrictionsList> restrictionsList) {
 		this.restrictionsList = restrictionsList;
 	}
-	
+
 	
 }

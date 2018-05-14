@@ -1,52 +1,28 @@
 package data.submission;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * @author skner
- *
- */
 public class FitnessApp {
-	
-	/*
-	 * 		FitnessApp	{
-	 * 			fitness-list [{fitness-name, file-url}]
-	 * 		}
-	 */
-	
-	public class FitnessList	{
-		@JsonProperty("fitness-name")private String fitnessName;
-		@JsonProperty("file-url")private long url;
-		public FitnessList()	{}
-		public FitnessList(String fitnessName, long url) {
-			super();
-			this.fitnessName = fitnessName;
-			this.url = url;
-		}
-		public String getFitnessName() {return fitnessName;}
-		public long getUrl() {return url;}
-		public void setFitnessName(String fitnessName) {this.fitnessName = fitnessName;}
-		public void setUrl(long url) {this.url = url;}
-	}
-	
-	@JsonProperty("fitness-list")private FitnessList fitnessList;
+	@JsonProperty("fitnessList") private List<FitnessList> fitnessList;
 
-	public FitnessApp()	{
-	}
-	
-	public FitnessApp(FitnessList fitnessList) {
+	public FitnessApp(List<FitnessList> fitnessList) {
 		super();
 		this.fitnessList = fitnessList;
 	}
+	
+	public FitnessApp() {
+		
+	}
 
-	public FitnessList getFitnessList() {
+	public List<FitnessList> getFitnessList() {
 		return fitnessList;
 	}
 
-	public void setFitnessList(FitnessList fitnessList) {
+	public void setFitnessList(List<FitnessList> fitnessList) {
 		this.fitnessList = fitnessList;
 	}
 	
 	
 }
-

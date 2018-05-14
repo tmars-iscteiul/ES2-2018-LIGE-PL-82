@@ -2,30 +2,23 @@ package data.submission;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * @author skner
- *
- */
 public class Feedback {
-	
-	/*
-	 * Feedback {name, email, subject, emailText}
-	 */
-	
-	@JsonProperty("name")private String name;
-	@JsonProperty("email")private String email;
-	@JsonProperty("subject")private String subject;
-	@JsonProperty("emailText")private String emailText;
-	
-	public Feedback()	{
-	}
+	@JsonProperty("name") private String name;
+	@JsonProperty("email") private String email;
+	@JsonProperty("subject") private String subject;
+	@JsonProperty("emailText") private String emailText;
 	
 	public Feedback(String name, String email, String subject, String emailText) {
+		super();
 		this.name = name;
 		this.email = email;
 		this.subject = subject;
 		this.emailText = emailText;
 	}
+	
+	public Feedback() {
+	}
+
 
 	public String getName() {
 		return name;
@@ -60,5 +53,4 @@ public class Feedback {
 	}
 	
 	
-
 }
