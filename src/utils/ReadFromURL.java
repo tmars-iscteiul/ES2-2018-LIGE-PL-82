@@ -9,7 +9,7 @@ public class ReadFromURL {
 
     	URL url;
 		try {
-			url = new URL("jar:"+URL);
+			url = new URL(URL);
 			
 			JarURLConnection jarConnection;
 			try {
@@ -29,7 +29,8 @@ public class ReadFromURL {
     }
     
     public static void main(String[] args) {
-		new ReadFromURL().getJarFromURL("http://www.google.pt");
+		new ReadFromURL().getJarFromURL("https://www.github.com/tmars-iscteiul/ES2-2018-LIGE-PL-82/raw/testSpring/caseStudies/test1.jar");
 	}
+    
 }
 
