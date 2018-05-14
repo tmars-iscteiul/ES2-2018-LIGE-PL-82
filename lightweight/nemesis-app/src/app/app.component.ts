@@ -52,6 +52,7 @@ export class AppComponent {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(this.appService.value),
+        mode: 'cors'
       }).then((response) => {
         console.log(response);
         alert('The process started with sucess. Check your email for details.');

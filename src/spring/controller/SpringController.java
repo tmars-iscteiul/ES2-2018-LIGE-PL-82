@@ -4,6 +4,7 @@
 package spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,7 +30,8 @@ public class SpringController {
 		return engine.getStatus();
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/send_problem")
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(method = RequestMethod.POST, value = "/send_problem", consumes = "application/json")
 	public void addProblem(@RequestBody Problem problem)	{
 		
 		System.out.println("WORKED WOW");
