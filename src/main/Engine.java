@@ -10,8 +10,8 @@ import data.Configuration;
 import data.Restriction;
 import data.submission.Introduction;
 import data.submission.Submission;
-import utils.Algorithms;
-import utils.TimeVariable;
+import data.utils.Algorithms;
+import data.utils.TimeVariable;
 
 /**
  * The engine is the main worker of the software. It will be in charge of following the software's logical process.

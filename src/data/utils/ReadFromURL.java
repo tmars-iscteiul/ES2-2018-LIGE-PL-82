@@ -1,4 +1,4 @@
-package utils;
+package data.utils;
 
 import java.net.*;
 import java.io.*;

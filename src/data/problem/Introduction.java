@@ -1,6 +1,6 @@
 package data.problem;
 
-import utils.TimeVariable;
+import data.utils.TimeVariable;
 
 public class Introduction {
 
