@@ -35,10 +35,8 @@ public class SpringController {
 	@RequestMapping(method = RequestMethod.POST, value = "/send_problem", consumes = "application/json")
 	public void addSubmission(@RequestBody Submission submission)	{
 		
-		System.out.println(submission.getMainInformation().getFullDescription());
-		Email email = new Email(submission);
-		email.welcome_email(submission.getMainInformation().getUserEmail());
-		new EmailSender().sendMail(email);
+		System.out.println("New process arrived: " + submission.getMainInformation().getProblemName());
+		
 		engine.addProblemToQueue(submission);
 	}
 

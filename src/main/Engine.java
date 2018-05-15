@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import data.Configuration;
 import data.Restriction;
+import data.comm.Email;
+import data.comm.EmailSender;
 import data.submission.Introduction;
 import data.submission.Submission;
 import data.utils.Algorithms;
@@ -57,7 +59,11 @@ public class Engine extends Thread	{
 	public void executeAlgorithm() {
 	}
 	
-	public void addProblemToQueue(Submission problem)	{
+	public void addProblemToQueue(Submission submission)	{
+		Email email = new Email(submission);
+		email.welcome_email(submission.getMainInformation().getUserEmail());
+		new EmailSender().sendMail(email);
+		
 		problemQueue.add(problem);
 	}
 
