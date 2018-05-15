@@ -1,8 +1,8 @@
 package data.problem;
 
-import utils.TimeVariable;
+import data.utils.TimeVariable;
 
-public class ProblemIntroduction {
+public class Introduction {
 
 	/*
 	 * introduction
@@ -15,7 +15,7 @@ public class ProblemIntroduction {
 	private TimeVariable maxDuration;
 	private String userEmail;
 	
-	public ProblemIntroduction(String name, String fullDescription, TimeVariable averageDuration, TimeVariable maxDuration, String userEmail)	{
+	public Introduction(String name, String fullDescription, TimeVariable averageDuration, TimeVariable maxDuration, String userEmail)	{
 		this.name = name;
 		this.fullDescription = fullDescription;
 		this.averageDuration = averageDuration;

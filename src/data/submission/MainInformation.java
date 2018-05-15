@@ -2,40 +2,30 @@ package data.submission;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * @author skner
- *
- */
 public class MainInformation {
-	/*
-	 * MainInformation {name, fullDescription, averageDuration, averageScale, maxDuration, maxScale, userEmail}
-	 */
-
-	@JsonProperty("name")private String name;
-	@JsonProperty("averageDuration")private int averageDuration;
-	@JsonProperty("averageScale")private String averageScale;
-	@JsonProperty("maxDuration")private int maxDuration;
-	@JsonProperty("maxScale")private String maxScale;
-	@JsonProperty("fullDescription")private String fullDescription;
-	@JsonProperty("userEmail")private String userEmail;
+	@JsonProperty("name") private String name;
+	@JsonProperty("fullDescription") private String fullDescription;
+	@JsonProperty("averageDuration") private int averageDuration;
+	@JsonProperty("averageScale") private String averageScale;
+	@JsonProperty("maxDuration") private int maxDuration;
+	@JsonProperty("maxScale") private String maxScale;
+	@JsonProperty("userEmail") private String userEmail;
 	
-	public MainInformation()	{
-	}
-	
-	public MainInformation(String name, int averageDuration, String averageScale, int maxDuration, String maxScale,
-			String fullDescription, String userEmail) {
+	public MainInformation(String name, String fullDescription, int averageDuration, String averageScale,
+			int maxDuration, String maxScale, String userEmail) {
+		super();
 		this.name = name;
+		this.fullDescription = fullDescription;
 		this.averageDuration = averageDuration;
 		this.averageScale = averageScale;
 		this.maxDuration = maxDuration;
 		this.maxScale = maxScale;
-		this.fullDescription = fullDescription;
 		this.userEmail = userEmail;
 	}
 	
-	/*
-	 * GETTERS AND SETTERS
-	 */
+	public MainInformation() {
+		
+	}
 
 	public String getName() {
 		return name;
@@ -43,6 +33,14 @@ public class MainInformation {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getFullDescription() {
+		return fullDescription;
+	}
+
+	public void setFullDescription(String fullDescription) {
+		this.fullDescription = fullDescription;
 	}
 
 	public int getAverageDuration() {
@@ -75,14 +73,6 @@ public class MainInformation {
 
 	public void setMaxScale(String maxScale) {
 		this.maxScale = maxScale;
-	}
-
-	public String getFullDescription() {
-		return fullDescription;
-	}
-
-	public void setFullDescription(String fullDescription) {
-		this.fullDescription = fullDescription;
 	}
 
 	public String getUserEmail() {

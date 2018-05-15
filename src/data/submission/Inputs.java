@@ -1,63 +1,47 @@
 package data.submission;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/**
- * @author skner
- *
- */
 public class Inputs {
-
-	/*
-	 * 		Inputs {
-	 * 			input-list-table [{list-name, type, number-var, min-value, max-value, description}]
-	 * 			createInputItems {inputs-name-table[list, description]}
-	 * 			restrictions {restrictions-list[variable-name, symbol, value]}
-	 * 		}
-	 */
+	@JsonProperty("inputListTable") private List<InputListTable> inputListTable;
+	@JsonProperty("createInputItems") private CreateInputItems createInputItems;
+	@JsonProperty("restrictions") private Restrictions restrictions;
 	
-	@JsonProperty("input-list-table")private ArrayList<InputListTable> inputList;
-	@JsonProperty("createInputItems")private InputNameTable inputNames;
-	@JsonProperty("restriction")private Restrictions restrictionsList;
+	public Inputs(List<InputListTable> inputListTable, CreateInputItems createInputItems, Restrictions restrictions) {
+		super();
+		this.inputListTable = inputListTable;
+		this.createInputItems = createInputItems;
+		this.restrictions = restrictions;
+	}
 	
-	public Inputs()	{
+	public Inputs() {
 		
 	}
-	
-	public Inputs(ArrayList<InputListTable> inputList, InputNameTable inputNames, Restrictions restrictionsList) {
-		this.inputList = inputList;
-		this.inputNames = inputNames;
-		this.restrictionsList = restrictionsList;
-	}
-	
-	/*
-	 * GETTERS AND SETTERS
-	 */
 
-	public ArrayList<InputListTable> getInputList() {
-		return inputList;
+	public List<InputListTable> getInputListTable() {
+		return inputListTable;
 	}
 
-	public void setInputList(ArrayList<InputListTable> inputList) {
-		this.inputList = inputList;
+	public void setInputListTable(List<InputListTable> inputListTable) {
+		this.inputListTable = inputListTable;
 	}
 
-	public InputNameTable getInputNames() {
-		return inputNames;
+	public CreateInputItems getCreateInputItems() {
+		return createInputItems;
 	}
 
-	public void setInputNames(InputNameTable inputNames) {
-		this.inputNames = inputNames;
+	public void setCreateInputItems(CreateInputItems createInputItems) {
+		this.createInputItems = createInputItems;
 	}
 
-	public Restrictions getRestrictionsList() {
-		return restrictionsList;
+	public Restrictions getRestrictions() {
+		return restrictions;
 	}
 
-	public void setRestrictionsList(Restrictions restrictionsList) {
-		this.restrictionsList = restrictionsList;
+	public void setRestrictions(Restrictions restrictions) {
+		this.restrictions = restrictions;
 	}
 	
 	

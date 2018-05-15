@@ -1,4 +1,4 @@
-package JMetal;
+package data.jmetal.problems;
 
 public class BinaryConfiguration {
 

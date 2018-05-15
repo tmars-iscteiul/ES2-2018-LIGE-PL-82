@@ -46,12 +46,13 @@ export class AppComponent {
 
   submit() {
     if (this.lfApp.isValid) {
-      fetch('https://localhost:8080/send_problem', {
+      fetch('http://localhost:8080/send_problem', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(this.appService.value),
+        mode: 'cors'
       }).then((response) => {
         console.log(response);
         alert('The process started with sucess. Check your email for details.');

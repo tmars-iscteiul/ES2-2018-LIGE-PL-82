@@ -1,6 +1,6 @@
 package data;
 
-import utils.VariableType;
+import data.utils.VariableType;
 
 /**
  * The configuration class will hold the important information to be passed to the specified algorithm

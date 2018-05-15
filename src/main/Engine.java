@@ -4,17 +4,14 @@ import java.util.ArrayList;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import data.Configuration;
 import data.Restriction;
-import data.problem.Problem;
-import data.problem.ProblemInputs;
-import data.problem.ProblemIntroduction;
-import data.problem.ProblemOptimization;
-import utils.Algorithms;
-import utils.TimeVariable;
+import data.submission.Introduction;
+import data.submission.Submission;
+import data.utils.Algorithms;
+import data.utils.TimeVariable;
 
 /**
  * The engine is the main worker of the software. It will be in charge of following the software's logical process.
@@ -27,11 +24,11 @@ import utils.TimeVariable;
 public class Engine extends Thread	{
 
 	//private Administrator admin; TODO Why do we need this?
-	private BlockingQueue<Problem> problemQueue;
-	private Problem problem;
+	private BlockingQueue<Submission> problemQueue;
+	private Submission problem;
 	
 	public Engine()	{
-		problemQueue = new ArrayBlockingQueue<Problem>(1024);
+		problemQueue = new ArrayBlockingQueue<Submission>(1024);
 		System.out.println("[ENGINE] Engine has been created.");
 		start();
 	}
@@ -48,43 +45,19 @@ public class Engine extends Thread	{
 	 */
 	@Override
 	public void run()	{
-		//addExampleProblem(); 
 		// Engine doesn't handle JSON Reads, SPRING gives the problem object to the engine instead.
 		System.out.println("[ENGINE] Engine is running and awaiting inputs.");
-		
 	}
 	
 	/**
 	 * Reads the JSON File through Spring's framework. 
 	 * While the framework is being implemented, this method creates place-holders for the data structures
 	 */
-	 private void addExampleProblem()	{
-		problem = new Problem();
-		TimeVariable averageDuration = new TimeVariable(60, "min");
-		TimeVariable maxDuration = new TimeVariable(120, "min");
-		ProblemIntroduction pintro = new ProblemIntroduction("Example Problem", "No description", averageDuration, maxDuration, "test@nemesis.com");
-		problem.setIntroduction(pintro);
-		
-		ProblemInputs pinputs = new ProblemInputs("Example Problem Inputs");
-		pinputs.addConfiguration(new Configuration("config1", -5.0, 5.0, "double", 20));
-		pinputs.addConfiguration(new Configuration("config1", -5.0, 5.0, "double", 20));
-		pinputs.addRestriction(new Restriction("Can't be 0", "!=", 0));
-		problem.setInputs(pinputs);
-		
-		ArrayList<Algorithms> algorithmList = new ArrayList<Algorithms>();
-		algorithmList.add(Algorithms.nsgaii);
-		ProblemOptimization poptimization = new ProblemOptimization(algorithmList);
-		problem.setOptimization(poptimization);
-		
-		// Fitness app? Just make a place holder one to calculate the example ones.
-		// Feedback not necessary
-		
-	}
 	
 	public void executeAlgorithm() {
 	}
 	
-	public void addProblemToQueue(Problem problem)	{
+	public void addProblemToQueue(Submission problem)	{
 		problemQueue.add(problem);
 	}
 

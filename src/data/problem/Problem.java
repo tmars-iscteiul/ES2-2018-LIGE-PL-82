@@ -21,7 +21,7 @@ package data.problem;
 public class Problem {
 	//Class attributes must be determined from .JSON file with the problem defined by the user
 	
-	private ProblemIntroduction introduction;
+	private Introduction introduction;
 	private ProblemInputs inputs;
 	private ProblemOptimization optimization;
 	private ProblemFitnessApp fitnessApp;
@@ -35,7 +35,7 @@ public class Problem {
 		this.feedback = null;
 	}
 	
-	public Problem(ProblemIntroduction introduction, ProblemInputs inputs, ProblemOptimization optimization, 
+	public Problem(Introduction introduction, ProblemInputs inputs, ProblemOptimization optimization, 
 			ProblemFitnessApp fitnessApp, ProblemFeedback feedback)	{
 		this.introduction = introduction;
 		this.inputs = inputs;
@@ -47,7 +47,7 @@ public class Problem {
 	/*
 	 * SETTERS
 	 */
-	public void setIntroduction(ProblemIntroduction introduction) {
+	public void setIntroduction(Introduction introduction) {
 		this.introduction = introduction;
 	}
 	
@@ -70,7 +70,7 @@ public class Problem {
 	/*
 	 * GETTERS
 	 */
-	public ProblemIntroduction getIntroduction() {
+	public Introduction getIntroduction() {
 		return introduction;
 	}
 	
