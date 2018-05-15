@@ -1,4 +1,4 @@
-package data;
+package data.problem;
 
 import data.utils.VariableType;
 
@@ -16,6 +16,7 @@ import data.utils.VariableType;
 public class Configuration {
 	
 	private String name;	/** Name of the variable*/
+	private String description;
 	
 	private double upperLimit;	/** Upper bound for the float value*/
 	private double lowerLimit;	/** Lower bound for the float value*/
@@ -29,6 +30,14 @@ public class Configuration {
 		valueArray = new Object[configSize];
 	}
 
+	public Configuration(data.submission.InputListTable input)	{
+		name = input.getListName();
+		setLimits(input.getMinValue(), input.getMaxValue());
+		setArrayType(input.getType());
+		valueArray = new Object[input.getNumberVar()];
+		description = input.getDescription();
+	}
+	
 	/**
 	 * Sets the bounds of the value variable. 
 	 * The end points are included in the value intervals [lowerLimit, upperLimit]
