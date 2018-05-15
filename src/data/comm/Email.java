@@ -32,10 +32,10 @@ public class Email {
 
 	public void progression_email(String to, Double progress) {
 		this.to = to;
-		subject = "Progresso da Optimização: " + "(Nome do problema)" + "(Ano-M�s-Dia Hora:Minuto)";
-		messageBody = "<html><body><p>O processo de optimiza��o encontra-se " + progress + "% concluido.<br /><br />"
-				+ "Tempo de optimiza��o estimado:" + "(Tempo estimado)" + "<br /><br />"
-				+ "Atenciosamente N�mesis</p></body></html>";
+		subject = "Progresso da Optimização: " + problem.getMainInformation().getProblemName() + " - " + LocalDateTime.now();
+		messageBody = "<html><body><h1>Nêmesis - Processo de Otimização</h1><p>O processo de optimizaçãoo encontra-se " + progress + "% concluido.<br /><br />"
+				+ "Tempo de optimização estimado: " + problem.getMainInformation().getAverageDuration()*progress + ' ' + problem.getMainInformation().getAverageScale() + "<br /><br />"
+				+ "Atenciosamente, <br/>Equipa da Nêmesis</p></body></html>";
 	}
 
 	public void success_email(String to) {
