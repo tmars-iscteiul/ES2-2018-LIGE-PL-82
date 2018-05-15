@@ -53,8 +53,26 @@ export class AppComponent {
         }]
       }
     });
+  }
     
+	submit() {
+      console.log('test');
+      fetch('http://localhost:8080/request_problem', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify('{"name":"test"}'),
+        mode: 'cors'
+      }).then((response) => {
+        console.log(response);
+        alert('The process started with sucess. Check your email for details.');
+      }).catch((ex) => {
+        console.log(ex);
+        alert(ex);
+      });
+  }
+	
     //Radar Chart
     
-  }
 }

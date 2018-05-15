@@ -64,7 +64,7 @@ public class Engine extends Thread	{
 		email.welcome_email(submission.getMainInformation().getUserEmail());
 		new EmailSender().sendMail(email);
 		
-		problemQueue.add(problem);
+		//problemQueue.add(problem);
 	}
 
 	public String getStatus()	{
