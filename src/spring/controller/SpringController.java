@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import data.comm.Email;
+import data.comm.EmailSender;
 import data.submission.Submission;
 import main.Engine;
 
@@ -34,6 +36,9 @@ public class SpringController {
 	public void addSubmission(@RequestBody Submission submission)	{
 		
 		System.out.println(submission.getMainInformation().getFullDescription());
+		Email email = new Email(submission);
+		email.welcome_email(submission.getMainInformation().getUserEmail());
+		new EmailSender().sendMail(email);
 		engine.addProblemToQueue(submission);
 	}
 

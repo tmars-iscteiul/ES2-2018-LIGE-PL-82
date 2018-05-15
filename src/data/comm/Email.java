@@ -1,6 +1,8 @@
-package communication;
+package data.comm;
+import java.time.LocalDateTime;
 
 import data.problem.Problem;
+import data.submission.Submission;
 
 public class Email {
 
@@ -9,27 +11,28 @@ public class Email {
 	private String admin;
 	private String subject;
 	private String messageBody;
-	private String fileName;
-	private Problem problem;
+	//private String fileName;
+	private Submission problem;
 
-	public Email() {
+	public Email(Submission problem) {
+		this.problem = problem;
 		from = "geral.nemesis@gmail.com";
 		admin = "geral.nemesis@gmail.com";
-		fileName = "quiz.txt";
+		//fileName = "quiz.txt";
 	}
 
 	public void welcome_email(String to) {
 		this.to = to;
-		subject = "Optimiza��o em curso: " + "(Nome do problema)" + "(Ano-M�s-Dia Hora:Minuto)";
-		messageBody = "<html><body><p>Muito obrigado por usar esta plataforma de otimiza��o.<br />"
-				+ "Ser� informado por email sobre o progresso do processo de otimiza��o, quando o processo de otimiza��o tiver atingido 25%, 50%, 75% do total do tempo estimado, e tamb�m quando o processo tiver terminado, com sucesso ou devido � ocorr�ncia de erros. <br /><br />"
-				+ "Tempo de optimiza��o estimado:" + "(Tempo estimado)" + "<br /><br />"
-				+ "Atenciosamente N�mesis</p></body></html>";
+		subject = "Optimização em curso: " + problem.getMainInformation().getProblemName() + " - " + LocalDateTime.now();
+		messageBody = "<html><body><h1>Bem-vindo à Nêmesis</h1><p>Muito obrigado por usar esta plataforma de otimização.<br />"
+				+ "O seu processo de otimização iniciou com sucesso. Será informado por email sobre o progresso do mesmo.<br/><br/>"
+				+ "Tempo de optimização estimado: " + problem.getMainInformation().getAverageDuration() + ' ' + problem.getMainInformation().getAverageScale() + "<br /><br />"
+				+ "Atenciosamente, <br/>Equipa da Nêmesis</p></body></html>";
 	}
 
 	public void progression_email(String to, Double progress) {
 		this.to = to;
-		subject = "Progresso da Optimiza��o: " + "(Nome do problema)" + "(Ano-M�s-Dia Hora:Minuto)";
+		subject = "Progresso da Optimização: " + "(Nome do problema)" + "(Ano-M�s-Dia Hora:Minuto)";
 		messageBody = "<html><body><p>O processo de optimiza��o encontra-se " + progress + "% concluido.<br /><br />"
 				+ "Tempo de optimiza��o estimado:" + "(Tempo estimado)" + "<br /><br />"
 				+ "Atenciosamente N�mesis</p></body></html>";
@@ -72,9 +75,9 @@ public class Email {
 		return messageBody;
 	}
 
-	public String getFileName() {
-		return fileName;
-	}
+	//public String getFileName() {
+	//	return fileName;
+	//}
 	
 	
 

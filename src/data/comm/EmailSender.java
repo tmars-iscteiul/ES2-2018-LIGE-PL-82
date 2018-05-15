@@ -1,4 +1,4 @@
-package communication;
+package data.comm;
 import java.util.*;
 import javax.activation.*;
 import javax.mail.*;
@@ -50,11 +50,11 @@ public class EmailSender {
             messageBodyPart.setContent (email.getMessageBody(), "text/html" );
             multipart.addBodyPart ( messageBodyPart );
 
-            messageBodyPart = new MimeBodyPart ();
-            DataSource source = new FileDataSource ( email.getFileName() );
-            messageBodyPart.setDataHandler ( new DataHandler ( source ) );
-            messageBodyPart.setFileName ( email.getFileName() );
-            multipart.addBodyPart ( messageBodyPart );
+            //messageBodyPart = new MimeBodyPart ();
+            //DataSource source = new FileDataSource ( email.getFileName() );
+            //messageBodyPart.setDataHandler ( new DataHandler ( source ) );
+            //messageBodyPart.setFileName ( email.getFileName() );
+            //multipart.addBodyPart ( messageBodyPart );
 
             message.setContent ( multipart );
 

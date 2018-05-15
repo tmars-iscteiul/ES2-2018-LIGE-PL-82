@@ -3,7 +3,7 @@ package data.submission;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MainInformation {
-	@JsonProperty("name") private String name;
+	@JsonProperty("problemName") private String problemName;
 	@JsonProperty("fullDescription") private String fullDescription;
 	@JsonProperty("averageDuration") private int averageDuration;
 	@JsonProperty("averageScale") private String averageScale;
@@ -11,10 +11,10 @@ public class MainInformation {
 	@JsonProperty("maxScale") private String maxScale;
 	@JsonProperty("userEmail") private String userEmail;
 	
-	public MainInformation(String name, String fullDescription, int averageDuration, String averageScale,
+	public MainInformation(String problemName, String fullDescription, int averageDuration, String averageScale,
 			int maxDuration, String maxScale, String userEmail) {
 		super();
-		this.name = name;
+		this.problemName = problemName;
 		this.fullDescription = fullDescription;
 		this.averageDuration = averageDuration;
 		this.averageScale = averageScale;
@@ -27,12 +27,12 @@ public class MainInformation {
 		
 	}
 
-	public String getName() {
-		return name;
+	public String getProblemName() {
+		return problemName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setProblemName(String problemName) {
+		this.problemName = problemName;
 	}
 
 	public String getFullDescription() {
