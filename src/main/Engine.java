@@ -6,10 +6,11 @@ import java.util.concurrent.BlockingQueue;
 
 import org.springframework.stereotype.Service;
 
-import data.Configuration;
-import data.Restriction;
 import data.comm.Email;
 import data.comm.EmailSender;
+import data.problem.Configuration;
+import data.problem.Problem;
+import data.problem.Restriction;
 import data.submission.Introduction;
 import data.submission.Submission;
 import data.utils.Algorithms;
@@ -26,11 +27,11 @@ import data.utils.TimeVariable;
 public class Engine extends Thread	{
 
 	//private Administrator admin; TODO Why do we need this?
-	private BlockingQueue<Submission> problemQueue;
+	private BlockingQueue<Problem> problemQueue;
 	private Submission problem;
 	
 	public Engine()	{
-		problemQueue = new ArrayBlockingQueue<Submission>(1024);
+		problemQueue = new ArrayBlockingQueue<Problem>(1024);
 		System.out.println("[ENGINE] Engine has been created.");
 		start();
 	}
@@ -47,7 +48,6 @@ public class Engine extends Thread	{
 	 */
 	@Override
 	public void run()	{
-		// Engine doesn't handle JSON Reads, SPRING gives the problem object to the engine instead.
 		System.out.println("[ENGINE] Engine is running and awaiting inputs.");
 	}
 	
@@ -64,7 +64,8 @@ public class Engine extends Thread	{
 		email.welcome_email(submission.getMainInformation().getUserEmail());
 		new EmailSender().sendMail(email);
 		
-		problemQueue.add(problem);
+		// TODO Add submission_feedback email sender
+		problemQueue.add(new Problem(submission));
 	}
 
 	public String getStatus()	{

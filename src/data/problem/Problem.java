@@ -1,5 +1,7 @@
 package data.problem;
 
+import data.submission.Submission;
+
 /**
  * The class problem will be the entire submission from the user. It will then fork into different sections, that will allow the engine to work
  * with each one in a more intuitive way. 
@@ -12,42 +14,35 @@ package data.problem;
  * | | - @see * 
  * | | - @see Restriction 
  * | - @see ProblemOptimization
- * | - @see ProblemFitnessApp TODO: Still unknown how we'll implement this. What link can we use? How do we download the .jar file? ...
- * | - @see ProblemFeedback
+ * | - @see ProblemFitnessApp 
  * 
  * @author skner
  *
  */
 public class Problem {
-	//Class attributes must be determined from .JSON file with the problem defined by the user
-	
-	private Introduction introduction;
+
+	private ProblemIntroduction introduction;
 	private ProblemInputs inputs;
 	private ProblemOptimization optimization;
 	private ProblemFitnessApp fitnessApp;
-	private ProblemFeedback feedback;
 
-	public Problem()	{
-		this.introduction = null;
-		this.inputs = null;
-		this.optimization = null;
-		this.fitnessApp = null;
-		this.feedback = null;
-	}
-	
-	public Problem(Introduction introduction, ProblemInputs inputs, ProblemOptimization optimization, 
-			ProblemFitnessApp fitnessApp, ProblemFeedback feedback)	{
+	public Problem(ProblemIntroduction introduction, ProblemInputs inputs, ProblemOptimization optimization, 
+			ProblemFitnessApp fitnessApp)	{
 		this.introduction = introduction;
 		this.inputs = inputs;
 		this.optimization = optimization;
 		this.fitnessApp = fitnessApp;
-		this.feedback = feedback;
 	}
 	
+	public Problem(Submission submission) {
+		introduction = new ProblemIntroduction(submission.getMainInformation());
+		inputs = new ProblemInputs(submission.getInputs());
+	}
+
 	/*
 	 * SETTERS
 	 */
-	public void setIntroduction(Introduction introduction) {
+	public void setIntroduction(ProblemIntroduction introduction) {
 		this.introduction = introduction;
 	}
 	
@@ -63,14 +58,10 @@ public class Problem {
 		this.fitnessApp = fitnessApp;
 	}
 
-	public void setFeedback(ProblemFeedback feedback) {
-		this.feedback = feedback;
-	}
-
 	/*
 	 * GETTERS
 	 */
-	public Introduction getIntroduction() {
+	public ProblemIntroduction getIntroduction() {
 		return introduction;
 	}
 	
@@ -86,8 +77,4 @@ public class Problem {
 		return fitnessApp;
 	}
 
-	public ProblemFeedback getFeedback() {
-		return feedback;
-	}	
-	
 }
