@@ -1,26 +1,4 @@
-package jMetalES2Example;
-
-import org.uma.jmetal.algorithm.Algorithm;
-import org.uma.jmetal.algorithm.multiobjective.gde3.GDE3Builder;
-import org.uma.jmetal.algorithm.multiobjective.ibea.IBEABuilder;
-import org.uma.jmetal.algorithm.multiobjective.mocell.MOCellBuilder;
-import org.uma.jmetal.algorithm.multiobjective.moead.MOEADBuilder;
-import org.uma.jmetal.algorithm.multiobjective.moead.MOEADBuilder.Variant;
-import org.uma.jmetal.algorithm.multiobjective.nsgaii.NSGAIIBuilder;
-import org.uma.jmetal.algorithm.multiobjective.paes.PAESBuilder;
-import org.uma.jmetal.algorithm.multiobjective.randomsearch.RandomSearchBuilder;
-import org.uma.jmetal.algorithm.multiobjective.smsemoa.SMSEMOABuilder;
-import org.uma.jmetal.operator.impl.crossover.SBXCrossover;
-import org.uma.jmetal.operator.impl.mutation.PolynomialMutation;
-import org.uma.jmetal.problem.DoubleProblem;
-import org.uma.jmetal.qualityindicator.impl.hypervolume.PISAHypervolume;
-import org.uma.jmetal.solution.DoubleSolution;
-import org.uma.jmetal.util.JMetalException;
-import org.uma.jmetal.util.experiment.Experiment;
-import org.uma.jmetal.util.experiment.ExperimentBuilder;
-import org.uma.jmetal.util.experiment.component.*;
-import org.uma.jmetal.util.experiment.util.ExperimentAlgorithm;
-import org.uma.jmetal.util.experiment.util.ExperimentProblem;
+package data.jmetal.problems;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -74,12 +52,12 @@ public class ExperimentsDoubleExternalViaJAR {
               .build();
       algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
 
-      /* As simulações com ExternalViaJAR no nome tem as funções de avaliação 
-      implementadas em .JAR externos que são invocados no método evaluate() 
-      As simulações que executam .jar externos são muito mais demoradas, 
+      /* As simulaï¿½ï¿½es com ExternalViaJAR no nome tem as funï¿½ï¿½es de avaliaï¿½ï¿½o 
+      implementadas em .JAR externos que sï¿½o invocados no mï¿½todo evaluate() 
+      As simulaï¿½ï¿½es que executam .jar externos sï¿½o muito mais demoradas, 
       maxEvaluations e INDEPENDENT_RUNS tem por isso valores mais baixos */      
-      /* Deverão ser comentadas ou retiradas de comentário as linhas 
-      correspondentes às simulações que se pretendem executar */
+      /* Deverï¿½o ser comentadas ou retiradas de comentï¿½rio as linhas 
+      correspondentes ï¿½s simulaï¿½ï¿½es que se pretendem executar */
       
 //    Algorithm<List<DoubleSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(), new SBXCrossover(1.0, 5), new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0)).setMaxEvaluations(maxEvaluations).build();      
 //    algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));

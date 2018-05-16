@@ -1,4 +1,4 @@
-package jMetalES2Example;
+package data.jmetal.problems;
 
 import org.uma.jmetal.algorithm.Algorithm;
 import org.uma.jmetal.algorithm.multiobjective.mocell.MOCellBuilder;
@@ -69,12 +69,12 @@ public class ExperimentsIntegeExternalViaJAR {
               .build();
       algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
 
-      /* As simulações com ExternalViaJAR no nome tem as funções de avaliação 
-      implementadas em .JAR externos que são invocados no método evaluate() 
-      As simulações que executam .jar externos são muito mais demoradas, 
+      /* As simulaï¿½ï¿½es com ExternalViaJAR no nome tem as funï¿½ï¿½es de avaliaï¿½ï¿½o 
+      implementadas em .JAR externos que sï¿½o invocados no mï¿½todo evaluate() 
+      As simulaï¿½ï¿½es que executam .jar externos sï¿½o muito mais demoradas, 
       maxEvaluations e INDEPENDENT_RUNS tem por isso valores mais baixos */      
-      /* Deverão ser comentadas ou retiradas de comentário as linhas 
-      correspondentes às simulações que se pretendem executar */      
+      /* Deverï¿½o ser comentadas ou retiradas de comentï¿½rio as linhas 
+      correspondentes ï¿½s simulaï¿½ï¿½es que se pretendem executar */      
       
 //    Algorithm<List<IntegerSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(), new IntegerSBXCrossover(0.9, 20.0),new IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(), 20.0)).setMaxEvaluations(maxEvaluations).build();      
 //    algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));

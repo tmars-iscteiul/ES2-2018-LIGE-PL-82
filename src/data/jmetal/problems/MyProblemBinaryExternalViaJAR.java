@@ -1,4 +1,4 @@
-package jMetalES2Example;
+package data.jmetal.problems;
 
 import org.uma.jmetal.problem.impl.AbstractBinaryProblem;
 import org.uma.jmetal.solution.BinarySolution;
@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.BitSet;
 
-/* Implementação de um problema do tipo Binary que executa o .jar externo
+/* Implementaï¿½ï¿½o de um problema do tipo Binary que executa o .jar externo
    OneZeroMax.jar e pode ser usado como um dos problema de teste indicados 
    no encunciado do trabalho */
 

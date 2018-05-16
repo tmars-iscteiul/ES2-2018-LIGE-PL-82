@@ -1,10 +1,10 @@
-package jMetalES2Example;
+package data.jmetal.problems;
 
 import java.io.IOException;
 
 public class OptimizationProcess {
 	
-/* O conjunto de algoritmos adequados a cada tipo de problema estão indicados aqui */
+/* O conjunto de algoritmos adequados a cada tipo de problema estï¿½o indicados aqui */
 	String[] AlgorithsForDoubleProblemType = new String[]{"NSGAII","SMSEMOA","GDE3","IBEA","MOCell","MOEAD","PAES","RandomSearch"};
 	String[] AlgorithsForIntegerProblemType = new String[]{"NSGAII","SMSEMOA","MOCell","PAES","RandomSearch"};
 	String[] AlgorithsForBinaryProblemType = new String[]{"NSGAII","SMSEMOA","MOCell","MOCH","PAES","RandomSearch","SPEA2"};	
@@ -12,15 +12,15 @@ public class OptimizationProcess {
 	public static void main(String[] args) {
 		try {
 
-/* Deverão ser comentadas ou retiradas de comentário as linhas 
-   correspondentes às simulações que se pretendem executar */
+/* Deverï¿½o ser comentadas ou retiradas de comentï¿½rio as linhas 
+   correspondentes ï¿½s simulaï¿½ï¿½es que se pretendem executar */
 			ExperimentsDouble.main(null);
 //			ExperimentsInteger.main(null);
 //			ExperimentsBinary.main(null);
 
-/* As simulações com ExternalViaJAR no nome tem as funções de avaliação 
-   implementadas em .JAR externos que são invocados no método evaluate() 
-   As simulações que executam .jar externos são muito mais demoradas, 
+/* As simulaï¿½ï¿½es com ExternalViaJAR no nome tem as funï¿½ï¿½es de avaliaï¿½ï¿½o 
+   implementadas em .JAR externos que sï¿½o invocados no mï¿½todo evaluate() 
+   As simulaï¿½ï¿½es que executam .jar externos sï¿½o muito mais demoradas, 
    maxEvaluations e INDEPENDENT_RUNS tem por isso valores mais baixos */
 			ExperimentsDoubleExternalViaJAR.main(null);
 //			ExperimentsIntegeExternalViaJAR.main(null);
