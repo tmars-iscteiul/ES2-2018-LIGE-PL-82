@@ -21,13 +21,16 @@ public class Configuration {
 	private double upperLimit;	/** Upper bound for the float value*/
 	private double lowerLimit;	/** Lower bound for the float value*/
 	private VariableType varType; /** Helper to verify the object type, if defined */
+	private String[] valueName;
 	private Object[] valueArray; /** Defined as Object, since we can have multiple values there. To be tweaked in case of non compatibility */
 
-	public Configuration(String name, double low, double up, String type, int configSize) {
+	public Configuration(String name, double low, double up, String type, int configSize, String description) {
 		this.name = name;
 		setLimits(low, up);
 		setArrayType(type);
 		valueArray = new Object[configSize];
+		valueName = new String[configSize];
+		this.description = description;
 	}
 
 	public Configuration(data.submission.InputListTable input)	{
@@ -35,6 +38,7 @@ public class Configuration {
 		setLimits(input.getMinValue(), input.getMaxValue());
 		setArrayType(input.getType());
 		valueArray = new Object[input.getNumberVar()];
+		valueName = new String[input.getNumberVar()];
 		description = input.getDescription();
 	}
 	
@@ -64,6 +68,9 @@ public class Configuration {
 		return valueArray;
 	}
 	
+	public void setVariableNames(String names)	{
+		valueName = names.split(",");
+	}
 }
 
 
