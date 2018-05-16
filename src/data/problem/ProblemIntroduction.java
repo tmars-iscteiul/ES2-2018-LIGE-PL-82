@@ -2,12 +2,16 @@ package data.problem;
 
 import data.utils.TimeVariable;
 
-public class Introduction {
+/**
+ * This class will hold basic information about the problem, such as its defining name or the email from the user. 
+ * Will also contain time variables that define the average and max duration for the computing process.
+ * 
+ * @see Problem
+ * @author skner
+ *
+ */
+public class ProblemIntroduction {
 
-	/*
-	 * introduction
-	 * - main information {name, fullDescription, averageDuration, averageScale, maxDuration, maxScale, userEmail}
-	 */
 	
 	private String name;
 	private String fullDescription;
@@ -15,7 +19,7 @@ public class Introduction {
 	private TimeVariable maxDuration;
 	private String userEmail;
 	
-	public Introduction(String name, String fullDescription, TimeVariable averageDuration, TimeVariable maxDuration, String userEmail)	{
+	public ProblemIntroduction(String name, String fullDescription, TimeVariable averageDuration, TimeVariable maxDuration, String userEmail)	{
 		this.name = name;
 		this.fullDescription = fullDescription;
 		this.averageDuration = averageDuration;
@@ -23,4 +27,11 @@ public class Introduction {
 		this.userEmail = userEmail;
 	}
 	
+	public ProblemIntroduction(data.submission.MainInformation mainInformation)	{
+		name = mainInformation.getProblemName();
+		fullDescription = mainInformation.getFullDescription();
+		userEmail = mainInformation.getUserEmail();
+		averageDuration = new TimeVariable(mainInformation.getAverageDuration(), mainInformation.getAverageScale());
+		maxDuration = new TimeVariable(mainInformation.getMaxDuration(), mainInformation.getMaxScale());
+	}
 }

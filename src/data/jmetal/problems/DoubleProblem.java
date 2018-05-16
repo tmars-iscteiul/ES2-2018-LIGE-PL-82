@@ -6,7 +6,7 @@ import java.util.List;
 import org.uma.jmetal.problem.impl.AbstractDoubleProblem;
 import org.uma.jmetal.solution.DoubleSolution;
 
-import data.Configuration;
+import data.problem.Configuration;
 import data.problem.ProblemInputs;
 
 public class DoubleProblem extends AbstractDoubleProblem {
