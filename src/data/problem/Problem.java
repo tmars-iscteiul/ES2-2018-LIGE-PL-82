@@ -36,7 +36,9 @@ public class Problem {
 		introduction = new ProblemIntroduction(submission.getMainInformation());
 		inputs = new ProblemInputs(submission.getInputs());
 		optimization = new ProblemOptimization(submission.getOptimization());
-		// fitnessapp
+		// Why is submission.fitnessApp a list? Does it contain various fitness apps, all for the same problem, but for different input lists?
+		// For now, I'm assuming this isn't true, and checking only the first member of the list. TODO Possible change 
+		fitnessApp = new ProblemFitnessApp(submission.getFitnessApp().getFitnessList().get(0));
 		
 	}
 
