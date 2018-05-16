@@ -1,6 +1,6 @@
 package data.utils;
 
-public enum Algorithms {
+public enum Algorithm {
     coralReefOptimization,
     diferencialEvolution, 
     cmaes, 
