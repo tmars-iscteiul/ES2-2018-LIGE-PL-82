@@ -63,7 +63,7 @@ public class Engine extends Thread	{
 		Email email = new Email(submission);
 		email.welcome_email(submission.getMainInformation().getUserEmail());
 		new EmailSender().sendMail(email);
-		
+
 		// TODO Add submission_feedback email sender
 		problemQueue.add(new Problem(submission));
 	}

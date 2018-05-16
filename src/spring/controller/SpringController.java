@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import data.comm.Email;
@@ -38,6 +39,13 @@ public class SpringController {
 		System.out.println("New process arrived: " + submission.getMainInformation().getProblemName());
 		
 		engine.addProblemToQueue(submission);
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4100")
+	@RequestMapping(method = RequestMethod.POST, value = "/request_problem", produces = "application/json")
+	@ResponseBody public String sendResults() {
+		System.out.println("Test worked");
+		return "{\"name\":\"teste\"}";
 	}
 
 }
