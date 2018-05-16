@@ -50,7 +50,6 @@ export class AppComponent {
     });
     */
     
-    }
     // Bar Chart:
     this.BarChart = new Chart('barChart', {
       type: 'bar',
@@ -103,7 +102,7 @@ export class AppComponent {
       mode: 'cors'
     }).then((response) => {
       console.log(response);
-      alert('The process started with sucess. Check your email for details.');
+      alert(JSON.stringify(response));
     }).catch((ex) => {
       console.log(ex);
       alert(ex);

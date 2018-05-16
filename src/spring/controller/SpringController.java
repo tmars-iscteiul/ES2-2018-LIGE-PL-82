@@ -43,9 +43,9 @@ public class SpringController {
 	
 	@CrossOrigin(origins = "http://localhost:4100")
 	@RequestMapping(method = RequestMethod.POST, value = "/request_problem", produces = "application/json")
-	@ResponseBody public String sendResults() {
+	public @ResponseBody String sendResults() {
 		System.out.println("Test worked");
-		return "{\"name\":\"teste\"}";
+		return "{\"name\":\"testSpring\"}";
 	}
 
 }
