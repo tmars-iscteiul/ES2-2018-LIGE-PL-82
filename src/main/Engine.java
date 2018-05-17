@@ -13,7 +13,7 @@ import data.problem.Problem;
 import data.problem.Restriction;
 import data.submission.Introduction;
 import data.submission.Submission;
-import data.utils.Algorithms;
+import data.utils.Algorithm;
 import data.utils.TimeVariable;
 
 /**

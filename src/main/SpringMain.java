@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages={"main, spring"})
 public class SpringMain {
 
+	
 	/*
 	 * How to run:
 	 * 

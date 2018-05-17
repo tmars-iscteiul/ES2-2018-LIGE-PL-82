@@ -3,15 +3,14 @@ package data.problem;
 import data.submission.Submission;
 
 /**
- * The class problem will be the entire submission from the user. It will then fork into different sections, that will allow the engine to work
- * with each one in a more intuitive way. 
+ * The class problem will be the operational class given by the user, made from the submission. 
+ * It will then fork into different sections, that will allow the engine to work with each one in a more intuitive way. 
  * The hierarchy will follow the following tree:
  * 
- * Problem
+ * - Problem
  * | - @see ProblemIntroduction
  * | - @see ProblemInputs
  * | | - @see Configuration 
- * | | - @see * 
  * | | - @see Restriction 
  * | - @see ProblemOptimization
  * | - @see ProblemFitnessApp 
@@ -26,8 +25,7 @@ public class Problem {
 	private ProblemOptimization optimization;
 	private ProblemFitnessApp fitnessApp;
 
-	public Problem(ProblemIntroduction introduction, ProblemInputs inputs, ProblemOptimization optimization, 
-			ProblemFitnessApp fitnessApp)	{
+	public Problem(ProblemIntroduction introduction, ProblemInputs inputs, ProblemOptimization optimization, ProblemFitnessApp fitnessApp)	{
 		this.introduction = introduction;
 		this.inputs = inputs;
 		this.optimization = optimization;
@@ -37,6 +35,11 @@ public class Problem {
 	public Problem(Submission submission) {
 		introduction = new ProblemIntroduction(submission.getMainInformation());
 		inputs = new ProblemInputs(submission.getInputs());
+		optimization = new ProblemOptimization(submission.getOptimization());
+		// Why is submission.fitnessApp a list? Does it contain various fitness apps, all for the same problem, but for different input lists?
+		// For now, I'm assuming this isn't true, and checking only the first member of the list. TODO Possible change 
+		fitnessApp = new ProblemFitnessApp(submission.getFitnessApp().getFitnessList().get(0));
+		
 	}
 
 	/*
