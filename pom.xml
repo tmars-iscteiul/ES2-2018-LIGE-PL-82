@@ -8,7 +8,6 @@
   <name>LIGE-PL-82</name>
   <url>http://maven.apache.org</url>
 
-
   <build>
     <sourceDirectory>${basedir}/src</sourceDirectory>
     <testSourceDirectory>${basedir}/jUnit</testSourceDirectory>
