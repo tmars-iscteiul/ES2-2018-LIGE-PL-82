@@ -10,11 +10,11 @@ public class OptimizationProcess {
 	String[] AlgorithsForBinaryProblemType = new String[]{"NSGAII","SMSEMOA","MOCell","MOCH","PAES","RandomSearch","SPEA2"};	
 
 	public static void main(String[] args) {
-		try {
+//		try {
 
 /* Dever�o ser comentadas ou retiradas de coment�rio as linhas 
    correspondentes �s simula��es que se pretendem executar */
-			ExperimentsDouble.main(null);
+//			ExperimentsDouble.main(null);
 //			ExperimentsInteger.main(null);
 //			ExperimentsBinary.main(null);
 
@@ -22,11 +22,11 @@ public class OptimizationProcess {
    implementadas em .JAR externos que s�o invocados no m�todo evaluate() 
    As simula��es que executam .jar externos s�o muito mais demoradas, 
    maxEvaluations e INDEPENDENT_RUNS tem por isso valores mais baixos */
-			ExperimentsDoubleExternalViaJAR.main(null);
+//			ExperimentsDoubleExternalViaJAR.main(null);
 //			ExperimentsIntegeExternalViaJAR.main(null);
 //			ExperimentsBinaryExternalViaJAR.main(null);		
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	} 
 }
