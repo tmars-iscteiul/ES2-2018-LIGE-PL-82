@@ -1,0 +1,105 @@
+{
+  "introdution": {},
+  "mainInformation": {
+    "problemName": "antiSpamProblem",
+    "fullDescription": "This is a description of the anti-spam problem.",
+    "averageDuration": 2,
+    "averageScale": "min",
+    "maxDuration": 5,
+    "maxScale": "min",
+    "userEmail": "tm.alves.rodrigues@gmail.com"
+  },
+  "inputs": {
+    "inputListTable": [
+      {
+        "listName": "rulesList",
+        "type": "boolean",
+        "numberVar": 4,
+        "minValue": -5,
+        "maxValue": 5,
+        "description": "List of email rules"
+      }
+    ],
+    "createInputItems": {
+      "inputsNameTable": [
+        {
+          "list": "rulesList",
+          "nameDescription": "BAYES_20,SEX_WORDS,BIG_FONT,HTML_PARSE"
+        }
+      ]
+    },
+    "restrictions": {
+      "restrictionsList": [
+        {
+          "variableName": "rulesList",
+          "symbol": "different",
+          "value": 0
+        }
+      ]
+    }
+  },
+  "fitnessApp": {
+    "fitnessOutputList": [
+      {
+        "outputName": "falsePositive",
+        "outputType": "int",
+        "outputDescription": "Number of false positives"
+      },
+      {
+        "outputName": "falseNegative",
+        "outputType": "int",
+        "outputDescription": "Number of false negatives"
+      }
+    ],
+    "fitnessName": "fNfPFitnessApp",
+    "fileURL": "https://raw.githubusercontent.com/tmars-iscteiul/ES2-2018-LIGE-PL-82/testSpring/caseStudies/test1.jar"
+  },
+  "optimization": {
+    "optimizerSelection": "manual",
+    "coralReefOptimization": true,
+    "diferencialEvolution": false,
+    "cmaes": true,
+    "ees": false,
+    "nees": false,
+    "gga": true,
+    "ssga": false,
+    "pwo2007": true,
+    "pwo2011": false,
+    "abyss": true,
+    "cellde": true,
+    "dmopso": false,
+    "dmopsom": true,
+    "gde3": true,
+    "gwasfga": false,
+    "ibea": true,
+    "mocell": false,
+    "mochc": true,
+    "moead": false,
+    "cmoead": true,
+    "moeaddd": false,
+    "moeaddra": true,
+    "moeadstm": true,
+    "mombi": false,
+    "mombi2": true,
+    "nsgaii": true,
+    "nsgaiim": false,
+    "ssnsgaii": true,
+    "nsgaiii": false,
+    "omopso": false,
+    "paes": true,
+    "pesa2": true,
+    "randomsearch": false,
+    "smpso": true,
+    "smpsom": false,
+    "smsemoa": true,
+    "spea2": true,
+    "wasfga": false
+  },
+  "feedback": {
+    "name": "Tiago Rodrigues",
+    "email": "tm.alves.rodrigues@gmail.com",
+    "subject": "Doubt",
+    "emailText": "I have this doubt and I want to tell."
+  },
+  "faqs": {}
+}

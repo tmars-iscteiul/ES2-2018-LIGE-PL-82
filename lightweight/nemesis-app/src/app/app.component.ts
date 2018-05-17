@@ -15,7 +15,7 @@ export class AppComponent {
       style: 'outline-secondary',
       icon: 'save',
       callback: () => {
-          this.appService.saveValueToFile('nemesis_saved.json', {
+          this.appService.saveValueToFile('nemesis_'+(Date.now() / 1000 | 0)+'.json', {
             onSuccess: () => console.log('Value saved successfully'),
             onError: err => console.error('Error saving file: ', err),
           });

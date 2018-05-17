@@ -5,6 +5,20 @@
   <lf-form-content>
 
     <div class="row">
+      <div class="col-sm-4">
+        <lf-text name="fitnessName" title="Function Name" label="Function Name" help="Use only uppercase and lowercase letters" 
+         [isRequired]="true" [isValid]="isValidName()"></lf-text>
+      </div>
+
+      <div class="col-sm-8">
+        <lf-text name="fileURL" title="File URL" label="File URL" help="This link should point directly to the JAR file." 
+         [isRequired]="true"></lf-text>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
       <div class="col-sm-12">
         <p style="text-align: justify; padding-right: 30px"><strong>Attention:</strong> In the process, the platform assumes that the optimization function intents to minimize the optimization criteria expressed through the fitness functions.</p>
       </div>

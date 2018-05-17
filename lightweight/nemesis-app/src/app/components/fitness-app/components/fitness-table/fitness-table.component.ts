@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fitness-table.component.scss']
 })
 export class FitnessTableComponent implements OnInit {
+  public optionsTypeInput: object[] = [
+    {value: 'int', text: 'Integer'},
+    {value: 'double', text: 'Double'},
+  ];
 
   constructor() { }
 

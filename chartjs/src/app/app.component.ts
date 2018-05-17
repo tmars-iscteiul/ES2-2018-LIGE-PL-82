@@ -1,6 +1,8 @@
 import {Component, HostListener} from '@angular/core';
 import * as Chart from 'chart.js';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +15,8 @@ export class AppComponent {
 
   constructor() {}
   @HostListener('nginit') ngOnInit() {
+    var jsonChart = null;
+
     // Loading data from json
    /* $.getJSON("data.json", function(json) {
       // will generate array with ['Monday', 'Tuesday', 'Wednesday']
@@ -92,7 +96,6 @@ export class AppComponent {
   }
 
   submit() {
-    console.log('test');
     fetch('http://localhost:8080/request_problem', {
       method: 'POST',
       headers: {
@@ -100,13 +103,9 @@ export class AppComponent {
       },
       body: JSON.stringify('{"name":"test"}'),
       mode: 'cors'
-    }).then((response) => {
-      console.log(response);
-      alert(JSON.stringify(response));
-    }).catch((ex) => {
-      console.log(ex);
-      alert(ex);
-    });
+    }).then(res =>
+      var jsonChart = JSON.stringify(res);
+    ));
   }
 
   // Radar Chart

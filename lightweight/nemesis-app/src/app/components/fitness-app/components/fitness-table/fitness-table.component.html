@@ -1,10 +1,11 @@
-<lf-table #lfTable name="fitnessList"
+<lf-table #lfTable name="fitnessOutputList"
           [isRequired]="true">
   <ng-template #lfTableHeaderTemplate>
     <thead lf-table-header>
     <lf-table-column-index></lf-table-column-index>
-    <lf-table-column label="Function name"></lf-table-column>
-    <lf-table-column label="File URL (downloadable .jar file)"></lf-table-column>
+    <lf-table-column label="Output name"></lf-table-column>
+    <lf-table-column label="Output type"></lf-table-column>
+    <lf-table-column label="Description"></lf-table-column>
     </thead>
   </ng-template>
 
@@ -15,10 +16,15 @@
       </td>
 
       <td lf-table-cell>
-        <lf-text name="fitnessName" [isValid]="isValidName()"></lf-text>
+        <lf-text name="outputName" [isValid]="isValidName()"></lf-text>
       </td>
       <td lf-table-cell>
-        <lf-text name="fileURL"></lf-text>
+        <lf-select name="outputType"
+                   [options]="optionsTypeInput"
+        ></lf-select>
+      </td>
+      <td lf-table-cell>
+        <lf-text name="outputDescription"></lf-text>
       </td>
     </tr>
   </ng-template>
