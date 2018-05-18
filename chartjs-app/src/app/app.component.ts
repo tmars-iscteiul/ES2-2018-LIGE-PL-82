@@ -30,7 +30,7 @@ export class AppComponent {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify('{"problemName":"' + this.problemName + '"}'),
+      body: JSON.stringify(this.problemName),
       mode: 'cors'
     }).then(res =>
       this.jsonChart = JSON.stringify(res));
