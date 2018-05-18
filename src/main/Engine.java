@@ -1,5 +1,7 @@
 package main;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -13,7 +15,9 @@ import data.problem.Problem;
 import data.problem.Restriction;
 import data.submission.Introduction;
 import data.submission.Submission;
+import threads.JMetalWorker;
 import utilities.Algorithm;
+import utilities.ConsoleLogger;
 import utilities.TimeVariable;
 
 /**
@@ -29,10 +33,12 @@ public class Engine extends Thread	{
 	//private Administrator admin; TODO Why do we need this?
 	private BlockingQueue<Problem> problemQueue;
 	private Submission problem;
+	private ConsoleLogger engineLogger;
 	
 	public Engine()	{
 		problemQueue = new ArrayBlockingQueue<Problem>(1024);
-		System.out.println("[ENGINE] Engine has been created.");
+		engineLogger = new ConsoleLogger("ENGINE");
+		engineLogger.writeConsoleLog("Engine has been created.");
 		start();
 	}
 	
@@ -48,20 +54,16 @@ public class Engine extends Thread	{
 	 */
 	@Override
 	public synchronized void run()	{
-		System.out.println("[ENGINE] Engine is running and awaiting inputs.");
+		engineLogger.writeConsoleLog("Engine is running and awaiting inputs...");
 		while(true) {
-			if(problemQueue.size() < 1)	{
-				waitForSubmission();
-			}	else	{
-				
+			try {
+				new JMetalWorker(problemQueue.take());
+				engineLogger.writeConsoleLog("Submission received. Starting problem process.");
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
 		}
 	}
-	
-	/**
-	 * Reads the JSON File through Spring's framework. 
-	 * While the framework is being implemented, this method creates place-holders for the data structures
-	 */
 	
 	public void executeAlgorithm() {
 	}
@@ -82,13 +84,5 @@ public class Engine extends Thread	{
 			return "ENGINE STATUS: Computing...";
 		}
 	}
-	
-	private void waitForSubmission()	{
-		try {
-			wait();
-		} catch (InterruptedException e) {
-			System.err.println("[ENGINE] Engine was interrupted. Shouldn't happen.");
-			e.printStackTrace();
-		}
-	}
+
 }
