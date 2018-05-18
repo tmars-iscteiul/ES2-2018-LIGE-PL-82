@@ -17,6 +17,16 @@ export class AppComponent {
   constructor() {}
   @HostListener('nginit') ngOnInit() {
     
+    fetch('http://localhost:8080/request_problem', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify('{"name":"test"}'),
+      mode: 'cors'
+    }).then(res =>
+      this.jsonChart = JSON.stringify(res));
+    
 
     // Loading data from json
    /* $.getJSON("data.json", function(json) {
@@ -94,19 +104,6 @@ export class AppComponent {
         }]
       }
     });
-  }
-
-  submit() {
-    fetch('http://localhost:8080/request_problem', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify('{"name":"test"}'),
-      mode: 'cors'
-    }).then(res =>
-      jsonChart = JSON.stringify(res));
-    );
   }
 
   // Radar Chart

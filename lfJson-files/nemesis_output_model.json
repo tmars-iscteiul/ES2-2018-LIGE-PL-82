@@ -7,24 +7,12 @@
       {
          "outputName": "falsePositives",
          "outputDescription": "False Positives",
-         "values": [
-            {
-               "v1": 2,
-               "v2": 0,
-               "v3": 1,
-            }
-         ]
+         "values": [2,0,1]
       }
       {
          "outputName": "falseNegatives",
          "outputDescription": "False Negatives",
-         "values": [
-            {
-               "v1": 0,
-               "v2": 3,
-               "v3": 1,
-            }
-         ]
+         "values": [0,3,1]
       }
    ],
 }
