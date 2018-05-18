@@ -1,18 +1,30 @@
 {
    "problemName": "antiSpamProblem",
-   "problemDescription": "This is a text.",
-   "userEmail": "tiago@gmail.com",
+   "problemDescription": "This is a description of the problem.",
+   "userEmail": "tm.alves.rodrigues@gmail.com",
    "outputsFunction": "fNfPFitnessApp",
    "fitnessOutputList": [
       {
          "outputName": "falsePositives",
-         "value": 3,
-         "outputDescription": "FP"
+         "outputDescription": "False Positives",
+         "values": [
+            {
+               "v1": 2,
+               "v2": 0,
+               "v3": 1,
+            }
+         ]
       }
       {
          "outputName": "falseNegatives",
-         "value": 2,
-         "outputDescription": "FN"
+         "outputDescription": "False Negatives",
+         "values": [
+            {
+               "v1": 0,
+               "v2": 3,
+               "v3": 1,
+            }
+         ]
       }
    ],
 }
