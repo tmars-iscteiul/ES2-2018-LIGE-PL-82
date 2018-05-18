@@ -13,16 +13,24 @@ export class AppComponent {
   BarChart: any;
   RadarChart: any;
   jsonChart = null;
+  problemName = null;
 
   constructor() {}
   @HostListener('nginit') ngOnInit() {
+
+    var query = window.location.search.substring(1);
+    var vars = query.split("=");
+
+    if (vars[0] == "problemName") {
+      this.problemName = vars[1];
+    }
     
     fetch('http://localhost:8080/request_problem', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify('{"name":"test"}'),
+      body: JSON.stringify('{"problemName":"' + this.problemName + '"}'),
       mode: 'cors'
     }).then(res =>
       this.jsonChart = JSON.stringify(res));

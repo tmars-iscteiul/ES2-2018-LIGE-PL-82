@@ -2,8 +2,10 @@ package data.submission;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Restrictions {
-	private List<RestrictionsList> restrictionsList;
+	@JsonProperty("restrictionsList") private List<RestrictionsList> restrictionsList;
 
 	public Restrictions(List<RestrictionsList> restrictionsList) {
 		super();

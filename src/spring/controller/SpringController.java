@@ -22,6 +22,7 @@ import data.comm.Email;
 import data.comm.EmailSender;
 import data.submission.Submission;
 import main.Engine;
+import utilities.ProblemName;
 
 /**
  * @author skner
@@ -53,15 +54,15 @@ public class SpringController {
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4100")
-	@RequestMapping(method = RequestMethod.POST, value = "/request_problem", produces = "application/json")
-	public @ResponseBody String sendResults() {
-		System.out.println("Test worked test");
+	@RequestMapping(method = RequestMethod.POST, value = "/request_problem", consumes = "application/json", produces = "application/json")
+	public @ResponseBody String sendResults(@RequestBody ProblemName problem) {
+		System.out.println("Requested: " + problem.getProblemName());
 		
 		String jsonTxt;
 		InputStream is;
 		
 		try {
-			is = new FileInputStream("./lfJson-files/nemesis_output_model.json");
+			is = new FileInputStream("./outputResults/"+problem.getProblemName()+".json");
 			jsonTxt = IOUtils.toString( is );
 		} catch (FileNotFoundException e) {
 			System.out.println("Cannot open the json file.");
