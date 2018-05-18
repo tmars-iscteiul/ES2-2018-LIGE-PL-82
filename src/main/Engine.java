@@ -13,8 +13,8 @@ import data.problem.Problem;
 import data.problem.Restriction;
 import data.submission.Introduction;
 import data.submission.Submission;
-import data.utils.Algorithm;
-import data.utils.TimeVariable;
+import utilities.Algorithm;
+import utilities.TimeVariable;
 
 /**
  * The engine is the main worker of the software. It will be in charge of following the software's logical process.
@@ -47,8 +47,15 @@ public class Engine extends Thread	{
 	 *   
 	 */
 	@Override
-	public void run()	{
+	public synchronized void run()	{
 		System.out.println("[ENGINE] Engine is running and awaiting inputs.");
+		while(true) {
+			if(problemQueue.size() < 1)	{
+				waitForSubmission();
+			}	else	{
+				
+			}
+		}
 	}
 	
 	/**
@@ -73,6 +80,15 @@ public class Engine extends Thread	{
 			return "ENGINE STATUS: Awaiting inputs";
 		}	else	{
 			return "ENGINE STATUS: Computing...";
+		}
+	}
+	
+	private void waitForSubmission()	{
+		try {
+			wait();
+		} catch (InterruptedException e) {
+			System.err.println("[ENGINE] Engine was interrupted. Shouldn't happen.");
+			e.printStackTrace();
 		}
 	}
 }

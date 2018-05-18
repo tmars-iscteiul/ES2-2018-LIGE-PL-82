@@ -1,6 +1,6 @@
 package data.problem;
 
-import data.utils.VariableType;
+import utilities.VariableType;
 
 /**
  * The configuration class will hold the important information to be passed to the specified algorithm

@@ -1,4 +1,4 @@
-package data.utils;
+package utilities;
 
 public enum Algorithm {
     coralReefOptimization,

@@ -1,7 +1,7 @@
 package data.problem;
 
-import data.utils.Path;
-import data.utils.ReadFromURL;
+import utilities.Path;
+import utilities.ReadFromURL;
 
 /**
  * This class will contain the app to evaluate the configuration sent by the user.

@@ -2,7 +2,7 @@ package data.problem;
 
 import java.util.ArrayList;
 
-import data.utils.Algorithm;
+import utilities.Algorithm;
 
 /**
  * This class will contain the list of algorithms to run using the given configuration lists by the client.

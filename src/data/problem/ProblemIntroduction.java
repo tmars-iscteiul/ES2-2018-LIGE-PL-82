@@ -1,6 +1,6 @@
 package data.problem;
 
-import data.utils.TimeVariable;
+import utilities.TimeVariable;
 
 /**
  * This class will hold basic information about the problem, such as its defining name or the email from the user. 

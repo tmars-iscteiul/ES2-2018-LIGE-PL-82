@@ -1,4 +1,4 @@
-package data.utils;
+package utilities;
 
 import java.net.*;
 

@@ -1,4 +1,4 @@
-package data.utils;
+package utilities;
 
 /**
  * This utility will serve as a helper for the problem data classes. 
