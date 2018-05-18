@@ -12,10 +12,11 @@ export class AppComponent {
   title = 'Nemesis Results';
   BarChart: any;
   RadarChart: any;
+  jsonChart = null;
 
   constructor() {}
   @HostListener('nginit') ngOnInit() {
-    var jsonChart = null;
+    
 
     // Loading data from json
    /* $.getJSON("data.json", function(json) {
@@ -104,8 +105,8 @@ export class AppComponent {
       body: JSON.stringify('{"name":"test"}'),
       mode: 'cors'
     }).then(res =>
-      var jsonChart = JSON.stringify(res);
-    ));
+      jsonChart = JSON.stringify(res));
+    );
   }
 
   // Radar Chart

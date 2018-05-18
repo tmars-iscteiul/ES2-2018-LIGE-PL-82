@@ -3,6 +3,13 @@
  */
 package spring.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,7 +52,22 @@ public class SpringController {
 	@RequestMapping(method = RequestMethod.POST, value = "/request_problem", produces = "application/json")
 	public @ResponseBody String sendResults() {
 		System.out.println("Test worked test");
-		return "{\"name\":\"testSpring\"}";
+		
+		String jsonTxt;
+		InputStream is;
+		
+		try {
+			is = new FileInputStream("./lfJson-files/nemesis_output_model.json");
+			jsonTxt = IOUtils.toString( is );
+		} catch (FileNotFoundException e) {
+			System.out.println("Cannot open the json file.");
+			return null;
+		} catch (IOException e) {
+			System.out.println("Cannot open the json file.");
+			return null;
+		}
+
+		return jsonTxt;
 	}
 
 }
