@@ -2,8 +2,6 @@ package utilities;
 
 import java.net.*;
 
-import main.SpringMain;
-
 import java.io.*;
 
 public abstract class ReadFromURL {
