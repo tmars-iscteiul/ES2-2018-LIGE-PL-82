@@ -50,7 +50,6 @@ public class Optimization {
 			boolean moeadstm, boolean mombi, boolean mombi2, boolean nsgaii, boolean nsgaiim, boolean ssnsgaii,
 			boolean nsgaiii, boolean omopso, boolean paes, boolean pesa2, boolean randomsearch, boolean smpso,
 			boolean smpsom, boolean smsemoa, boolean spea2, boolean wasfga) {
-		super();
 		this.optimizerSelection = optimizerSelection;
 		this.coralReefOptimization = coralReefOptimization;
 		this.diferencialEvolution = diferencialEvolution;

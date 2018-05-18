@@ -24,6 +24,7 @@ public class ProblemOptimization {
 	
 	public ProblemOptimization(data.submission.Optimization optimization)	{
 		// TODO Is there a better way to do this?
+		this();
 		if(optimization.isCoralReefOptimization())
 			algorithmList.add(Algorithm.coralReefOptimization);
 		if(optimization.isDiferencialEvolution())

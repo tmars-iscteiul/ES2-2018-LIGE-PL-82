@@ -34,4 +34,24 @@ public class ProblemIntroduction {
 		averageDuration = new TimeVariable(mainInformation.getAverageDuration(), mainInformation.getAverageScale());
 		maxDuration = new TimeVariable(mainInformation.getMaxDuration(), mainInformation.getMaxScale());
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getFullDescription() {
+		return fullDescription;
+	}
+
+	public TimeVariable getAverageDuration() {
+		return averageDuration;
+	}
+
+	public TimeVariable getMaxDuration() {
+		return maxDuration;
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
 }

@@ -21,13 +21,16 @@ public class TimeVariable {
 	}
 	
 	private TimeScale getScaleByString(String scale)	{
-		if(scale == "sec")
+		switch(scale)	{
+		case "sec":
 			return TimeScale.second;
-		else if(scale == "min")
+		case "min":
 			return TimeScale.minute;
-		else if(scale == "hour")
+		case "hour":
 			return TimeScale.hour;
-		throw new IllegalArgumentException("String \"" + scale + "\" doesn't match a scale (sec, min, hour)");
+		default:
+			throw new IllegalArgumentException("String \"" + scale + "\" doesn't match a scale (sec, min, hour)");
+		}
 	}
 
 	private void convertScale(String newScale)	{
