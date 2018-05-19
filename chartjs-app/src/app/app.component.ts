@@ -1,8 +1,6 @@
 import {Component, HostListener} from '@angular/core';
 import * as Chart from 'chart.js';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -32,9 +30,19 @@ export class AppComponent {
       },
       body: JSON.stringify(this.problemName),
       mode: 'cors'
-    }).then(res =>
-      this.jsonChart = JSON.stringify(res));
-    
+    }).then(response => {
+       return JSON.stringify(response)
+    }).then(data => {
+       this.jsonChart = data
+    }).catch((ex) => {
+      console.log(ex);
+      alert(ex);
+    });
+
+    if (this.jsonChart == null) {
+    	//window.alert('This link does not correspond to a valid problem result.');
+    	window.alert(this.jsonChart);
+    }
 
     // Loading data from json
    /* $.getJSON("data.json", function(json) {

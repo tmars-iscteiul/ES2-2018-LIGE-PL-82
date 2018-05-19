@@ -9,7 +9,7 @@
          "outputName": "falsePositives",
          "outputDescription": "False Positives",
          "values": [2,0,1]
-      }
+      },
       {
          "outputName": "falseNegatives",
          "outputDescription": "False Negatives",
