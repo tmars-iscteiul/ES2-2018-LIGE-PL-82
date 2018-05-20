@@ -43,13 +43,11 @@ public class SpringController {
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(method = RequestMethod.POST, value = "/send_problem", consumes = "application/json")
 	public void addSubmission(@RequestBody Submission submission)	{
-		System.out.println("New process arrived: " + submission.getMainInformation().getProblemName());
 		engine.addProblemToQueue(submission);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/send_test_problem")
 	public void addTestSubmission(@RequestBody Submission submission)	{
-		System.out.println("New process arrived: " + submission.getMainInformation().getProblemName());
 		engine.addProblemToQueue(submission);
 	}
 	
