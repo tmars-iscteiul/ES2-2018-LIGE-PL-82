@@ -77,7 +77,7 @@ public class JMetalWorker extends Thread {
 		
 		
 		//Here is where the algorithm calls will be made.
-		workerLogger.writeConsoleLog("Received problem class. Here's some fields to demonstrate the correct receiving.");
+		workerLogger.writeConsoleLog("Received problem \"" + problem.getIntroduction().getName() + "\" from " + problem.getIntroduction().getUserEmail());
 
 	}
 	
