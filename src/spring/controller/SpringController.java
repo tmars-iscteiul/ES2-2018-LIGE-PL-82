@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -56,12 +57,14 @@ public class SpringController {
 	public @ResponseBody String sendResults(@RequestBody ProblemName problem) {
 		System.out.println("Requested: " + problem.getProblemName());
 		
+		JSONObject jsonObj;
 		String jsonTxt;
 		InputStream is;
 		
 		try {
 			is = new FileInputStream("./outputResults/"+problem.getProblemName()+".json");
 			jsonTxt = IOUtils.toString( is );
+			jsonObj = new JSONObject(jsonTxt);
 		} catch (FileNotFoundException e) {
 			System.out.println("Cannot open the json file.");
 			return null;
@@ -69,7 +72,7 @@ public class SpringController {
 			System.out.println("Cannot open the json file.");
 			return null;
 		}
-
+		
 		return jsonTxt;
 	}
 
