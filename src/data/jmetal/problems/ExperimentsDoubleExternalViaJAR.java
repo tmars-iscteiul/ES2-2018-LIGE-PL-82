@@ -31,7 +31,8 @@ public class ExperimentsDoubleExternalViaJAR {
   private static final int INDEPENDENT_RUNS = 2;
   private static final int maxEvaluations = 250;
 
-  public static void main(String[] args) throws IOException {
+  //public static void main(String[] args) throws IOException {
+  public ExperimentsDoubleExternalViaJAR() {
     String experimentBaseDirectory = "experimentBaseDirectory";
 
     List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
@@ -54,10 +55,16 @@ public class ExperimentsDoubleExternalViaJAR {
             .build();
     
     new ExecuteAlgorithms<>(experiment).run();
-    new GenerateReferenceParetoSetAndFrontFromDoubleSolutions(experiment).run();
-    new ComputeQualityIndicators<>(experiment).run() ;
-    new GenerateLatexTablesWithStatistics(experiment).run() ;
-    new GenerateBoxplotsWithR<>(experiment).setRows(1).setColumns(1).run() ;
+    try {
+		new GenerateReferenceParetoSetAndFrontFromDoubleSolutions(experiment).run();
+		new ComputeQualityIndicators<>(experiment).run() ;
+		new GenerateLatexTablesWithStatistics(experiment).run() ;
+		new GenerateBoxplotsWithR<>(experiment).setRows(1).setColumns(1).run() ;
+    
+    } catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
   }
 
   static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList(

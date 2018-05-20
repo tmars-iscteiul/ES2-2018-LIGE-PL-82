@@ -20,10 +20,6 @@ import utilities.ConsoleLogger;
  */
 public class JMetalWorker extends Thread {
 
-	public Problem getProblem() {
-		return problem;
-	}
-
 	private Problem problem;
 	private ConsoleLogger workerLogger;
 	
