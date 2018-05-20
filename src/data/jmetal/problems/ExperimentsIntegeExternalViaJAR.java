@@ -69,12 +69,7 @@ public class ExperimentsIntegeExternalViaJAR {
               .build();
       algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
 
-      /* As simula��es com ExternalViaJAR no nome tem as fun��es de avalia��o 
-      implementadas em .JAR externos que s�o invocados no m�todo evaluate() 
-      As simula��es que executam .jar externos s�o muito mais demoradas, 
-      maxEvaluations e INDEPENDENT_RUNS tem por isso valores mais baixos */      
-      /* Dever�o ser comentadas ou retiradas de coment�rio as linhas 
-      correspondentes �s simula��es que se pretendem executar */      
+     
       
 //    Algorithm<List<IntegerSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(), new IntegerSBXCrossover(0.9, 20.0),new IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(), 20.0)).setMaxEvaluations(maxEvaluations).build();      
 //    algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));

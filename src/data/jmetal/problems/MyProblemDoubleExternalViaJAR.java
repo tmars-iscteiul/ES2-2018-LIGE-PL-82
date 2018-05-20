@@ -8,21 +8,26 @@ import java.util.List;
 import org.uma.jmetal.problem.impl.AbstractDoubleProblem;
 import org.uma.jmetal.solution.DoubleSolution;
 
+import data.problem.Configuration;
+import data.problem.ProblemInputs;
+import threads.JMetalWorker;
+
 /* Implementa��o de um problema do tipo Double que executa o .jar externo
    Kursawe.jar e pode ser usado como um dos problema de teste indicados 
    no encunciado do trabalho */
 
 @SuppressWarnings("serial")
 public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
-		
+	/*
 	  public MyProblemDoubleExternalViaJAR() {
 	    // 10 variables (anti-spam filter rules) by default 
 	    this(10);
-	  }
+	  }*/
 
-	  public MyProblemDoubleExternalViaJAR(Integer numberOfVariables) {
+	  public MyProblemDoubleExternalViaJAR(Integer numberOfVariables, Integer numberOfObjetives) {
+			
 	    setNumberOfVariables(numberOfVariables);
-	    setNumberOfObjectives(2);
+	    setNumberOfObjectives(numberOfObjetives);
 	    setName("MyProblemDoubleExternalViaJAR");
 
 	    List<Double> lowerLimit = new ArrayList<>(getNumberOfVariables()) ;
@@ -35,7 +40,7 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 
 	    setLowerLimit(lowerLimit);
 	    setUpperLimit(upperLimit);	    	    
-	  }
+	  } 
 
 	  public void evaluate(DoubleSolution solution){
 	    String solutionString ="";

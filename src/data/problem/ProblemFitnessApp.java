@@ -17,5 +17,10 @@ public class ProblemFitnessApp {
 		ReadFromURL.downloadFile(fitnessList.getOutputType(), fitnessList.getOutputName());
 		localJarPath = Path.appsFolder + fitnessList.getOutputName();
 	}
+
+	public String getLocalJarPath() {
+		return localJarPath;
+	}
+	
 	
 }

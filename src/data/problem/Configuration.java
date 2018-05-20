@@ -53,6 +53,17 @@ public class Configuration {
 		upperLimit = up;
 	}
 	
+	
+	public double getUpperLimit() {
+		return upperLimit;
+	}
+
+	public double getLowerLimit() {
+		return lowerLimit;
+	}
+
+	
+
 	private void setArrayType(String type) {
 		if(type == "int")
 			varType = VariableType.varInt;
@@ -66,6 +77,10 @@ public class Configuration {
 	
 	public Object[] getValueArray()	{
 		return valueArray;
+	}
+	
+	public VariableType getVarType() {
+		return varType;
 	}
 	
 	public void setVariableNames(String names)	{

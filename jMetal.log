@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-05-20T14:56:08</date>
+  <millis>1526824568668</millis>
+  <sequence>0</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.JMetalLogger</class>
+  <method>configureLoggers</method>
+  <thread>1</thread>
+  <message>Loggers configured with null</message>
+</record>
+<record>
+  <date>2018-05-20T14:56:08</date>
+  <millis>1526824568995</millis>
+  <sequence>1</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2018-05-20T14:56:09</date>
+  <millis>1526824569048</millis>
+  <sequence>2</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message>Creating experimentBaseDirectory/ExperimentsDoubleExternalViaJAR/data/NSGAII/MyProblemDoubleExternalViaJAR</message>
+</record>
+<record>
+  <date>2018-05-20T14:56:09</date>
+  <millis>1526824569049</millis>
+  <sequence>3</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAII, problem: MyProblemDoubleExternalViaJAR, run: 0, funFile: experimentBaseDirectory/ExperimentsDoubleExternalViaJAR/data/NSGAII/MyProblemDoubleExternalViaJAR/FUN0.tsv</message>
+</record>
+<record>
+  <date>2018-05-20T14:56:48</date>
+  <millis>1526824608628</millis>
+  <sequence>4</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>1</thread>
+  <message> Running algorithm: NSGAII, problem: MyProblemDoubleExternalViaJAR, run: 1, funFile: experimentBaseDirectory/ExperimentsDoubleExternalViaJAR/data/NSGAII/MyProblemDoubleExternalViaJAR/FUN1.tsv</message>
+</record>
+<record>
+  <date>2018-05-20T14:57:22</date>
+  <millis>1526824642643</millis>
+  <sequence>5</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.GenerateReferenceParetoSetAndFrontFromDoubleSolutions</class>
+  <method>createOutputDirectory</method>
+  <thread>1</thread>
+  <message>Creating experimentBaseDirectory/referenceFronts. Status = true</message>
+</record>
+<record>
+  <date>2018-05-20T14:57:22</date>
+  <millis>1526824642696</millis>
+  <sequence>6</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>Computing indicator: HV</message>
+</record>
+<record>
+  <date>2018-05-20T14:57:22</date>
+  <millis>1526824642698</millis>
+  <sequence>7</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>RF: experimentBaseDirectory/referenceFronts/MyProblemDoubleExternalViaJAR.rf</message>
+</record>
+<record>
+  <date>2018-05-20T14:57:22</date>
+  <millis>1526824642701</millis>
+  <sequence>8</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>1</thread>
+  <message>File experimentBaseDirectory/ExperimentsDoubleExternalViaJAR/data/NSGAII/MyProblemDoubleExternalViaJAR/HV does NOT exist.</message>
+</record>
+<record>
+  <date>2018-05-20T14:57:22</date>
+  <millis>1526824642703</millis>
+  <sequence>9</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>HV: 0.43845154071576575</message>
+</record>
+<record>
+  <date>2018-05-20T14:57:22</date>
+  <millis>1526824642709</millis>
+  <sequence>10</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>1</thread>
+  <message>HV: 0.6641717178834315</message>
+</record>
+<record>
+  <date>2018-05-20T14:57:23</date>
+  <millis>1526824643136</millis>
+  <sequence>11</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.GenerateLatexTablesWithStatistics</class>
+  <method>generateLatexScript</method>
+  <thread>1</thread>
+  <message>Creating experimentBaseDirectory/ExperimentsDoubleExternalViaJAR/latex directory</message>
+</record>
+</log>

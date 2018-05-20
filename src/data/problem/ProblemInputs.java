@@ -56,4 +56,5 @@ public class ProblemInputs {
 	public ArrayList<Configuration> getConfigList() {
 		return configList;
 	}
+	
 }

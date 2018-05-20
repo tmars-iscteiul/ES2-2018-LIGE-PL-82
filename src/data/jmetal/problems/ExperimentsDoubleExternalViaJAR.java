@@ -35,7 +35,7 @@ public class ExperimentsDoubleExternalViaJAR {
     String experimentBaseDirectory = "experimentBaseDirectory";
 
     List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
-    problemList.add(new ExperimentProblem<>(new MyProblemDoubleExternalViaJAR()));
+    problemList.add(new ExperimentProblem<>(new MyProblemDoubleExternalViaJAR(10,2 )));
 
     List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList =
             configureAlgorithmList(problemList);
@@ -74,12 +74,6 @@ public class ExperimentsDoubleExternalViaJAR {
               .build();
       algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
 
-      /* As simula��es com ExternalViaJAR no nome tem as fun��es de avalia��o 
-      implementadas em .JAR externos que s�o invocados no m�todo evaluate() 
-      As simula��es que executam .jar externos s�o muito mais demoradas, 
-      maxEvaluations e INDEPENDENT_RUNS tem por isso valores mais baixos */      
-      /* Dever�o ser comentadas ou retiradas de coment�rio as linhas 
-      correspondentes �s simula��es que se pretendem executar */
       
 //    Algorithm<List<DoubleSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(), new SBXCrossover(1.0, 5), new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0)).setMaxEvaluations(maxEvaluations).build();      
 //    algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));
