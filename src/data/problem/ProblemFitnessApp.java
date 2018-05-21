@@ -1,26 +1,64 @@
 package data.problem;
 
+import java.util.ArrayList;
+
+import data.submission.FitnessOutputList;
 import utilities.Path;
 import utilities.ReadFromURL;
+import utilities.VariableType;
 
 /**
  * This class will contain the app to evaluate the configuration sent by the user.
  * 
  * @author skner
- *
+ * 
  */
 public class ProblemFitnessApp {
 
-	private String localJarPath;
+	private class FitnessOutput	{
+		private String outputName;
+		private VariableType varType;
+		private String description;
+		private FitnessOutput(String outputName, VariableType varType, String description) {
+			this.outputName = outputName;
+			this.varType = varType;
+			this.description = description;
+		}
+	}
 	
-	public ProblemFitnessApp(data.submission.FitnessOutputList fitnessList)	{
-		ReadFromURL.downloadFile(fitnessList.getOutputType(), fitnessList.getOutputName());
-		localJarPath = Path.appsFolder + fitnessList.getOutputName();
+	private String localJarPath;
+	private String fitnessAppName;
+	private ArrayList<FitnessOutput> fitnessOutputList;
+	
+	public ProblemFitnessApp(data.submission.FitnessApp fitnessAppList)	{
+		ReadFromURL.downloadFile(fitnessAppList.getFileURL(), fitnessAppList.getFitnessName());	// Downloads file to caseStudies folder
+		localJarPath = Path.appsFolder + fitnessAppList.getFitnessName();
+		fitnessOutputList = new ArrayList<FitnessOutput>();
+		for(FitnessOutputList fol : fitnessAppList.getFitnessOutputList()) {
+			VariableType auxType;
+			if(fol.getOutputType() == "int")
+				auxType = VariableType.varInt;
+			else if(fol.getOutputType() == "double")	
+				auxType = VariableType.varDouble;
+			else if(fol.getOutputType() == "boolean")	
+				auxType = VariableType.varBoolean;
+			else
+				auxType = VariableType.varUndefined;
+			fitnessOutputList.add(new FitnessOutput(fol.getOutputName(), auxType, fol.getOutputDescription()));
+		}
+
 	}
 
 	public String getLocalJarPath() {
 		return localJarPath;
 	}
-	
+
+	public String getFitnessAppName() {
+		return fitnessAppName;
+	}
+
+	public ArrayList<FitnessOutput> getFitnessOutputList() {
+		return fitnessOutputList;
+	}
 	
 }
