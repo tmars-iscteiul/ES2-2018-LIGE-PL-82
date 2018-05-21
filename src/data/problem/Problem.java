@@ -25,6 +25,10 @@ public class Problem {
 	private ProblemOptimization optimization;
 	private ProblemFitnessApp fitnessApp;
 
+	public Problem(ProblemInputs inputs) {
+		setInputs(inputs);
+	}
+	
 	public Problem(ProblemIntroduction introduction, ProblemInputs inputs, ProblemOptimization optimization, ProblemFitnessApp fitnessApp)	{
 		this.introduction = introduction;
 		this.inputs = inputs;

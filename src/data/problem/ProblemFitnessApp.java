@@ -21,6 +21,10 @@ public class ProblemFitnessApp {
 	public String getLocalJarPath() {
 		return localJarPath;
 	}
+
+	public void setLocalJarPath(String localJarPath) {
+		this.localJarPath = localJarPath;
+	}
 	
 	
 }

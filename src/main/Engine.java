@@ -29,7 +29,7 @@ import utilities.TimeVariable;
  */
 @Service
 public class Engine extends Thread	{
-
+	
 	//private Administrator admin; TODO Why do we need this?
 	private BlockingQueue<Problem> problemQueue;
 	private Submission problem;

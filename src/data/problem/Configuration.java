@@ -64,7 +64,7 @@ public class Configuration {
 
 	
 
-	private void setArrayType(String type) {
+	public void setArrayType(String type) {
 		if(type == "int")
 			varType = VariableType.varInt;
 		else if(type == "double")	
@@ -75,6 +75,8 @@ public class Configuration {
 			varType = VariableType.varUndefined;
 	}
 	
+	
+
 	public Object[] getValueArray()	{
 		return valueArray;
 	}
@@ -86,6 +88,8 @@ public class Configuration {
 	public void setVariableNames(String names)	{
 		valueName = names.split(",");
 	}
+
+	
 }
 
 
