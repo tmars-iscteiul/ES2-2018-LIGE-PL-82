@@ -23,19 +23,22 @@ public class JMetalWorker extends Thread {
 	private Problem problem;
 	private ConsoleLogger workerLogger;
 	
-	private int configListSize= problem.getInputs().getConfigList().size();
+	private int configListSize;
 	
 	/*
 	 * atributo abaixo apenas para teste
 	 */
 	
 	private String problemName ;
-	private double minValue = problem.getInputs().getConfigList().get(0).getLowerLimit();
-	private double maxValue = problem.getInputs().getConfigList().get(0).getUpperLimit();
+	private double minValue;
+	private double maxValue;
 	private int size ;
 
 	public JMetalWorker(Problem problem)	{
 		this.problem = problem;
+		configListSize = problem.getInputs().getConfigList().size();
+		minValue = problem.getInputs().getConfigList().get(0).getLowerLimit();
+		maxValue = problem.getInputs().getConfigList().get(0).getUpperLimit();
 		workerLogger = new ConsoleLogger("JMETALWORKER");
 		start();
 	}
