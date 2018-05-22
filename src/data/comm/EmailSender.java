@@ -65,7 +65,7 @@ public class EmailSender {
             message.setContent ( multipart );
 
             Transport.send ( message );
-            logger.writeConsoleLog( "Message sent successfully...." );
+            logger.writeConsoleLog( "Message sent successfully to " + email.getTo() + ".");
         } catch ( Exception me ) {
             me.printStackTrace ();
         }
