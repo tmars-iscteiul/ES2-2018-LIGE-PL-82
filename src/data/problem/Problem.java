@@ -25,6 +25,10 @@ public class Problem {
 	private ProblemOptimization optimization;
 	private ProblemFitnessApp fitnessApp;
 
+	public Problem(ProblemInputs inputs) {
+		setInputs(inputs);
+	}
+	
 	public Problem(ProblemIntroduction introduction, ProblemInputs inputs, ProblemOptimization optimization, ProblemFitnessApp fitnessApp)	{
 		this.introduction = introduction;
 		this.inputs = inputs;
@@ -38,7 +42,7 @@ public class Problem {
 		optimization = new ProblemOptimization(submission.getOptimization());
 		// Why is submission.fitnessApp a list? Does it contain various fitness apps, all for the same problem, but for different input lists?
 		// For now, I'm assuming this isn't true, and checking only the first member of the list. TODO Possible change 
-		fitnessApp = new ProblemFitnessApp(submission.getFitnessApp().getFitnessOutputList().get(0));
+		fitnessApp = new ProblemFitnessApp(submission.getFitnessApp());
 		
 	}
 

@@ -23,8 +23,8 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	    // 10 variables (anti-spam filter rules) by default 
 	    this(10);
 	  }*/
-
-	  public MyProblemDoubleExternalViaJAR(Integer numberOfVariables, Integer numberOfObjetives) {
+	
+	  public MyProblemDoubleExternalViaJAR(Integer numberOfVariables, Integer numberOfObjetives, Double minValue, Double maxValue, String problemName ) {
 			
 	    setNumberOfVariables(numberOfVariables);
 	    setNumberOfObjectives(numberOfObjetives);

@@ -30,11 +30,11 @@ public class ProblemFitnessApp {
 	private String fitnessAppName;
 	private ArrayList<FitnessOutput> fitnessOutputList;
 	
-	public ProblemFitnessApp(data.submission.FitnessApp fitnessAppList)	{
-		ReadFromURL.downloadFile(fitnessAppList.getFileURL(), fitnessAppList.getFitnessName());	// Downloads file to caseStudies folder
-		localJarPath = Path.appsFolder + fitnessAppList.getFitnessName();
+	public ProblemFitnessApp(data.submission.FitnessApp fitnessApp)	{
+		ReadFromURL.downloadFile(fitnessApp.getFileURL(), fitnessApp.getFitnessName());	// Downloads file to caseStudies folder
+		localJarPath = Path.appsFolder + fitnessApp.getFitnessName();
 		fitnessOutputList = new ArrayList<FitnessOutput>();
-		for(FitnessOutputList fol : fitnessAppList.getFitnessOutputList()) {
+		for(FitnessOutputList fol : fitnessApp.getFitnessOutputList()) {
 			VariableType auxType;
 			if(fol.getOutputType() == "int")
 				auxType = VariableType.varInt;
@@ -60,5 +60,5 @@ public class ProblemFitnessApp {
 	public ArrayList<FitnessOutput> getFitnessOutputList() {
 		return fitnessOutputList;
 	}
-	
+
 }

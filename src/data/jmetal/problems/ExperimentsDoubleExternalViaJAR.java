@@ -32,11 +32,11 @@ public class ExperimentsDoubleExternalViaJAR {
   private static final int maxEvaluations = 250;
 
   //public static void main(String[] args) throws IOException {
-  public ExperimentsDoubleExternalViaJAR() {
+  public ExperimentsDoubleExternalViaJAR(String problemName, double minValue, double maxValue, int size) {
     String experimentBaseDirectory = "experimentBaseDirectory";
 
     List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
-    problemList.add(new ExperimentProblem<>(new MyProblemDoubleExternalViaJAR(10,2 )));
+    problemList.add(new ExperimentProblem<>(new MyProblemDoubleExternalViaJAR(10,size , minValue, maxValue, problemName )));
 
     List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList =
             configureAlgorithmList(problemList);

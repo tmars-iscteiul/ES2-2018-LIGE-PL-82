@@ -25,6 +25,15 @@ public class JMetalWorker extends Thread {
 	
 	private int configListSize= problem.getInputs().getConfigList().size();
 	
+	/*
+	 * atributo abaixo apenas para teste
+	 */
+	
+	private String problemName ;
+	private double minValue = problem.getInputs().getConfigList().get(0).getLowerLimit();
+	private double maxValue = problem.getInputs().getConfigList().get(0).getUpperLimit();
+	private int size ;
+
 	public JMetalWorker(Problem problem)	{
 		this.problem = problem;
 		workerLogger = new ConsoleLogger("JMETALWORKER");
@@ -33,10 +42,12 @@ public class JMetalWorker extends Thread {
 	
 	@Override
 	public void run()	{
+		
 		int counterDouble=0;
 		int counterInteger=0;
 		int counterBinary=0;
 		for( int i=0;i < configListSize; i++) {
+			problem.getInputs().getConfigList().get(i).setArrayType("double");//apenas para efeitos de teste
 			if( problem.getInputs().getConfigList().get(i).getVarType().equals("double")) {
 				counterDouble++;
 			}
@@ -49,12 +60,18 @@ public class JMetalWorker extends Thread {
 		}
 		
 		if( counterDouble== configListSize) {
+			System.out.println("Entrei no if Double");
+			
+			//new ExperimentsDoubleExternalViaJAR();
+			
+			
+			/*
 			try {
 				ExperimentsDoubleExternalViaJAR.main(null);
 			} catch (IOException e) {
 				
 				e.printStackTrace();
-			}
+			}*/
 		}
 		if( counterInteger== configListSize) {
 			try {
