@@ -9,6 +9,7 @@ export class FitnessTableComponent implements OnInit {
   public optionsTypeInput: object[] = [
     {value: 'int', text: 'Integer'},
     {value: 'double', text: 'Double'},
+    {value: 'boolean', text: 'Boolean'},
   ];
 
   constructor() { }

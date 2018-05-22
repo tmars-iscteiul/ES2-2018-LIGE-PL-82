@@ -11,6 +11,7 @@ export class AppComponent {
   BarChart: any;
   RadarChart: any;
   jsonChart = null;
+  responseName = null;
   problemName = null;
 
   constructor() {}
@@ -18,6 +19,7 @@ export class AppComponent {
 
     var query = window.location.search.substring(1);
     var vars = query.split("=");
+    var response = null
 
     if (vars[0] == "problemName") {
       this.problemName = vars[1];
@@ -30,19 +32,14 @@ export class AppComponent {
       },
       body: JSON.stringify(this.problemName),
       mode: 'cors'
-    }).then(response => {
-       return JSON.stringify(response)
-    }).then(data => {
-       this.jsonChart = data
-    }).catch((ex) => {
-      console.log(ex);
-      alert(ex);
+    }).then((response) => response)
+      .then((json) => {
+      this.responseName = json['problemN'];
+      console.log(json['problemName']);
     });
 
-    if (this.jsonChart == null) {
-    	//window.alert('This link does not correspond to a valid problem result.');
-    	window.alert(this.jsonChart);
-    }
+    window.alert(this.jsonChart);
+
 
     // Loading data from json
    /* $.getJSON("data.json", function(json) {
