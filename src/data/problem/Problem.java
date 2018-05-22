@@ -25,8 +25,8 @@ public class Problem {
 	private ProblemOptimization optimization;
 	private ProblemFitnessApp fitnessApp;
 
-	public Problem(ProblemInputs inputs) {
-		setInputs(inputs);
+	public Problem() {
+		//introduction = new ProblemIntroduction("", fullDescription, averageDuration, maxDuration, userEmail)
 	}
 	
 	public Problem(ProblemIntroduction introduction, ProblemInputs inputs, ProblemOptimization optimization, ProblemFitnessApp fitnessApp)	{

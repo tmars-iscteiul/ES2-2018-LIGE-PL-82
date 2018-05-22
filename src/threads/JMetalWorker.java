@@ -26,19 +26,30 @@ public class JMetalWorker extends Thread {
 	private int configListSize;
 	
 	/*
-	 * atributo abaixo apenas para teste
+	 * atributos abaixo apenas para teste
 	 */
 	
-	private String problemName ;
-	private double minValue;
-	private double maxValue;
-	private int size ;
-
+	private int numberOfObjetives = problem.getFitnessApp().getFitnessOutputList().size();
+	private int numberOfVariables = problem.getInputs().getConfigList().size() ;
+	private double minValue = problem.getInputs().getConfigList().get(0).getLowerLimit();
+	private double maxValue = problem.getInputs().getConfigList().get(0).getUpperLimit();
+	
+	/*
+	private String problemName = problem.getIntroduction().getName();
+	private String jarPath = problem.getFitnessApp().getLocalJarPath();
+	*/
+	private String problemName = "Kursawe";
+	private String jarPath = "./caseStudies/Kursawe.jar";
+	
 	public JMetalWorker(Problem problem)	{
 		this.problem = problem;
+		/*
+		 * verificar qual é a vantagem de colocar estas variaveis no construtor 
+		 * 
 		configListSize = problem.getInputs().getConfigList().size();
 		minValue = problem.getInputs().getConfigList().get(0).getLowerLimit();
 		maxValue = problem.getInputs().getConfigList().get(0).getUpperLimit();
+		*/
 		workerLogger = new ConsoleLogger("JMETALWORKER");
 		start();
 	}
@@ -49,8 +60,8 @@ public class JMetalWorker extends Thread {
 		int counterDouble=0;
 		int counterInteger=0;
 		int counterBinary=0;
-		for( int i=0;i < configListSize; i++) {
-			problem.getInputs().getConfigList().get(i).setArrayType("double");//apenas para efeitos de teste
+		for( int i=0;i < configListSize-1; i++) {
+			//problem.getInputs().getConfigList().get(i).setArrayType("double");//apenas para efeitos de teste
 			if( problem.getInputs().getConfigList().get(i).getVarType().equals("double")) {
 				counterDouble++;
 			}
@@ -65,7 +76,7 @@ public class JMetalWorker extends Thread {
 		if( counterDouble== configListSize) {
 			System.out.println("Entrei no if Double");
 			
-			//new ExperimentsDoubleExternalViaJAR();
+			new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath);
 			
 			
 			/*

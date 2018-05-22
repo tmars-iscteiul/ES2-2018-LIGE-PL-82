@@ -12,9 +12,7 @@ import data.problem.Configuration;
 import data.problem.ProblemInputs;
 import threads.JMetalWorker;
 
-/* Implementa��o de um problema do tipo Double que executa o .jar externo
-   Kursawe.jar e pode ser usado como um dos problema de teste indicados 
-   no encunciado do trabalho */
+/* Kursawe.jar  */
 
 @SuppressWarnings("serial")
 public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
@@ -23,19 +21,19 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	    // 10 variables (anti-spam filter rules) by default 
 	    this(10);
 	  }*/
-	
-	  public MyProblemDoubleExternalViaJAR(Integer numberOfVariables, Integer numberOfObjetives, Double minValue, Double maxValue, String problemName ) {
-			
+	  String jarPath;
+	  public MyProblemDoubleExternalViaJAR(Integer numberOfVariables, Integer numberOfObjetives, Double minValue, Double maxValue, String problemName , String jarPath) {
+		this.jarPath= jarPath;
 	    setNumberOfVariables(numberOfVariables);
 	    setNumberOfObjectives(numberOfObjetives);
-	    setName("MyProblemDoubleExternalViaJAR");
+	    setName(problemName);
 
 	    List<Double> lowerLimit = new ArrayList<>(getNumberOfVariables()) ;
 	    List<Double> upperLimit = new ArrayList<>(getNumberOfVariables()) ;
 
 	    for (int i = 0; i < getNumberOfVariables(); i++) {
-	      lowerLimit.add(-5.0);
-	      upperLimit.add(5.0);
+	      lowerLimit.add(minValue);
+	      upperLimit.add(maxValue);
 	    }
 
 	    setLowerLimit(lowerLimit);
@@ -52,7 +50,8 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 			String line;
 			
 			
-	    	Process p = Runtime.getRuntime().exec("java -jar c:\\Kursawe.jar" + " " + solutionString);
+	    	//Process p = Runtime.getRuntime().exec("java -jar c:\\Kursawe.jar" + " " + solutionString);
+			Process p = Runtime.getRuntime().exec(jarPath + " " + solutionString);
 	    	
 	    	
 	    	BufferedReader brinput = new BufferedReader(new InputStreamReader(p.getInputStream()));
