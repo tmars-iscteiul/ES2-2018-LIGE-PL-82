@@ -23,7 +23,7 @@ public class JMetalWorker extends Thread {
 	private Problem problem;
 	private ConsoleLogger workerLogger;
 	
-	private int configListSize= problem.getInputs().getConfigList().size();
+	private int configListSize;
 	
 	/*
 	 * atributo abaixo apenas para teste
@@ -36,6 +36,7 @@ public class JMetalWorker extends Thread {
 
 	public JMetalWorker(Problem problem)	{
 		this.problem = problem;
+		configListSize = problem.getInputs().getConfigList().size();
 		workerLogger = new ConsoleLogger("JMETALWORKER");
 		start();
 	}
