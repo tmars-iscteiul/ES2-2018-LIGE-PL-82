@@ -3,6 +3,9 @@ import java.util.*;
 import javax.activation.*;
 import javax.mail.*;
 import javax.mail.internet.*;
+
+import utilities.ConsoleLogger;
+
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 
@@ -18,6 +21,8 @@ public class EmailSender {
     private Multipart multipart;
 
     private Authenticator authenticator;
+    
+    private ConsoleLogger logger;
 
     public EmailSender () {
         host = "smtp.gmail.com";
@@ -28,6 +33,7 @@ public class EmailSender {
         properties.put ( "mail.smtp.starttls.enable", "true" );
         properties.put ( "mail.smtp.port", "587" );
         properties.put ( "mail.smtp.auth", "true" );
+        logger = new ConsoleLogger("EMAILSENDER");
     }
 
     public void sendMail (Email email) {
@@ -59,7 +65,7 @@ public class EmailSender {
             message.setContent ( multipart );
 
             Transport.send ( message );
-            System.out.println ( "Message send successfully...." );
+            logger.writeConsoleLog( "Message sent successfully...." );
         } catch ( Exception me ) {
             me.printStackTrace ();
         }
