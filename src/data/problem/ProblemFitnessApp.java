@@ -30,6 +30,14 @@ public class ProblemFitnessApp {
 	private String fitnessAppName;
 	private ArrayList<FitnessOutput> fitnessOutputList;
 	
+	/*
+	 * Construtor apenas para efeitos de teste
+	 */
+	
+	public ProblemFitnessApp() {
+		fitnessOutputList = new ArrayList<FitnessOutput>();
+	}
+	
 	public ProblemFitnessApp(data.submission.FitnessApp fitnessApp)	{
 		ReadFromURL.downloadFile(fitnessApp.getFileURL(), fitnessApp.getFitnessName());	// Downloads file to caseStudies folder
 		localJarPath = Path.appsFolder + fitnessApp.getFitnessName();
@@ -49,6 +57,8 @@ public class ProblemFitnessApp {
 
 	}
 
+	
+
 	public String getLocalJarPath() {
 		return localJarPath;
 	}
@@ -60,5 +70,22 @@ public class ProblemFitnessApp {
 	public ArrayList<FitnessOutput> getFitnessOutputList() {
 		return fitnessOutputList;
 	}
+	
+	public int getFitnessOutputListSize() {
+		return fitnessOutputList.size();
+	}
+	
+	/*
+	 * Metodo apenas para teste 
+	 */
+	
+	public void setFitnessOutputListSize(int size) {
+		FitnessOutput fop= new FitnessOutput("output",VariableType.varDouble, "sndclk");
+		for( int i =0; i<size -1 ;i++) {
+			fitnessOutputList.add(fop);
+		}
+		
+	}
+
 
 }

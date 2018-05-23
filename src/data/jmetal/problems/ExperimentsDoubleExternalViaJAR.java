@@ -31,18 +31,20 @@ public class ExperimentsDoubleExternalViaJAR {
   private static final int INDEPENDENT_RUNS = 2;
   private static final int maxEvaluations = 250;
 
+  
   //public static void main(String[] args) throws IOException {
-  public ExperimentsDoubleExternalViaJAR(String problemName, double minValue, double maxValue, int size) {
+  public ExperimentsDoubleExternalViaJAR(int numberOfVariables, int numberOfObjetives, double minValue, double maxValue,
+			String problemName, String jarPath) {
     String experimentBaseDirectory = "experimentBaseDirectory";
 
     List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
-    problemList.add(new ExperimentProblem<>(new MyProblemDoubleExternalViaJAR(10,size , minValue, maxValue, problemName )));
+    problemList.add(new ExperimentProblem<>(new MyProblemDoubleExternalViaJAR(numberOfVariables,numberOfObjetives , minValue, maxValue , problemName , jarPath)));
 
     List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList =
             configureAlgorithmList(problemList);
 
     Experiment<DoubleSolution, List<DoubleSolution>> experiment =
-        new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>("ExperimentsDoubleExternalViaJAR")
+        new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>(problemName)
             .setAlgorithmList(algorithmList)
             .setProblemList(problemList)
             .setExperimentBaseDirectory(experimentBaseDirectory)
@@ -62,12 +64,13 @@ public class ExperimentsDoubleExternalViaJAR {
 		new GenerateBoxplotsWithR<>(experiment).setRows(1).setColumns(1).run() ;
     
     } catch (IOException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
   }
 
-  static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList(
+  
+
+static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList(
           List<ExperimentProblem<DoubleSolution>> problemList) {
     List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithms = new ArrayList<>();
 

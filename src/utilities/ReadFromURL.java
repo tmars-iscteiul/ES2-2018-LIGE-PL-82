@@ -53,8 +53,9 @@ public abstract class ReadFromURL {
     	
     
     public static void main(String[] args) throws IOException {
-		ReadFromURL.downloadFile("https://www.github.com/tmars-iscteiul/ES2-2018-LIGE-PL-82/raw/testSpring/caseStudies/test1.jar","test1.jar");
-	}
+		//ReadFromURL.downloadFile("https://www.github.com/tmars-iscteiul/ES2-2018-LIGE-PL-82/raw/testSpring/caseStudies/test1.jar","test1.jar");
+    	ReadFromURL.downloadFile("https://github.com/tmars-iscteiul/ES2-2018-LIGE-PL-82/blob/master/caseStudies/Kursawe.jar", "Kursawe.jar");
+    }
     
 }
 

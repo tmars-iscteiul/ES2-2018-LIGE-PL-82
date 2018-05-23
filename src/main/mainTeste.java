@@ -1,6 +1,7 @@
 package main;
 
 import data.problem.Problem;
+import data.problem.ProblemFitnessApp;
 import data.problem.ProblemInputs;
 import threads.JMetalWorker;
 
@@ -14,11 +15,20 @@ public class mainTeste {
 		
 		ProblemInputs pinputs= new ProblemInputs();
 		pinputs.addConfiguration("Anti-spamFilter", -5.0, 5.0, "double" , 10, "teste do SpamEmail Problem");
-		Problem p= new Problem(pinputs);
+		ProblemFitnessApp pFitness= new ProblemFitnessApp();
+		pFitness.setFitnessOutputListSize(2);
+		
+		
+		Problem p= new Problem();
+		p.setInputs(pinputs);
+		p.setFitnessApp(pFitness);
+		
 		
 		// falta um parametro ou Integer numberOfVariables ou  Integer numberOfObjetives,
 		
 		new JMetalWorker(p);
+		
+		System.out.println("CONSEGUI!!!!");
 	}
 	
 }
