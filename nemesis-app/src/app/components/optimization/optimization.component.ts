@@ -17,14 +17,21 @@ export class OptimizationComponent implements OnInit {
   constructor() {}
 
   public isDisabled() {
-    return ([parentForm]) => parentForm.optimizersSelection === 'automatic';
+    return ([parentForm]) => parentForm.optimizerSelection === 'automatic';
   }
 
   public isSelectedTypeA() {
-    return ([parentForm]) => parentForm.optimizersSelection === 'automatic' && parentForm.optimizersSelection === 'semi-automatic';
+    return ([{parentForm}]) => parentForm.optimizerSelection !== 'automatic';
+  }
+
+  public onFocus() {
+    //if (document.getElementById("optimizer").value == 'semi-automatic') {
+    //  document.getElementById("coralReefOptimization").value = true;
+    //}
   }
 
   ngOnInit() {
+
   }
 
 }

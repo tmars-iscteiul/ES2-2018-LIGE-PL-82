@@ -42,12 +42,10 @@
     "fitnessOutputList": [
       {
         "outputName": "falsePositive",
-        "outputType": "int",
         "outputDescription": "Number of false positives"
       },
       {
         "outputName": "falseNegative",
-        "outputType": "int",
         "outputDescription": "Number of false negatives"
       }
     ],
@@ -97,7 +95,7 @@
   },
   "feedback": {
     "name": "Tiago Rodrigues",
-    "email": "",
+    "email": "tm.alves.rodrigues@gmail.com",
     "subject": "Doubt",
     "emailText": "I have this doubt and I want to tell."
   },

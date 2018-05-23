@@ -8,8 +8,10 @@
       <div class="col">
         <lf-radio #lfRadioBlock
                   name="optimizerSelection"
+                  id="optimizer"
                   [options]="options"
                   [isRequired]="true"
+                  (focus)="onFocus()"
         ></lf-radio>
       </div>
   	</div>
@@ -20,9 +22,10 @@
     <div class="row mt-3">
       <div class="col">
           <lf-checkbox name="coralReefOptimization"
-                       [initialValue]="true"
+                       id="coralReefOptimization"
                        [isDisabled]="isDisabled()"
-                       label="Coral Reef Optimization"></lf-checkbox>
+                       label="Coral Reef Optimization"
+                       value="isDisabled()"></lf-checkbox>
           <lf-checkbox name="diferencialEvolution"
                        [initialValue]="true"
                        [isDisabled]="isDisabled()"

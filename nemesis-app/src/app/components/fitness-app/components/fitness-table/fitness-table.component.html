@@ -4,7 +4,6 @@
     <thead lf-table-header>
     <lf-table-column-index></lf-table-column-index>
     <lf-table-column label="Output name"></lf-table-column>
-    <lf-table-column label="Output type"></lf-table-column>
     <lf-table-column label="Description"></lf-table-column>
     </thead>
   </ng-template>
@@ -17,11 +16,6 @@
 
       <td lf-table-cell>
         <lf-text name="outputName" [isValid]="isValidName()"></lf-text>
-      </td>
-      <td lf-table-cell>
-        <lf-select name="outputType"
-                   [options]="optionsTypeInput"
-        ></lf-select>
       </td>
       <td lf-table-cell>
         <lf-text name="outputDescription"></lf-text>

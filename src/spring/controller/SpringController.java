@@ -53,7 +53,7 @@ public class SpringController {
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4100")
-	@RequestMapping(method = RequestMethod.POST, value = "/request_problem", consumes = "application/json", produces = "application/json;charset=UTF-8")
+	@RequestMapping(method = RequestMethod.POST, value = "/request_problem", consumes = "application/plain-text", produces = "application/plain-text")
 	public String sendResults(@RequestBody ProblemName problem) {
 		System.out.println("Requested: " + problem.getProblemName());
 		

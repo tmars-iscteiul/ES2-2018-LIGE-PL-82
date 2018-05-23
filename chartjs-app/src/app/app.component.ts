@@ -19,7 +19,7 @@ export class AppComponent {
 
     var query = window.location.search.substring(1);
     var vars = query.split("=");
-    var response = null
+    var response = null;
 
     if (vars[0] == "problemName") {
       this.problemName = vars[1];
@@ -32,10 +32,13 @@ export class AppComponent {
       },
       body: JSON.stringify(this.problemName),
       mode: 'cors'
-    }).then((response) => response)
-      .then((json) => {
-      this.responseName = json['problemN'];
-      console.log(json['problemName']);
+    }).then((response) => {
+      console.log(response);
+      return JSON.parse(response.body);
+    }).then((json) => {
+      console.log(json);
+      this.responseName = json;
+      return;
     });
 
     window.alert(this.jsonChart);
