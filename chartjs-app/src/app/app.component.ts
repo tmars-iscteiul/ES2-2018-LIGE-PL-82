@@ -12,39 +12,46 @@ export class AppComponent {
   RadarChart: any;
   jsonChart = null;
   responseName = null;
-  problemName = null;
 
   constructor() {}
-  @HostListener('nginit') ngOnInit() {
+  ngOnInit() {
 
     var query = window.location.search.substring(1);
     var vars = query.split("=");
-    var response = null;
+    var problemName = null;
 
     if (vars[0] == "problemName") {
-      this.problemName = vars[1];
+      problemName = vars[1];
     }
-    
+
+    var json = null;
+
     fetch('http://localhost:8080/request_problem', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(this.problemName),
-      mode: 'cors'
-    }).then((response) => {
-      console.log(response);
-      return JSON.parse(response.body);
-    }).then((json) => {
-      console.log(json);
-      this.responseName = json;
-      return;
-    });
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/plain-text',
+    },
+    body: problemName,
+    mode: 'cors'
+    })
+    .then((response) => response.text())
+    .then((response) => {
+      console.log(response)
 
-    window.alert(this.jsonChart);
+      response.getJSON(response, function(json) {
+        var labels = json.map(function(item) {
+          return item.problemName;
+        })
+
+      }
 
 
-    // Loading data from json
+        
+
+    })
+   
+
+   // Loading data from json
    /* $.getJSON("data.json", function(json) {
       // will generate array with ['Monday', 'Tuesday', 'Wednesday']
       var labels = json.map(function(item) {

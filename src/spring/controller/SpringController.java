@@ -12,6 +12,10 @@ import java.io.InputStream;
 import org.apache.commons.io.IOUtils;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,16 +57,17 @@ public class SpringController {
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4100")
-	@RequestMapping(method = RequestMethod.POST, value = "/request_problem", consumes = "application/plain-text", produces = "application/plain-text")
-	public String sendResults(@RequestBody ProblemName problem) {
-		System.out.println("Requested: " + problem.getProblemName());
+	@RequestMapping(method = RequestMethod.POST, value = "/request_problem", consumes = "application/plain-text")
+	public @ResponseBody ResponseEntity sendResults(@RequestBody String problem) {
+		System.out.println("Requested: " + problem);
 		
 		JSONObject jsonObj;
 		String jsonTxt;
 		InputStream is;
 		
+		
 		try {
-			is = new FileInputStream("./outputResults/"+problem.getProblemName()+".json");
+			is = new FileInputStream("./outputResults/"+problem+".json");
 			jsonTxt = IOUtils.toString( is );
 			jsonObj = new JSONObject(jsonTxt);
 		} catch (FileNotFoundException e) {
@@ -73,7 +78,10 @@ public class SpringController {
 			return null;
 		}
 		
-		return jsonTxt;
+		final HttpHeaders httpHeaders= new HttpHeaders();
+	    httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+	    
+	    return new ResponseEntity<String>(jsonTxt, httpHeaders, HttpStatus.OK);
 	}
 
 }
