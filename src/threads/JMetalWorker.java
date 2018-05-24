@@ -29,38 +29,57 @@ public class JMetalWorker extends Thread {
 	 * atributos abaixo apenas para teste
 	 */
 	
-	private int numberOfObjetives = problem.getFitnessApp().getFitnessOutputList().size();
-	private int numberOfVariables = problem.getInputs().getConfigList().size() ;
-	private double minValue = problem.getInputs().getConfigList().get(0).getLowerLimit();
-	private double maxValue = problem.getInputs().getConfigList().get(0).getUpperLimit();
-	
+	private int numberOfObjetives ;
+	private int numberOfVariables ;
+	private double minValue;
+	private double maxValue ;
+	private String problemName;
+	private String jarPath;
 	/*
-	private String problemName = problem.getIntroduction().getName();
-	private String jarPath = problem.getFitnessApp().getLocalJarPath();
-	*/
 	private String problemName = "Kursawe";
 	private String jarPath = "./caseStudies/Kursawe.jar";
+	*/
 	
 	public JMetalWorker(Problem problem)	{
 		this.problem = problem;
-		/*
-		 * verificar qual é a vantagem de colocar estas variaveis no construtor 
-		 * 
-		configListSize = problem.getInputs().getConfigList().size();
-		minValue = problem.getInputs().getConfigList().get(0).getLowerLimit();
-		maxValue = problem.getInputs().getConfigList().get(0).getUpperLimit();
-		*/
+		configListSize= problem.getInputs().getConfigList().size();
+		numberOfObjetives = problem.getFitnessApp().getFitnessOutputList().size();
+		numberOfVariables = problem.getInputs().getConfigList().size();
+		setBounds();
+		problemName= problem.getIntroduction().getName();
+		jarPath= problem.getFitnessApp().getLocalJarPath();
+		
 		workerLogger = new ConsoleLogger("JMETALWORKER");
 		start();
 	}
 	
+	private void setBounds() {
+		
+		double minValueAux = 0.0;
+		double maxValueAux = 0.0;
+		for( int i=0;i < configListSize; i++) {
+			minValueAux = problem.getInputs().getConfigList().get(i).getLowerLimit();
+			maxValueAux = problem.getInputs().getConfigList().get(i).getUpperLimit();
+			
+			if(minValue> minValueAux) {
+				minValue = minValueAux;
+			}
+			if(maxValue< maxValueAux) {
+				maxValue = maxValueAux;
+			}
+		}
+		
+		
+	}
+	
 	@Override
 	public void run()	{
-		
+		System.out.println("entrei no run");
 		int counterDouble=0;
 		int counterInteger=0;
 		int counterBinary=0;
-		for( int i=0;i < configListSize-1; i++) {
+		for( int i=0;i < configListSize; i++) {
+			System.out.println("varType = "+ problem.getInputs().getConfigList().get(i).getVarType());
 			//problem.getInputs().getConfigList().get(i).setArrayType("double");//apenas para efeitos de teste
 			if( problem.getInputs().getConfigList().get(i).getVarType().equals("double")) {
 				counterDouble++;

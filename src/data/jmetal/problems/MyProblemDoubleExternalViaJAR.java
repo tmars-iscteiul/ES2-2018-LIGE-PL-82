@@ -35,6 +35,9 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	      lowerLimit.add(minValue);
 	      upperLimit.add(maxValue);
 	    }
+	    
+	    
+	    
 
 	    setLowerLimit(lowerLimit);
 	    setUpperLimit(upperLimit);	    	    

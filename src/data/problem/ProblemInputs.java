@@ -32,9 +32,10 @@ public class ProblemInputs {
 			configAux.setVariableNames(inputs.getCreateInputItems().getInputsNameTable().get(i).getDescription());
 			configList.add(configAux);
 		}
+		/*
 		for(int i = 0; i<inputs.getRestrictions().getRestrictionsList().size(); i++)	{
 			restrictionList.add(new Restriction(inputs.getRestrictions().getRestrictionsList().get(i)));
-		}
+		}*/
 	}
 
 	public void addRestriction(String variableName, String symbol, int value) {
