@@ -3,17 +3,16 @@
    "problemDescription": "This is a description of the problem.",
    "userEmail": "tm.alves.rodrigues@gmail.com",
    "outputsFunction": "fNfPFitnessApp",
+   "labels": ["Solution 1","Solution 2","Solution 3"],
    "bestAlgorithm": "nsgaii",
    "fitnessOutputList": [
       {
-         "outputName": "falsePositives",
          "label": "False Positives",
-         "data": [2,0,1]
+         "data": [2,1,4]
       },
       {
-         "outputName": "falseNegatives",
          "label": "False Negatives",
-         "data": [0,3,1]
+         "data": [1,3,2]
       }
    ]
 }
