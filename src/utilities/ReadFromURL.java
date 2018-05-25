@@ -6,6 +6,36 @@ import java.io.*;
 
 public abstract class ReadFromURL {
 	
+	public static void downloadFileTwo(String fileURL, String fileName) throws IOException {
+        URL url = new URL(fileURL);
+        HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+        int responseCode = httpConn.getResponseCode();
+ 
+        // always check HTTP response code first
+        if (responseCode == HttpURLConnection.HTTP_OK) {
+            
+            // opens input stream from the HTTP connection
+            InputStream inputStream = httpConn.getInputStream();
+            String saveFilePath = Path.appsFolder + fileName;
+             
+            // opens an output stream to save into file
+            FileOutputStream outputStream = new FileOutputStream(saveFilePath);
+ 
+            int bytesRead = -1;
+            byte[] buffer = new byte[4096];
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, bytesRead);
+            }
+ 
+            outputStream.close();
+            inputStream.close();
+ 
+            System.out.println("File downloaded");
+        } else {
+            System.out.println("No file to download. Server replied HTTP code: " + responseCode);
+        }
+        httpConn.disconnect();
+    }
 	
 	
     public static boolean downloadFile(String fromUrl, String localFileName) {
@@ -53,8 +83,7 @@ public abstract class ReadFromURL {
     	
     
     public static void main(String[] args) throws IOException {
-		//ReadFromURL.downloadFile("https://www.github.com/tmars-iscteiul/ES2-2018-LIGE-PL-82/raw/testSpring/caseStudies/test1.jar","test1.jar");
-    	ReadFromURL.downloadFile("https://github.com/tmars-iscteiul/ES2-2018-LIGE-PL-82/blob/master/caseStudies/Kursawe.jar", "Kursawe.jar");
+    	ReadFromURL.downloadFileTwo("https://github.com/tmars-iscteiul/ES2-2018-LIGE-PL-82/blob/master/caseStudies/antiSpamProblem.jar?raw=true", "teste.jar");
     }
     
 }
