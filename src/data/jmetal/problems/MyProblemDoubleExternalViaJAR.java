@@ -54,7 +54,8 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 			
 			
 	    	//Process p = Runtime.getRuntime().exec("java -jar c:\\Kursawe.jar" + " " + solutionString);
-			Process p = Runtime.getRuntime().exec(jarPath + " " + solutionString);
+			System.out.println(jarPath + " " + solutionString);
+			Process p = Runtime.getRuntime().exec("java -jar " + jarPath + " " + solutionString);
 	    	
 	    	
 	    	BufferedReader brinput = new BufferedReader(new InputStreamReader(p.getInputStream()));

@@ -34,6 +34,7 @@ public class JMetalWorker extends Thread {
 	private String jarPath;
 	
 	public JMetalWorker(Problem problem)	{
+		// Possible TODO: Remove redundant fields
 		this.problem = problem;
 		configListSize= problem.getInputs().getConfigList().size();
 		numberOfObjetives = problem.getFitnessApp().getFitnessOutputList().size();
@@ -67,7 +68,9 @@ public class JMetalWorker extends Thread {
 	
 	@Override
 	public void run()	{
-		System.out.println("entrei no run");
+		//Here is where the algorithm calls will be made.
+		workerLogger.writeConsoleLog("Received problem \"" + problem.getIntroduction().getName() + "\" from " + problem.getIntroduction().getUserEmail());
+		
 		int counterDouble=0;
 		int counterInteger=0;
 		int counterBinary=0;
@@ -85,7 +88,7 @@ public class JMetalWorker extends Thread {
 		
 		if( counterDouble== configListSize) {
 			System.out.println("Entrei no if Double");
-			System.out.println("Caminho para o .jar= "+ jarPath);
+			System.out.println("Caminho para o .jar = \""+ jarPath + "\"");
 			new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath);
 			
 			
@@ -113,8 +116,6 @@ public class JMetalWorker extends Thread {
 		}
 		
 		
-		//Here is where the algorithm calls will be made.
-		workerLogger.writeConsoleLog("Received problem \"" + problem.getIntroduction().getName() + "\" from " + problem.getIntroduction().getUserEmail());
 
 	}
 	

@@ -17,11 +17,9 @@ public class ProblemFitnessApp {
 
 	private class FitnessOutput	{
 		private String outputName;
-		private VariableType varType;
 		private String description;
-		private FitnessOutput(String outputName, VariableType varType, String description) {
+		private FitnessOutput(String outputName, String description) {
 			this.outputName = outputName;
-			this.varType = varType;
 			this.description = description;
 		}
 	}
@@ -30,7 +28,18 @@ public class ProblemFitnessApp {
 	private String fitnessAppName;
 	private ArrayList<FitnessOutput> fitnessOutputList;
 	
-	
+	public ProblemFitnessApp(String externalJarPath, int objectiveCount)	{
+		if(!externalJarPath.endsWith(".jar"))	{
+			localJarPath = Path.appsFolder + externalJarPath + ".jar";
+		}	else	{
+			localJarPath = Path.appsFolder + externalJarPath;
+		}
+		fitnessOutputList = new ArrayList<FitnessOutput>();
+		for(int i = 0; i<objectiveCount; i++)	{
+			fitnessOutputList.add(new FitnessOutput("Objective #" + (i+1), ""));
+		}
+		fitnessAppName = externalJarPath;
+	}
 	
 	public ProblemFitnessApp(data.submission.FitnessApp fitnessApp)	{
 		String filePath = fitnessApp.getFitnessName();
@@ -41,25 +50,10 @@ public class ProblemFitnessApp {
 		localJarPath = Path.appsFolder + filePath;
 		fitnessOutputList = new ArrayList<FitnessOutput>();
 		for(FitnessOutputList fol : fitnessApp.getFitnessOutputList()) {
-			
-			/*
-			VariableType auxType;
-			if(fol.getOutputType() == "int")
-				auxType = VariableType.varInt;
-			else if(fol.getOutputType() == "double")	
-				auxType = VariableType.varDouble;
-			else if(fol.getOutputType() == "boolean")	
-				auxType = VariableType.varBoolean;
-			else
-				auxType = VariableType.varUndefined;
-				
-				*/
-			fitnessOutputList.add(new FitnessOutput(fol.getOutputName(), VariableType.varDouble, fol.getOutputDescription()));
+			fitnessOutputList.add(new FitnessOutput(fol.getOutputName(), fol.getOutputDescription()));
 		}
 
 	}
-
-	
 
 	public String getLocalJarPath() {
 		return localJarPath;
