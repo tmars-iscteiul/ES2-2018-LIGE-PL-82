@@ -38,7 +38,11 @@ public class JMetalWorker extends Thread {
 		this.problem = problem;
 		configListSize= problem.getInputs().getConfigList().size();
 		numberOfObjetives = problem.getFitnessApp().getFitnessOutputList().size();
-		numberOfVariables = problem.getInputs().getConfigList().size();
+		
+		// We are assuming however, that the JMETALWORKER is working over one configList array ONLY
+		// This means we must NORMALIZE the arrays
+		// Until we do so, we will use and test only ONE configuration per submission/problem
+		numberOfVariables = problem.getInputs().getConfigList().get(0).getValueArray().length;
 		setBounds();
 		problemName= problem.getIntroduction().getName();
 		jarPath= problem.getFitnessApp().getLocalJarPath();
@@ -87,7 +91,7 @@ public class JMetalWorker extends Thread {
 		}
 		
 		if( counterDouble== configListSize) {
-			System.out.println("Entrei no if Double");
+			System.out.println("Sending " + numberOfVariables + " variables to MyProblem class");
 			System.out.println("Caminho para o .jar = \""+ jarPath + "\"");
 			new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath);
 			

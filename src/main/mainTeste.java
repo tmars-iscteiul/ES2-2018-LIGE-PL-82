@@ -25,9 +25,6 @@ public class mainTeste {
 		p.setInputs(pinputs);
 		p.setFitnessApp(pFitness);
 		
-		
-		// falta um parametro ou Integer numberOfVariables ou  Integer numberOfObjetives,
-		
 		new JMetalWorker(p);
 
 	}
