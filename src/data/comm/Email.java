@@ -75,6 +75,12 @@ public class Email {
 		return messageBody;
 	}
 
+	public Submission getProblem() {
+		return problem;
+	}
+	
+	
+
 	//public String getFileName() {
 	//	return fileName;
 	//}
