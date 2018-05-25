@@ -39,8 +39,12 @@ public class ProblemFitnessApp {
 	}
 	
 	public ProblemFitnessApp(data.submission.FitnessApp fitnessApp)	{
-		ReadFromURL.downloadFile(fitnessApp.getFileURL(), fitnessApp.getFitnessName());	// Downloads file to caseStudies folder
-		localJarPath = Path.appsFolder + fitnessApp.getFitnessName();
+		String filePath = fitnessApp.getFitnessName();
+		if(!filePath.endsWith(".jar"))	{
+			filePath += ".jar";
+		}
+		ReadFromURL.downloadFile(fitnessApp.getFileURL(), filePath);	// Downloads file to caseStudies folder
+		localJarPath = Path.appsFolder + filePath;
 		fitnessOutputList = new ArrayList<FitnessOutput>();
 		for(FitnessOutputList fol : fitnessApp.getFitnessOutputList()) {
 			VariableType auxType;
