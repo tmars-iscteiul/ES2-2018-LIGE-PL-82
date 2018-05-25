@@ -87,7 +87,9 @@ public class Configuration {
 	}
 	
 	public void setVariableNames(String names)	{
-		valueName = names.split(",");
+		if(names != null)	{
+			valueName = names.split(",");
+		}
 	}
 
 	
