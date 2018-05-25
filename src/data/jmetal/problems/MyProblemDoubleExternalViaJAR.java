@@ -36,9 +36,6 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	      upperLimit.add(maxValue);
 	    }
 	    
-	    
-	    
-
 	    setLowerLimit(lowerLimit);
 	    setUpperLimit(upperLimit);	    	    
 	  } 
@@ -46,14 +43,12 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	  public void evaluate(DoubleSolution solution){
 	    String solutionString = "";
 	    String evaluationResultString = "";
-	    // getNumberOfVariables ta a dar 1, apenas corre uma vez!?!?
 	    for (int i = 0; i < solution.getNumberOfVariables(); i++) {
 	        solutionString += " " + solution.getVariableValue(i);  
 	    }
 	    try {
 			String line;
-			
-			
+
 	    	//Process p = Runtime.getRuntime().exec("java -jar c:\\Kursawe.jar" + " " + solutionString);
 			System.out.println("Sending args to external JAR: " + solutionString);
 			Process p = Runtime.getRuntime().exec("java -jar " + jarPath + " " + solutionString);
