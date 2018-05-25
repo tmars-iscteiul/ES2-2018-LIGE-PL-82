@@ -12,10 +12,10 @@ package utilities;
 public class TimeVariable {
 
 	private enum TimeScale {second, minute, hour}
-	private float value;
+	private double value;
 	private TimeScale scale;
 	
-	public TimeVariable(float value, String scale)	{
+	public TimeVariable(double value, String scale)	{
 		this.value = value;
 		this.scale = getScaleByString(scale);
 	}
@@ -65,7 +65,7 @@ public class TimeVariable {
 		}
 	}
 	
-	public float getValue() {
+	public double getValue() {
 		return value;
 	}
 
