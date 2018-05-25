@@ -69,7 +69,19 @@ public class EmailSender {
         } catch ( Exception me ) {
             me.printStackTrace ();
         }
-    } 
+    }
+
+	public String getHost() {
+		return host;
+	}
+
+	public Properties getProperties() {
+		return properties;
+	}
+
+	public Authenticator getAuthenticator() {
+		return authenticator;
+	} 
 
 }
 
