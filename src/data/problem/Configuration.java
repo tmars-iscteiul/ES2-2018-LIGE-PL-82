@@ -34,7 +34,6 @@ public class Configuration {
 	}
 
 	public Configuration(data.submission.InputListTable input)	{
-		System.out.println("varType da classe Configuration = " + input.getType());
 		name = input.getListName();
 		setLimits(input.getMinValue(), input.getMaxValue());
 		setArrayType(input.getType());
