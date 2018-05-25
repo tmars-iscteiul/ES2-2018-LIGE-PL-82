@@ -1,5 +1,5 @@
 h1 {
-  color: #369;
+  color: rgba(51, 102, 102,1);;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
@@ -11,8 +11,9 @@ h2 {
 }
 
 h3 {
-  background-color: rgba(0, 102, 102,1); font-size:2rem;
+  background-color: rgba(51, 102, 102,1); font-size:2rem;
   color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 

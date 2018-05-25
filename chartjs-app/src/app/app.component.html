@@ -5,15 +5,12 @@
   </h1>
   <img width="200" alt="Nemesis Logo" src="/assets/logo.png">
 </div>
-<h2>Here are some links to help you start: </h2>
 
-<div ng-controller="myCtrl">
-    <button (click)="submit()">OK</button>
-</div>
-
-<div style="width:950px">
-	<h3>Bar Chart </h3>
-	<canvas id="barChart" width="300" height="123" class="chartjs-render-monitor" style="display: block; "></canvas>
-	<h3>Radar Chart </h3>
-	<canvas id="radarChart" width="300" height="123" class="chartjs-render-monitor" style="display: block; "></canvas>
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+	<h3>{{chartTitle}}</h3>
+	<canvas id="barChart"></canvas>
+  </div>
+  <div class="col-sm-3"></div>
 </div>

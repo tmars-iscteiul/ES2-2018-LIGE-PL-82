@@ -7,13 +7,13 @@
    "fitnessOutputList": [
       {
          "outputName": "falsePositives",
-         "outputDescription": "False Positives",
-         "values": [2,0,1]
+         "label": "False Positives",
+         "data": [2,0,1]
       },
       {
          "outputName": "falseNegatives",
-         "outputDescription": "False Negatives",
-         "values": [0,3,1]
+         "label": "False Negatives",
+         "data": [0,3,1]
       }
    ]
 }

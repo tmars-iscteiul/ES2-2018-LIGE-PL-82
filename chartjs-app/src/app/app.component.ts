@@ -7,11 +7,14 @@ import * as Chart from 'chart.js';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Nemesis Results';
-  BarChart: any;
-  RadarChart: any;
-  jsonChart = null;
-  responseName = null;
+  title = 'Nêmesis Results';
+
+  chartTitle = null;
+  chartDescription = null;
+  userEmail = null;
+  outputFunction = null;
+  bestAlgorithm = null;
+  fitnessOutputList = [];
 
   constructor() {}
   ngOnInit() {
@@ -24,96 +27,105 @@ export class AppComponent {
       problemName = vars[1];
     }
 
-    var json = null;
-
     fetch('http://localhost:8080/request_problem', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/plain-text',
-    },
-    body: problemName,
-    mode: 'cors'
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/plain-text',
+      },
+      body: problemName,
+      mode: 'cors'
     })
     .then((response) => response.json())
     .then((response) => {
       console.log(response)
-      console.log(response.problemName)
-    })
-      
-      
-      //console.log(r['problemName'])
 
-/*
-      var data = {
-        labels: 'Teste',
-        datasets: [
-          {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
-          },
-          {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.5)",
-            strokeColor: "rgba(151,187,205,0.8)",
-            highlightFill: "rgba(151,187,205,0.75)",
-            highlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 86, 27, 90]
+      this.chartTitle = response.problemName;
+      this.chartDescription = response.problemDescription;
+      this.userEmail = response.userEmail;
+      this.outputFunction = response.outputFunction;
+      this.bestAlgorithm = response.bestAlgorithm;
+      this.fitnessOutputList = response.fitnessOutputList;
+
+      var ctx = document.getElementById('barChart');
+      var chart = new Chart(ctx, {
+
+        type: 'bar',
+        data: {
+          labels: [],
+          datasets: []
+        },
+        options: {
+          layout: {
+            padding: {
+                left: 100,
+                right: 100,
+                top: 0,
+                bottom: 0
+            }
           }
-        ]
-      };
+        }
 
-      var ctx = document.getElementById("myChart").getContext("2d");
-      ctx.canvas.width = 1000;
-      ctx.canvas.height = 800;
 
-      var myChart = new Chart(ctx).Bar(data);
-*/
       })
-})
-  }
-   
 
-   // Loading data from json
-   /* $.getJSON("data.json", function(json) {
-      // will generate array with ['Monday', 'Tuesday', 'Wednesday']
-      var labels = json.map(function(item) {
-        return item.timestamp;
+      chart.data.labels.push([this.outputFunction]);
+
+      this.fitnessOutputList.forEach( function(output) {
+        var out: {
+          label: arguments.join(output.label),
+          data: arguments.join(output.data)
+        }
+        //chart.data.datasets.push(data);
+        console.log(output.label);
+        console.log(output.data);
+        console.log(out);
       });
 
-      var data = {
-        labels: labels,
-        datasets: [
-          {
-            label: "My First dataset",
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81, 56, 55, 40]
-          },
-          {
-            label: "My Second dataset",
-            fillColor: "rgba(151,187,205,0.5)",
-            strokeColor: "rgba(151,187,205,0.8)",
-            highlightFill: "rgba(151,187,205,0.75)",
-            highlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19, 86, 27, 90]
-          }
-        ]
-      };
 
-      var ctx = document.getElementById("myChart").getContext("2d");
-      ctx.canvas.width = 1000;
-      ctx.canvas.height = 800;
-
-      var myChart = new Chart(ctx).Bar(data);
+      chart.update();
     });
-    */
 
-  // Radar Chart
+  }
+
+
+/*
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+*/
 
 }
