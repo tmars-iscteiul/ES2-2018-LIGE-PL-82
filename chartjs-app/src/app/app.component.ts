@@ -12,9 +12,8 @@ export class AppComponent {
   chartTitle = null;
   chartDescription = null;
   userEmail = null;
-  outputFunction = null;
+  outputsFunction = null;
   bestAlgorithm = null;
-  fitnessOutputList = [];
 
   constructor() {}
   ngOnInit() {
@@ -22,6 +21,15 @@ export class AppComponent {
     var query = window.location.search.substring(1);
     var vars = query.split("=");
     var problemName = null;
+
+    var chartColors = {
+      blue: 'rgb(54, 162, 235)',
+      green: 'rgb(75, 192, 192)',
+      red: 'rgb(255, 99, 132)',
+      orange: 'rgb(255, 159, 64)',
+      yellow: 'rgb(255, 205, 86)',
+      purple: 'rgb(153, 102, 255)'
+    };
 
     if (vars[0] == "problemName") {
       problemName = vars[1];
@@ -42,9 +50,8 @@ export class AppComponent {
       this.chartTitle = response.problemName;
       this.chartDescription = response.problemDescription;
       this.userEmail = response.userEmail;
-      this.outputFunction = response.outputFunction;
       this.bestAlgorithm = response.bestAlgorithm;
-      this.fitnessOutputList = response.fitnessOutputList;
+      this.outputsFunction = response.outputsFunction;
 
       var ctx = document.getElementById('barChart');
       var chart = new Chart(ctx, {
@@ -62,26 +69,41 @@ export class AppComponent {
                 top: 0,
                 bottom: 0
             }
+          },
+          responsive: 'true',
+          legend: {
+            position: 'bottom',
+          },
+          scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
           }
         }
 
 
       })
 
-      chart.data.labels.push([this.outputFunction]);
+      var colorNames = Object.keys(chartColors);
+      
+      
+      chart.data.labels = response.labels;
 
-      this.fitnessOutputList.forEach( function(output) {
-        var out: {
-          label: arguments.join(output.label),
-          data: arguments.join(output.data)
-        }
-        //chart.data.datasets.push(data);
-        console.log(output.label);
-        console.log(output.data);
-        console.log(out);
+      var i = 0;
+
+      response.fitnessOutputList.forEach( function(output) {
+        chart.data.datasets.push(output);  
+
+        var colorName = colorNames[i % 6];
+        var dsColor = chartColors[colorName];
+
+        console.log(dsColor);
+        chart.data.datasets[i].backgroundColor = [dsColor, dsColor, dsColor];
+        i++;     
       });
-
-
+      
       chart.update();
     });
 
