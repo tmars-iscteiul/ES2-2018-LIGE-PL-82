@@ -10,6 +10,7 @@ import data.jmetal.problems.ExperimentsIntegeExternalViaJAR;
 import data.problem.Problem;
 import data.problem.ProblemInputs;
 import utilities.ConsoleLogger;
+import utilities.VariableType;
 
 /**
  * This thread will run algorithm calculation, so that multiple algorithms can be running at the same time.
@@ -25,20 +26,12 @@ public class JMetalWorker extends Thread {
 	
 	private int configListSize;
 	
-	/*
-	 * atributos abaixo apenas para teste
-	 */
-	
 	private int numberOfObjetives ;
 	private int numberOfVariables ;
 	private double minValue;
 	private double maxValue ;
 	private String problemName;
 	private String jarPath;
-	/*
-	private String problemName = "Kursawe";
-	private String jarPath = "./caseStudies/Kursawe.jar";
-	*/
 	
 	public JMetalWorker(Problem problem)	{
 		this.problem = problem;
@@ -79,22 +72,20 @@ public class JMetalWorker extends Thread {
 		int counterInteger=0;
 		int counterBinary=0;
 		for( int i=0;i < configListSize; i++) {
-			System.out.println("varType = "+ problem.getInputs().getConfigList().get(i).getVarType());
-			//problem.getInputs().getConfigList().get(i).setArrayType("double");//apenas para efeitos de teste
-			if( problem.getInputs().getConfigList().get(i).getVarType().equals("double")) {
+			if( problem.getInputs().getConfigList().get(i).getVarType()== VariableType.varDouble) {
 				counterDouble++;
 			}
-			if( problem.getInputs().getConfigList().get(i).getVarType().equals("int")) {
+			if( problem.getInputs().getConfigList().get(i).getVarType()== VariableType.varInt) {
 				counterInteger++;
 			}
-			if( problem.getInputs().getConfigList().get(i).getVarType().equals("boolean")) {
+			if( problem.getInputs().getConfigList().get(i).getVarType() ==VariableType.varBoolean) {
 				counterBinary++;
 			}
 		}
 		
 		if( counterDouble== configListSize) {
 			System.out.println("Entrei no if Double");
-			
+			System.out.println("Caminho para o .jar= "+ jarPath);
 			new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath);
 			
 			

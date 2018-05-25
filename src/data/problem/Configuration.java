@@ -66,14 +66,17 @@ public class Configuration {
 	
 
 	public void setArrayType(String type) {
-		if(type == "int")
+		if(type.equals("int")) {
 			varType = VariableType.varInt;
-		else if(type == "double")	
+		}
+		else if(type.equals("double")) {	
 			varType = VariableType.varDouble;
-		else if(type == "boolean")	
+		}
+		else if(type.equals("boolean")) {
 			varType = VariableType.varBoolean;
-		else
+		}else {
 			varType = VariableType.varUndefined;
+		}
 	}
 	
 	

@@ -30,13 +30,7 @@ public class ProblemFitnessApp {
 	private String fitnessAppName;
 	private ArrayList<FitnessOutput> fitnessOutputList;
 	
-	/*
-	 * Construtor apenas para efeitos de teste
-	 */
 	
-	public ProblemFitnessApp() {
-		fitnessOutputList = new ArrayList<FitnessOutput>();
-	}
 	
 	public ProblemFitnessApp(data.submission.FitnessApp fitnessApp)	{
 		String filePath = fitnessApp.getFitnessName();
@@ -47,6 +41,8 @@ public class ProblemFitnessApp {
 		localJarPath = Path.appsFolder + filePath;
 		fitnessOutputList = new ArrayList<FitnessOutput>();
 		for(FitnessOutputList fol : fitnessApp.getFitnessOutputList()) {
+			
+			/*
 			VariableType auxType;
 			if(fol.getOutputType() == "int")
 				auxType = VariableType.varInt;
@@ -56,7 +52,9 @@ public class ProblemFitnessApp {
 				auxType = VariableType.varBoolean;
 			else
 				auxType = VariableType.varUndefined;
-			fitnessOutputList.add(new FitnessOutput(fol.getOutputName(), auxType, fol.getOutputDescription()));
+				
+				*/
+			fitnessOutputList.add(new FitnessOutput(fol.getOutputName(), VariableType.varDouble, fol.getOutputDescription()));
 		}
 
 	}
@@ -79,17 +77,6 @@ public class ProblemFitnessApp {
 		return fitnessOutputList.size();
 	}
 	
-	/*
-	 * Metodo apenas para teste 
-	 */
-	
-	public void setFitnessOutputListSize(int size) {
-		FitnessOutput fop= new FitnessOutput("output",VariableType.varDouble, "sndclk");
-		for( int i =0; i<size -1 ;i++) {
-			fitnessOutputList.add(fop);
-		}
-		
-	}
 
 
 }
