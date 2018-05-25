@@ -21,8 +21,10 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	    // 10 variables (anti-spam filter rules) by default 
 	    this(10);
 	  }*/
-	  String jarPath;
-	  public MyProblemDoubleExternalViaJAR(Integer numberOfVariables, Integer numberOfObjetives, Double minValue, Double maxValue, String problemName , String jarPath) {
+	  private String jarPath;
+	  
+	  public MyProblemDoubleExternalViaJAR(
+			  Integer numberOfVariables, Integer numberOfObjetives, Double minValue, Double maxValue, String problemName , String jarPath) {
 		this.jarPath= jarPath;
 	    setNumberOfVariables(numberOfVariables);
 	    setNumberOfObjectives(numberOfObjetives);
@@ -50,7 +52,7 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 			String line;
 
 	    	//Process p = Runtime.getRuntime().exec("java -jar c:\\Kursawe.jar" + " " + solutionString);
-			System.out.println("Sending args to external JAR: " + solutionString);
+			//System.out.println("Sending args to external JAR: " + solutionString);
 			Process p = Runtime.getRuntime().exec("java -jar " + jarPath + " " + solutionString);
 	    	
 	    	
@@ -61,7 +63,7 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	        p.waitFor();
 	      }
 	      catch (Exception err) { err.printStackTrace(); }
-	    System.out.println("Received results from external JAR: " + evaluationResultString);
+	    //System.out.println("Received results from external JAR: " + evaluationResultString);
    		String[] individualEvaluationCriteria = evaluationResultString.split("\\s+");
 	    // It is assumed that all evaluated criteria are returned in the same result string
 	    for (int i = 0; i < solution.getNumberOfObjectives(); i++) {

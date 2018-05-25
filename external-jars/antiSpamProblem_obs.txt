@@ -1,3 +1,0 @@
-Input: double[Variable-Size] as string[Variable-Size]
-Atention: The size of the array must match the size of the rules.cf file entries, otherwise the program won't run as intended.
-Output: double[2], as System.out.println("FP FN");
