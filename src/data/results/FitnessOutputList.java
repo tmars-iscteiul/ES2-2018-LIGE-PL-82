@@ -6,13 +6,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class FitnessOutputList {
 	@JsonProperty("label") private String label;
-	@JsonProperty("data") private List<Data> data;
+	@JsonProperty("data") private double[] data;
 	
 	public FitnessOutputList() {
 
 	}
 	
-	public FitnessOutputList(String label, List<Data> data) {
+	public FitnessOutputList(String label, double[] data) {
 		super();
 		this.label = label;
 		this.data = data;
@@ -26,11 +26,11 @@ public class FitnessOutputList {
 		this.label = label;
 	}
 	
-	public List<Data> getData() {
+	public double[] getData() {
 		return data;
 	}
 	
-	public void setData(List<Data> data) {
+	public void setData(double[] data) {
 		this.data = data;
 	}
 	

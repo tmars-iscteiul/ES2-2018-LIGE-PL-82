@@ -3,6 +3,7 @@ package utilities;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import data.results.FitnessOutputList;
@@ -26,26 +27,44 @@ public abstract class JSONResultsGenerator {
 		
 		File rfGeneralFile = new File(generalResultsDirectory + problemName + ".rf");
 		
+		List<double[]> resultsValues = new ArrayList<double[]>();
+		
 		try {
 			Scanner s = new Scanner(rfGeneralFile);
 			while (s.hasNextLine()) {
 				String nextLine = s.nextLine();
-				String[] line= nextLine.split(" ");
+				String[] valuesStr = nextLine.split(" ");
+				double[] values = new double[valuesStr.length];
 				
-				FitnessOutputList outputList = new FitnessOutputList();
-				
-				for (int i = 0; i < line.length; i++) {
-					outputList.setLabel(labels[i]);
-
+				for (int i = 0; i < valuesStr.length; i++) {
+					 values[i] = Double.parseDouble(valuesStr[i]);
 				}
-
 				
+				resultsValues.add(values);
 			}
 			s.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("Cannot open results .rf file.");
 		}
 		
+		
+		for (int i = 0; i < resultsValues.get(0).length; i++) {
+			double[] data = new double[resultsValues.size()];
+			String label = "";
+			
+			if (labels.length > i)
+				label = labels[i];
+			else label = "undefined";
+				
+			
+			for(int j = 0; j < resultsValues.size(); j++) {
+				data[j] = resultsValues.get(i)[j];
+			}
+			
+			results.getFitnessOutputList().add(new FitnessOutputList(label, data));
+		}
 
 	}
+	
+
 }
