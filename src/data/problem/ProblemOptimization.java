@@ -90,7 +90,7 @@ public class ProblemOptimization {
 		if(optimization.isPesa2())
 			algorithmList.add(Algorithm.pesa2);
 		if(optimization.isRandomsearch())
-			algorithmList.add(Algorithm.ramdomsearch);
+			algorithmList.add(Algorithm.randomsearch);
 		if(optimization.isSmpso())
 			algorithmList.add(Algorithm.smpso);
 		if(optimization.isSmpsom())

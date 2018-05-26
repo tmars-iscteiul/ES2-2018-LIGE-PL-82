@@ -44,9 +44,11 @@ public class ExperimentsDoubleExternalViaJAR {
 		List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
 		problemList.add(new ExperimentProblem<>(myProblem));
 
-		List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList = configureAlgorithmList(problemList, algorithmListNemesis);
+		List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList = 
+				configureAlgorithmList(problemList, algorithmListNemesis);
 
-		experiment = new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>(problemName)
+		experiment = 
+				new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>(problemName)
             .setAlgorithmList(algorithmList)
             .setProblemList(problemList)
             .setExperimentBaseDirectory(Paths.EXPERIMENTS_FOLDER)
@@ -75,16 +77,15 @@ public class ExperimentsDoubleExternalViaJAR {
 	}
 
 	
-	static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList(List<ExperimentProblem<DoubleSolution>> problemList, ArrayList<utilities.Algorithm> algorithmListNemesis) {
-		String[] AlgorithmsForDoubleProblemType = new String[]{"NSGAII","SMSEMOA","GDE3","IBEA","MOCell","MOEAD","PAES","RandomSearch"};
+	static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList
+			(List<ExperimentProblem<DoubleSolution>> problemList, ArrayList<utilities.Algorithm> algorithmListNemesis) {
+		//String[] AlgorithsForDoubleProblemType = new String[]{"NSGAII","SMSEMOA","GDE3","IBEA","MOCell","MOEAD","PAES","RandomSearch"};
 		
 		List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithms = new ArrayList<>();
 
 		for (int i = 0; i < problemList.size(); i++) {
 			for(int j=0; j< algorithmListNemesis.size();j++) {
-				System.out.println("nome do primeiro elemento de algorithmListNemesis: "+ algorithmListNemesis.get(j).name());
-				if ( algorithmListNemesis.get(j).name().equals(utilities.Algorithm.nsgaii)) {
-					
+				if ( algorithmListNemesis.get(j).name().equals("nsgaii")) {
 					Algorithm<List<DoubleSolution>> algorithm1 = new NSGAIIBuilder<>(
 							problemList.get(i).getProblem(),
 							new SBXCrossover(1.0, 5),
@@ -94,24 +95,41 @@ public class ExperimentsDoubleExternalViaJAR {
 							.build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
 				}
+				else if ( algorithmListNemesis.get(j).name().equals("smsemoa")) {
+					 Algorithm<List<DoubleSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(), new SBXCrossover(1.0, 5), new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0)).setMaxEvaluations(maxEvaluations).build();      
+					 algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));
+				}
+				else if ( algorithmListNemesis.get(j).name().equals("gde3")) {
+					Algorithm<List<DoubleSolution>> algorithm3 = new GDE3Builder((DoubleProblem) problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
+				    algorithms.add(new ExperimentAlgorithm<>(algorithm3, "GDE3", problemList.get(i).getTag()));
+				}
+				else if ( algorithmListNemesis.get(j).name().equals("ibea")) {
+					 Algorithm<List<DoubleSolution>> algorithm4 = new IBEABuilder(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
+					 algorithms.add(new ExperimentAlgorithm<>(algorithm4, "IBEA", problemList.get(i).getTag()));
+				}
+				else if ( algorithmListNemesis.get(j).name().equals("mocell")) {
+					Algorithm<List<DoubleSolution>> algorithm5 = new MOCellBuilder<>(problemList.get(i).getProblem(),new SBXCrossover(1.0, 5), new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0)).setMaxEvaluations(maxEvaluations).build();
+					  algorithms.add(new ExperimentAlgorithm<>(algorithm5, "MOCell", problemList.get(i).getTag()));
+				}
+				else if ( algorithmListNemesis.get(j).name().equals("moead")) {
+					Algorithm<List<DoubleSolution>> algorithm6 = new MOEADBuilder(problemList.get(i).getProblem(),Variant.MOEAD).setMaxEvaluations(maxEvaluations).build();
+					  algorithms.add(new ExperimentAlgorithm<>(algorithm6, "MOEAD", problemList.get(i).getTag()));
+				}
+				else if ( algorithmListNemesis.get(j).name().equals("paes")) {
+					Algorithm<List<DoubleSolution>> algorithm7 = new PAESBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).setArchiveSize(100).setBiSections(2).setMutationOperator(new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0)).build();
+					  algorithms.add(new ExperimentAlgorithm<>(algorithm7, "PAES", problemList.get(i).getTag()));
+				}
+				else if ( algorithmListNemesis.get(j).name().equals("randomsearch")) {
+					Algorithm<List<DoubleSolution>> algorithm8 = new RandomSearchBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
+					  algorithms.add(new ExperimentAlgorithm<>(algorithm8, "RandomSearch", problemList.get(i).getTag()));
+				}
+				else {
+					System.out.println("user choose an algorithm than doesn´t fit on the problem");
+				}
 			}
-			
-		
-      
-//    Algorithm<List<DoubleSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(), new SBXCrossover(1.0, 5), new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0)).setMaxEvaluations(maxEvaluations).build();      
-//    algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));
-//    Algorithm<List<DoubleSolution>> algorithm3 = new GDE3Builder((DoubleProblem) problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
-//    algorithms.add(new ExperimentAlgorithm<>(algorithm3, "GDE3", problemList.get(i).getTag()));
-//	  Algorithm<List<DoubleSolution>> algorithm4 = new IBEABuilder(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
-//	  algorithms.add(new ExperimentAlgorithm<>(algorithm4, "IBEA", problemList.get(i).getTag()));
-//	  Algorithm<List<DoubleSolution>> algorithm5 = new MOCellBuilder<>(problemList.get(i).getProblem(),new SBXCrossover(1.0, 5), new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0)).setMaxEvaluations(maxEvaluations).build();
-//	  algorithms.add(new ExperimentAlgorithm<>(algorithm5, "MOCell", problemList.get(i).getTag()));
-//	  Algorithm<List<DoubleSolution>> algorithm6 = new MOEADBuilder(problemList.get(i).getProblem(),Variant.MOEAD).setMaxEvaluations(maxEvaluations).build();
-//	  algorithms.add(new ExperimentAlgorithm<>(algorithm6, "MOEAD", problemList.get(i).getTag()));
-//	  Algorithm<List<DoubleSolution>> algorithm7 = new PAESBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).setArchiveSize(100).setBiSections(2).setMutationOperator(new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0)).build();
-//	  algorithms.add(new ExperimentAlgorithm<>(algorithm7, "PAES", problemList.get(i).getTag())); 	
-//	  Algorithm<List<DoubleSolution>> algorithm8 = new RandomSearchBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
-//	  algorithms.add(new ExperimentAlgorithm<>(algorithm8, "RandomSearch", problemList.get(i).getTag())); 
+	  
+	  	
+	   
 		}
 			return algorithms;
 	}

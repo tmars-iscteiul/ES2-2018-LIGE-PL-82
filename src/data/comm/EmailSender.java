@@ -5,6 +5,7 @@ import javax.mail.*;
 import javax.mail.internet.*;
 
 import utilities.ConsoleLogger;
+import utilities.Paths;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
@@ -50,17 +51,20 @@ public class EmailSender {
                     new InternetAddress ( email.getAdmin() ) );
                         
             message.setSubject ( email.getSubject() );
-
             multipart = new MimeMultipart ();
+            
             messageBodyPart = new MimeBodyPart ();
             messageBodyPart.setContent (email.getMessageBody(), "text/html" );
             multipart.addBodyPart ( messageBodyPart );
-
-            //messageBodyPart = new MimeBodyPart ();
-            //DataSource source = new FileDataSource ( email.getFileName() );
-            //messageBodyPart.setDataHandler ( new DataHandler ( source ) );
-            //messageBodyPart.setFileName ( email.getFileName() );
-            //multipart.addBodyPart ( messageBodyPart );
+        
+            if (email.getCurrentType() == 2) {
+            	messageBodyPart = new MimeBodyPart ();
+            	DataSource source = new FileDataSource (Paths.RESULTS_FOLDER + email.getProblemName()
+            		+ "/" + email.getProblemName() + "_solutions.json");
+            	messageBodyPart.setDataHandler ( new DataHandler ( source ) );
+            	messageBodyPart.setFileName (email.getProblemName() + "_solutions.json");
+            	multipart.addBodyPart ( messageBodyPart );
+            }
 
             message.setContent ( multipart );
 

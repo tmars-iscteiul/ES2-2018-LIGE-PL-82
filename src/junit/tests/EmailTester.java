@@ -24,17 +24,18 @@ public class EmailTester {
 	public void emailAttributes() {
 		Problem prob = new Problem(introduction, inputs, optimization, fitnessApp);
 		Email tester = new Email(prob);
+		tester.setTo("rodolfo.afa@gmail.com");
         assertNotNull(tester.getAdmin());
         assertNotNull(tester.getFrom());
         assertNotNull(tester.getProblem());
         assertNull(tester.getSubject());
         assertNull(tester.getMessageBody());
-        assertNull(tester.getTo());
+        assertNotNull(tester.getTo());
         
-        tester.fail_email("rodolfo.afa@gmail.com");
-        tester.progression_email("rodolfo.afa@gmail.com", 75.0, 10);
+        tester.fail_email();
+        tester.progression_email(75.0, 10);
         tester.welcome_email();
-        tester.success_email("rodolfo.afa@gmail.com");
+        tester.success_email();
 	}
 	
 	@Test

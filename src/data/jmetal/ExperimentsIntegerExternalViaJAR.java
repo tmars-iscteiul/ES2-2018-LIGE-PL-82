@@ -7,7 +7,9 @@ import org.uma.jmetal.algorithm.multiobjective.paes.PAESBuilder;
 import org.uma.jmetal.algorithm.multiobjective.randomsearch.RandomSearchBuilder;
 import org.uma.jmetal.algorithm.multiobjective.smsemoa.SMSEMOABuilder;
 import org.uma.jmetal.operator.impl.crossover.IntegerSBXCrossover;
+import org.uma.jmetal.operator.impl.crossover.SBXCrossover;
 import org.uma.jmetal.operator.impl.mutation.IntegerPolynomialMutation;
+import org.uma.jmetal.operator.impl.mutation.PolynomialMutation;
 import org.uma.jmetal.qualityindicator.impl.hypervolume.PISAHypervolume;
 import org.uma.jmetal.solution.DoubleSolution;
 import org.uma.jmetal.solution.IntegerSolution;
@@ -42,7 +44,7 @@ public class ExperimentsIntegerExternalViaJAR {
 
   
     List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithmList =
-            configureAlgorithmList(problemList);
+            configureAlgorithmList(problemList, algorithmListNemesis);
 
     experiment=
         new ExperimentBuilder<IntegerSolution, List<IntegerSolution>>(problemName)
@@ -73,29 +75,43 @@ public class ExperimentsIntegerExternalViaJAR {
   }
 
 static List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> configureAlgorithmList(
-          List<ExperimentProblem<IntegerSolution>> problemList) {
+          List<ExperimentProblem<IntegerSolution>> problemList, ArrayList<utilities.Algorithm> algorithmListNemesis) {
+	//String[] AlgorithsForIntegerProblemType = new String[]{"NSGAII","SMSEMOA","MOCell","PAES","RandomSearch"};
     List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithms = new ArrayList<>();
 
     for (int i = 0; i < problemList.size(); i++) {
-      Algorithm<List<IntegerSolution>> algorithm1 = new NSGAIIBuilder<>(
-              problemList.get(i).getProblem(),
-              new IntegerSBXCrossover(0.9, 20.0),
-              new IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(), 20.0))
-              .setMaxEvaluations(maxEvaluations)
-              .setPopulationSize(populationSize)
-              .build();
-      algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
-
-     
-      
-//    Algorithm<List<IntegerSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(), new IntegerSBXCrossover(0.9, 20.0),new IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(), 20.0)).setMaxEvaluations(maxEvaluations).build();      
-//    algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));
-//	  Algorithm<List<IntegerSolution>> algorithm3 = new MOCellBuilder<>(problemList.get(i).getProblem(),new IntegerSBXCrossover(0.9, 20.0), new IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(), 20.0)).setMaxEvaluations(maxEvaluations).build();
-//	  algorithms.add(new ExperimentAlgorithm<>(algorithm3, "MOCell", problemList.get(i).getTag()));    
-//	  Algorithm<List<IntegerSolution>> algorithm4 = new PAESBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).setArchiveSize(100).setBiSections(2).setMutationOperator(new IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(), 20.0)).build();
-//	  algorithms.add(new ExperimentAlgorithm<>(algorithm4, "PAES", problemList.get(i).getTag())); 	
-//	  Algorithm<List<IntegerSolution>> algorithm5 = new RandomSearchBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
-//	  algorithms.add(new ExperimentAlgorithm<>(algorithm5, "RandomSearch", problemList.get(i).getTag()));
+    	for(int j=0; j< algorithmListNemesis.size();j++) {
+    		if ( algorithmListNemesis.get(j).name().equals("nsgaii")) {
+    	
+    			Algorithm<List<IntegerSolution>> algorithm1 = new NSGAIIBuilder<>(
+    					problemList.get(i).getProblem(),
+    					new IntegerSBXCrossover(0.9, 20.0),
+    					new IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(), 20.0))
+    					.setMaxEvaluations(maxEvaluations)
+    					.setPopulationSize(populationSize)
+    					.build();
+    			algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
+    		}
+    		else if ( algorithmListNemesis.get(j).name().equals("smsemoa")) {
+    			 Algorithm<List<IntegerSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(), new IntegerSBXCrossover(0.9, 20.0),new IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(), 20.0)).setMaxEvaluations(maxEvaluations).build();      
+    			   algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));
+    		}
+    		else if ( algorithmListNemesis.get(j).name().equals("mocell")) {
+    			Algorithm<List<IntegerSolution>> algorithm3 = new MOCellBuilder<>(problemList.get(i).getProblem(),new IntegerSBXCrossover(0.9, 20.0), new IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(), 20.0)).setMaxEvaluations(maxEvaluations).build();
+    			  algorithms.add(new ExperimentAlgorithm<>(algorithm3, "MOCell", problemList.get(i).getTag()));
+			}
+    		else if ( algorithmListNemesis.get(j).name().equals("paes")) {
+    			Algorithm<List<IntegerSolution>> algorithm4 = new PAESBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).setArchiveSize(100).setBiSections(2).setMutationOperator(new IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(), 20.0)).build();
+    			  algorithms.add(new ExperimentAlgorithm<>(algorithm4, "PAES", problemList.get(i).getTag()));
+    		}
+    		else if ( algorithmListNemesis.get(j).name().equals("randomsearch")) {
+    			Algorithm<List<IntegerSolution>> algorithm5 = new RandomSearchBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
+    			  algorithms.add(new ExperimentAlgorithm<>(algorithm5, "RandomSearch", problemList.get(i).getTag()));
+    		}
+    		else {
+    			System.out.println("user choose an algorithm than doesn´t fit on the problem");
+    		}
+    	}
     }
     return algorithms;
   }
