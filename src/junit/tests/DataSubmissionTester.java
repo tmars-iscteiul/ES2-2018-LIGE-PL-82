@@ -15,7 +15,6 @@ public class DataSubmissionTester {
 		assertEquals("test@gmail.com", tester.getEmail());
 		assertEquals("subject", tester.getSubject());
 		assertEquals("emailText", tester.getEmailText());
-		assertNotNull(tester);
 	}
 
 }
