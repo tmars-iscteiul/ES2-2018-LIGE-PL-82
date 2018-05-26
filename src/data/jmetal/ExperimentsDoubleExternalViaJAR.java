@@ -79,27 +79,13 @@ public class ExperimentsDoubleExternalViaJAR {
 	
 	static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList
 			(List<ExperimentProblem<DoubleSolution>> problemList, ArrayList<utilities.Algorithm> algorithmListNemesis) {
-		
-		//String[] AlgorithmsForDoubleProblemType = new String[]{,"PAES","RandomSearch"};
+		//String[] AlgorithsForDoubleProblemType = new String[]{"NSGAII","SMSEMOA","GDE3","IBEA","MOCell","MOEAD","PAES","RandomSearch"};
 		
 		List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithms = new ArrayList<>();
 
 		for (int i = 0; i < problemList.size(); i++) {
-			/*
-			Algorithm<List<DoubleSolution>> algorithm1 = new NSGAIIBuilder<>(
-					problemList.get(i).getProblem(),
-					new SBXCrossover(1.0, 5),
-					new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0))
-					.setMaxEvaluations(maxEvaluations)
-					.setPopulationSize(populationSize)
-					.build();
-			algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
-			*/
 			for(int j=0; j< algorithmListNemesis.size();j++) {
-				System.out.println("tamanho da lista algorithmListNemesis:  "+ algorithmListNemesis.size());
-				System.out.println("nome do primeiro elemento de algorithmListNemesis: "+ algorithmListNemesis.get(j).name());
 				if ( algorithmListNemesis.get(j).name().equals("nsgaii")) {
-					System.out.println("estou dentro do if ");
 					Algorithm<List<DoubleSolution>> algorithm1 = new NSGAIIBuilder<>(
 							problemList.get(i).getProblem(),
 							new SBXCrossover(1.0, 5),
