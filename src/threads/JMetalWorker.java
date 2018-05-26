@@ -72,8 +72,8 @@ public class JMetalWorker extends Thread {
 		int maxValueIntegerAux = 0;
 		for( int i=0;i < configListSize; i++) { 
 			if ( problem.getInputs().getConfigList().get(0).getVarType()== VariableType.varDouble) {
-				minValueDoubleAux = problem.getInputs().getConfigList().get(0).getLowerLimitDouble();
-				maxValueDoubleAux = problem.getInputs().getConfigList().get(0).getUpperLimitDouble();
+				minValueDoubleAux = problem.getInputs().getConfigList().get(0).getLowerLimit();
+				maxValueDoubleAux = problem.getInputs().getConfigList().get(0).getUpperLimit();
 			
 				if(minValueDouble> minValueDoubleAux) {
 					minValueDouble = minValueDoubleAux;
