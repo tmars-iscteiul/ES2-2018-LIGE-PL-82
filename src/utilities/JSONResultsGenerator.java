@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -17,12 +16,28 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import data.results.FitnessOutputList;
 import data.results.Results;
+import data.results.Solutions;
+import data.results.SolutionsList;
 import utilities.Paths;
 
 public abstract class JSONResultsGenerator {
+	
+	public static void convertResultsAndSolutionsToJSON(String problemName, String description,
+			String userEmail, String fitnessAppName, int processTime, String[] labels, 
+			String[] variablesName, int numberOfVariables) {
+		
+		JSONResultsGenerator.convertResultsToJSON(
+				problemName, description, userEmail, 
+				fitnessAppName, processTime, labels, numberOfVariables);
+		
+		JSONResultsGenerator.convertSolutionsToJSON(
+				problemName, description, userEmail, 
+				fitnessAppName, processTime, labels, variablesName, numberOfVariables);
+	}
 
-	public static void convertResultsToJSON (String problemName, String description,
-			String userEmail, String fitnessAppName, int processTime, String[] labels) {
+	
+	private static void convertResultsToJSON (String problemName, String description,
+			String userEmail, String fitnessAppName, int processTime, String[] labels, int numberOfVariables) {
 		
 		Results results = new Results();
 		
@@ -31,6 +46,7 @@ public abstract class JSONResultsGenerator {
 		results.setUserEmail(userEmail);
 		results.setOutputsFunction(fitnessAppName);
 		results.setProcessTime(processTime);
+		results.setSolutionVariblesNumber(numberOfVariables);
 		
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		results.setOptimizationDate(dateFormat.format(new Date()));
@@ -81,7 +97,6 @@ public abstract class JSONResultsGenerator {
 			globalLabels[i] = "Solution " + (i+1);			
 			
 		results.setLabels(globalLabels);
-		results.setSolutionVariblesNumber(300);
 		
 		ObjectMapper mapper = new ObjectMapper();
 		try {
@@ -104,16 +119,30 @@ public abstract class JSONResultsGenerator {
 		
 	}
 	
-	public static void convertSolutionsToJSON (String problemName, String description,
-			String userEmail, String fitnessAppName, int processTime, String[] labels) {
+	private static void convertSolutionsToJSON (String problemName, String description,
+			String userEmail, String fitnessAppName, int processTime, String[] labels, String[] variablesName, int numberOfVariables) {
 		
 		File rsGeneralFile = 
 				new File(Paths.EXPERIMENTS_FOLDER + problemName + Paths.REFERENCE_FRONTS + problemName + ".rs");
 			
-		List<double[]> resultsValues = new ArrayList<double[]>();
+		Solutions solutions = new Solutions();
+		
+		solutions.setProblemName(problemName);
+		solutions.setProblemDescription(description);
+		solutions.setUserEmail(userEmail);
+		solutions.setOutputsFunction(fitnessAppName);
+		solutions.setProcessTime(processTime);
+		solutions.setSolutionVariablesNumber(numberOfVariables);
+		solutions.setVariablesName(variablesName);
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		solutions.setOptimizationDate(dateFormat.format(new Date()));
+		solutions.setSolutionsList(new ArrayList<SolutionsList>()); 
 		
 		try {
+			SolutionsList solutionsList = new SolutionsList();
 			Scanner s = new Scanner(rsGeneralFile);
+			int n = 0;
 			while (s.hasNextLine()) {
 				String nextLine = s.nextLine();
 				String[] valuesStr = nextLine.split(" ");
@@ -123,13 +152,15 @@ public abstract class JSONResultsGenerator {
 					 values[i] = Double.parseDouble(valuesStr[i]);
 				}
 				
-				resultsValues.add(values);
+				solutionsList = new SolutionsList("Solution " + (n+1), values);
+				solutions.getSolutionsList().add(solutionsList);
+				n++;
 			}
 			s.close();
+
 		} catch (FileNotFoundException e) {
 			System.out.println("Cannot open results .rf file.");
 		}
-		
 		
 		ObjectMapper mapper = new ObjectMapper();
 		try {
@@ -151,8 +182,15 @@ public abstract class JSONResultsGenerator {
 		}
 	}
 	
+	
+	
 	public static void main(String[] args) {
 		String[] labels = {"False Positives","False Negatives"};
-		JSONResultsGenerator.convertResultsToJSON("antiSpamProblem", "Descrição do problema", "tm.alves.rodrigues@gmail.com", "antiSpamProblem", 240, labels);
+		String[] variablesName = {"HTML_COR","BAYES10","SEX_TEXT","DRUGS_LINK"};
+		
+		JSONResultsGenerator.convertResultsAndSolutionsToJSON(
+				"antiSpamProblem", "Descrição do problema", "tm.alves.rodrigues@gmail.com", 
+				"antiSpamProblem", 240, labels, variablesName, 300);
+		
 	}
 }
