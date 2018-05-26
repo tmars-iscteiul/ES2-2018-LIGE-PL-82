@@ -12,29 +12,29 @@ public class Email {
 	private String subject;
 	private String messageBody;
 	//private String fileName;
-	private Submission problem;
+	private Problem problem;
 
-	public Email(Submission problem) {
+	public Email(Problem problem) {
 		this.problem = problem;
 		from = "geral.nemesis@gmail.com";
 		admin = "geral.nemesis@gmail.com";
 		//fileName = "quiz.txt";
 	}
 
-	public void welcome_email(String to) {
-		this.to = to;
-		subject = "Optimização em curso: " + problem.getMainInformation().getProblemName() + " - " + LocalDateTime.now();
+	public void welcome_email() {
+		this.to = problem.getIntroduction().getUserEmail();
+		subject = "Optimização em curso: " + problem.getIntroduction().getName() + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Bem-vindo à Nêmesis</h1><p>Muito obrigado por usar esta plataforma de otimização.<br />"
 				+ "O seu processo de otimização iniciou com sucesso. Será informado por email sobre o progresso do mesmo.<br/><br/>"
-				+ "Tempo de optimização estimado: " + problem.getMainInformation().getAverageDuration() + ' ' + problem.getMainInformation().getAverageScale() + "<br /><br />"
+				+ "Tempo de optimização estimado: " + problem.getIntroduction().getAverageDuration().getValue("min") + " minutos <br /><br />"
 				+ "Atenciosamente, <br/>Equipa da Nêmesis</p></body></html>";
 	}
 
-	public void progression_email(String to, Double progress) {
+	public void progression_email(String to, double progress, int minutesLeft) {
 		this.to = to;
-		subject = "Progresso da Optimização: " + problem.getMainInformation().getProblemName() + " - " + LocalDateTime.now();
+		subject = "Progresso da Optimização: " + problem.getIntroduction().getName() + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Nêmesis - Processo de Otimização</h1><p>O processo de optimizaçãoo encontra-se " + progress + "% concluido.<br /><br />"
-				+ "Tempo de optimização estimado: " + problem.getMainInformation().getAverageDuration()*progress + ' ' + problem.getMainInformation().getAverageScale() + "<br /><br />"
+				+ "Tempo restante de optimização estimado: " + minutesLeft + "<br /><br />"
 				+ "Atenciosamente, <br/>Equipa da Nêmesis</p></body></html>";
 	}
 
@@ -53,6 +53,17 @@ public class Email {
 				+ "2 - Verifique se todos os campos est�o correctamente preenchidos;<br />"
 				+ "3 - Submeta novamente o problema.<br /><br />"
 				+ "Pedimos desculpa pelo incomodo causado.<br /><br />" + "Atenciosamente N�mesis</p></body></html>";
+	}
+	
+	public void time_exceeded(double progress)	{
+		this.to = problem.getIntroduction().getUserEmail();
+		subject = "Tempo máximo excedido: " + problem.getIntroduction().getName() + " - " + LocalDateTime.now();
+		messageBody = "<html><body><h1>Nêmesis - Processo de Otimização. </h1><br /><br />O processo de optimização foi interrompido devido a ter excedido o tempo limite"
+				+ "O processo parou em " + progress + "%, tendo atingido o tempo limite de " 
+				+ (problem.getIntroduction().getMaxDuration().getValue("min")*100) + " minutos. Caso pretenda que o processo conclua, terá de submeter o processo"
+				+ " novamente, aumentando o valor do tempo limite. <br /><br />"
+				+ "Atenciosamente, <br/>Equipa da Nêmesis</p></body></html>";
+		
 	}
 
 	public String getFrom() {
@@ -75,7 +86,7 @@ public class Email {
 		return messageBody;
 	}
 
-	public Submission getProblem() {
+	public Problem getProblem() {
 		return problem;
 	}
 	

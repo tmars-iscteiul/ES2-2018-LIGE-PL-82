@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import data.comm.Email;
+import data.comm.EmailSender;
 import data.jmetal.ExperimentsBinaryExternalViaJAR;
 import data.jmetal.ExperimentsDoubleExternalViaJAR;
 import data.jmetal.ExperimentsIntegeExternalViaJAR;
@@ -48,6 +50,9 @@ public class JMetalWorker extends Thread {
 		jarPath= problem.getFitnessApp().getLocalJarPath();
 		
 		workerLogger = new ConsoleLogger("JMETALWORKER");
+		Email email = new Email(this.problem);
+		email.welcome_email();
+		new EmailSender().sendMail(email);
 		start();
 	}
 	
@@ -68,7 +73,7 @@ public class JMetalWorker extends Thread {
 	}
 	
 	@Override
-	public void run()	{
+	public synchronized void run()	{
 		//Here is where the algorithm calls will be made.
 		workerLogger.writeConsoleLog("Received problem \"" + problem.getIntroduction().getName() + "\" from " + problem.getIntroduction().getUserEmail());
 		
@@ -101,14 +106,14 @@ public class JMetalWorker extends Thread {
 				e.printStackTrace();
 			}*/
 		}
-		if( counterInteger== configListSize) {
+		if(counterInteger== configListSize) {
 			try {
 				ExperimentsIntegeExternalViaJAR.main(null);
 			} catch (IOException err) {
 				err.printStackTrace();
 			}
 		}
-		if( counterBinary== configListSize) {
+		if(counterBinary== configListSize) {
 			try {
 				ExperimentsBinaryExternalViaJAR.main(null);
 			} catch (IOException err) {

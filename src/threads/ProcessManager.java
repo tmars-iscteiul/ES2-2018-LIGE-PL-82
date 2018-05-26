@@ -1,5 +1,7 @@
 package threads;
 
+import data.comm.Email;
+import data.comm.EmailSender;
 import utilities.ConsoleLogger;
 
 /**
@@ -39,7 +41,7 @@ public class ProcessManager extends Thread	{
 				e.printStackTrace();
 			}
 		}
-		logger.writeConsoleLog("Worker has died.");
+		logger.writeConsoleLog("Worker has stopped running.");
 	}
 	
 	private double getRunTime()	{
@@ -56,13 +58,16 @@ public class ProcessManager extends Thread	{
 
 	private void checkMaxTimeLimit()	{
 		if(getRunTime() > worker.getProblem().getIntroduction().getMaxDuration().getValue("ms"))	{
-			// TODO: Time limit exceeded
+			Email email = new Email(worker.getProblem());
+			email.time_exceeded(getProgress());
+			new EmailSender().sendMail(email);
+			logger.writeConsoleLog("Process has reached the time limit of " + worker.getProblem().getIntroduction().getMaxDuration().getValue("ms") + "ms.");
+			worker.stop();// TODO Replace with a safer stop of JMETAL.
 		}
 		
 		if(getRunTime() > worker.getProblem().getIntroduction().getAverageDuration().getValue("ms"))	{
-			// TODO: Check if time MIGHT exceed max
 			if(getProgress() < getProblemAverageMaxRatio())	{
-				// Run time reached average duration, but progress isn't high enough. It might exceed max duration
+				// TODO Run time reached average duration, but progress isn't high enough. It might exceed max duration
 			}
 		}
 	}
