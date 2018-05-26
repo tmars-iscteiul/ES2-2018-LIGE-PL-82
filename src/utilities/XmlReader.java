@@ -53,6 +53,12 @@ public class XmlReader {
 		Administrator admin = new Administrator(adminName, adminEmail);
 		return admin;
 	}
+
+	public File getConfig() {
+		return config;
+	}
+	
+	
 	
 	
 	

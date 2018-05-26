@@ -85,4 +85,18 @@ public class Engine extends Thread	{
 		}
 	}
 
+	public BlockingQueue<Problem> getProblemQueue() {
+		return problemQueue;
+	}
+
+	public Submission getProblem() {
+		return problem;
+	}
+
+	public ConsoleLogger getEngineLogger() {
+		return engineLogger;
+	}
+	
+	
+
 }
