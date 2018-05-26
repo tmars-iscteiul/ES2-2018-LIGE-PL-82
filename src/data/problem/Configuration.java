@@ -18,15 +18,26 @@ public class Configuration {
 	private String name;	/** Name of the variable*/
 	private String description;
 	
-	private double upperLimit;	/** Upper bound for the float value*/
-	private double lowerLimit;	/** Lower bound for the float value*/
+	private double upperLimitDouble;	/** Upper bound for the float value*/
+	private double lowerLimitDouble;	/** Lower bound for the float value*/
+	private int upperLimitInteger;	/** Upper bound for the integer value*/
+	private int lowerLimitInteger;	/** Lower bound for the integer value*/
+	
 	private VariableType varType; /** Helper to verify the object type, if defined */
 	private String[] valueName;
 	private Object[] valueArray; /** Defined as Object, since we can have multiple values there. To be tweaked in case of non compatibility */
 
 	public Configuration(String name, double low, double up, String type, int configSize, String description) {
 		this.name = name;
-		setLimits(low, up);
+		setDoubleLimits(low, up);
+		setArrayType(type);
+		valueArray = new Object[configSize];
+		valueName = new String[configSize];
+		this.description = description;
+	}
+	public Configuration(String name, int low, int up, String type, int configSize, String description) {
+		this.name = name;
+		setIntegerLimits(low, up);
 		setArrayType(type);
 		valueArray = new Object[configSize];
 		valueName = new String[configSize];
@@ -35,7 +46,8 @@ public class Configuration {
 
 	public Configuration(data.submission.InputListTable input)	{
 		name = input.getListName();
-		setLimits(input.getMinValue(), input.getMaxValue());
+		System.out.println("classe Configuration - input.getMinValue / input.getMaxValue ="+ input.getMinValue()+ "/"+ input.getMaxValue());
+		setDoubleLimits(input.getMinValue(), input.getMaxValue());// como e que o os gets devolvem um int e a função recebe um double?
 		setArrayType(input.getType());
 		valueArray = new Object[input.getNumberVar()];
 		valueName = new String[input.getNumberVar()];
@@ -48,18 +60,39 @@ public class Configuration {
 	 * @param low The lower limit
 	 * @param up The upper limit
 	 */
+	
+	/*
 	public void setLimits(double low, double up)	{
-		lowerLimit = low;
-		upperLimit = up;
+		if ( ) {
+			
+		}else if () {
+			
+		}
+	}*/
+	public void setDoubleLimits(double low, double up)	{
+		lowerLimitDouble = low;
+		upperLimitDouble = up;
+	}
+	
+	public void setIntegerLimits(int low, int up)	{
+		lowerLimitInteger = low;
+		upperLimitInteger = up;
 	}
 	
 	
-	public double getUpperLimit() {
-		return upperLimit;
+	public double getUpperLimitDouble() {
+		return upperLimitDouble;
 	}
 
-	public double getLowerLimit() {
-		return lowerLimit;
+	public double getLowerLimitDouble() {
+		return lowerLimitDouble;
+	}
+	public int getUpperLimitInteger() {
+		return upperLimitInteger;
+	}
+
+	public int getLowerLimitInteger() {
+		return lowerLimitInteger;
 	}
 
 	

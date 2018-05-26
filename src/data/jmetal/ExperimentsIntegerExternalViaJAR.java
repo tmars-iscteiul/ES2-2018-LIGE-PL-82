@@ -9,6 +9,7 @@ import org.uma.jmetal.algorithm.multiobjective.smsemoa.SMSEMOABuilder;
 import org.uma.jmetal.operator.impl.crossover.IntegerSBXCrossover;
 import org.uma.jmetal.operator.impl.mutation.IntegerPolynomialMutation;
 import org.uma.jmetal.qualityindicator.impl.hypervolume.PISAHypervolume;
+import org.uma.jmetal.solution.DoubleSolution;
 import org.uma.jmetal.solution.IntegerSolution;
 import org.uma.jmetal.util.JMetalException;
 import org.uma.jmetal.util.experiment.Experiment;
@@ -17,45 +18,61 @@ import org.uma.jmetal.util.experiment.component.*;
 import org.uma.jmetal.util.experiment.util.ExperimentAlgorithm;
 import org.uma.jmetal.util.experiment.util.ExperimentProblem;
 
+import utilities.Paths;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ExperimentsIntegeExternalViaJAR {
+public class ExperimentsIntegerExternalViaJAR {
   private static final int INDEPENDENT_RUNS = 2;
   private static final int maxEvaluations = 250;
+  private static final int populationSize = 100;
+  private MyProblemIntegerExternalViaJAR myProblem;
+  private Experiment<IntegerSolution, List<IntegerSolution>> experiment;
+
   
-  public static void main(String[] args) throws IOException {
-    String experimentBaseDirectory = "experimentBaseDirectory";
+  public ExperimentsIntegerExternalViaJAR(int numberOfVariables, int numberOfObjetives, int minValue, int maxValue,
+			String problemName, String jarPath) {
+		
+    myProblem = new MyProblemIntegerExternalViaJAR(numberOfVariables, numberOfObjetives , minValue, maxValue , problemName , jarPath);
+	List<ExperimentProblem<IntegerSolution>> problemList = new ArrayList<>();
+	problemList.add(new ExperimentProblem<>(myProblem));
 
-    List<ExperimentProblem<IntegerSolution>> problemList = new ArrayList<>();
-    problemList.add(new ExperimentProblem<>(new MyProblemIntegerExternalViaJAR()));
-
+  
     List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithmList =
             configureAlgorithmList(problemList);
 
-    Experiment<IntegerSolution, List<IntegerSolution>> experiment =
-        new ExperimentBuilder<IntegerSolution, List<IntegerSolution>>("ExperimentsIntegerExternalViaJAR")
+    experiment=
+        new ExperimentBuilder<IntegerSolution, List<IntegerSolution>>(problemName)
             .setAlgorithmList(algorithmList)
             .setProblemList(problemList)
-            .setExperimentBaseDirectory(experimentBaseDirectory)
+            .setExperimentBaseDirectory(Paths.EXPERIMENTS_FOLDER)
             .setOutputParetoFrontFileName("FUN")
             .setOutputParetoSetFileName("VAR")
-            .setReferenceFrontDirectory(experimentBaseDirectory+"/referenceFronts")
+            .setReferenceFrontDirectory(Paths.EXPERIMENTS_FOLDER+problemName+Paths.REFERENCE_FRONTS)
             .setIndicatorList(Arrays.asList(new PISAHypervolume<IntegerSolution>()))
             .setIndependentRuns(INDEPENDENT_RUNS)
             .setNumberOfCores(8)
             .build();
 
-    new ExecuteAlgorithms<>(experiment).run();
-    new GenerateReferenceParetoFront(experiment).run();
-    new ComputeQualityIndicators<>(experiment).run() ;
-    new GenerateLatexTablesWithStatistics(experiment).run() ;
-    new GenerateBoxplotsWithR<>(experiment).setRows(1).setColumns(1).run() ;
+	}
+  
+  public void start()	{
+  	new ExecuteAlgorithms<>(experiment).run();
+	    try {
+			new GenerateReferenceParetoSetAndFrontFromDoubleSolutions(experiment).run();
+			new ComputeQualityIndicators<>(experiment).run() ;
+			new GenerateLatexTablesWithStatistics(experiment).run() ;
+			new GenerateBoxplotsWithR<>(experiment).setRows(1).setColumns(1).run() ;
+	    
+	    } catch (IOException e) {
+			e.printStackTrace();
+		}
   }
 
-  static List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> configureAlgorithmList(
+static List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> configureAlgorithmList(
           List<ExperimentProblem<IntegerSolution>> problemList) {
     List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithms = new ArrayList<>();
 

@@ -8,7 +8,7 @@ import data.comm.Email;
 import data.comm.EmailSender;
 import data.jmetal.ExperimentsBinaryExternalViaJAR;
 import data.jmetal.ExperimentsDoubleExternalViaJAR;
-import data.jmetal.ExperimentsIntegeExternalViaJAR;
+import data.jmetal.ExperimentsIntegerExternalViaJAR;
 import data.problem.Problem;
 import data.problem.ProblemInputs;
 import utilities.ConsoleLogger;
@@ -26,13 +26,22 @@ public class JMetalWorker extends Thread {
 	private Problem problem;
 	private ConsoleLogger workerLogger;
 	private ExperimentsDoubleExternalViaJAR eDouble;
+	private ExperimentsIntegerExternalViaJAR eInteger;
+	
+
+	
+	
 	
 	private int configListSize;
 	
 	private int numberOfObjetives ;
 	private int numberOfVariables ;
-	private double minValue;
-	private double maxValue ;
+	
+	private double minValueDouble;
+	private double maxValueDouble ;
+	private int minValueInteger;
+	private int maxValueInteger;
+	
 	private String problemName;
 	private String jarPath;
 	
@@ -57,18 +66,35 @@ public class JMetalWorker extends Thread {
 	}
 	
 	private void setBounds() {
-		double minValueAux = 0.0;
-		double maxValueAux = 0.0;
-		for( int i=0;i < configListSize; i++) {
-			minValueAux = problem.getInputs().getConfigList().get(i).getLowerLimit();
-			maxValueAux = problem.getInputs().getConfigList().get(i).getUpperLimit();
+		double minValueDoubleAux = 0.0;
+		double maxValueDoubleAux = 0.0;
+		int minValueIntegerAux = 0;
+		int maxValueIntegerAux = 0;
+		for( int i=0;i < configListSize; i++) { 
+			if ( problem.getInputs().getConfigList().get(0).getVarType()== VariableType.varDouble) {
+				minValueDoubleAux = problem.getInputs().getConfigList().get(0).getLowerLimitDouble();
+				maxValueDoubleAux = problem.getInputs().getConfigList().get(0).getUpperLimitDouble();
 			
-			if(minValue> minValueAux) {
-				minValue = minValueAux;
+				if(minValueDouble> minValueDoubleAux) {
+					minValueDouble = minValueDoubleAux;
+				}
+				if(maxValueDouble< maxValueDoubleAux) {
+					maxValueDouble = maxValueDoubleAux;
+				}
 			}
-			if(maxValue< maxValueAux) {
-				maxValue = maxValueAux;
-			}
+			/*
+			if ( problem.getInputs().getConfigList().get(0).getVarType()== VariableType.varInt) {
+				minValueIntegerAux = problem.getInputs().getConfigList().get(0).getLowerLimit();
+				maxValueIntegerAux = problem.getInputs().getConfigList().get(0).getUpperLimit();
+			
+				if(minValueInteger> minValueIntegerAux) {
+					minValueInteger = minValueIntegerAux;
+				}
+				if(maxValueInteger< maxValueIntegerAux) {
+					maxValueInteger = maxValueIntegerAux;
+				}
+			}*/
+			
 		}
 	}
 	
@@ -93,23 +119,15 @@ public class JMetalWorker extends Thread {
 		}
 		
 		if( counterDouble== configListSize) {
-			eDouble = new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath);
+			eDouble = new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValueDouble,  maxValueDouble,  problemName, jarPath);
 			eDouble.start();
 			
-			/*
-			try {
-				ExperimentsDoubleExternalViaJAR.main(null);
-			} catch (IOException e) {
-				
-				e.printStackTrace();
-			}*/
+			
 		}
 		if(counterInteger== configListSize) {
-			try {
-				ExperimentsIntegeExternalViaJAR.main(null);
-			} catch (IOException err) {
-				err.printStackTrace();
-			}
+			eInteger = new ExperimentsIntegerExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValueInteger,  maxValueInteger,  problemName, jarPath);
+			eInteger.start();
+			
 		}
 		if(counterBinary== configListSize) {
 			try {
@@ -122,6 +140,9 @@ public class JMetalWorker extends Thread {
 	
 	public ExperimentsDoubleExternalViaJAR getExperimentDouble()	{
 		return eDouble;
+	}
+	public ExperimentsIntegerExternalViaJAR getExperimentInteger()	{
+		return eInteger;
 	}
 	
 	public Problem getProblem()	{

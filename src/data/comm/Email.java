@@ -59,8 +59,8 @@ public class Email {
 		this.to = problem.getIntroduction().getUserEmail();
 		subject = "Tempo máximo excedido: " + problem.getIntroduction().getName() + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Nêmesis - Processo de Otimização. </h1><br /><br />O processo de optimização foi interrompido devido a ter excedido o tempo limite"
-				+ "O processo parou em " + progress + "%, tendo atingido o tempo limite de " 
-				+ (problem.getIntroduction().getMaxDuration().getValue("min")*100) + " minutos. Caso pretenda que o processo conclua, terá de submeter o processo"
+				+ "O processo parou em " + String.format("%.2f", progress) + "%, tendo atingido o tempo limite de " 
+				+ String.format("%", (problem.getIntroduction().getMaxDuration().getValue("min")*100)) + " minutos. Caso pretenda que o processo conclua, terá de submeter o processo"
 				+ " novamente, aumentando o valor do tempo limite. <br /><br />"
 				+ "Atenciosamente, <br/>Equipa da Nêmesis</p></body></html>";
 		

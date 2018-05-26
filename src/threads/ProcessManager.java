@@ -33,7 +33,7 @@ public class ProcessManager extends Thread	{
 			e.printStackTrace();
 		}
 		while(worker.isAlive())	{
-			logger.writeConsoleLog("Progress: " + getProgress()*100 + "%");
+			logger.writeConsoleLog("Progress: " + String.format("%.2f", getProgress()*100) + "%");
 			checkMaxTimeLimit();
 			try {
 				sleep(updateTimer * 1000);
@@ -61,7 +61,7 @@ public class ProcessManager extends Thread	{
 			Email email = new Email(worker.getProblem());
 			email.time_exceeded(getProgress());
 			new EmailSender().sendMail(email);
-			logger.writeConsoleLog("Process has reached the time limit of " + worker.getProblem().getIntroduction().getMaxDuration().getValue("ms") + "ms.");
+			logger.writeConsoleLog("Process has reached the time limit of " + worker.getProblem().getIntroduction().getMaxDuration().getValue("sec") + "sec.");
 			worker.stop();// TODO Replace with a safer stop of JMETAL.
 		}
 		
