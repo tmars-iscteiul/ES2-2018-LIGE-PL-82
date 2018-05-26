@@ -11,7 +11,7 @@ package utilities;
  */
 public class TimeVariable {
 
-	private enum TimeScale {second, minute, hour}
+	private enum TimeScale {millisecond, second, minute, hour}
 	private double value;
 	private TimeScale scale;
 	
@@ -22,12 +22,20 @@ public class TimeVariable {
 	
 	private TimeScale getScaleByString(String scale)	{
 		switch(scale)	{
+		case "ms":
+			return TimeScale.millisecond;
 		case "sec":
 			return TimeScale.second;
 		case "min":
 			return TimeScale.minute;
 		case "hour":
 			return TimeScale.hour;
+		case "millisecond":
+			return TimeScale.millisecond;
+		case "second":
+			return TimeScale.second;
+		case "minute":
+			return TimeScale.minute;
 		default:
 			throw new IllegalArgumentException("String \"" + scale + "\" doesn't match a scale (sec, min, hour)");
 		}
@@ -36,37 +44,62 @@ public class TimeVariable {
 	private void convertScale(String newScale)	{
 		// Optimize this later
 		TimeScale tempScale = getScaleByString(newScale);
-		if(scale == TimeScale.second)	{
-			if(tempScale.equals(TimeScale.minute))	{
-				this.value*=60; 
+		if(scale == TimeScale.millisecond)	{
+			if(tempScale.equals(TimeScale.second))	{
+				this.value/=1000; 
+				this.scale = tempScale;
+			}	else if(tempScale.equals(TimeScale.minute))	{
+				this.value/=60000;
 				this.scale = tempScale;
 			}	else if(tempScale.equals(TimeScale.hour))	{
-				this.value*=120;
+				this.value/=3600000;
 				this.scale = tempScale;
-			}		
+			}	
+		}
+		if(scale == TimeScale.second)	{
+			if(tempScale.equals(TimeScale.millisecond))	{
+				this.value*=1000; 
+				this.scale = tempScale;
+			}	else if(tempScale.equals(TimeScale.minute))	{
+				this.value/=60;
+				this.scale = tempScale;
+			}	else if(tempScale.equals(TimeScale.hour))	{
+				this.value/=3600;
+				this.scale = tempScale;
+			}
 		}
 		if(scale == TimeScale.minute)	{
-			if(tempScale.equals(TimeScale.second))	{
-				this.value/=60; 
+			if(tempScale.equals(TimeScale.millisecond))	{
+				this.value*=60000;
+				this.scale = tempScale;
+			}	else if(tempScale.equals(TimeScale.second))	{
+				this.value*=60;
 				this.scale = tempScale;
 			}	else if(tempScale.equals(TimeScale.hour))	{
-				this.value*=60;
+				this.value/=60;
 				this.scale = tempScale;
 			}		
 		}
 		if(scale == TimeScale.hour)	{
-			if(tempScale.equals(TimeScale.minute))	{
-				this.value/=60; 
+			if(tempScale.equals(TimeScale.millisecond))	{
+				this.value/=3600000; 
 				this.scale = tempScale;
 			}	else if(tempScale.equals(TimeScale.second))	{
-				this.value/=120;
+				this.value/=3600;
+				this.scale = tempScale;
+			}	else if(tempScale.equals(TimeScale.minute))	{
+				this.value/=60;
 				this.scale = tempScale;
 			}		
 		}
 	}
 	
-	public double getValue() {
-		return value;
+	public double getValue(String type) {
+		String oldScale = scale.toString();
+		convertScale(type);
+		double convertedResult = value;
+		convertScale(oldScale);
+		return convertedResult;
 	}
 
 	public TimeScale getScale() {
