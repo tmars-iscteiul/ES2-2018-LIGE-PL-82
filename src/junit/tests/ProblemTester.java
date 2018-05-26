@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import data.problem.Configuration;
 import data.problem.Problem;
 import data.problem.ProblemFitnessApp;
 import data.problem.ProblemInputs;
@@ -105,6 +106,14 @@ public class ProblemTester {
 		assertNotNull(tester.getIntroduction());
 		assertNotNull(tester.getFaqs());
 		assertNotNull(tester.getFeedback());
+	}
+	
+	@Test
+	public void configurationSolo() {
+		//                         Configuration(String name, double low, double up, String type, int configSize, String description) 
+		Configuration tester = new Configuration("name", 1.0, 5.0, "type", 20, "description");
+		assertEquals(1.0, tester.getLowerLimit(),0);
+		assertEquals(5.0, tester.getUpperLimit(),0);
 	}
 
 }

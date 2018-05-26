@@ -89,6 +89,12 @@ public class Email {
 	public Problem getProblem() {
 		return problem;
 	}
+
+	public void setTo(String to) {
+		this.to = to;
+	}
+	
+	
 	
 	
 
