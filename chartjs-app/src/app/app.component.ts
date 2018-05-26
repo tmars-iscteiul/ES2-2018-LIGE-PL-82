@@ -60,14 +60,14 @@ export class AppComponent {
 
       this.timeScale = 'seconds'
 
-      if (this.processTime > 60) {
+      /*if (this.processTime > 60) {
         this.processTime = this.processTime / 60;
         this.timeScale = 'minutes';
       }
       if (this.processTime > 120) {
         this.processTime = this.processTime / 60;
         this.timeScale = 'hours';
-      }
+      }*/
 
       var ctx = document.getElementById('barChart');
       var chart = new Chart(ctx, {

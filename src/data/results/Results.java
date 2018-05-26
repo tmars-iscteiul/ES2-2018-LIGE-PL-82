@@ -9,7 +9,7 @@ public class Results {
 	@JsonProperty("problemDescription") private String problemDescription;
 	@JsonProperty("userEmail") private String userEmail;
 	@JsonProperty("outputsFunction") private String outputsFunction;
-	@JsonProperty("solutionVariablesNumber") private int solutionVariblesNumber;
+	@JsonProperty("solutionVariablesNumber") private int solutionVariablesNumber;
 	@JsonProperty("processTime") private int processTime;
 	@JsonProperty("labels") private String[] labels;
 	@JsonProperty("bestAlgorithm") private String bestAlgorithm;
@@ -30,7 +30,7 @@ public class Results {
 		this.labels = labels;
 		this.bestAlgorithm = bestAlgorithm;
 		this.fitnessOutputList = fitnessOutputList;
-		this.solutionVariblesNumber = solutionVariablesNumber;
+		this.solutionVariablesNumber = solutionVariablesNumber;
 		this.processTime = processTime;
 	}
 	
@@ -78,12 +78,12 @@ public class Results {
 		this.fitnessOutputList = fitnessOutputList;
 	}
 
-	public int getSolutionVariblesNumber() {
-		return solutionVariblesNumber;
+	public int getSolutionVariablesNumber() {
+		return solutionVariablesNumber;
 	}
 
 	public void setSolutionVariblesNumber(int solutionVariblesNumber) {
-		this.solutionVariblesNumber = solutionVariblesNumber;
+		this.solutionVariablesNumber = solutionVariblesNumber;
 	}
 
 	public int getProcessTime() {
