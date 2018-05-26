@@ -14,6 +14,9 @@ export class AppComponent {
   userEmail = null;
   outputsFunction = null;
   bestAlgorithm = null;
+  processTime = null;
+  solutionVariablesNumber = null;
+  timeScale = null;
 
   constructor() {}
   ngOnInit() {
@@ -52,6 +55,19 @@ export class AppComponent {
       this.userEmail = response.userEmail;
       this.bestAlgorithm = response.bestAlgorithm;
       this.outputsFunction = response.outputsFunction;
+      this.solutionVariablesNumber = response.solutionVariablesNumber;
+      this.processTime = response.processTime;
+
+      this.timeScale = 'seconds'
+
+      if (this.processTime > 60) {
+        this.processTime = this.processTime / 60;
+        this.timeScale = 'minutes';
+      }
+      if (this.processTime > 120) {
+        this.processTime = this.processTime / 60;
+        this.timeScale = 'hours';
+      }
 
       var ctx = document.getElementById('barChart');
       var chart = new Chart(ctx, {
@@ -100,7 +116,7 @@ export class AppComponent {
         var dsColor = chartColors[colorName];
 
         console.log(dsColor);
-        chart.data.datasets[i].backgroundColor = [dsColor, dsColor, dsColor];
+        chart.data.datasets[i].backgroundColor = dsColor;
         i++;     
       });
       

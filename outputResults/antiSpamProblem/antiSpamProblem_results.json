@@ -4,17 +4,17 @@
    "userEmail": "tm.alves.rodrigues@gmail.com",
    "outputsFunction": "fNfPFitnessApp",
    "solutionVariablesNumber": 300,
-   "processTime": 240,
-   "labels": ["Solution 1","Solution 2","Solution 3"],
+   "processTime": 2507666,
+   "labels": ["Solution 1","Solution 2","Solution 3","Solution 4"],
    "bestAlgorithm": "nsgaii",
    "fitnessOutputList": [
       {
          "label": "False Positives",
-         "data": [2,1,4]
+         "data": [2,1,4,18]
       },
       {
          "label": "False Negatives",
-         "data": [1,3,2]
+         "data": [1,3,2,9]
       }
    ]
 }
