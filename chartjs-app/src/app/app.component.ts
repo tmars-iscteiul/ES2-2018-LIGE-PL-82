@@ -13,7 +13,7 @@ export class AppComponent {
   chartDescription = null;
   userEmail = null;
   outputsFunction = null;
-  bestAlgorithm = null;
+  optimizationDate = null;
   processTime = null;
   solutionVariablesNumber = null;
   timeScale = null;
@@ -53,7 +53,7 @@ export class AppComponent {
       this.chartTitle = response.problemName;
       this.chartDescription = response.problemDescription;
       this.userEmail = response.userEmail;
-      this.bestAlgorithm = response.bestAlgorithm;
+      this.optimizationDate = response.optimizationDate;
       this.outputsFunction = response.outputsFunction;
       this.solutionVariablesNumber = response.solutionVariablesNumber;
       this.processTime = response.processTime;

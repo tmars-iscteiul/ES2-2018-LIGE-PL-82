@@ -6,12 +6,12 @@ public class InputListTable {
 	@JsonProperty("listName") private String listName;
 	@JsonProperty("type") private String type;
 	@JsonProperty("numberVar") private int numberVar;
-	@JsonProperty("minValue") private int minValue;
-	@JsonProperty("maxValue") private int maxValue;
+	@JsonProperty("minValue") private double minValue;
+	@JsonProperty("maxValue") private double maxValue;
 	@JsonProperty("description") private String description;
 	
 	
-	public InputListTable(String listName, String type, int numberVar, int minValue, int maxValue, String description) {
+	public InputListTable(String listName, String type, int numberVar, double minValue, double maxValue, String description) {
 		super();
 		this.listName = listName;
 		this.type = type;
@@ -56,22 +56,22 @@ public class InputListTable {
 	}
 
 
-	public int getMinValue() {
+	public double getMinValue() {
 		return minValue;
 	}
 
 
-	public void setMinValue(int minValue) {
+	public void setMinValue(double minValue) {
 		this.minValue = minValue;
 	}
 
 
-	public int getMaxValue() {
+	public double getMaxValue() {
 		return maxValue;
 	}
 
 
-	public void setMaxValue(int maxValue) {
+	public void setMaxValue(double maxValue) {
 		this.maxValue = maxValue;
 	}
 

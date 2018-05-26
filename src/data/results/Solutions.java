@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Results {
+public class Solutions {
 	@JsonProperty("problemName") private String problemName;
 	@JsonProperty("problemDescription") private String problemDescription;
 	@JsonProperty("userEmail") private String userEmail;
@@ -12,29 +12,27 @@ public class Results {
 	@JsonProperty("solutionVariablesNumber") private int solutionVariablesNumber;
 	@JsonProperty("processTime") private int processTime;
 	@JsonProperty("optimizationDate") private String optimizationDate;
-	@JsonProperty("labels") private String[] labels;
-	@JsonProperty("fitnessOutputList") private List<FitnessOutputList> fitnessOutputList;
+	@JsonProperty("variablesName") private String[] variablesName;
+	@JsonProperty("solutionsList") private List<SolutionsList> solutionsList;
 	
-	public Results() {
-
+	public Solutions() {
+		
 	}
-
-	public Results(String problemName, String problemDescription, String userEmail, String outputsFunction,
-			int solutionVariablesNumber, int processTime, String[] labels, String optimizationDate,
-			List<FitnessOutputList> fitnessOutputList) {
+	
+	public Solutions(String problemName, String problemDescription, String userEmail, String outputsFunction,
+			int solutionVariablesNumber, int processTime, String optimizationDate, String[] variablesName,
+			List<SolutionsList> solutionsList) {
 		super();
 		this.problemName = problemName;
 		this.problemDescription = problemDescription;
 		this.userEmail = userEmail;
 		this.outputsFunction = outputsFunction;
-		this.labels = labels;
-		this.optimizationDate = optimizationDate;
-		this.fitnessOutputList = fitnessOutputList;
 		this.solutionVariablesNumber = solutionVariablesNumber;
 		this.processTime = processTime;
+		this.optimizationDate = optimizationDate;
+		this.variablesName = variablesName;
+		this.solutionsList = solutionsList;
 	}
-	
-	
 	public String getProblemName() {
 		return problemName;
 	}
@@ -59,45 +57,35 @@ public class Results {
 	public void setOutputsFunction(String outputsFunction) {
 		this.outputsFunction = outputsFunction;
 	}
-	public String[] getLabels() {
-		return labels;
-	}
-	public void setLabels(String[] labels) {
-		this.labels = labels;
-	}
-	public List<FitnessOutputList> getFitnessOutputList() {
-		return fitnessOutputList;
-	}
-	public void setFitnessOutputList(List<FitnessOutputList> fitnessOutputList) {
-		this.fitnessOutputList = fitnessOutputList;
-	}
-
 	public int getSolutionVariablesNumber() {
 		return solutionVariablesNumber;
 	}
-
-	public void setSolutionVariblesNumber(int solutionVariblesNumber) {
-		this.solutionVariablesNumber = solutionVariblesNumber;
+	public void setSolutionVariablesNumber(int solutionVariablesNumber) {
+		this.solutionVariablesNumber = solutionVariablesNumber;
 	}
-
 	public int getProcessTime() {
 		return processTime;
 	}
-
 	public void setProcessTime(int processTime) {
 		this.processTime = processTime;
 	}
-
 	public String getOptimizationDate() {
 		return optimizationDate;
 	}
-
 	public void setOptimizationDate(String optimizationDate) {
 		this.optimizationDate = optimizationDate;
 	}
-
-	public void setSolutionVariablesNumber(int solutionVariablesNumber) {
-		this.solutionVariablesNumber = solutionVariablesNumber;
+	public String[] getVariablesName() {
+		return variablesName;
+	}
+	public void setVariablesName(String[] variablesName) {
+		this.variablesName = variablesName;
+	}
+	public List<SolutionsList> getSolutionsList() {
+		return solutionsList;
+	}
+	public void setSolutionsList(List<SolutionsList> solutionsList) {
+		this.solutionsList = solutionsList;
 	}
 	
 	

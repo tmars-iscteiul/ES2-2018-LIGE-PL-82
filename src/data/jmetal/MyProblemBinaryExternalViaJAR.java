@@ -9,19 +9,25 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.BitSet;
 
-/* Implementa��o de um problema do tipo Binary que executa o .jar externo
-   OneZeroMax.jar e pode ser usado como um dos problema de teste indicados 
-   no encunciado do trabalho */
+/*  OneZeroMax.jar */
 
 @SuppressWarnings("serial")
 public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 	  private int bits ;
-
-	  public MyProblemBinaryExternalViaJAR() throws JMetalException {
-		// 10 decision variables by default  
-	    this(10);
-	  }
-
+	  private String jarPath;
+	  private int calculatedConfigurations;
+	  
+	  public MyProblemBinaryExternalViaJAR(int numberOfVariables, int numberOfObjetives, String problemName, String jarPath) throws JMetalException{
+		  this.jarPath= jarPath;
+		  calculatedConfigurations = 0;
+		  setNumberOfVariables(1);
+		  setNumberOfObjectives(2);
+		  setName(problemName);
+		  //bits = numberOfBits ; // bits = 10 , we don´t have time to put this option on the user ( nemesis-app) 
+		  bits= 10;
+		}
+	
+	  /*
 	  public MyProblemBinaryExternalViaJAR(Integer numberOfBits) throws JMetalException {
 		setNumberOfVariables(1);
 	    setNumberOfObjectives(2);
@@ -29,8 +35,10 @@ public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 	    bits = numberOfBits ;
 
 	  }
+	  */
 	  
-	  @Override
+
+	@Override
 	  protected int getBitsPerVariable(int index) {
 	  	if (index != 0) {
 	  		throw new JMetalException("Problem MyBinaryProblem has only a variable. Index = " + index) ;
@@ -52,7 +60,7 @@ public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 	    solutionString = bitset.toString();
 	    try {
 			String line;
-	    	Process p = Runtime.getRuntime().exec("java -jar c:\\OneZeroMax.jar" + " " + solutionString);
+	    	Process p = Runtime.getRuntime().exec("java -jar " + jarPath+ " " + solutionString);
 	    	BufferedReader brinput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 	    	while ((line = brinput.readLine()) != null) 
 	    		{evaluationResultString+=line;}
@@ -65,6 +73,10 @@ public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 	    for (int i = 0; i < solution.getNumberOfObjectives(); i++) {
 	    	solution.setObjective(i, Double.parseDouble(individualEvaluationCriteria[i]));
 	    }	    	    
-	  
+	    calculatedConfigurations++;
 	  }
+	  
+	  public int getCalculatedConfigurations()	{
+			return calculatedConfigurations;
+		}
 	}

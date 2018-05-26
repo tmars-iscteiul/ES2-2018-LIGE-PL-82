@@ -16,6 +16,7 @@ import org.uma.jmetal.operator.impl.selection.RankingAndCrowdingSelection;
 import org.uma.jmetal.problem.BinaryProblem;
 import org.uma.jmetal.qualityindicator.impl.hypervolume.PISAHypervolume;
 import org.uma.jmetal.solution.BinarySolution;
+import org.uma.jmetal.solution.DoubleSolution;
 import org.uma.jmetal.util.JMetalException;
 import org.uma.jmetal.util.evaluator.impl.SequentialSolutionListEvaluator;
 import org.uma.jmetal.util.experiment.Experiment;
@@ -31,36 +32,52 @@ import java.util.List;
 import utilities.Paths;
 
 public class ExperimentsBinaryExternalViaJAR {
+	
+  private Experiment<BinarySolution, List<BinarySolution>> experiment;
   private static final int INDEPENDENT_RUNS = 2;
   private static final int maxEvaluations = 250;
+  private static final int populationSize = 100;
+  private MyProblemBinaryExternalViaJAR myProblem;
   
-  public static void main(String[] args) throws IOException {
+  
+  public ExperimentsBinaryExternalViaJAR(int numberOfVariables, int numberOfObjetives,
+		String problemName, String jarPath, ArrayList<utilities.Algorithm> algorithmListNemesis) {
 
-    List<ExperimentProblem<BinarySolution>> problemList = new ArrayList<>();
-    problemList.add(new ExperimentProblem<>(new MyProblemBinaryExternalViaJAR()));
+	  myProblem = new MyProblemBinaryExternalViaJAR(numberOfVariables, numberOfObjetives , problemName , jarPath);
+		List<ExperimentProblem<BinarySolution>> problemList = new ArrayList<>();
+		problemList.add(new ExperimentProblem<>(myProblem));
 
+    
     List<ExperimentAlgorithm<BinarySolution, List<BinarySolution>>> algorithmList =
             configureAlgorithmList(problemList);
 
-    Experiment<BinarySolution, List<BinarySolution>> experiment =
-        new ExperimentBuilder<BinarySolution, List<BinarySolution>>("MyProblemBinaryExternalViaJAR")
+   
+     experiment= new ExperimentBuilder<BinarySolution, List<BinarySolution>>(problemName)
             .setAlgorithmList(algorithmList)
             .setProblemList(problemList)
             .setExperimentBaseDirectory(Paths.EXPERIMENTS_FOLDER)
             .setOutputParetoFrontFileName("FUN")
             .setOutputParetoSetFileName("VAR")
-            .setReferenceFrontDirectory(Paths.REFERENCE_FRONTS)
+            .setReferenceFrontDirectory(Paths.EXPERIMENTS_FOLDER+problemName+Paths.REFERENCE_FRONTS)
             .setIndicatorList(Arrays.asList(new PISAHypervolume<BinarySolution>()))
             .setIndependentRuns(INDEPENDENT_RUNS)
             .setNumberOfCores(8)
             .build();
 
-    new ExecuteAlgorithms<>(experiment).run();
-    new GenerateReferenceParetoFront(experiment).run();
-    new ComputeQualityIndicators<>(experiment).run() ;
-    new GenerateLatexTablesWithStatistics(experiment).run() ;
-    new GenerateBoxplotsWithR<>(experiment).setRows(1).setColumns(1).run() ;
   }
+  
+  public void start()	{
+	    new ExecuteAlgorithms<>(experiment).run();
+	    try {
+			new GenerateReferenceParetoSetAndFrontFromDoubleSolutions(experiment).run();
+			new ComputeQualityIndicators<>(experiment).run() ;
+			new GenerateLatexTablesWithStatistics(experiment).run() ;
+			new GenerateBoxplotsWithR<>(experiment).setRows(1).setColumns(1).run() ;
+	    
+	    } catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
   static List<ExperimentAlgorithm<BinarySolution, List<BinarySolution>>> configureAlgorithmList(
           List<ExperimentProblem<BinarySolution>> problemList) {
@@ -72,16 +89,9 @@ public class ExperimentsBinaryExternalViaJAR {
               new SinglePointCrossover(1.0),
               new BitFlipMutation(1.0 / ((MyProblemBinaryExternalViaJAR) problemList.get(i).getProblem()).getNumberOfBits(0)))
               .setMaxEvaluations(maxEvaluations)
-              .setPopulationSize(100)
+              .setPopulationSize(populationSize)
               .build();
       algorithms.add(new ExperimentAlgorithm<>(algorithm, "NSGAII", problemList.get(i).getTag()));
-
-      /* As simula��es com ExternalViaJAR no nome tem as fun��es de avalia��o 
-      implementadas em .JAR externos que s�o invocados no m�todo evaluate() 
-      As simula��es que executam .jar externos s�o muito mais demoradas, 
-      maxEvaluations e INDEPENDENT_RUNS tem por isso valores mais baixos */      
-      /* Dever�o ser comentadas ou retiradas de coment�rio as linhas 
-      correspondentes �s simula��es que se pretendem executar */
       
 //      Algorithm<List<BinarySolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(), new SinglePointCrossover(1.0), new BitFlipMutation(1.0 / ((MyProblemBinaryExternalViaJAR) problemList.get(i).getProblem()).getNumberOfBits(0))).setMaxEvaluations(maxEvaluations).build();      
 //      algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));
@@ -100,4 +110,11 @@ public class ExperimentsBinaryExternalViaJAR {
     return algorithms;
   }
 
+  public int getTotalConfigurations()	{
+		return (int) (Math.ceil(250.0/100)*INDEPENDENT_RUNS*populationSize);
+	}
+
+	public MyProblemBinaryExternalViaJAR getMyProblem()	{
+		return myProblem;
+	}
 }

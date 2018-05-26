@@ -3,6 +3,7 @@ package threads;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 import data.comm.Email;
 import data.comm.EmailSender;
@@ -11,6 +12,7 @@ import data.jmetal.ExperimentsDoubleExternalViaJAR;
 import data.jmetal.ExperimentsIntegerExternalViaJAR;
 import data.problem.Problem;
 import data.problem.ProblemInputs;
+import utilities.Algorithm;
 import utilities.ConsoleLogger;
 import utilities.VariableType;
 
@@ -27,23 +29,17 @@ public class JMetalWorker extends Thread {
 	private ConsoleLogger workerLogger;
 	private ExperimentsDoubleExternalViaJAR eDouble;
 	private ExperimentsIntegerExternalViaJAR eInteger;
-	
-
-	
+	private ExperimentsBinaryExternalViaJAR eBinary;
 	
 	
 	private int configListSize;
-	
 	private int numberOfObjetives ;
 	private int numberOfVariables ;
-	
-	private double minValueDouble;
-	private double maxValueDouble ;
-	private int minValueInteger;
-	private int maxValueInteger;
-	
+	private double minValue;
+	private double maxValue ;
 	private String problemName;
 	private String jarPath;
+	private ArrayList<Algorithm> algorithmList;
 	
 	public JMetalWorker(Problem problem)	{
 		// Possible TODO: Remove redundant fields
@@ -57,6 +53,7 @@ public class JMetalWorker extends Thread {
 		setBounds();
 		problemName= problem.getIntroduction().getName();
 		jarPath= problem.getFitnessApp().getLocalJarPath();
+		algorithmList = problem.getOptimization().getAlgorithmList();
 		
 		workerLogger = new ConsoleLogger("JMETAL-WORKER");
 		Email email = new Email(this.problem);
@@ -66,35 +63,19 @@ public class JMetalWorker extends Thread {
 	}
 	
 	private void setBounds() {
-		double minValueDoubleAux = 0.0;
-		double maxValueDoubleAux = 0.0;
-		int minValueIntegerAux = 0;
-		int maxValueIntegerAux = 0;
+		double minValueAux = 0.0;
+		double maxValueAux = 0.0;
 		for( int i=0;i < configListSize; i++) { 
-			if ( problem.getInputs().getConfigList().get(0).getVarType()== VariableType.varDouble) {
-				minValueDoubleAux = problem.getInputs().getConfigList().get(0).getLowerLimit();
-				maxValueDoubleAux = problem.getInputs().getConfigList().get(0).getUpperLimit();
 			
-				if(minValueDouble> minValueDoubleAux) {
-					minValueDouble = minValueDoubleAux;
-				}
-				if(maxValueDouble< maxValueDoubleAux) {
-					maxValueDouble = maxValueDoubleAux;
-				}
-			}
-			/*
-			if ( problem.getInputs().getConfigList().get(0).getVarType()== VariableType.varInt) {
-				minValueIntegerAux = problem.getInputs().getConfigList().get(0).getLowerLimit();
-				maxValueIntegerAux = problem.getInputs().getConfigList().get(0).getUpperLimit();
+				minValueAux = problem.getInputs().getConfigList().get(i).getLowerLimit();
+				maxValueAux = problem.getInputs().getConfigList().get(i).getUpperLimit();
 			
-				if(minValueInteger> minValueIntegerAux) {
-					minValueInteger = minValueIntegerAux;
+				if(minValue> minValueAux) {
+					minValue = minValueAux;
 				}
-				if(maxValueInteger< maxValueIntegerAux) {
-					maxValueInteger = maxValueIntegerAux;
+				if(maxValue< maxValueAux) {
+					maxValue = maxValueAux;
 				}
-			}*/
-			
 		}
 	}
 	
@@ -119,22 +100,20 @@ public class JMetalWorker extends Thread {
 		}
 		
 		if( counterDouble== configListSize) {
-			eDouble = new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValueDouble,  maxValueDouble,  problemName, jarPath);
+			eDouble = new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath, algorithmList);
 			eDouble.start();
 			
 			
 		}
 		if(counterInteger== configListSize) {
-			eInteger = new ExperimentsIntegerExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValueInteger,  maxValueInteger,  problemName, jarPath);
+			eInteger = new ExperimentsIntegerExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath, algorithmList);
 			eInteger.start();
 			
 		}
 		if(counterBinary== configListSize) {
-			try {
-				ExperimentsBinaryExternalViaJAR.main(null);
-			} catch (IOException err) {
-				err.printStackTrace();
-			}
+			//TODO : put the parameter numberOfBits on nemesis-app
+			eBinary = new ExperimentsBinaryExternalViaJAR(numberOfVariables,  numberOfObjetives,  problemName, jarPath, algorithmList);
+			eBinary.start();
 		}
 	}
 	
@@ -143,6 +122,9 @@ public class JMetalWorker extends Thread {
 	}
 	public ExperimentsIntegerExternalViaJAR getExperimentInteger()	{
 		return eInteger;
+	}
+	public ExperimentsBinaryExternalViaJAR getExperimentBinary()	{
+		return eBinary;
 	}
 	
 	public Problem getProblem()	{

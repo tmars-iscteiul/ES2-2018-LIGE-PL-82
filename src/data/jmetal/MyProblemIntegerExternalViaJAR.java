@@ -18,7 +18,7 @@ public class MyProblemIntegerExternalViaJAR extends AbstractIntegerProblem {
 	private int calculatedConfigurations;
 	  	
 	
-	  public MyProblemIntegerExternalViaJAR(Integer numberOfVariables, Integer numberOfObjetives,Integer  minValue, Integer maxValue, String problemName , String jarPath) {
+	  public MyProblemIntegerExternalViaJAR(Integer numberOfVariables, Integer numberOfObjetives,double  minValue, double maxValue, String problemName , String jarPath) {
 			this.jarPath= jarPath;
 			calculatedConfigurations = 0;
 		    setNumberOfVariables(numberOfVariables);
@@ -29,8 +29,8 @@ public class MyProblemIntegerExternalViaJAR extends AbstractIntegerProblem {
 	    List<Integer> upperLimit = new ArrayList<>(getNumberOfVariables()) ;
 
 	    for (int i = 0; i < getNumberOfVariables(); i++) {
-	      lowerLimit.add(minValue);
-	      upperLimit.add(maxValue);
+	      lowerLimit.add((int)minValue);
+	      upperLimit.add((int)maxValue);
 	    }
 
 	    setLowerLimit(lowerLimit);

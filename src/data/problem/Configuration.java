@@ -20,12 +20,6 @@ public class Configuration {
 	
 	private double upperLimit;	/** Upper bound for the float value*/
 	private double lowerLimit;	/** Lower bound for the float value*/
-	/*
-	private double upperLimitDouble;	
-	private double lowerLimitDouble;	
-	private int upperLimitInteger;	
-	private int lowerLimitInteger;	*/
-	
 	
 	private VariableType varType; /** Helper to verify the object type, if defined */
 	private String[] valueName;
@@ -64,11 +58,6 @@ public class Configuration {
 		upperLimit = up;
 	}
 	
-	/*
-	public void setIntegerLimits(int low, int up)	{
-		lowerLimitInteger = low;
-		upperLimitInteger = up;
-	}*/
 	
 	
 	public double getUpperLimit() {
@@ -78,16 +67,6 @@ public class Configuration {
 	public double getLowerLimit() {
 		return lowerLimit;
 	}
-	
-	/*
-	public int getUpperLimitInteger() {
-		return upperLimitInteger;
-	}
-
-	public int getLowerLimitInteger() {
-		return lowerLimitInteger;
-	}*/
-
 	
 
 	public void setArrayType(String type) {

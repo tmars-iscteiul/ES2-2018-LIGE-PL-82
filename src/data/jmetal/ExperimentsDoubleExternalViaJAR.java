@@ -36,15 +36,15 @@ public class ExperimentsDoubleExternalViaJAR {
 	private static final int populationSize = 100;
 	private MyProblemDoubleExternalViaJAR myProblem;
 
-  
+	
 	public ExperimentsDoubleExternalViaJAR(int numberOfVariables, int numberOfObjetives, double minValue, double maxValue,
-			String problemName, String jarPath) {
+			String problemName, String jarPath, ArrayList<utilities.Algorithm> algorithmListNemesis) {
 
 		myProblem = new MyProblemDoubleExternalViaJAR(numberOfVariables, numberOfObjetives , minValue, maxValue , problemName , jarPath);
 		List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
 		problemList.add(new ExperimentProblem<>(myProblem));
 
-		List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList = configureAlgorithmList(problemList);
+		List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList = configureAlgorithmList(problemList, algorithmListNemesis);
 
 		experiment = new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>(problemName)
             .setAlgorithmList(algorithmList)
@@ -59,6 +59,8 @@ public class ExperimentsDoubleExternalViaJAR {
             .build();
 	}
 
+	
+
 	public void start()	{
 	    new ExecuteAlgorithms<>(experiment).run();
 	    try {
@@ -72,18 +74,28 @@ public class ExperimentsDoubleExternalViaJAR {
 		}
 	}
 
-	static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList(List<ExperimentProblem<DoubleSolution>> problemList) {
+	
+	static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList(List<ExperimentProblem<DoubleSolution>> problemList, ArrayList<utilities.Algorithm> algorithmListNemesis) {
+		String[] AlgorithmsForDoubleProblemType = new String[]{"NSGAII","SMSEMOA","GDE3","IBEA","MOCell","MOEAD","PAES","RandomSearch"};
+		
 		List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithms = new ArrayList<>();
 
 		for (int i = 0; i < problemList.size(); i++) {
-			Algorithm<List<DoubleSolution>> algorithm1 = new NSGAIIBuilder<>(
-					problemList.get(i).getProblem(),
-					new SBXCrossover(1.0, 5),
-					new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0))
-					.setMaxEvaluations(maxEvaluations)
-					.setPopulationSize(populationSize)
-					.build();
-			algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
+			for(int j=0; j< algorithmListNemesis.size();j++) {
+				System.out.println("nome do primeiro elemento de algorithmListNemesis: "+ algorithmListNemesis.get(j).name());
+				if ( algorithmListNemesis.get(j).name().equals(utilities.Algorithm.nsgaii)) {
+					
+					Algorithm<List<DoubleSolution>> algorithm1 = new NSGAIIBuilder<>(
+							problemList.get(i).getProblem(),
+							new SBXCrossover(1.0, 5),
+							new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0))
+							.setMaxEvaluations(maxEvaluations)
+							.setPopulationSize(populationSize)
+							.build();
+					algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
+				}
+			}
+			
 		
       
 //    Algorithm<List<DoubleSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(), new SBXCrossover(1.0, 5), new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0)).setMaxEvaluations(maxEvaluations).build();      
