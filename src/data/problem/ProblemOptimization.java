@@ -109,5 +109,7 @@ public class ProblemOptimization {
 	public ArrayList<Algorithm> getAlgorithmList() {
 		return algorithmList;
 	}
+	
+	
 
 }
