@@ -37,7 +37,6 @@ public class ExperimentsDoubleExternalViaJAR {
 	private MyProblemDoubleExternalViaJAR myProblem;
 
   
-	//public static void main(String[] args) throws IOException {
 	public ExperimentsDoubleExternalViaJAR(int numberOfVariables, int numberOfObjetives, double minValue, double maxValue,
 			String problemName, String jarPath) {
 

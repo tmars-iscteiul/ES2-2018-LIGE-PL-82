@@ -8,7 +8,7 @@ import data.comm.Email;
 import data.comm.EmailSender;
 import data.jmetal.ExperimentsBinaryExternalViaJAR;
 import data.jmetal.ExperimentsDoubleExternalViaJAR;
-import data.jmetal.ExperimentsIntegeExternalViaJAR;
+import data.jmetal.ExperimentsIntegerExternalViaJAR;
 import data.problem.Problem;
 import data.problem.ProblemInputs;
 import utilities.ConsoleLogger;
@@ -26,13 +26,22 @@ public class JMetalWorker extends Thread {
 	private Problem problem;
 	private ConsoleLogger workerLogger;
 	private ExperimentsDoubleExternalViaJAR eDouble;
+	private ExperimentsIntegerExternalViaJAR eInteger;
+	
+
+	
+	
 	
 	private int configListSize;
 	
 	private int numberOfObjetives ;
 	private int numberOfVariables ;
-	private double minValue;
-	private double maxValue ;
+	
+	private double minValueDouble;
+	private double maxValueDouble ;
+	private int minValueInteger;
+	private int maxValueInteger;
+	
 	private String problemName;
 	private String jarPath;
 	
@@ -63,11 +72,11 @@ public class JMetalWorker extends Thread {
 			minValueAux = problem.getInputs().getConfigList().get(i).getLowerLimit();
 			maxValueAux = problem.getInputs().getConfigList().get(i).getUpperLimit();
 			
-			if(minValue> minValueAux) {
-				minValue = minValueAux;
+			if(minValueDouble> minValueAux) {
+				minValueDouble = minValueAux;
 			}
-			if(maxValue< maxValueAux) {
-				maxValue = maxValueAux;
+			if(maxValueDouble< maxValueAux) {
+				maxValueDouble = maxValueAux;
 			}
 		}
 	}
@@ -93,23 +102,15 @@ public class JMetalWorker extends Thread {
 		}
 		
 		if( counterDouble== configListSize) {
-			eDouble = new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath);
+			eDouble = new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValueDouble,  maxValueDouble,  problemName, jarPath);
 			eDouble.start();
 			
-			/*
-			try {
-				ExperimentsDoubleExternalViaJAR.main(null);
-			} catch (IOException e) {
-				
-				e.printStackTrace();
-			}*/
+			
 		}
 		if(counterInteger== configListSize) {
-			try {
-				ExperimentsIntegeExternalViaJAR.main(null);
-			} catch (IOException err) {
-				err.printStackTrace();
-			}
+			eInteger = new ExperimentsIntegerExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValueInteger,  maxValueInteger,  problemName, jarPath);
+			eInteger.start();
+			
 		}
 		if(counterBinary== configListSize) {
 			try {

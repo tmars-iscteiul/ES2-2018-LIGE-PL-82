@@ -12,7 +12,7 @@ import data.problem.Configuration;
 import data.problem.ProblemInputs;
 import threads.JMetalWorker;
 
-/* Kursawe.jar  */
+/* Kursawe.jar and AntiSpamProblem */
 
 @SuppressWarnings("serial")
 public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
@@ -48,8 +48,7 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	    }
 	    try {
 			String line;
-	    	//Process p = Runtime.getRuntime().exec("java -jar c:\\Kursawe.jar" + " " + solutionString);
-			//System.out.println("Sending args to external JAR: " + solutionString);
+			
 			Process p = Runtime.getRuntime().exec("java -jar " + jarPath + " " + solutionString);
 	    	BufferedReader brinput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 	    	while ((line = brinput.readLine()) != null)	{
@@ -60,7 +59,6 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	    }	catch (Exception err) { 
 	    	err.printStackTrace(); 
 	    }
-    	//System.out.println("Received results from external JAR: " + evaluationResultString);
 		String[] individualEvaluationCriteria = evaluationResultString.split("\\s+");
 		// It is assumed that all evaluated criteria are returned in the same result string
 		// TODO Check if # of solutions in json matches evaluator's results. If not, send email etc
