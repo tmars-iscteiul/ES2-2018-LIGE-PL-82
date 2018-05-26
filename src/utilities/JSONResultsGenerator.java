@@ -1,7 +1,11 @@
 package utilities;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
+import data.results.FitnessOutputList;
 import data.results.Results;
 import utilities.Paths;
 
@@ -9,6 +13,8 @@ public abstract class JSONResultsGenerator {
 
 	public static void convertResultsToJSON (String problemName, String description,
 			String userEmail, String fitnessAppName, int processTime, String[] labels) {
+		
+		String generalResultsDirectory = Paths.EXPERIMENTS_FOLDER + problemName + Paths.REFERENCE_FRONTS;
 		
 		Results results = new Results();
 		
@@ -18,29 +24,28 @@ public abstract class JSONResultsGenerator {
 		results.setOutputsFunction(fitnessAppName);
 		results.setProcessTime(processTime);
 		
-		File rfFile = new File(Paths.EXPERIMENTS_FOLDER + problemName + Paths.REFERENCE_FRONTS + problemName + ".rf");
-		ArrayList<Double> valueList= new ArrayList<>() ;
+		File rfGeneralFile = new File(generalResultsDirectory + problemName + ".rf");
+		
 		try {
-			Scanner s = new Scanner(f);
+			Scanner s = new Scanner(rfGeneralFile);
 			while (s.hasNextLine()) {
 				String nextLine = s.nextLine();
-				String [] line= nextLine.split(" ");
-				double fp= Double.parseDouble(line[0]);
-				double fn= Double.parseDouble(line[1]);
-				FPList.add(fp);
-				FNList.add(fn);
+				String[] line= nextLine.split(" ");
+				
+				FitnessOutputList outputList = new FitnessOutputList();
+				
+				for (int i = 0; i < line.length; i++) {
+					outputList.setLabel(labels[i]);
 
-				//value of the point closest to the center in order to fulfill the requirements of the mixed mail box
-				double value= Math.sqrt(Math.pow(fp, 2)+Math.pow(fn, 2) );
-				valueList.add(value);
+				}
+
 				
 			}
 			s.close();
 		} catch (FileNotFoundException e) {
-			AOptionPane.showMessageDialog(
-					null, "File not found. Confirm the optimizer file.", "Error", AOptionPane.ERROR_MESSAGE);
+			System.out.println("Cannot open results .rf file.");
 		}
 		
-		chosenValueIndex= findMinIndex(valueList);
+
 	}
 }

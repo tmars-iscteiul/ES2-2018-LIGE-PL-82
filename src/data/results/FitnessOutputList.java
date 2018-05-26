@@ -1,16 +1,18 @@
 package data.results;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class FitnessOutputList {
 	@JsonProperty("label") private String label;
-	@JsonProperty("data") private double[] data;
+	@JsonProperty("data") private List<Data> data;
 	
 	public FitnessOutputList() {
 
 	}
 	
-	public FitnessOutputList(String label, double[] data) {
+	public FitnessOutputList(String label, List<Data> data) {
 		super();
 		this.label = label;
 		this.data = data;
@@ -24,11 +26,11 @@ public class FitnessOutputList {
 		this.label = label;
 	}
 	
-	public double[] getData() {
+	public List<Data> getData() {
 		return data;
 	}
 	
-	public void setData(double[] data) {
+	public void setData(List<Data> data) {
 		this.data = data;
 	}
 	

@@ -22,10 +22,13 @@
         <h4>Problem Name: {{chartTitle}}</h4>
 
         <ul class="list-group">
-          <li class="list-group-item">Description: {{chartDescription}}</li>
-          <li class="list-group-item">Output function name: {{outputsFunction}}</li>
-          <li class="list-group-item">Best algorithm: {{bestAlgorithm}}</li>
-          <li class="list-group-item">User email: {{userEmail}}</li>
+          <li class="list-group-item"><strong>Description:</strong> {{chartDescription}}</li>
+          <li class="list-group-item"><strong>Output function name:</strong> {{outputsFunction}}</li>
+          <li class="list-group-item"><strong>Best algorithm:</strong> {{bestAlgorithm}}</li>
+          <li class="list-group-item"><strong>Number of solution variables:</strong> {{solutionVariablesNumber}}</li>
+          <li class="list-group-item"><strong>Optimization process time:</strong> {{processTime.toFixed(2)}} {{timeScale}}</li>
+          <li class="list-group-item"><strong>User email:</strong> {{userEmail}}</li>
+          <li class="list-group-item">Thank you for using Nêmesis Optimizer. To download the solution check the URL on your mail.</li>
         </ul>
       </div>
     </div>
