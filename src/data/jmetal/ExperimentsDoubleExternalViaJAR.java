@@ -29,23 +29,25 @@ import java.util.List;
 import utilities.Paths;
 
 public class ExperimentsDoubleExternalViaJAR {
-  private static final int INDEPENDENT_RUNS = 2;
-  private static final int maxEvaluations = 250;
+	
+	private Experiment<DoubleSolution, List<DoubleSolution>> experiment;
+	private static final int INDEPENDENT_RUNS = 2;
+	private static final int maxEvaluations = 250;
+	private static final int populationSize = 100;
+	private MyProblemDoubleExternalViaJAR myProblem;
 
   
-  //public static void main(String[] args) throws IOException {
-  public ExperimentsDoubleExternalViaJAR(int numberOfVariables, int numberOfObjetives, double minValue, double maxValue,
+	//public static void main(String[] args) throws IOException {
+	public ExperimentsDoubleExternalViaJAR(int numberOfVariables, int numberOfObjetives, double minValue, double maxValue,
 			String problemName, String jarPath) {
 
+		myProblem = new MyProblemDoubleExternalViaJAR(numberOfVariables, numberOfObjetives , minValue, maxValue , problemName , jarPath);
+		List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
+		problemList.add(new ExperimentProblem<>(myProblem));
 
-    List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
-    problemList.add(new ExperimentProblem<>(new MyProblemDoubleExternalViaJAR(numberOfVariables, numberOfObjetives , minValue, maxValue , problemName , jarPath)));
+		List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList = configureAlgorithmList(problemList);
 
-    List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList =
-            configureAlgorithmList(problemList);
-
-    Experiment<DoubleSolution, List<DoubleSolution>> experiment =
-        new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>(problemName)
+		experiment = new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>(problemName)
             .setAlgorithmList(algorithmList)
             .setProblemList(problemList)
             .setExperimentBaseDirectory(Paths.EXPERIMENTS_FOLDER)
@@ -56,35 +58,34 @@ public class ExperimentsDoubleExternalViaJAR {
             .setIndependentRuns(INDEPENDENT_RUNS)
             .setNumberOfCores(8)
             .build();
-    
-    new ExecuteAlgorithms<>(experiment).run();
-    try {
-		new GenerateReferenceParetoSetAndFrontFromDoubleSolutions(experiment).run();
-		new ComputeQualityIndicators<>(experiment).run() ;
-		new GenerateLatexTablesWithStatistics(experiment).run() ;
-		new GenerateBoxplotsWithR<>(experiment).setRows(1).setColumns(1).run() ;
-    
-    } catch (IOException e) {
-		e.printStackTrace();
 	}
-  }
 
-  
+	public void start()	{
+	    new ExecuteAlgorithms<>(experiment).run();
+	    try {
+			new GenerateReferenceParetoSetAndFrontFromDoubleSolutions(experiment).run();
+			new ComputeQualityIndicators<>(experiment).run() ;
+			new GenerateLatexTablesWithStatistics(experiment).run() ;
+			new GenerateBoxplotsWithR<>(experiment).setRows(1).setColumns(1).run() ;
+	    
+	    } catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
-static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList(
-          List<ExperimentProblem<DoubleSolution>> problemList) {
-    List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithms = new ArrayList<>();
+	static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList(List<ExperimentProblem<DoubleSolution>> problemList) {
+		List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithms = new ArrayList<>();
 
-    for (int i = 0; i < problemList.size(); i++) {
-      Algorithm<List<DoubleSolution>> algorithm1 = new NSGAIIBuilder<>(
-              problemList.get(i).getProblem(),
-              new SBXCrossover(1.0, 5),
-              new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0))
-              .setMaxEvaluations(maxEvaluations)
-              .setPopulationSize(100)
-              .build();
-      algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
-
+		for (int i = 0; i < problemList.size(); i++) {
+			Algorithm<List<DoubleSolution>> algorithm1 = new NSGAIIBuilder<>(
+					problemList.get(i).getProblem(),
+					new SBXCrossover(1.0, 5),
+					new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0))
+					.setMaxEvaluations(maxEvaluations)
+					.setPopulationSize(populationSize)
+					.build();
+			algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
+		
       
 //    Algorithm<List<DoubleSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(), new SBXCrossover(1.0, 5), new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0)).setMaxEvaluations(maxEvaluations).build();      
 //    algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));
@@ -99,9 +100,16 @@ static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configure
 //	  Algorithm<List<DoubleSolution>> algorithm7 = new PAESBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).setArchiveSize(100).setBiSections(2).setMutationOperator(new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0)).build();
 //	  algorithms.add(new ExperimentAlgorithm<>(algorithm7, "PAES", problemList.get(i).getTag())); 	
 //	  Algorithm<List<DoubleSolution>> algorithm8 = new RandomSearchBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
-//	  algorithms.add(new ExperimentAlgorithm<>(algorithm8, "RandomSearch", problemList.get(i).getTag()));
-    }   
-    return algorithms;
-  }
+//	  algorithms.add(new ExperimentAlgorithm<>(algorithm8, "RandomSearch", problemList.get(i).getTag())); 
+		}
+			return algorithms;
+	}
+	
+	public int getTotalConfigurations()	{
+		return (int) (Math.ceil(250.0/100)*INDEPENDENT_RUNS*populationSize);
+	}
 
+	public MyProblemDoubleExternalViaJAR getMyProblem()	{
+		return myProblem;
+	}
 }

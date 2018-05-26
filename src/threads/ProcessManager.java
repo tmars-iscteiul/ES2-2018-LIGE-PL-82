@@ -8,7 +8,6 @@ import utilities.ConsoleLogger;
  */
 public class ProcessManager extends Thread	{
 	
-	private float progress;	// TODO Find a way to calculate progress (JMetalWorker's Experiments probably)
 	private final double startTime;
 	private final int updateTimer;
 	private JMetalWorker worker;
@@ -21,13 +20,18 @@ public class ProcessManager extends Thread	{
 		this.worker = worker;
 		logger = new ConsoleLogger("PROCESSMANAGER");
 		start();
-		logger.writeConsoleLog("Process Manager has started, following the " + worker.getProblem().getIntroduction().getName() + "'s worker.");
 	}
 	
 	@Override
 	public synchronized void run()	{
+		logger.writeConsoleLog("Process Manager has started, following the " + worker.getProblem().getIntroduction().getName() + "'s worker.");
+		try {
+			sleep(updateTimer * 1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		while(worker.isAlive())	{
-			checkProgress();
+			logger.writeConsoleLog("Progress: " + getProgress()*100 + "%");
 			checkMaxTimeLimit();
 			try {
 				sleep(updateTimer * 1000);
@@ -35,7 +39,7 @@ public class ProcessManager extends Thread	{
 				e.printStackTrace();
 			}
 		}
-		
+		logger.writeConsoleLog("Worker has died.");
 	}
 	
 	private double getRunTime()	{
@@ -46,8 +50,8 @@ public class ProcessManager extends Thread	{
 		return (worker.getProblem().getIntroduction().getAverageDuration().getValue("ms")/worker.getProblem().getIntroduction().getMaxDuration().getValue("ms"));
 	}
 	
-	private void checkProgress()	{
-		// TODO
+	private float getProgress()	{
+		return ((float)worker.getExperimentDouble().getMyProblem().getCalculatedConfigurations()/worker.getExperimentDouble().getTotalConfigurations());
 	}
 
 	private void checkMaxTimeLimit()	{
@@ -57,7 +61,7 @@ public class ProcessManager extends Thread	{
 		
 		if(getRunTime() > worker.getProblem().getIntroduction().getAverageDuration().getValue("ms"))	{
 			// TODO: Check if time MIGHT exceed max
-			if(progress < getProblemAverageMaxRatio())	{
+			if(getProgress() < getProblemAverageMaxRatio())	{
 				// Run time reached average duration, but progress isn't high enough. It might exceed max duration
 			}
 		}

@@ -23,6 +23,7 @@ public class JMetalWorker extends Thread {
 
 	private Problem problem;
 	private ConsoleLogger workerLogger;
+	private ExperimentsDoubleExternalViaJAR eDouble;
 	
 	private int configListSize;
 	
@@ -75,13 +76,13 @@ public class JMetalWorker extends Thread {
 		int counterInteger=0;
 		int counterBinary=0;
 		for( int i=0;i < configListSize; i++) {
-			if( problem.getInputs().getConfigList().get(i).getVarType()== VariableType.varDouble) {
+			if( problem.getInputs().getConfigList().get(i).getVarType() == VariableType.varDouble) {
 				counterDouble++;
 			}
-			if( problem.getInputs().getConfigList().get(i).getVarType()== VariableType.varInt) {
+			if( problem.getInputs().getConfigList().get(i).getVarType() == VariableType.varInt) {
 				counterInteger++;
 			}
-			if( problem.getInputs().getConfigList().get(i).getVarType() ==VariableType.varBoolean) {
+			if( problem.getInputs().getConfigList().get(i).getVarType() == VariableType.varBoolean) {
 				counterBinary++;
 			}
 		}
@@ -89,8 +90,8 @@ public class JMetalWorker extends Thread {
 		if( counterDouble== configListSize) {
 			System.out.println("Sending " + numberOfVariables + " variables to MyProblem class");
 			System.out.println("Caminho para o .jar = \""+ jarPath + "\"");
-			new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath);
-			
+			eDouble = new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath);
+			eDouble.start();
 			
 			/*
 			try {
@@ -103,17 +104,21 @@ public class JMetalWorker extends Thread {
 		if( counterInteger== configListSize) {
 			try {
 				ExperimentsIntegeExternalViaJAR.main(null);
-			} catch (IOException e) {
-				e.printStackTrace();
+			} catch (IOException err) {
+				err.printStackTrace();
 			}
 		}
 		if( counterBinary== configListSize) {
 			try {
 				ExperimentsBinaryExternalViaJAR.main(null);
-			} catch (IOException e) {
-				e.printStackTrace();
+			} catch (IOException err) {
+				err.printStackTrace();
 			}
 		}
+	}
+	
+	public ExperimentsDoubleExternalViaJAR getExperimentDouble()	{
+		return eDouble;
 	}
 	
 	public Problem getProblem()	{

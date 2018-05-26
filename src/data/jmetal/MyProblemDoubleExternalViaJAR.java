@@ -16,16 +16,14 @@ import threads.JMetalWorker;
 
 @SuppressWarnings("serial")
 public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
-	/*
-	  public MyProblemDoubleExternalViaJAR() {
-	    // 10 variables (anti-spam filter rules) by default 
-	    this(10);
-	  }*/
-	  private String jarPath;
+
+	private String jarPath;
+	private int calculatedConfigurations;
 	  
-	  public MyProblemDoubleExternalViaJAR(
-			  Integer numberOfVariables, Integer numberOfObjetives, Double minValue, Double maxValue, String problemName , String jarPath) {
+	public MyProblemDoubleExternalViaJAR(
+			Integer numberOfVariables, Integer numberOfObjetives, Double minValue, Double maxValue, String problemName , String jarPath) {
 		this.jarPath= jarPath;
+		calculatedConfigurations = 0;
 	    setNumberOfVariables(numberOfVariables);
 	    setNumberOfObjectives(numberOfObjetives);
 	    setName(problemName);
@@ -34,41 +32,45 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	    List<Double> upperLimit = new ArrayList<>(getNumberOfVariables()) ;
 
 	    for (int i = 0; i < getNumberOfVariables(); i++) {
-	      lowerLimit.add(minValue);
-	      upperLimit.add(maxValue);
+	    	lowerLimit.add(minValue);
+	    	upperLimit.add(maxValue);
 	    }
 	    
 	    setLowerLimit(lowerLimit);
 	    setUpperLimit(upperLimit);	    	    
-	  } 
+	}
 
-	  public void evaluate(DoubleSolution solution){
-	    String solutionString = "";
+	public void evaluate(DoubleSolution solution){
+		String solutionString = "";
 	    String evaluationResultString = "";
 	    for (int i = 0; i < solution.getNumberOfVariables(); i++) {
-	        solutionString += " " + solution.getVariableValue(i);  
+	    	solutionString += " " + solution.getVariableValue(i);  
 	    }
 	    try {
 			String line;
-
 	    	//Process p = Runtime.getRuntime().exec("java -jar c:\\Kursawe.jar" + " " + solutionString);
 			//System.out.println("Sending args to external JAR: " + solutionString);
 			Process p = Runtime.getRuntime().exec("java -jar " + jarPath + " " + solutionString);
-	    	
-	    	
 	    	BufferedReader brinput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-	    	while ((line = brinput.readLine()) != null) 
-	    		{evaluationResultString+=line;}
+	    	while ((line = brinput.readLine()) != null)	{
+	    		evaluationResultString+=line;
+	    	}
 	    	brinput.close();
 	        p.waitFor();
-	      }
-	      catch (Exception err) { err.printStackTrace(); }
-	    //System.out.println("Received results from external JAR: " + evaluationResultString);
-   		String[] individualEvaluationCriteria = evaluationResultString.split("\\s+");
-	    // It is assumed that all evaluated criteria are returned in the same result string
-   		// TODO Check if # of solutions in json matches evaluator's results. If not, send email etc
-	    for (int i = 0; i < solution.getNumberOfObjectives(); i++) {
-	    	solution.setObjective(i, Double.parseDouble(individualEvaluationCriteria[i]));
-	    }	    
-	  }
+	    }	catch (Exception err) { 
+	    	err.printStackTrace(); 
+	    }
+    	//System.out.println("Received results from external JAR: " + evaluationResultString);
+		String[] individualEvaluationCriteria = evaluationResultString.split("\\s+");
+		// It is assumed that all evaluated criteria are returned in the same result string
+		// TODO Check if # of solutions in json matches evaluator's results. If not, send email etc
+		for (int i = 0; i < solution.getNumberOfObjectives(); i++) {
+			solution.setObjective(i, Double.parseDouble(individualEvaluationCriteria[i]));
+		}   
+		calculatedConfigurations++;
 	}
+	
+	public int getCalculatedConfigurations()	{
+		return calculatedConfigurations;
+	}
+}
