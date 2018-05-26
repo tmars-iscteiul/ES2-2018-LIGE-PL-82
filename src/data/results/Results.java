@@ -7,6 +7,8 @@ public class Results {
 	@JsonProperty("problemDescription") private String problemDescription;
 	@JsonProperty("userEmail") private String userEmail;
 	@JsonProperty("outputsFunction") private String outputsFunction;
+	@JsonProperty("solutionVariablesNumber") private int solutionVariblesNumber;
+	@JsonProperty("processTime") private int processTime;
 	@JsonProperty("labels") private String[] labels;
 	@JsonProperty("bestAlgorithm") private String bestAlgorithm;
 	@JsonProperty("fitnessOutputList") private FitnessOutputList fitnessOutputList;
@@ -16,7 +18,8 @@ public class Results {
 	}
 
 	public Results(String problemName, String problemDescription, String userEmail, String outputsFunction,
-			String[] labels, String bestAlgorithm, FitnessOutputList fitnessOutputList) {
+			int solutionVariablesNumber, int processTime, String[] labels, String bestAlgorithm, 
+			FitnessOutputList fitnessOutputList) {
 		super();
 		this.problemName = problemName;
 		this.problemDescription = problemDescription;
@@ -25,6 +28,8 @@ public class Results {
 		this.labels = labels;
 		this.bestAlgorithm = bestAlgorithm;
 		this.fitnessOutputList = fitnessOutputList;
+		this.solutionVariblesNumber = solutionVariablesNumber;
+		this.processTime = processTime;
 	}
 	
 	
@@ -69,6 +74,22 @@ public class Results {
 	}
 	public void setFitnessOutputList(FitnessOutputList fitnessOutputList) {
 		this.fitnessOutputList = fitnessOutputList;
+	}
+
+	public int getSolutionVariblesNumber() {
+		return solutionVariblesNumber;
+	}
+
+	public void setSolutionVariblesNumber(int solutionVariblesNumber) {
+		this.solutionVariblesNumber = solutionVariblesNumber;
+	}
+
+	public int getProcessTime() {
+		return processTime;
+	}
+
+	public void setProcessTime(int processTime) {
+		this.processTime = processTime;
 	}
 	
 	

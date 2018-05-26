@@ -3,6 +3,8 @@
    "problemDescription": "This is a description of the problem.",
    "userEmail": "tm.alves.rodrigues@gmail.com",
    "outputsFunction": "fNfPFitnessApp",
+   "solutionVariablesNumber": 300,
+   "processTime": 240,
    "labels": ["Solution 1","Solution 2","Solution 3"],
    "bestAlgorithm": "nsgaii",
    "fitnessOutputList": [
