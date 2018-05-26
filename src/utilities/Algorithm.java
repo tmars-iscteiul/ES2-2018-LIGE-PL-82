@@ -33,7 +33,7 @@ public enum Algorithm {
     omopso,
     paes,
     pesa2,
-    ramdomsearch,
+    randomsearch,
     smpso,
     smpsom,
     smsemoa,

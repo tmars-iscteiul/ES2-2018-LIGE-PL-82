@@ -42,7 +42,7 @@ public class ExperimentsIntegerExternalViaJAR {
 
   
     List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithmList =
-            configureAlgorithmList(problemList);
+            configureAlgorithmList(problemList, algorithmListNemesis);
 
     experiment=
         new ExperimentBuilder<IntegerSolution, List<IntegerSolution>>(problemName)
@@ -73,7 +73,7 @@ public class ExperimentsIntegerExternalViaJAR {
   }
 
 static List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> configureAlgorithmList(
-          List<ExperimentProblem<IntegerSolution>> problemList) {
+          List<ExperimentProblem<IntegerSolution>> problemList, ArrayList<utilities.Algorithm> algorithmListNemesis) {
     List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithms = new ArrayList<>();
 
     for (int i = 0; i < problemList.size(); i++) {
