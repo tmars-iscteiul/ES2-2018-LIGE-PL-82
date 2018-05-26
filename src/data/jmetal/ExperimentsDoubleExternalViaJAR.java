@@ -36,9 +36,9 @@ public class ExperimentsDoubleExternalViaJAR {
 	private static final int populationSize = 100;
 	private MyProblemDoubleExternalViaJAR myProblem;
 
-  
+	
 	public ExperimentsDoubleExternalViaJAR(int numberOfVariables, int numberOfObjetives, double minValue, double maxValue,
-			String problemName, String jarPath, ArrayList<Algorithm> algorithmListNemesis) {
+			String problemName, String jarPath, ArrayList<utilities.Algorithm> algorithmListNemesis) {
 
 		myProblem = new MyProblemDoubleExternalViaJAR(numberOfVariables, numberOfObjetives , minValue, maxValue , problemName , jarPath);
 		List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
@@ -59,6 +59,8 @@ public class ExperimentsDoubleExternalViaJAR {
             .build();
 	}
 
+	
+
 	public void start()	{
 	    new ExecuteAlgorithms<>(experiment).run();
 	    try {
@@ -72,15 +74,17 @@ public class ExperimentsDoubleExternalViaJAR {
 		}
 	}
 
-	@SuppressWarnings("unlikely-arg-type")
-	static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList(List<ExperimentProblem<DoubleSolution>> problemList, ArrayList<Algorithm> algorithmListNemesis) {
+	
+	static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList(List<ExperimentProblem<DoubleSolution>> problemList, ArrayList<utilities.Algorithm> algorithmListNemesis) {
 		String[] AlgorithmsForDoubleProblemType = new String[]{"NSGAII","SMSEMOA","GDE3","IBEA","MOCell","MOEAD","PAES","RandomSearch"};
 		
 		List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithms = new ArrayList<>();
 
 		for (int i = 0; i < problemList.size(); i++) {
 			for(int j=0; j< algorithmListNemesis.size();j++) {
-				if ( algorithmListNemesis.get(j).equals(utilities.Algorithm.nsgaii)) {
+				System.out.println("nome do primeiro elemento de algorithmListNemesis: "+ algorithmListNemesis.get(j).name());
+				if ( algorithmListNemesis.get(j).name().equals(utilities.Algorithm.nsgaii)) {
+					
 					Algorithm<List<DoubleSolution>> algorithm1 = new NSGAIIBuilder<>(
 							problemList.get(i).getProblem(),
 							new SBXCrossover(1.0, 5),

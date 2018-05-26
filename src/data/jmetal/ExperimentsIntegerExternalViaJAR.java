@@ -34,7 +34,7 @@ public class ExperimentsIntegerExternalViaJAR {
 
   
   public ExperimentsIntegerExternalViaJAR(int numberOfVariables, int numberOfObjetives, double minValue, double maxValue,
-			String problemName, String jarPath, ArrayList<Algorithm> algorithmListNemesis) {
+			String problemName, String jarPath, ArrayList<utilities.Algorithm> algorithmListNemesis) {
 		
     myProblem = new MyProblemIntegerExternalViaJAR(numberOfVariables, numberOfObjetives , minValue, maxValue , problemName , jarPath);
 	List<ExperimentProblem<IntegerSolution>> problemList = new ArrayList<>();
