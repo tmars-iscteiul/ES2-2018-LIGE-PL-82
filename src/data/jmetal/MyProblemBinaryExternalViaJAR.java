@@ -14,12 +14,17 @@ import java.util.BitSet;
 @SuppressWarnings("serial")
 public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 	  private int bits ;
-
+	  private String jarPath;
+	  private int calculatedConfigurations;
+	  
 	  public MyProblemBinaryExternalViaJAR(int numberOfVariables, int numberOfObjetives, String problemName, String jarPath) throws JMetalException{
+		  this.jarPath= jarPath;
+		  calculatedConfigurations = 0;
 		  setNumberOfVariables(1);
 		  setNumberOfObjectives(2);
 		  setName(problemName);
-		  //bits = numberOfBits ;
+		  //bits = numberOfBits ; // bits = 10 , we don´t have time to put this option on the user ( nemesis-app) 
+		  bits= 10;
 		}
 	
 	  /*
@@ -55,7 +60,7 @@ public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 	    solutionString = bitset.toString();
 	    try {
 			String line;
-	    	Process p = Runtime.getRuntime().exec("java -jar c:\\OneZeroMax.jar" + " " + solutionString);
+	    	Process p = Runtime.getRuntime().exec("java -jar " + jarPath+ " " + solutionString);
 	    	BufferedReader brinput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 	    	while ((line = brinput.readLine()) != null) 
 	    		{evaluationResultString+=line;}
@@ -68,6 +73,10 @@ public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 	    for (int i = 0; i < solution.getNumberOfObjectives(); i++) {
 	    	solution.setObjective(i, Double.parseDouble(individualEvaluationCriteria[i]));
 	    }	    	    
-	  
+	    calculatedConfigurations++;
 	  }
+	  
+	  public int getCalculatedConfigurations()	{
+			return calculatedConfigurations;
+		}
 	}

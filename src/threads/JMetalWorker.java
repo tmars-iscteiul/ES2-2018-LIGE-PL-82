@@ -110,6 +110,7 @@ public class JMetalWorker extends Thread {
 			
 		}
 		if(counterBinary== configListSize) {
+			//TODO : put the parameter numberOfBits on nemesis-app
 			eBinary = new ExperimentsBinaryExternalViaJAR(numberOfVariables,  numberOfObjetives,  problemName, jarPath);
 			eBinary.start();
 		}
@@ -120,6 +121,9 @@ public class JMetalWorker extends Thread {
 	}
 	public ExperimentsIntegerExternalViaJAR getExperimentInteger()	{
 		return eInteger;
+	}
+	public ExperimentsBinaryExternalViaJAR getExperimentBinary()	{
+		return eBinary;
 	}
 	
 	public Problem getProblem()	{
