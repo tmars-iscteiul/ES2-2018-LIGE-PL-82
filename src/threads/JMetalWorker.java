@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import data.jmetal.problems.ExperimentsBinaryExternalViaJAR;
-import data.jmetal.problems.ExperimentsDoubleExternalViaJAR;
-import data.jmetal.problems.ExperimentsIntegeExternalViaJAR;
+import data.jmetal.ExperimentsBinaryExternalViaJAR;
+import data.jmetal.ExperimentsDoubleExternalViaJAR;
+import data.jmetal.ExperimentsIntegeExternalViaJAR;
 import data.problem.Problem;
 import data.problem.ProblemInputs;
 import utilities.ConsoleLogger;

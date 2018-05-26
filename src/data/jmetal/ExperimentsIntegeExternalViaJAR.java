@@ -1,4 +1,4 @@
-package data.jmetal.problems;
+package data.jmetal;
 
 import org.uma.jmetal.algorithm.Algorithm;
 import org.uma.jmetal.algorithm.multiobjective.mocell.MOCellBuilder;

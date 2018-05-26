@@ -20,7 +20,7 @@ public abstract class ReadFromURL {
 	            
 	            // opens input stream from the HTTP connection
 	            InputStream inputStream = httpConn.getInputStream();
-	            String saveFilePath = Path.appsFolder + fileName;
+	            String saveFilePath = Paths.APPS_FOLDER + fileName;
 	             
 	            // opens an output stream to save into file
 	            FileOutputStream outputStream = new FileOutputStream(saveFilePath);

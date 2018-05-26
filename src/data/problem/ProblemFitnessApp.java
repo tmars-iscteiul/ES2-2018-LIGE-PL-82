@@ -3,7 +3,7 @@ package data.problem;
 import java.util.ArrayList;
 
 import data.submission.FitnessOutputList;
-import utilities.Path;
+import utilities.Paths;
 import utilities.ReadFromURL;
 import utilities.VariableType;
 
@@ -30,9 +30,9 @@ public class ProblemFitnessApp {
 	
 	public ProblemFitnessApp(String externalJarPath, int objectiveCount)	{
 		if(!externalJarPath.endsWith(".jar"))	{
-			localJarPath = Path.appsFolder + externalJarPath + ".jar";
+			localJarPath = Paths.APPS_FOLDER + externalJarPath + ".jar";
 		}	else	{
-			localJarPath = Path.appsFolder + externalJarPath;
+			localJarPath = Paths.APPS_FOLDER + externalJarPath;
 		}
 		fitnessOutputList = new ArrayList<FitnessOutput>();
 		for(int i = 0; i<objectiveCount; i++)	{
@@ -47,7 +47,7 @@ public class ProblemFitnessApp {
 			filePath += ".jar";
 		}
 		ReadFromURL.downloadFile(fitnessApp.getFileURL(), filePath);	// Downloads file to caseStudies folder
-		localJarPath = Path.appsFolder + filePath;
+		localJarPath = Paths.APPS_FOLDER + filePath;
 		fitnessOutputList = new ArrayList<FitnessOutput>();
 		for(FitnessOutputList fol : fitnessApp.getFitnessOutputList()) {
 			fitnessOutputList.add(new FitnessOutput(fol.getOutputName(), fol.getOutputDescription()));
