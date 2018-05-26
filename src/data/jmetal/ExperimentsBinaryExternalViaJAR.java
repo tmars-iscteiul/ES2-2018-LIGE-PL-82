@@ -28,13 +28,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import utilities.Paths;
 
 public class ExperimentsBinaryExternalViaJAR {
   private static final int INDEPENDENT_RUNS = 2;
   private static final int maxEvaluations = 250;
   
   public static void main(String[] args) throws IOException {
-    String experimentBaseDirectory = "experimentBaseDirectory";
 
     List<ExperimentProblem<BinarySolution>> problemList = new ArrayList<>();
     problemList.add(new ExperimentProblem<>(new MyProblemBinaryExternalViaJAR()));
@@ -46,10 +46,10 @@ public class ExperimentsBinaryExternalViaJAR {
         new ExperimentBuilder<BinarySolution, List<BinarySolution>>("MyProblemBinaryExternalViaJAR")
             .setAlgorithmList(algorithmList)
             .setProblemList(problemList)
-            .setExperimentBaseDirectory(experimentBaseDirectory)
+            .setExperimentBaseDirectory(Paths.EXPERIMENTS_FOLDER)
             .setOutputParetoFrontFileName("FUN")
             .setOutputParetoSetFileName("VAR")
-            .setReferenceFrontDirectory(experimentBaseDirectory+"/referenceFronts")
+            .setReferenceFrontDirectory(Paths.REFERENCE_FRONTS)
             .setIndicatorList(Arrays.asList(new PISAHypervolume<BinarySolution>()))
             .setIndependentRuns(INDEPENDENT_RUNS)
             .setNumberOfCores(8)

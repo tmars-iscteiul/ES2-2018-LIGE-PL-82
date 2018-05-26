@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import utilities.Paths;
 
 public class ExperimentsDoubleExternalViaJAR {
   private static final int INDEPENDENT_RUNS = 2;
@@ -35,7 +36,7 @@ public class ExperimentsDoubleExternalViaJAR {
   //public static void main(String[] args) throws IOException {
   public ExperimentsDoubleExternalViaJAR(int numberOfVariables, int numberOfObjetives, double minValue, double maxValue,
 			String problemName, String jarPath) {
-    String experimentBaseDirectory = "experimentBaseDirectory/";
+
 
     List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
     problemList.add(new ExperimentProblem<>(new MyProblemDoubleExternalViaJAR(numberOfVariables, numberOfObjetives , minValue, maxValue , problemName , jarPath)));
@@ -47,10 +48,10 @@ public class ExperimentsDoubleExternalViaJAR {
         new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>(problemName)
             .setAlgorithmList(algorithmList)
             .setProblemList(problemList)
-            .setExperimentBaseDirectory(experimentBaseDirectory)
+            .setExperimentBaseDirectory(Paths.EXPERIMENTS_FOLDER)
             .setOutputParetoFrontFileName("FUN")
             .setOutputParetoSetFileName("VAR")
-            .setReferenceFrontDirectory(experimentBaseDirectory+"/referenceFronts")
+            .setReferenceFrontDirectory(Paths.EXPERIMENTS_FOLDER+problemName+Paths.REFERENCE_FRONTS)
             .setIndicatorList(Arrays.asList(new PISAHypervolume<DoubleSolution>()))
             .setIndependentRuns(INDEPENDENT_RUNS)
             .setNumberOfCores(8)

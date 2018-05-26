@@ -22,7 +22,7 @@ public class mainTeste {
 		
 		
 		Problem p = new Problem();
-		p.setIntroduction(new ProblemIntroduction("antiSpamTest", "", new TimeVariable(30.0f, "min"), new TimeVariable(60.0f, "min"), "test@test.test"));
+		p.setIntroduction(new ProblemIntroduction("antiSpamProblem", "", new TimeVariable(30.0f, "min"), new TimeVariable(60.0f, "min"), "test@test.test"));
 		p.setInputs(pinputs);
 		p.setFitnessApp(pFitness);
 		

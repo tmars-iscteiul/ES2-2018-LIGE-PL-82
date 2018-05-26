@@ -78,6 +78,7 @@ public class JMetalWorker extends Thread {
 		int counterDouble=0;
 		int counterInteger=0;
 		int counterBinary=0;
+		
 		for( int i=0;i < configListSize; i++) {
 			if( problem.getInputs().getConfigList().get(i).getVarType()== VariableType.varDouble) {
 				counterDouble++;
