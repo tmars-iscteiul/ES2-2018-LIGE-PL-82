@@ -49,7 +49,7 @@ public class JMetalWorker extends Thread {
 		problemName= problem.getIntroduction().getName();
 		jarPath= problem.getFitnessApp().getLocalJarPath();
 		
-		workerLogger = new ConsoleLogger("JMETALWORKER");
+		workerLogger = new ConsoleLogger("JMETAL-WORKER");
 		Email email = new Email(this.problem);
 		email.welcome_email();
 		new EmailSender().sendMail(email);
@@ -93,8 +93,6 @@ public class JMetalWorker extends Thread {
 		}
 		
 		if( counterDouble== configListSize) {
-			System.out.println("Sending " + numberOfVariables + " variables to MyProblem class");
-			System.out.println("Caminho para o .jar = \""+ jarPath + "\"");
 			eDouble = new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath);
 			eDouble.start();
 			

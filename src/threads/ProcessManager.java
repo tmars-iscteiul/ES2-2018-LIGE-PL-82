@@ -20,7 +20,7 @@ public class ProcessManager extends Thread	{
 		updateTimer = 5;
 		startTime = System.currentTimeMillis();
 		this.worker = worker;
-		logger = new ConsoleLogger("PROCESSMANAGER");
+		logger = new ConsoleLogger("PROCESS-MANAGER");
 		start();
 	}
 	

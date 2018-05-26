@@ -33,7 +33,7 @@ public class EmailSender {
         properties.put ( "mail.smtp.starttls.enable", "true" );
         properties.put ( "mail.smtp.port", "587" );
         properties.put ( "mail.smtp.auth", "true" );
-        logger = new ConsoleLogger("EMAILSENDER");
+        logger = new ConsoleLogger("EMAIL-SENDER");
     }
 
     public void sendMail (Email email) {
