@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import utilities.TimeVariable;
+import utilities.VariableType;
 
 import org.junit.Test;
 
@@ -17,6 +18,7 @@ import data.problem.ProblemFitnessApp;
 import data.problem.ProblemInputs;
 import data.problem.ProblemIntroduction;
 import data.problem.ProblemOptimization;
+import data.problem.Restriction;
 import data.submission.CreateInputItems;
 import data.submission.Faqs;
 import data.submission.Feedback;
@@ -63,6 +65,7 @@ public class ProblemTester {
 		assertNotNull(tester.getFitnessApp());
 		assertNotNull(tester.getInputs());
 		assertNotNull(tester.getOptimization());
+		assertNotNull(tester.getOptimization().getAlgorithmList());
 	}
 	
 	@Test
@@ -114,6 +117,32 @@ public class ProblemTester {
 		Configuration tester = new Configuration("name", 1.0, 5.0, "type", 20, "description");
 		assertEquals(1.0, tester.getLowerLimit(),0);
 		assertEquals(5.0, tester.getUpperLimit(),0);
+		tester.setArrayType("int");
+		assertEquals(VariableType.varInt,tester.getVarType());
+		tester.setArrayType("double");
+		assertEquals(VariableType.varDouble,tester.getVarType());
+		tester.setArrayType("boolean");
+		assertEquals(VariableType.varBoolean,tester.getVarType());
+		assertNotNull(tester.getValueArray());
+	}
+	
+	@Test
+	public void fitnessAppSolo() {
+		assertNotNull(fitnessApp.getLocalJarPath());
+		assertNotNull(fitnessApp.getFitnessAppName());
+		assertNotNull(fitnessApp.getFitnessOutputList());
+		assertNotNull(fitnessApp.getFitnessOutputListSize());
+	}
+	
+	@Test
+	public void problemInputsSolo() {
+		inputs.addConfiguration("listName", 2.0, 10.0, "type", 20, "description");
+		Configuration conf = new Configuration("listNam2e", 3.0, 20.0, "type", 30, "description");
+		inputs.addConfiguration(conf);
+		inputs.addRestriction("variableName", "symbol", 20);
+		Restriction res = new Restriction("variableName2", "symbol2", 30);
+		inputs.addRestriction(res);
+		assertNotNull(inputs.getConfigList());
 	}
 
 }
