@@ -52,7 +52,7 @@ public abstract class JSONResultsGenerator {
 		results.setOptimizationDate(dateFormat.format(new Date()));
 		
 		File rfGeneralFile = 
-			new File(Paths.EXPERIMENTS_FOLDER + problemName + Paths.REFERENCE_FRONTS + problemName + ".rf");
+			new File(Paths.EXPERIMENTS_FOLDER + problemName + Paths.REFERENCE_FRONTS + problemName + "_top.rf");
 		
 		List<double[]> resultsValues = new ArrayList<double[]>();
 		
@@ -123,7 +123,7 @@ public abstract class JSONResultsGenerator {
 			String userEmail, String fitnessAppName, int processTime, String[] labels, String[] variablesName, int numberOfVariables) {
 		
 		File rsGeneralFile = 
-				new File(Paths.EXPERIMENTS_FOLDER + problemName + Paths.REFERENCE_FRONTS + problemName + ".rs");
+				new File(Paths.EXPERIMENTS_FOLDER + problemName + Paths.REFERENCE_FRONTS + problemName + "_top.rs");
 			
 		Solutions solutions = new Solutions();
 		
