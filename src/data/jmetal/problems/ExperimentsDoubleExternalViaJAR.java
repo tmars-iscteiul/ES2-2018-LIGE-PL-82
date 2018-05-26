@@ -35,7 +35,7 @@ public class ExperimentsDoubleExternalViaJAR {
   //public static void main(String[] args) throws IOException {
   public ExperimentsDoubleExternalViaJAR(int numberOfVariables, int numberOfObjetives, double minValue, double maxValue,
 			String problemName, String jarPath) {
-    String experimentBaseDirectory = "experimentBaseDirectory";
+    String experimentBaseDirectory = "experimentBaseDirectory/";
 
     List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
     problemList.add(new ExperimentProblem<>(new MyProblemDoubleExternalViaJAR(numberOfVariables, numberOfObjetives , minValue, maxValue , problemName , jarPath)));
