@@ -9,19 +9,20 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.BitSet;
 
-/* Implementa��o de um problema do tipo Binary que executa o .jar externo
-   OneZeroMax.jar e pode ser usado como um dos problema de teste indicados 
-   no encunciado do trabalho */
+/*  OneZeroMax.jar */
 
 @SuppressWarnings("serial")
 public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 	  private int bits ;
 
-	  public MyProblemBinaryExternalViaJAR() throws JMetalException {
-		// 10 decision variables by default  
-	    this(10);
-	  }
-
+	  public MyProblemBinaryExternalViaJAR(int numberOfVariables, int numberOfObjetives, String problemName, String jarPath) throws JMetalException{
+		  setNumberOfVariables(1);
+		  setNumberOfObjectives(2);
+		  setName(problemName);
+		  //bits = numberOfBits ;
+		}
+	
+	  /*
 	  public MyProblemBinaryExternalViaJAR(Integer numberOfBits) throws JMetalException {
 		setNumberOfVariables(1);
 	    setNumberOfObjectives(2);
@@ -29,8 +30,10 @@ public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 	    bits = numberOfBits ;
 
 	  }
+	  */
 	  
-	  @Override
+
+	@Override
 	  protected int getBitsPerVariable(int index) {
 	  	if (index != 0) {
 	  		throw new JMetalException("Problem MyBinaryProblem has only a variable. Index = " + index) ;

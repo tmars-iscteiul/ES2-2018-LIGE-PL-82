@@ -27,9 +27,7 @@ public class JMetalWorker extends Thread {
 	private ConsoleLogger workerLogger;
 	private ExperimentsDoubleExternalViaJAR eDouble;
 	private ExperimentsIntegerExternalViaJAR eInteger;
-	
-
-	
+	private ExperimentsBinaryExternalViaJAR eBinary;
 	
 	
 	private int configListSize;
@@ -112,11 +110,8 @@ public class JMetalWorker extends Thread {
 			
 		}
 		if(counterBinary== configListSize) {
-			try {
-				ExperimentsBinaryExternalViaJAR.main(null);
-			} catch (IOException err) {
-				err.printStackTrace();
-			}
+			eBinary = new ExperimentsBinaryExternalViaJAR(numberOfVariables,  numberOfObjetives,  problemName, jarPath);
+			eBinary.start();
 		}
 	}
 	
