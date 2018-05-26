@@ -41,7 +41,7 @@ public class ExperimentsBinaryExternalViaJAR {
   
   
   public ExperimentsBinaryExternalViaJAR(int numberOfVariables, int numberOfObjetives,
-		String problemName, String jarPath) {
+		String problemName, String jarPath, ArrayList<Algorithm> algorithmListNemesis) {
 
 	  myProblem = new MyProblemBinaryExternalViaJAR(numberOfVariables, numberOfObjetives , problemName , jarPath);
 		List<ExperimentProblem<BinarySolution>> problemList = new ArrayList<>();

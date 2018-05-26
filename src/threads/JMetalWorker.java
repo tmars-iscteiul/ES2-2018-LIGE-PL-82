@@ -3,6 +3,7 @@ package threads;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 import data.comm.Email;
 import data.comm.EmailSender;
@@ -11,6 +12,7 @@ import data.jmetal.ExperimentsDoubleExternalViaJAR;
 import data.jmetal.ExperimentsIntegerExternalViaJAR;
 import data.problem.Problem;
 import data.problem.ProblemInputs;
+import utilities.Algorithm;
 import utilities.ConsoleLogger;
 import utilities.VariableType;
 
@@ -31,15 +33,13 @@ public class JMetalWorker extends Thread {
 	
 	
 	private int configListSize;
-	
 	private int numberOfObjetives ;
 	private int numberOfVariables ;
-	
 	private double minValue;
 	private double maxValue ;
-	
 	private String problemName;
 	private String jarPath;
+	private ArrayList<Algorithm> algorithmList;
 	
 	public JMetalWorker(Problem problem)	{
 		// Possible TODO: Remove redundant fields
@@ -53,6 +53,7 @@ public class JMetalWorker extends Thread {
 		setBounds();
 		problemName= problem.getIntroduction().getName();
 		jarPath= problem.getFitnessApp().getLocalJarPath();
+		algorithmList = problem.getOptimization().getAlgorithmList();
 		
 		workerLogger = new ConsoleLogger("JMETAL-WORKER");
 		Email email = new Email(this.problem);
@@ -99,19 +100,19 @@ public class JMetalWorker extends Thread {
 		}
 		
 		if( counterDouble== configListSize) {
-			eDouble = new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath);
+			eDouble = new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath, algorithmList);
 			eDouble.start();
 			
 			
 		}
 		if(counterInteger== configListSize) {
-			eInteger = new ExperimentsIntegerExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath);
+			eInteger = new ExperimentsIntegerExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath, algorithmList);
 			eInteger.start();
 			
 		}
 		if(counterBinary== configListSize) {
 			//TODO : put the parameter numberOfBits on nemesis-app
-			eBinary = new ExperimentsBinaryExternalViaJAR(numberOfVariables,  numberOfObjetives,  problemName, jarPath);
+			eBinary = new ExperimentsBinaryExternalViaJAR(numberOfVariables,  numberOfObjetives,  problemName, jarPath, algorithmList);
 			eBinary.start();
 		}
 	}
