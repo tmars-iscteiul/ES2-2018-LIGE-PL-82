@@ -11,8 +11,8 @@ public class Results {
 	@JsonProperty("outputsFunction") private String outputsFunction;
 	@JsonProperty("solutionVariablesNumber") private int solutionVariablesNumber;
 	@JsonProperty("processTime") private int processTime;
+	@JsonProperty("optimizationDate") private String optimizationDate;
 	@JsonProperty("labels") private String[] labels;
-	@JsonProperty("bestAlgorithm") private String bestAlgorithm;
 	@JsonProperty("fitnessOutputList") private List<FitnessOutputList> fitnessOutputList;
 	
 	public Results() {
@@ -20,7 +20,7 @@ public class Results {
 	}
 
 	public Results(String problemName, String problemDescription, String userEmail, String outputsFunction,
-			int solutionVariablesNumber, int processTime, String[] labels, String bestAlgorithm, 
+			int solutionVariablesNumber, int processTime, String[] labels, String optimizationDate,
 			List<FitnessOutputList> fitnessOutputList) {
 		super();
 		this.problemName = problemName;
@@ -28,7 +28,7 @@ public class Results {
 		this.userEmail = userEmail;
 		this.outputsFunction = outputsFunction;
 		this.labels = labels;
-		this.bestAlgorithm = bestAlgorithm;
+		this.optimizationDate = optimizationDate;
 		this.fitnessOutputList = fitnessOutputList;
 		this.solutionVariablesNumber = solutionVariablesNumber;
 		this.processTime = processTime;
@@ -65,12 +65,6 @@ public class Results {
 	public void setLabels(String[] labels) {
 		this.labels = labels;
 	}
-	public String getBestAlgorithm() {
-		return bestAlgorithm;
-	}
-	public void setBestAlgorithm(String bestAlgorithm) {
-		this.bestAlgorithm = bestAlgorithm;
-	}
 	public List<FitnessOutputList> getFitnessOutputList() {
 		return fitnessOutputList;
 	}
@@ -92,6 +86,18 @@ public class Results {
 
 	public void setProcessTime(int processTime) {
 		this.processTime = processTime;
+	}
+
+	public String getOptimizationDate() {
+		return optimizationDate;
+	}
+
+	public void setOptimizationDate(String optimizationDate) {
+		this.optimizationDate = optimizationDate;
+	}
+
+	public void setSolutionVariablesNumber(int solutionVariablesNumber) {
+		this.solutionVariablesNumber = solutionVariablesNumber;
 	}
 	
 	
