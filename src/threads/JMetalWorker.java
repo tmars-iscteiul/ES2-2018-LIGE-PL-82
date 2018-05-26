@@ -59,6 +59,14 @@ public class JMetalWorker extends Thread {
 		Email email = new Email(this.problem);
 		email.welcome_email();
 		new EmailSender().sendMail(email);
+		
+		//To test
+		email.progression_email(50, 78);
+		new EmailSender().sendMail(email);
+		
+		email.success_email();
+		new EmailSender().sendMail(email);
+
 		start();
 	}
 	

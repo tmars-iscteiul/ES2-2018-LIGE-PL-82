@@ -106,7 +106,7 @@ public abstract class JSONResultsGenerator {
 			if (!dir.exists())
 				dir.mkdir();
 			
-			mapper.writeValue(
+			mapper.writerWithDefaultPrettyPrinter().writeValue(
 					new File(generalOutputsDirectory + problemName + "_results.json"), results);
 			
 		} catch (JsonGenerationException e) {
@@ -170,7 +170,7 @@ public abstract class JSONResultsGenerator {
 			if (!dir.exists())
 				dir.mkdir();
 			
-			mapper.writeValue(
+			mapper.writerWithDefaultPrettyPrinter().writeValue(
 					new File(generalOutputsDirectory + problemName + "_solutions.json"), solutions);
 			
 		} catch (JsonGenerationException e) {

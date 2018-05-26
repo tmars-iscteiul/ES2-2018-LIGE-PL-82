@@ -1,1 +1,17 @@
-{"problemName":"antiSpamProblem","problemDescription":"Descrição do problema","userEmail":"tm.alves.rodrigues@gmail.com","outputsFunction":"antiSpamProblem","solutionVariablesNumber":300,"processTime":240,"optimizationDate":"2018/05/26 22:50:56","labels":["Solution 1","Solution 2"],"fitnessOutputList":[{"label":"False Positives","data":[59.0,38.0]},{"label":"False Negatives","data":[1.0,4.0]}]}
+{
+  "problemName" : "antiSpamProblem",
+  "problemDescription" : "Descrição do problema",
+  "userEmail" : "tm.alves.rodrigues@gmail.com",
+  "outputsFunction" : "antiSpamProblem",
+  "solutionVariablesNumber" : 300,
+  "processTime" : 240,
+  "optimizationDate" : "2018/05/27 00:30:39",
+  "labels" : [ "Solution 1", "Solution 2", "Solution 3", "Solution 4", "Solution 5" ],
+  "fitnessOutputList" : [ {
+    "label" : "False Positives",
+    "data" : [ 59.0, 35.0, 36.0, 87.0, 38.0 ]
+  }, {
+    "label" : "False Negatives",
+    "data" : [ 1.0, 76.0, 74.0, 0.0, 4.0 ]
+  } ]
+}
