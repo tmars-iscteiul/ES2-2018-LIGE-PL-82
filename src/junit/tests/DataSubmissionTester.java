@@ -49,8 +49,8 @@ public class DataSubmissionTester {
 		assertEquals("listName", tester.getListName());
 		assertEquals("type", tester.getType());
 		assertEquals(10, tester.getNumberVar());
-		assertEquals(1, tester.getMinValue());
-		assertEquals(20, tester.getMaxValue());
+		assertEquals(1, tester.getMinValue(),0);
+		assertEquals(20, tester.getMaxValue(),0);
 		assertEquals("description", tester.getDescription());
 	}
 	
