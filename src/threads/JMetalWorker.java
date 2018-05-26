@@ -38,10 +38,9 @@ public class JMetalWorker extends Thread {
 		this.problem = problem;
 		configListSize= problem.getInputs().getConfigList().size();
 		numberOfObjetives = problem.getFitnessApp().getFitnessOutputList().size();
-		
 		// We are assuming however, that the JMETALWORKER is working over one configList array ONLY
 		// This means we must NORMALIZE the arrays
-		// Until we do so, we will use and test only ONE configuration per submission/problem
+		// Until we do so, we will use and test only ONE configuration per submission/problem. Only the first config list will be considered
 		numberOfVariables = problem.getInputs().getConfigList().get(0).getValueArray().length;
 		setBounds();
 		problemName= problem.getIntroduction().getName();
@@ -52,7 +51,6 @@ public class JMetalWorker extends Thread {
 	}
 	
 	private void setBounds() {
-		
 		double minValueAux = 0.0;
 		double maxValueAux = 0.0;
 		for( int i=0;i < configListSize; i++) {
@@ -66,8 +64,6 @@ public class JMetalWorker extends Thread {
 				maxValue = maxValueAux;
 			}
 		}
-		
-		
 	}
 	
 	@Override
@@ -78,7 +74,6 @@ public class JMetalWorker extends Thread {
 		int counterDouble=0;
 		int counterInteger=0;
 		int counterBinary=0;
-		
 		for( int i=0;i < configListSize; i++) {
 			if( problem.getInputs().getConfigList().get(i).getVarType()== VariableType.varDouble) {
 				counterDouble++;
@@ -119,9 +114,10 @@ public class JMetalWorker extends Thread {
 				e.printStackTrace();
 			}
 		}
-		
-		
-
+	}
+	
+	public Problem getProblem()	{
+		return problem;
 	}
 	
 }

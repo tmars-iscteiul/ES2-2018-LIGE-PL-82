@@ -16,6 +16,7 @@ import data.problem.Restriction;
 import data.submission.Introduction;
 import data.submission.Submission;
 import threads.JMetalWorker;
+import threads.ProcessManager;
 import utilities.Algorithm;
 import utilities.ConsoleLogger;
 import utilities.TimeVariable;
@@ -57,7 +58,9 @@ public class Engine extends Thread	{
 		engineLogger.writeConsoleLog("Engine is running and awaiting inputs...");
 		while(true) {
 			try {
-				new JMetalWorker(problemQueue.take());
+				// TODO We are not checking how many workers are running, and have no control over them on the Engine.
+				// TODO Do they even die when finished?
+				new ProcessManager(new JMetalWorker(problemQueue.take()));
 				engineLogger.writeConsoleLog("Submission received. Starting problem process.");
 			} catch (InterruptedException e) {
 				e.printStackTrace();

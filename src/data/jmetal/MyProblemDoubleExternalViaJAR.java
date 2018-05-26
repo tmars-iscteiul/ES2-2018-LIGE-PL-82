@@ -66,6 +66,7 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	    //System.out.println("Received results from external JAR: " + evaluationResultString);
    		String[] individualEvaluationCriteria = evaluationResultString.split("\\s+");
 	    // It is assumed that all evaluated criteria are returned in the same result string
+   		// TODO Check if # of solutions in json matches evaluator's results. If not, send email etc
 	    for (int i = 0; i < solution.getNumberOfObjectives(); i++) {
 	    	solution.setObjective(i, Double.parseDouble(individualEvaluationCriteria[i]));
 	    }	    

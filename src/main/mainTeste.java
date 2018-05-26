@@ -14,7 +14,6 @@ public class mainTeste {
 	 */
 	
 	public static void main(String[] args) {
-		
 		ProblemInputs pinputs= new ProblemInputs();
 		// Needs to be 336, so it has the same array size as the rules.cf file. Otherwise it wouldnt work
 		pinputs.addConfiguration("Anti-spamFilter", -5.0, 5.0, "double", 336, "teste do SpamEmail Problem");
@@ -27,7 +26,6 @@ public class mainTeste {
 		p.setFitnessApp(pFitness);
 		
 		new JMetalWorker(p);
-
 	}
 	
 }
