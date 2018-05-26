@@ -55,11 +55,10 @@ public abstract class JSONResultsGenerator {
 		
 		results.setFitnessOutputList(new ArrayList<FitnessOutputList>());
 		String varLabel = "";
-		String[] globalLabels = new String[resultsValues.get(0).length];
+		
 		
 		for (int i = 0; i < resultsValues.get(0).length; i++) {
 			double[] data = new double[resultsValues.size()];
-			globalLabels[i] = "Solution " + (i+1);
 			
 			if (labels.length > i)
 				varLabel = labels[i];
@@ -71,6 +70,11 @@ public abstract class JSONResultsGenerator {
 			results.getFitnessOutputList().add(new FitnessOutputList(varLabel, data));
 		}
 		
+		String[] globalLabels = new String[resultsValues.size()];
+		
+		for (int i = 0; i < resultsValues.size(); i++)
+			globalLabels[i] = "Soluction " + (i+1);			
+			
 		results.setLabels(globalLabels);
 		results.setSolutionVariblesNumber(300);
 		
@@ -93,27 +97,6 @@ public abstract class JSONResultsGenerator {
 			System.out.println("Cannot create general file.");
 		}
 		
-		
-		
-		System.out.println(results.getProblemName());
-		System.out.println(results.getProblemDescription());
-		System.out.println(results.getUserEmail());
-		System.out.println(results.getOutputsFunction());
-		System.out.println(results.getSolutionVariablesNumber());
-		System.out.println(results.getProcessTime());
-		
-		for (int i = 0; i < results.getLabels().length; i++)
-			System.out.print(results.getLabels()[i] + "\t");
-		System.out.println("");
-		
-		System.out.println(results.getBestAlgorithm());
-
-		for (FitnessOutputList output : results.getFitnessOutputList()) {
-			System.out.print(output.getLabel() + ":\t");
-			for (int k = 0; k < output.getData().length; k++)
-				System.out.print(output.getData()[k] + "\t");
-			System.out.println("");
-		}		
 	}
 	
 	public static void main(String[] args) {
