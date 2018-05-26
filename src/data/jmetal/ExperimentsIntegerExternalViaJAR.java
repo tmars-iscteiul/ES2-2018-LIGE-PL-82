@@ -33,7 +33,7 @@ public class ExperimentsIntegerExternalViaJAR {
   private Experiment<IntegerSolution, List<IntegerSolution>> experiment;
 
   
-  public ExperimentsIntegerExternalViaJAR(int numberOfVariables, int numberOfObjetives, int minValue, int maxValue,
+  public ExperimentsIntegerExternalViaJAR(int numberOfVariables, int numberOfObjetives, double minValue, double maxValue,
 			String problemName, String jarPath) {
 		
     myProblem = new MyProblemIntegerExternalViaJAR(numberOfVariables, numberOfObjetives , minValue, maxValue , problemName , jarPath);
@@ -82,7 +82,7 @@ static List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> configu
               new IntegerSBXCrossover(0.9, 20.0),
               new IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(), 20.0))
               .setMaxEvaluations(maxEvaluations)
-              .setPopulationSize(100)
+              .setPopulationSize(populationSize)
               .build();
       algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
 
@@ -99,5 +99,12 @@ static List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> configu
     }
     return algorithms;
   }
+
+	public int getTotalConfigurations()	{
+		return (int) (Math.ceil(250.0/100)*INDEPENDENT_RUNS*populationSize);
+	}
+	public MyProblemIntegerExternalViaJAR getMyProblem()	{
+		return myProblem;
+	}
 
 }
