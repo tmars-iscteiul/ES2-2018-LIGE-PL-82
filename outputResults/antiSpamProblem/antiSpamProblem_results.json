@@ -10,11 +10,11 @@
    "fitnessOutputList": [
       {
          "label": "False Positives",
-         "data": [2,1,4,18]
+         "data": [2,4,4,12]
       },
       {
          "label": "False Negatives",
-         "data": [1,3,2,9]
+         "data": [1,3,2,1]
       }
    ]
 }

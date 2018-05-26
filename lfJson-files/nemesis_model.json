@@ -49,8 +49,8 @@
         "outputDescription": "Number of false negatives"
       }
     ],
-    "fitnessName": "fNfPFitnessApp",
-    "fileURL": "https://raw.githubusercontent.com/tmars-iscteiul/ES2-2018-LIGE-PL-82/testSpring/caseStudies/test1.jar"
+    "fitnessName": "antiSpamProblem",
+    "fileURL": "https://github.com/tmars-iscteiul/ES2-2018-LIGE-PL-82/blob/master/caseStudies/antiSpamProblem.jar?raw=true"
   },
   "optimization": {
     "optimizerSelection": "manual",

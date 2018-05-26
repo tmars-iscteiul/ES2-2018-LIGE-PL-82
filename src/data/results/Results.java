@@ -1,5 +1,7 @@
 package data.results;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Results {
@@ -11,7 +13,7 @@ public class Results {
 	@JsonProperty("processTime") private int processTime;
 	@JsonProperty("labels") private String[] labels;
 	@JsonProperty("bestAlgorithm") private String bestAlgorithm;
-	@JsonProperty("fitnessOutputList") private FitnessOutputList fitnessOutputList;
+	@JsonProperty("fitnessOutputList") private List<FitnessOutputList> fitnessOutputList;
 	
 	public Results() {
 
@@ -19,7 +21,7 @@ public class Results {
 
 	public Results(String problemName, String problemDescription, String userEmail, String outputsFunction,
 			int solutionVariablesNumber, int processTime, String[] labels, String bestAlgorithm, 
-			FitnessOutputList fitnessOutputList) {
+			List<FitnessOutputList> fitnessOutputList) {
 		super();
 		this.problemName = problemName;
 		this.problemDescription = problemDescription;
@@ -69,10 +71,10 @@ public class Results {
 	public void setBestAlgorithm(String bestAlgorithm) {
 		this.bestAlgorithm = bestAlgorithm;
 	}
-	public FitnessOutputList getFitnessOutputList() {
+	public List<FitnessOutputList> getFitnessOutputList() {
 		return fitnessOutputList;
 	}
-	public void setFitnessOutputList(FitnessOutputList fitnessOutputList) {
+	public void setFitnessOutputList(List<FitnessOutputList> fitnessOutputList) {
 		this.fitnessOutputList = fitnessOutputList;
 	}
 
