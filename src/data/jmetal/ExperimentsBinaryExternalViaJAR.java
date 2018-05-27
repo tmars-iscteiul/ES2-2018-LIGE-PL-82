@@ -39,7 +39,7 @@ public class ExperimentsBinaryExternalViaJAR {
   private static final int populationSize = 100;
   private MyProblemBinaryExternalViaJAR myProblem;
   
-  
+  //The constructor choose the folder where the results of the optimization will be
   public ExperimentsBinaryExternalViaJAR(int numberOfVariables, int numberOfObjetives,
 		  String problemName, String jarPath, ArrayList<utilities.Algorithm> algorithmListNemesis) {
 
@@ -78,7 +78,7 @@ public class ExperimentsBinaryExternalViaJAR {
 			e.printStackTrace();
 		}
 	}
-
+//This method run all the algorithms selected on nemesis-app (if the algorithm is not the correct for the problem we don´t consider them)
   static List<ExperimentAlgorithm<BinarySolution, List<BinarySolution>>> configureAlgorithmList(
 		  List<ExperimentProblem<BinarySolution>> problemList, ArrayList<utilities.Algorithm> algorithmListNemesis) {
 	  
@@ -90,6 +90,7 @@ public class ExperimentsBinaryExternalViaJAR {
 		 
 		  for(int j=0; j< algorithmListNemesis.size();j++) {
 	    		if ( algorithmListNemesis.get(j).name().equals("nsgaii")) {
+	    			
 	    			Algorithm<List<BinarySolution>> algorithm = new NSGAIIBuilder<>(
 	    					problemList.get(i).getProblem(),
 	    					new SinglePointCrossover(1.0),
@@ -121,6 +122,7 @@ public class ExperimentsBinaryExternalViaJAR {
 	  		  	  algorithms.add(new ExperimentAlgorithm<>(algorithm6, "RandomSearch", problemList.get(i).getTag()));
 	    		}
 	    		else if ( algorithmListNemesis.get(j).name().equals("spea2")) {
+	    			System.out.println("Corri algoritmo SPEA2");
 	    			Algorithm<List<BinarySolution>> algorithm7 = new SPEA2Builder<>(problemList.get(i).getProblem(),new SinglePointCrossover(1.0),new BitFlipMutation(1.0 / ((MyProblemBinaryExternalViaJAR) problemList.get(i).getProblem()).getNumberOfBits(0))).setMaxIterations(maxEvaluations).build();
 	  		  	  algorithms.add(new ExperimentAlgorithm<>(algorithm7, "SPEA2", problemList.get(i).getTag()));
 	    		}
