@@ -66,6 +66,7 @@ public class ResultsTester {
 				lfol);
 		assertNotNull(tester2.getLabels());
 		assertNotNull(tester2.getFitnessOutputList());
+		assertNotNull(tester2.getUserEmail());
 	}
 
 }
