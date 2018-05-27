@@ -210,7 +210,6 @@ public class Experiments {
 	    			Algorithm<List<BinarySolution>> algorithm6 = new RandomSearchBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(options.getMaxEvaluations()).build();
 	    			binaryAlgorithms.add(new ExperimentAlgorithm<>(algorithm6, "RandomSearch", problemList.get(i).getTag()));
 	    		}	else if ( algorithmListNemesis.get(j).name().equals("spea2")) {
-	    			System.out.println("Corri algoritmo SPEA2");
 	    			Algorithm<List<BinarySolution>> algorithm7 = new SPEA2Builder<>(problemList.get(i).getProblem(),new SinglePointCrossover(1.0),new BitFlipMutation(1.0 / ((MyProblemBinaryExternalViaJAR) problemList.get(i).getProblem()).getNumberOfBits(0))).setMaxIterations(options.getMaxEvaluations()).build();
 	    			binaryAlgorithms.add(new ExperimentAlgorithm<>(algorithm7, "SPEA2", problemList.get(i).getTag()));
 	    		}

@@ -10,7 +10,10 @@ import org.springframework.stereotype.Service;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import data.AdminOptions;
+import data.comm.Email;
+import data.comm.EmailSender;
 import data.problem.Problem;
+import data.submission.Feedback;
 import data.submission.Submission;
 import threads.JMetalWorker;
 import threads.ProcessManager;
@@ -27,18 +30,17 @@ import utilities.ConsoleLogger;
 public class Engine extends Thread	{
 	
 	private BlockingQueue<Problem> problemQueue;
-	private Submission problem;
-	private ConsoleLogger engineLogger;
+	private ConsoleLogger logger;
 	
 	private AdminOptions adminOptions;
 	
 	public Engine()	{
 		problemQueue = new ArrayBlockingQueue<Problem>(1024);
-		engineLogger = new ConsoleLogger("ENGINE");
+		logger = new ConsoleLogger("ENGINE");
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			adminOptions = mapper.readValue(new File("./config.json"), AdminOptions.class);
-			engineLogger.writeConsoleLog("config.json loaded.");
+			logger.writeConsoleLog("config.json loaded.");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -57,11 +59,11 @@ public class Engine extends Thread	{
 	 */
 	@Override
 	public synchronized void run()	{
-		engineLogger.writeConsoleLog("Engine is running and awaiting inputs...");
+		logger.writeConsoleLog("Engine is running and awaiting inputs...");
 		while(true) {
 			try {
 				new ProcessManager(new JMetalWorker(problemQueue.take(), adminOptions));
-				engineLogger.writeConsoleLog("Submission received. Starting problem process.");
+				logger.writeConsoleLog("Submission received. Starting problem process.");
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -73,7 +75,17 @@ public class Engine extends Thread	{
 	
 	public void addProblemToQueue(Submission submission)	{
 		// TODO Add submission_feedback email sender
+		if(submission.getFeedback().getEmail() != "") {
+			logger.writeConsoleLog("User sent feedback. Sending to admin: " + adminOptions.getAdminEmail() + ".");
+			sendFeedbackToAdmin(submission);
+		}
 		problemQueue.add(new Problem(submission));
+	}
+
+	public void sendFeedbackToAdmin(Submission submission) {
+		Email email = new Email(new Problem(submission));
+		email.feedback(submission.getFeedback());
+		new EmailSender().sendMail(email);
 	}
 
 	public String getStatus()	{
@@ -88,12 +100,8 @@ public class Engine extends Thread	{
 		return problemQueue;
 	}
 
-	public Submission getProblem() {
-		return problem;
-	}
-
 	public ConsoleLogger getEngineLogger() {
-		return engineLogger;
+		return logger;
 	}
 	
 	

@@ -81,6 +81,7 @@ public class Email {
 	public void feedback(data.submission.Feedback feedback)	{
 		currentType = 5;
 		// TODO Finish feedback
+		to = admin;
 		subject = "User Feedback: " + problemName + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Nêmesis - User Feedback</h1>"
 				+ "<p>An user identified by \"" + feedback.getName() + "\" has provided feedback:<br /><br />"
