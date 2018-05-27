@@ -11,7 +11,6 @@ The following features are still on beta version:
 2. Enable restrictions to the values;
 3. Auto-selection of the optimizer algorithms;
 4. Output results considering R plots and Latex;
-5. Administrator main configurations.
 
 ### Nêmesis Team:
 * 65345 - Tiago Rodrigues - tmars@iscte-iul.pt;
