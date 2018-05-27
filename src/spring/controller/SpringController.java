@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import data.submission.Feedback;
 import data.submission.Submission;
 import main.Engine;
 
@@ -61,7 +62,7 @@ public class SpringController {
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(method = RequestMethod.POST, value = "/send_feedback", consumes = "application/json")
 	public void sendFeedback(@RequestBody Submission submission)	{
-		engine.sendFeedbackToAdmin(submission);
+		engine.sendOnlyFeedbackToAdmin(submission);
 	}
 	
 	/**

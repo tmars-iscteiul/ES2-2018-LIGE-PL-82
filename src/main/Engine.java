@@ -87,6 +87,12 @@ public class Engine extends Thread	{
 		email.feedback(submission.getFeedback());
 		new EmailSender().sendMail(email);
 	}
+	
+	public void sendOnlyFeedbackToAdmin(Submission submission) {
+		Email email = new Email(options);
+		email.feedbackOnly(submission.getFeedback());
+		new EmailSender().sendMail(email);
+	}
 
 	public String getStatus()	{
 		if(problemQueue.size() < 1)	{

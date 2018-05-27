@@ -3,6 +3,7 @@ import java.time.LocalDateTime;
 
 import data.AdminOptions;
 import data.problem.Problem;
+import data.submission.Feedback;
 
 /**
  * An email object. Contains fields so that @see EmailSender can send the email correctly.
@@ -26,6 +27,11 @@ public class Email {
 		admin = options.getAdminEmail();
 		to = problem.getIntroduction().getUserEmail();
 		problemName = problem.getIntroduction().getName();
+	}
+	
+	public Email(AdminOptions options) {
+		from = options.getAdminEmail();
+		admin = options.getAdminEmail();
 	}
 
 	public void welcome_email() {
@@ -87,6 +93,19 @@ public class Email {
 				+ "<p>An user identified by \"" + feedback.getName() + "\" has provided feedback: <br /><br />"
 				+ feedback.getSubject() + " <br /><br />"
 				+ feedback.getEmailText() + " <br /><br />"
+				+ "</p></body></html>";
+	}
+	
+	public void feedbackOnly(Feedback feedback)	{
+		currentType = 6;
+		to = admin;
+		if (feedback.getName() == null) feedback.setName("<unnamed>");
+		subject = "User Feedback: " + feedback.getEmail() + " - " + LocalDateTime.now();
+		messageBody = "<html><body><h1>Nêmesis - User Feedback</h1>"
+				+ "<p>An user identified by \"" + feedback.getEmail() + "\" has provided feedback: <br /><br />"
+				+ feedback.getSubject() + " <br /><br />"
+				+ feedback.getEmailText() + " <br /><br />"
+				+ feedback.getName() + " <br /><br />"
 				+ "</p></body></html>";
 	}
 	
