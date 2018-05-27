@@ -1,0 +1,28 @@
+Sprint Retrospective
+
+O que estamos a fazer bem
+A comunicação entre a equipa é boa, ajudando para isso as reuniões diárias e o uso correcto das plataformas de trabalho colaborativo.
+
+O que podemos fazer melhor
+Algumas parte do código recebido continuam a ser obscuras, sendo necessário dedicar mais tempo à sua compreensão, para que haja um desbloqueio geral projecto.
+
+O que devemos começar a fazer
+Dedicar mais tempo à compreensão de código, para que as funcionalidade desenvolvidas tenham um objectivo e direcção mais claras.
+
+O que devemos deixar de fazer
+Implementar sem perceber como integrar as diferentes partes do projecto, levam a ineficiências e a duplicação de trabalho, pois muitas vezes estamos a modificar bastante funcionalidades, supostamente já concluidas.
+
+O que devemos continuar a fazer
+Trabalho colaborativo nas plataformas está a decorrer sem problemas de maior, tendo se verificado uma menor necessidade de reset ao repositório local. Algo que acontecia quando existiam muitos conflitos entre commits.
+
+Elementos da equipa presente:
+Catarina Carriço, 68958
+Rodolfo Arnaldo, 69565
+Rui Tomé, 73553 
+Tiago Rodrigues, 65345
+
+Elementos do cliente presente:
+Prof. Vitor Basto Fernandes
+
+Data da reunião:
+11 de Maio de 2018

@@ -1,0 +1,30 @@
+Sprint Retrospective
+
+O que estamos a fazer bem
+Gestão eficiente do tempo, realizando trabalho de qualidade com o tempo dedicado ao projecto.
+Utilização eficiente das potencialidades das plataformas de apoio ao trabalho colaborativo que nos permite saber o avanço do trabalho da equipa e evitar duplicação de trabalho na correção de problemas introduzidos por conflitos de código.
+
+O que podemos fazer melhor
+Compreensão das especificações e código sobre o qual o projecto se apoia deverá ser maior. Algumas funcionalidades estão directamente interligadas com código previamente fornecido, isto dificulta a execução de algumas tarefas.
+
+O que devemos começar a fazer
+Análise e compreensão do código pré-existente, bem como esclarecer junto do cliente alguns promenores da especificação recebida.
+
+O que devemos deixar de fazer
+Assunções sobre o que se pretende nalguns requisitos, em vez de esclarecer directamente com o cliente.
+
+O que devemos continuar a fazer
+Utilizar as plataformas de forma a facilitar o trabalho colaborativo à distância, de forma eficiente.
+
+
+Elementos da equipa presente:
+Catarina Carriço, 68958
+Rodolfo Arnaldo, 69565
+Rui Tomé, 73553 
+Tiago Rodrigues, 65345
+
+Elementos do cliente presente:
+Prof. Vitor Basto Fernandes
+
+Data da reunião:
+13 de Abril de 2018
