@@ -1,17 +1,17 @@
 {
   "problemName" : "antiSpamProblem",
-  "problemDescription" : "Descrição do problema",
+  "problemDescription" : "This problem optimizes the weight value of spam rules in order to increase the quality of spam service.",
   "userEmail" : "tm.alves.rodrigues@gmail.com",
-  "outputsFunction" : "antiSpamProblem",
-  "solutionVariablesNumber" : 300,
-  "processTime" : 240,
-  "optimizationDate" : "2018/05/27 00:30:39",
+  "outputsFunction" : null,
+  "solutionVariablesNumber" : 336,
+  "processTime" : 0,
+  "optimizationDate" : "2018/05/27 10:43:25",
   "labels" : [ "Solution 1", "Solution 2", "Solution 3", "Solution 4", "Solution 5" ],
   "fitnessOutputList" : [ {
-    "label" : "False Positives",
-    "data" : [ 59.0, 35.0, 36.0, 87.0, 38.0 ]
+    "label" : "falsePositive",
+    "data" : [ 8.0, 23.0, 9.0, 15.0, 10.0 ]
   }, {
-    "label" : "False Negatives",
-    "data" : [ 1.0, 76.0, 74.0, 0.0, 4.0 ]
+    "label" : "falseNegative",
+    "data" : [ 13.0, 1.0, 12.0, 5.0, 9.0 ]
   } ]
 }

@@ -8,7 +8,7 @@
   <name>LIGE-PL-82</name>
   <url>http://maven.apache.org</url>
 
-  <build>
+    <build>
   <sourceDirectory>${basedir}/src</sourceDirectory>
     <testSourceDirectory>${basedir}/jUnit</testSourceDirectory>
     <outputDirectory>${basedir}/target/classes</outputDirectory>
@@ -29,7 +29,6 @@
 		</plugin>
 	</plugins>
 </build>
-  
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
