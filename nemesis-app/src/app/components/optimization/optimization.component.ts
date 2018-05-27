@@ -8,6 +8,8 @@ import {RadioComponent} from '@lightweightform/bootstrap-theme';
 })
 export class OptimizationComponent implements OnInit {
 
+  teste = false;
+
   public options: object[] = [
     {value: 'automatic', text: 'Automatic selection'},
     {value: 'semi-automatic', text: 'Semiautomatic selection'},
@@ -20,14 +22,19 @@ export class OptimizationComponent implements OnInit {
     return ([parentForm]) => parentForm.optimizerSelection === 'automatic';
   }
 
+  public turnOn() {
+    this.teste = true;
+  }
+
   public isSelectedTypeA() {
     return ([{parentForm}]) => parentForm.optimizerSelection !== 'automatic';
   }
 
   public onFocus() {
-    //if (document.getElementById("optimizer").value == 'semi-automatic') {
-    //  document.getElementById("coralReefOptimization").value = true;
-    //}
+    if (this.isDisabled) {
+      this.turnOn;
+      console.log(this.teste);
+    }
   }
 
   ngOnInit() {

@@ -57,7 +57,7 @@ public class EmailSender {
             messageBodyPart.setContent (email.getMessageBody(), "text/html" );
             multipart.addBodyPart ( messageBodyPart );
         
-            if (email.getCurrentType() == 2) {
+            if (email.getCurrentType() == 2 || email.getCurrentType() == 4) {
             	messageBodyPart = new MimeBodyPart ();
             	DataSource source = new FileDataSource (Paths.RESULTS_FOLDER + email.getProblemName()
             		+ "/" + email.getProblemName() + "_solutions.json");

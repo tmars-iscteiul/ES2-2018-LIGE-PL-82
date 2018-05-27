@@ -54,24 +54,27 @@ public class Email {
 
 	public void fail_email() {
 		currentType = 3;
-		subject = "Interrupção da Optimização: " + problemName + " - " + LocalDateTime.now();
-		messageBody = "<html><body><p>O processo de optimiza��o n�o foi conluido devido a um erro.<br /><br />"
-				+ "Siga os passos para resolu��o do problema:<br />"
-				+ "1 - Recarregue o ficheiro com a defini��o do problema;<br />"
-				+ "2 - Verifique se todos os campos est�o correctamente preenchidos;<br />"
-				+ "3 - Submeta novamente o problema.<br /><br />"
-				+ "Pedimos desculpa pelo incomodo causado.<br /><br />" + "Atenciosamente N�mesis</p></body></html>";
+		subject = "Optimization process interrupted: " + problemName + " - " + LocalDateTime.now();
+		messageBody = "<html><body><p>Nêmesis - Optimization process interrupted<br /><br />"
+				+ "Your process was interrupted due to failure in the choosen parameters. We suggest the following steps:<br />"
+				+ "1 - Check if the information of the inputs is correct and congruent with the optimizers.<br />"
+				+ "2 - Assure that the fitness jar application or the given URL are valid;<br />"
+				+ "3 - If any of these steps are correct, send us the feedback for us to analyse.<br /><br />"
+				+ "Sorry about the incovinience.<br /><br />" 
+				+ "Our best regards, <br/>Nêmesis Team</p></body></html>";
 	}
 	
 	public void time_exceeded(double progress)	{
 		currentType = 4;
-		this.to = problem.getIntroduction().getUserEmail();
-		subject = "Tempo máximo excedido: " + problem.getIntroduction().getName() + " - " + LocalDateTime.now();
-		messageBody = "<html><body><h1>Nêmesis - Processo de Otimização. </h1><br /><br />O processo de optimização foi interrompido devido a ter excedido o tempo limite"
-				+ "O processo parou em " + String.format("%.2f", progress) + "%, tendo atingido o tempo limite de " 
-				+ String.format("%", (problem.getIntroduction().getMaxDuration().getValue("min")*100)) + " minutos. Caso pretenda que o processo conclua, terá de submeter o processo"
-				+ " novamente, aumentando o valor do tempo limite. <br /><br />"
-				+ "Atenciosamente, <br/>Equipa da Nêmesis</p></body></html>";
+		subject = "Optimization process time exceeded: " + problemName + " - " + LocalDateTime.now();
+		messageBody = "<html><body><h1>Nêmesis - Optimization process time exceeded</h1>"
+				+ "<p>Your optimization process ended due to reaching the maximum time limit.<br /><br />"
+				+ "To check the last optimization results go to the link below:<br />"
+				+ "<a href=\"http://localhost:4100/?problemName=" + problemName + "\">"
+				+ "http://localhost:4100/?problemName=" + problemName + "</a><br/><br/>"
+				+ "You can see the variables final results in the file attached.<br/><br/>"
+				+ "If you want to get better results we suggest increasing the process time, or choosing less optimizer algorithms."
+				+ "Our best regards, <br/>Nêmesis Team</p></body></html>";
 		
 	}
 
