@@ -1,18 +1,11 @@
 package threads;
 
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import data.comm.Email;
 import data.comm.EmailSender;
 import data.jmetal.Experiments;
-import data.jmetal.ExperimentsBinaryExternalViaJAR;
-import data.jmetal.ExperimentsDoubleExternalViaJAR;
-import data.jmetal.ExperimentsIntegerExternalViaJAR;
 import data.problem.Problem;
-import data.problem.ProblemInputs;
 import data.results.ResultsOptimizer;
 import utilities.Algorithm;
 import utilities.ConsoleLogger;
@@ -111,7 +104,16 @@ public class JMetalWorker extends Thread {
 					problem.getFitnessApp().getLocalJarPath(), 
 					problem.getOptimization().getAlgorithmList());
 		}
-		experiments.start();
+		try	{
+			experiments.start();
+		} catch (ArrayIndexOutOfBoundsException e) {
+			logger.writeConsoleLog("Process was interruped. There were inconcistencies on the JSON submission or the given JAR evaluator.");
+			Email email = new Email(this.problem);
+			email.fail_email();
+			new EmailSender().sendMail(email);
+			return;
+		}
+		
 		if(experiments.wasSuccessfull())	{
 			logger.writeConsoleLog("Process was successful. Generating results files.");
 		}

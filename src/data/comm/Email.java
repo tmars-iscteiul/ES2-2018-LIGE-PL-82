@@ -58,7 +58,7 @@ public class Email {
 		subject = "Optimization process interrupted: " + problemName + " - " + LocalDateTime.now();
 		messageBody = "<html><body><p>Nêmesis - Optimization process interrupted<br /><br />"
 				+ "Your process was interrupted due to failure in the choosen parameters. We suggest the following steps:<br />"
-				+ "1 - Check if the information of the inputs is correct and congruent with the optimizers.<br />"
+				+ "1 - Check if the information of the inputs is correct and congruent with the evaluators.<br />"
 				+ "2 - Assure that the fitness jar application or the given URL are valid;<br />"
 				+ "3 - If any of these steps are correct, send us the feedback for us to analyse.<br /><br />"
 				+ "Sorry about the inconvenience.<br /><br />" 
@@ -76,9 +76,8 @@ public class Email {
 				+ "You can see the variables final results in the file attached.<br/><br/>"
 				+ "If you want to get better results we suggest increasing the process time, or choosing less optimizer algorithms."
 				+ "Our best regards, <br/>Nêmesis Team</p></body></html>";
-		
 	}
-
+	
 	public String getFrom() {
 		return from;
 	}
