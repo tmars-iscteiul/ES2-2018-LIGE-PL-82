@@ -87,6 +87,7 @@ public class ExperimentsBinaryExternalViaJAR {
 	  
 	  for (int i = 0; i < problemList.size(); i++) {
 		  
+		 
 		  for(int j=0; j< algorithmListNemesis.size();j++) {
 	    		if ( algorithmListNemesis.get(j).name().equals("nsgaii")) {
 	    			Algorithm<List<BinarySolution>> algorithm = new NSGAIIBuilder<>(
@@ -127,8 +128,6 @@ public class ExperimentsBinaryExternalViaJAR {
 	    			System.out.println("user choose an algorithm than doesn´t fit on the problem");
 	    		}
 		  }
-		  	  
-		  	  
 	  }
 	  return algorithms;
   }
