@@ -65,6 +65,7 @@ public class ResultsTester {
 				20, 50, labels, "optimizationDate",
 				lfol);
 		assertNotNull(tester2.getLabels());
+		assertNotNull(tester2.getFitnessOutputList());
 	}
 
 }
