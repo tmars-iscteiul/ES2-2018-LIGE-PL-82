@@ -48,6 +48,7 @@ public class JMetalWorker extends Thread {
 		start();
 	}
 	
+	//This method normalizes the minimum and maximum limits  
 	private void setBounds() {
 		double minValueAux = 0.0;
 		double maxValueAux = 0.0;
@@ -63,7 +64,7 @@ public class JMetalWorker extends Thread {
 	
 	@Override
 	public synchronized void run()	{
-		//Here is where the algorithm calls will be made.
+		//On this thread we check the type of problem and run the respective algorithms
 		workerLogger.writeConsoleLog("Received problem \"" + problem.getIntroduction().getName() + "\" from " + problem.getIntroduction().getUserEmail());
 		int counterDouble=0;
 		int counterInteger=0;
