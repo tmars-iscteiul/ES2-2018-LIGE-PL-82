@@ -3,33 +3,57 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.iscte-iul.ES2-2018</groupId>
   <artifactId>ES2-2018-LIGE-PL-82</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0</version>
 
   <name>LIGE-PL-82</name>
   <url>http://maven.apache.org</url>
 
+
   <build>
-  <sourceDirectory>${basedir}/src</sourceDirectory>
+    <sourceDirectory>${basedir}/src</sourceDirectory>
     <testSourceDirectory>${basedir}/jUnit</testSourceDirectory>
     <outputDirectory>${basedir}/target/classes</outputDirectory>
     <testOutputDirectory>${basedir}/target/test-classes</testOutputDirectory>
-	<plugins>
-		<plugin>
-			<!-- Build an executable JAR -->
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-jar-plugin</artifactId>
-			<version>2.4</version>
-			<configuration>
-				<archive>
+    <plugins>
+      <!-- any other plugins -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+		  <archive>
 					<manifest>
 						<mainClass>main.Main</mainClass>
 					</manifest>
 				</archive>
-			</configuration>
-		</plugin>
-	</plugins>
-</build>
-  
+        </configuration>
+      </plugin>
+	  <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <mainClass>${start-class}</mainClass>
+                </configuration>
+                  <executions>
+                    <execution>
+                      <goals>
+                        <goal>repackage</goal>
+                      </goals>
+                    </execution>
+                </executions>
+            </plugin>
+    </plugins>
+  </build>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
