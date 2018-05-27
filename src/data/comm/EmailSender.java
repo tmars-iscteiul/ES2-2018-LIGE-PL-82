@@ -10,24 +10,24 @@ import utilities.Paths;
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 
+/**
+ * The email sender will send @see Email over to the problem's user, keeping them informed about the progress of their submission.
+ * @author skner
+ *
+ */
 public class EmailSender {
-
    
     private String host;
-
     private Properties properties;
-
     private MimeMessage message;
     private BodyPart messageBodyPart;
     private Multipart multipart;
-
     private Authenticator authenticator;
     
     private ConsoleLogger logger;
 
     public EmailSender () {
         host = "smtp.gmail.com";
-
         authenticator = new SMTPAuthenticator ();
         properties = System.getProperties ();
         properties.put ( "mail.smtp.host", host );
@@ -46,14 +46,11 @@ public class EmailSender {
                                 new InternetAddress ( email.getTo() ) );
             message.addRecipient ( Message.RecipientType.CC,
                     new InternetAddress ( email.getAdmin() ) );
-                        
             message.setSubject ( email.getSubject() );
             multipart = new MimeMultipart ();
-            
             messageBodyPart = new MimeBodyPart ();
             messageBodyPart.setContent (email.getMessageBody(), "text/html" );
             multipart.addBodyPart ( messageBodyPart );
-        
             if (email.getCurrentType() == 2 || email.getCurrentType() == 4) {
             	messageBodyPart = new MimeBodyPart ();
             	DataSource source = new FileDataSource (Paths.RESULTS_FOLDER + email.getProblemName()
@@ -62,9 +59,7 @@ public class EmailSender {
             	messageBodyPart.setFileName (email.getProblemName() + "_solutions.json");
             	multipart.addBodyPart ( messageBodyPart );
             }
-
             message.setContent ( multipart );
-
             Transport.send ( message );
             logger.writeConsoleLog("Message of type " + email.getCurrentType() + " sent to " + email.getTo() + ".");
         } catch ( Exception me ) {
@@ -90,7 +85,6 @@ public class EmailSender {
   * SimpleAuthenticator is used to do simple authentication
   * when the SMTP server requires it.
   */
-
 class SMTPAuthenticator extends Authenticator {
 
     private static final String SMTP_AUTH_USER = "geral.nemesis@gmail.com";

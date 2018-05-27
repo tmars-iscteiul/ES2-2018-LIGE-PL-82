@@ -5,14 +5,12 @@ import utilities.TimeVariable;
 /**
  * This class will hold basic information about the problem, such as its defining name or the email from the user. 
  * Will also contain time variables that define the average and max duration for the computing process.
- * 
  * @see Problem
  * @author skner
  *
  */
 public class ProblemIntroduction {
 
-	
 	private String name;
 	private String fullDescription;
 	private TimeVariable averageDuration;

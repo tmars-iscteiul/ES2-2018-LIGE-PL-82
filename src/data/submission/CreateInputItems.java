@@ -2,6 +2,11 @@ package data.submission;
 
 import java.util.List;
 
+/**
+ * Submission class from user. Holds configuration inputs.
+ * @author skner
+ *
+ */
 public class CreateInputItems {
 	private List<InputsNameTable> inputsNameTable;
 

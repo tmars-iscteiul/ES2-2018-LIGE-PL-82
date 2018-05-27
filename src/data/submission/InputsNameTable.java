@@ -2,6 +2,11 @@ package data.submission;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Submission class from user. Names the given variables by the user.
+ * @author skner
+ *
+ */
 public class InputsNameTable {
 	@JsonProperty("list") private String list;
 	@JsonProperty("nameDescription") private String nameDescription;

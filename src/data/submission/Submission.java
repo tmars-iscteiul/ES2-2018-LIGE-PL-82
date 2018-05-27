@@ -2,6 +2,11 @@ package data.submission;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Submission class from user. Mother class containing all the objects.
+ * @author skner
+ *
+ */
 public class Submission {
 	@JsonProperty("introdution") private Introduction introduction;
 	@JsonProperty("mainInformation") private MainInformation mainInformation;

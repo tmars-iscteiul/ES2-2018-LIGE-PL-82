@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Submission class from user. Holds information about the evaluator given by the user.
+ * @author skner
+ *
+ */
 public class FitnessApp {
 	@JsonProperty("fitnessOutputList") private List<FitnessOutputList> fitnessOutputList;
 	@JsonProperty("fitnessName") private String fitnessName;

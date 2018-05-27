@@ -9,8 +9,11 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.BitSet;
 
-/*  OneZeroMax.jar */
-
+/**
+ * Class containing binary information for JMetal's algorithms.
+ * @author skner
+ *
+ */
 @SuppressWarnings("serial")
 public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 	  private int bits ;
@@ -23,20 +26,8 @@ public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 		  setNumberOfVariables(1);
 		  setNumberOfObjectives(2);
 		  setName(problemName);
-		  //bits = numberOfBits ; // bits = 10 , we don´t have time to put this option on the user ( nemesis-app) 
 		  bits= 10;
 		}
-	
-	  /*
-	  public MyProblemBinaryExternalViaJAR(Integer numberOfBits) throws JMetalException {
-		setNumberOfVariables(1);
-	    setNumberOfObjectives(2);
-	    setName("MyProblemBinaryExternalViaJAR");
-	    bits = numberOfBits ;
-
-	  }
-	  */
-	  
 
 	@Override
 	  protected int getBitsPerVariable(int index) {
@@ -53,7 +44,6 @@ public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 
 	  @Override
 	  public void evaluate(BinarySolution solution){
-
 	    String solutionString ="";
 	    String evaluationResultString ="";
 	    BitSet bitset = solution.getVariableValue(0) ;

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import utilities.Algorithm;
 
 /**
- * This class will contain the list of algorithms to run using the given configuration lists by the client.
+ * This class will contain the list of @see Algorithm to run using the given configuration lists by the client.
  * @author skner
  *
  */

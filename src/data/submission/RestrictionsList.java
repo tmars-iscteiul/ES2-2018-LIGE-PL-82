@@ -2,6 +2,11 @@ package data.submission;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Submission class from user. Holds restrictions, to be used by @see Restriction.
+ * @author skner
+ *
+ */
 public class RestrictionsList {
 	@JsonProperty("variableName") private String variableName;
 	@JsonProperty("symbol") private String symbol;

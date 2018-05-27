@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import data.submission.FitnessOutputList;
 import utilities.Paths;
 import utilities.ReadFromURL;
-import utilities.VariableType;
 
 /**
  * This class will contain the app to evaluate the configuration sent by the user.
@@ -17,6 +16,7 @@ public class ProblemFitnessApp {
 
 	private class FitnessOutput	{
 		private String outputName;
+		@SuppressWarnings("unused")
 		private String description;
 		private FitnessOutput(String outputName, String description) {
 			this.outputName = outputName;
@@ -78,5 +78,4 @@ public class ProblemFitnessApp {
 		}
 		return res;
 	}
-
 }

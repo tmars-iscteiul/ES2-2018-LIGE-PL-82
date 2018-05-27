@@ -3,6 +3,11 @@ import java.time.LocalDateTime;
 
 import data.problem.Problem;
 
+/**
+ * An email object. Contains fields so that @see EmailSender can send the email correctly.
+ * @author skner
+ *
+ */
 public class Email {
 
 	private String from;
@@ -27,9 +32,8 @@ public class Email {
 		subject = "Optimization process started: " + problemName + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Welcome to Nêmesis</h1><p>Thank you for choosing this optimization platform.<br />"
 				+ "Your optimization problem has launched with success. You will be informed about its progression as it happens.<br/><br/>"
-				+ "Estimated optimization time: " + problem.getIntroduction().getAverageDuration().getValue("min") + " minutes. <br /><br />"
+				+ "We will keep you informed on your problem's progression. We will send an email every 25% of total progress with more information. <br /><br />"
 				+ "Our best regards, <br/>Nêmesis Team</p></body></html>";
-		// TODO The estimated time provided in this is the one put by the user and not the calculated one. To Change
 	}
 
 	public void progression_email(int progress, int minutesLeft) {

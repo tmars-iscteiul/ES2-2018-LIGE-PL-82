@@ -2,6 +2,11 @@ package data.submission;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Submission class from user. Holds feedback to be sent to the administrator.
+ * @author skner
+ *
+ */
 public class Feedback {
 	@JsonProperty("name") private String name;
 	@JsonProperty("email") private String email;

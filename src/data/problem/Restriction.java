@@ -1,16 +1,18 @@
 package data.problem;
 
 /**
+ * This class will define specific restriction the user wants applied to the algorithms run.
  * Restrictions mean that in a linked configuration, no slot can ignore the restriction. 
- * TODO: Perhaps do some sort of automated method so the algorithms can more easily call the restrictions
- *  
  *  @author skner
  *
  */
 public class Restriction {
 
+	@SuppressWarnings("unused")
 	private String variableName;
+	@SuppressWarnings("unused")
 	private String symbol;
+	@SuppressWarnings("unused")
 	private double value;
 	
 	public Restriction(String variableName, String symbol, double value)	{

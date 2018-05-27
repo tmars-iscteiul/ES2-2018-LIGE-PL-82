@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Submission class from user. Holds configuration restrictions.
+ * @author skner
+ *
+ */
 public class Restrictions {
 	@JsonProperty("restrictionsList") private List<RestrictionsList> restrictionsList;
 

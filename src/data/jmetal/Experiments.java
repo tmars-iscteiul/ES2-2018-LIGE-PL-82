@@ -43,6 +43,8 @@ import utilities.Paths;
 import utilities.VariableType;
 
 /**
+ * This class will contain all the information related to the JMETAL framework. Will have all the 3 used variable types for JMETAL and will also be the main
+ * link between @see JMetalWorker and the JMetal's platform itself.
  * @author skner
  *
  */
@@ -156,6 +158,12 @@ public class Experiments {
 		}
 	}
 	
+	/**
+	 * Configures the experiment to hold a binary solution, calling JMetal's binary algorithms.
+	 * @param problemList The list with the problem's information.
+	 * @param algorithmListNemesis List of algorithms to be used, either chosen by the user, or chosen automatically by the system.
+	 * @return Returns lists to be delivered to the JMetal's framework.
+	 */
 	private List<ExperimentAlgorithm<BinarySolution, List<BinarySolution>>> configureBinaryAlgorithmList(
 			List<ExperimentProblem<BinarySolution>> problemList, ArrayList<utilities.Algorithm> algorithmListNemesis) {
 		//String[] AlgorithsForBinaryProblemType = new String[]{"NSGAII","SMSEMOA","MOCell","MOCH","PAES","RandomSearch","SPEA2"};
@@ -191,9 +199,6 @@ public class Experiments {
 	    			System.out.println("Corri algoritmo SPEA2");
 	    			Algorithm<List<BinarySolution>> algorithm7 = new SPEA2Builder<>(problemList.get(i).getProblem(),new SinglePointCrossover(1.0),new BitFlipMutation(1.0 / ((MyProblemBinaryExternalViaJAR) problemList.get(i).getProblem()).getNumberOfBits(0))).setMaxIterations(maxEvaluations).build();
 	  		  	  	algorithms.add(new ExperimentAlgorithm<>(algorithm7, "SPEA2", problemList.get(i).getTag()));
-	    		}	else {
-	    			// TODO How to handle this. Do we send an email about it? Do we stop the process?
-	    			System.out.println("user choose an algorithm than doesn´t fit on the problem");
 	    		}
 			}
 		}
@@ -201,6 +206,12 @@ public class Experiments {
 		return algorithms;
 	}
 	
+	/**
+	 * Configures the experiment to hold a double solution, calling JMetal's double algorithms.
+	 * @param problemList The list with the problem's information.
+	 * @param algorithmListNemesis List of algorithms to be used, either chosen by the user, or chosen automatically by the system.
+	 * @return Returns lists to be delivered to the JMetal's framework.
+	 */
 	private List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureDoubleAlgorithmList(
 			List<ExperimentProblem<DoubleSolution>> problemList, ArrayList<utilities.Algorithm> algorithmListNemesis) {
 		//String[] AlgorithsForDoubleProblemType = new String[]{"NSGAII","SMSEMOA","GDE3","IBEA","MOCell","MOEAD","PAES","RandomSearch"};
@@ -240,8 +251,6 @@ public class Experiments {
 				}	else if ( algorithmListNemesis.get(j).name().equals("randomsearch")) {
 					Algorithm<List<DoubleSolution>> algorithm8 = new RandomSearchBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm8, "RandomSearch", problemList.get(i).getTag()));
-				}	else {
-					System.out.println("user choose an algorithm than doesn´t fit on the problem");
 				}
 			}
 		}
@@ -249,7 +258,12 @@ public class Experiments {
 		return algorithms;
 	}
 	
-	
+	/**
+	 * Configures the experiment to hold a integer solution, calling JMetal's integer algorithms.
+	 * @param problemList The list with the problem's information.
+	 * @param algorithmListNemesis List of algorithms to be used, either chosen by the user, or chosen automatically by the system.
+	 * @return Returns lists to be delivered to the JMetal's framework.
+	 */
 	private List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> configureIntegerAlgorithmList(
 			List<ExperimentProblem<IntegerSolution>> problemList, ArrayList<utilities.Algorithm> algorithmListNemesis) {
 		//String[] AlgorithsForIntegerProblemType = new String[]{"NSGAII","SMSEMOA","MOCell","PAES","RandomSearch"};
@@ -278,8 +292,6 @@ public class Experiments {
 	    		}	else if ( algorithmListNemesis.get(j).name().equals("randomsearch")) {
 	    			Algorithm<List<IntegerSolution>> algorithm5 = new RandomSearchBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
 	    			algorithms.add(new ExperimentAlgorithm<>(algorithm5, "RandomSearch", problemList.get(i).getTag()));
-	    		}	else {
-	    			System.out.println("user choose an algorithm than doesn´t fit on the problem");
 	    		}
 	    	}
 	    }

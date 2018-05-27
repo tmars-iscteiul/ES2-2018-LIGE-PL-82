@@ -2,6 +2,11 @@ package data.submission;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Submission class from user. Holds basic general information about the user and the problem.
+ * @author skner
+ *
+ */
 public class MainInformation {
 	@JsonProperty("problemName") private String problemName;
 	@JsonProperty("fullDescription") private String fullDescription;

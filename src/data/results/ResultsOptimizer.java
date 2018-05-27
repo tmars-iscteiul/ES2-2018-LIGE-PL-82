@@ -15,6 +15,11 @@ import java.util.TreeMap;
 
 import utilities.Paths;
 
+/**
+ * Serves as an optimizer, filtering JMetal's results in order, and showing the most relevant ones, given a count. Also filters by top numberOfResults.
+ * @author skner
+ *
+ */
 public abstract class ResultsOptimizer {
 
 	public static void optimize(String problemName, int numberOfResults) {

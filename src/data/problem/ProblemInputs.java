@@ -2,11 +2,9 @@ package data.problem;
 
 import java.util.ArrayList;
 
-import data.*;
-
 
 /**
- * ProblemInputs will contain the inputs for the problem. It will be the most important class that the jmetal handler will work with.
+ * ProblemInputs will contain the inputs for the problem. It will be the most important class that each @see JMetalWorker will work with.
  * This class contains all the information necessary for the algorithms to run, including lists rules and restrictions.
  * 
  * @author skner
@@ -26,13 +24,10 @@ public class ProblemInputs {
 		this();
 		Configuration configAux;
 		for(int i = 0; i<inputs.getInputListTable().size(); i++)	{
-			// TODO What type of confirmation do we need to check in order to give names to the variables for each configuration? 
-			// The name of the list must match? No check are being made at the moment
 			configAux = new Configuration(inputs.getInputListTable().get(i));
 			configAux.setVariableNames(inputs.getCreateInputItems().getInputsNameTable().get(i).getDescription());
 			configList.add(configAux);
 		}
-	
 	}
 
 	public void addRestriction(String variableName, String symbol, int value) {

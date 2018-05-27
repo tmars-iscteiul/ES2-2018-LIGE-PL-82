@@ -2,6 +2,11 @@ package data.submission;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Submission class from user. Holds list of chosen algorithms
+ * @author skner
+ *
+ */
 public class Optimization {
 	@JsonProperty("optimizerSelection") private String optimizerSelection;
 	@JsonProperty("coralReefOptimization") private boolean coralReefOptimization;

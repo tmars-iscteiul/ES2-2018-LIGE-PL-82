@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Solution class, contains information about the solution to work with the chart service.
+ * @author skner
+ *
+ */
 public class Solutions {
 	@JsonProperty("problemName") private String problemName;
 	@JsonProperty("problemDescription") private String problemDescription;

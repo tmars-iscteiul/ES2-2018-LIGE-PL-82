@@ -2,6 +2,12 @@ package data.results;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * List of solutions, working directly with chart service.
+ * Don't mistake with list of an object solution, but rather list of outputs.
+ * @author skner
+ *
+ */
 public class SolutionsList {
 	@JsonProperty("label") private String label;
 	@JsonProperty("values") private double[] values;

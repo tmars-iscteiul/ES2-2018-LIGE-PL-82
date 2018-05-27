@@ -2,6 +2,11 @@ package data.submission;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Submission class from user. Holds inputs information.
+ * @author skner
+ *
+ */
 public class InputListTable {
 	@JsonProperty("listName") private String listName;
 	@JsonProperty("type") private String type;

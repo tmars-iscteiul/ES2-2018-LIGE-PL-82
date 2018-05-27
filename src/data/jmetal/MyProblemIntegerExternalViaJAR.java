@@ -2,15 +2,16 @@ package data.jmetal;
 
 import org.uma.jmetal.problem.impl.AbstractIntegerProblem;
 import org.uma.jmetal.solution.IntegerSolution;
-import org.uma.jmetal.util.JMetalException;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-/*  NMMin.jar o */
-
+/**
+ * Class containing integer information for JMetal's algorithms.
+ * @author skner
+ *
+ */
 @SuppressWarnings("serial")
 public class MyProblemIntegerExternalViaJAR extends AbstractIntegerProblem {
 	
@@ -18,7 +19,7 @@ public class MyProblemIntegerExternalViaJAR extends AbstractIntegerProblem {
 	private int calculatedConfigurations;
 	  	
 	
-	  public MyProblemIntegerExternalViaJAR(Integer numberOfVariables, Integer numberOfObjetives,double  minValue, double maxValue, String problemName , String jarPath) {
+	public MyProblemIntegerExternalViaJAR(Integer numberOfVariables, Integer numberOfObjetives,double  minValue, double maxValue, String problemName , String jarPath) {
 			this.jarPath= jarPath;
 			calculatedConfigurations = 0;
 		    setNumberOfVariables(numberOfVariables);

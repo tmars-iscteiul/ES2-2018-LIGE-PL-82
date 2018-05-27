@@ -8,12 +8,11 @@ import java.util.List;
 import org.uma.jmetal.problem.impl.AbstractDoubleProblem;
 import org.uma.jmetal.solution.DoubleSolution;
 
-import data.problem.Configuration;
-import data.problem.ProblemInputs;
-import threads.JMetalWorker;
-
-/* Kursawe.jar and AntiSpamProblem */
-
+/**
+ * Class containing double information for JMetal's algorithms.
+ * @author skner
+ *
+ */
 @SuppressWarnings("serial")
 public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 
@@ -61,7 +60,6 @@ public class MyProblemDoubleExternalViaJAR extends AbstractDoubleProblem {
 	    }
 		String[] individualEvaluationCriteria = evaluationResultString.split("\\s+");
 		// It is assumed that all evaluated criteria are returned in the same result string
-		// TODO Check if # of solutions in json matches evaluator's results. If not, send email etc
 		for (int i = 0; i < solution.getNumberOfObjectives(); i++) {
 			solution.setObjective(i, Double.parseDouble(individualEvaluationCriteria[i]));
 		}   

@@ -2,6 +2,11 @@ package data.submission;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Submission class from user. Holds a fitness output list, matching with the evaluators output.
+ * @author skner
+ *
+ */
 public class FitnessOutputList {
 	@JsonProperty("outputName") private String outputName;
 	@JsonProperty("outputType") private String outputType;

@@ -123,7 +123,6 @@ public class JMetalWorker extends Thread {
 	}
 	
 	public void compileResultsJSON()	{
-		System.out.println("RunTime: " + finishedRunTime);
 		ResultsOptimizer.optimize(problem.getIntroduction().getName(), 5);
 		JSONResultsGenerator.convertResultsAndSolutionsToJSON(
 				problem.getIntroduction().getName(), 

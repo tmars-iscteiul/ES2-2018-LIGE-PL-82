@@ -6,16 +6,14 @@ import utilities.VariableType;
  * The configuration class will hold the important information to be passed to the specified algorithm
  * The valueArray type works by not having a restriction in what value you put it, any object type is valid. However, there's a varType that creates
  * restrictions, when need to be applied. 
- * Possible TODOs:
- * - Create various varType restrictions
- * - Verify compatibility with algorithms
- * 
  * @author skner
  *
  */
 public class Configuration {
 	
+	@SuppressWarnings("unused")
 	private String name;	/** Name of the variable*/
+	@SuppressWarnings("unused")
 	private String description;
 	
 	private double upperLimit;	/** Upper bound for the float value*/
@@ -51,15 +49,11 @@ public class Configuration {
 	 * @param low The lower limit
 	 * @param up The upper limit
 	 */
-	
-	
 	public void setLimits(double low, double up)	{
 		lowerLimit = low;
 		upperLimit = up;
 	}
-	
-	
-	
+
 	public double getUpperLimit() {
 		return upperLimit;
 	}
@@ -68,7 +62,6 @@ public class Configuration {
 		return lowerLimit;
 	}
 	
-
 	public void setArrayType(String type) {
 		if(type.equals("int")) {
 			varType = VariableType.varInt;
@@ -82,8 +75,6 @@ public class Configuration {
 			varType = VariableType.varUndefined;
 		}
 	}
-	
-	
 
 	public Object[] getValueArray()	{
 		return valueArray;
@@ -98,7 +89,6 @@ public class Configuration {
 			valueName = names.split(",");
 		}
 	}
-
 
 	public String[] getVariablesNames() {
 		return valueName;

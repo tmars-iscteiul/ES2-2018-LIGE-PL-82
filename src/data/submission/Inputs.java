@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Submission class from user. Holds all the configuration and algorithm settings and values.
+ * @author skner
+ *
+ */
 public class Inputs {
 	@JsonProperty("inputListTable") private List<InputListTable> inputListTable;
 	@JsonProperty("createInputItems") private CreateInputItems createInputItems;
