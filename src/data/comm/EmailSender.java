@@ -38,9 +38,6 @@ public class EmailSender {
     }
 
     public void sendMail (Email email) {
-        
-    	// Start by reading the .xml file to find the name of the problem, data of submission and administrator 	
-    	
     	try {
             Session session = Session.getDefaultInstance ( properties, authenticator );
             message = new MimeMessage ( session );

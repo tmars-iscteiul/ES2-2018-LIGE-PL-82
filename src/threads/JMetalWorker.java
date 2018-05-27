@@ -125,6 +125,9 @@ public class JMetalWorker extends Thread {
 				problem.getFitnessApp().getFitnessOutputsAsArray(),
 				problem.getInputs().getConfigList().get(0).getVariablesNames(),
 				problem.getInputs().getConfigList().get(0).getVariablesNames().length);
+		Email email = new Email(this.problem);
+		email.success_email();
+		new EmailSender().sendMail(email);
 	}
 	
 	public Experiments getExperiment()	{
