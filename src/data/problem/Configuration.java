@@ -99,6 +99,11 @@ public class Configuration {
 		}
 	}
 
+
+	public String[] getVariablesNames() {
+		return valueName;
+	}
+
 	
 }
 

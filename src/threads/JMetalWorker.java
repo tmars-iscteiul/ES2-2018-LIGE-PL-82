@@ -13,8 +13,10 @@ import data.jmetal.ExperimentsDoubleExternalViaJAR;
 import data.jmetal.ExperimentsIntegerExternalViaJAR;
 import data.problem.Problem;
 import data.problem.ProblemInputs;
+import data.results.ResultsOptimizer;
 import utilities.Algorithm;
 import utilities.ConsoleLogger;
+import utilities.JSONResultsGenerator;
 import utilities.VariableType;
 
 /**
@@ -27,9 +29,10 @@ import utilities.VariableType;
 public class JMetalWorker extends Thread {
 
 	private Problem problem;
-	private ConsoleLogger workerLogger;
+	private ConsoleLogger logger;
 	private Experiments experiments;
 	
+	private double finishedRunTime;
 	private double minValue;
 	private double maxValue ;
 	private ArrayList<Algorithm> algorithmList;
@@ -40,7 +43,7 @@ public class JMetalWorker extends Thread {
 		// This means we must NORMALIZE the arrays
 		// Until we do so, we will use and test only ONE configuration per submission/problem. Only the first config list will be considered
 		setBounds();
-		workerLogger = new ConsoleLogger("JMETAL-WORKER");
+		logger = new ConsoleLogger("JMETAL-WORKER");
 		Email email = new Email(this.problem);
 		email.welcome_email();
 		new EmailSender().sendMail(email);
@@ -64,7 +67,7 @@ public class JMetalWorker extends Thread {
 	@Override
 	public synchronized void run()	{
 		//On this thread we check the type of problem and run the respective algorithms
-		workerLogger.writeConsoleLog("Received problem \"" + problem.getIntroduction().getName() + "\" from " + problem.getIntroduction().getUserEmail());
+		logger.writeConsoleLog("Received problem \"" + problem.getIntroduction().getName() + "\" from " + problem.getIntroduction().getUserEmail());
 		int counterDouble=0;
 		int counterInteger=0;
 		int counterBinary=0;
@@ -109,6 +112,20 @@ public class JMetalWorker extends Thread {
 					problem.getOptimization().getAlgorithmList());
 		}
 		experiments.start();
+		if(experiments.wasSuccessfull())	{
+			logger.writeConsoleLog("Process was successful. Generating results files.");
+		}
+		ResultsOptimizer.optimize(problem.getIntroduction().getName(), 5);
+		// TODO JSONResultsGenerator
+		JSONResultsGenerator.convertResultsAndSolutionsToJSON(
+				problem.getIntroduction().getName(), 
+				problem.getIntroduction().getFullDescription(),
+				problem.getIntroduction().getUserEmail(),
+				problem.getFitnessApp().getFitnessAppName(),
+				(int)finishedRunTime,
+				problem.getFitnessApp().getFitnessOutputsAsArray(),
+				problem.getInputs().getConfigList().get(0).getVariablesNames(),
+				problem.getInputs().getConfigList().get(0).getVariablesNames().length);
 	}
 	
 	public Experiments getExperiment()	{
@@ -120,4 +137,7 @@ public class JMetalWorker extends Thread {
 		return problem;
 	}
 	
+	public void finishRunTime(double runTime)	{
+		finishedRunTime = runTime;
+	}
 }

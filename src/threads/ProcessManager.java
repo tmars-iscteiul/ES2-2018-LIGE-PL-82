@@ -12,6 +12,7 @@ import utilities.VariableType;
 public class ProcessManager extends Thread	{
 	
 	private final double startTime;
+	private double stopTime;
 	private final int updateTimer;
 	private JMetalWorker worker;
 	private ConsoleLogger logger;
@@ -42,11 +43,16 @@ public class ProcessManager extends Thread	{
 				e.printStackTrace();
 			}
 		}
-		logger.writeConsoleLog("Worker has stopped running.");
+		logger.writeConsoleLog("Worker has stopped running. Terminating manager.");
+		stopTime = System.currentTimeMillis();
+		worker.finishRunTime(getRunTime());
 	}
 	
 	private double getRunTime()	{
-		return System.currentTimeMillis() - startTime;
+		if(isAlive())
+			return System.currentTimeMillis() - startTime;
+		else
+			return stopTime - startTime;
 	}
 	
 	private double getProblemAverageMaxRatio()	{

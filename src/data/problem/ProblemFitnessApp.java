@@ -71,6 +71,12 @@ public class ProblemFitnessApp {
 		return fitnessOutputList.size();
 	}
 	
-
+	public String[] getFitnessOutputsAsArray()	{
+		String[] res = new String[fitnessOutputList.size()];
+		for(int i = 0; i<res.length; i++)	{
+			res[i] = fitnessOutputList.get(i).outputName;
+		}
+		return res;
+	}
 
 }

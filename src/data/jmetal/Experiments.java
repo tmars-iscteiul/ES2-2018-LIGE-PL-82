@@ -62,10 +62,12 @@ public class Experiments {
 	private static final int populationSize = 100;
 	private int algorithmsSelected;
 	private VariableType varType;
+	private boolean successful;
 	
 	public Experiments(String varType, int numberOfVariables, int numberOfObjetives, double minValue, double maxValue,
 			  String problemName, String jarPath, ArrayList<utilities.Algorithm> algorithmListNemesis)	{
 		setVarType(varType);
+		successful = false;
 		if(this.varType == VariableType.varBoolean)	{
 			myBinaryProblem = new MyProblemBinaryExternalViaJAR(numberOfVariables, numberOfObjetives, problemName, jarPath);
 			List<ExperimentProblem<BinarySolution>> problemList = new ArrayList<>();
@@ -122,9 +124,10 @@ public class Experiments {
 			new ExecuteAlgorithms<>(binaryExperiment).run();
 			try {
 				new GenerateReferenceParetoSetAndFrontFromDoubleSolutions(binaryExperiment).run();
-				new ComputeQualityIndicators<>(binaryExperiment).run() ;
-				new GenerateLatexTablesWithStatistics(binaryExperiment).run() ;
-				new GenerateBoxplotsWithR<>(binaryExperiment).setRows(1).setColumns(1).run() ;
+				new ComputeQualityIndicators<>(binaryExperiment).run();
+				new GenerateLatexTablesWithStatistics(binaryExperiment).run();
+				new GenerateBoxplotsWithR<>(binaryExperiment).setRows(1).setColumns(1).run();
+				successful = true;
 		    } catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -132,9 +135,10 @@ public class Experiments {
 			new ExecuteAlgorithms<>(doubleExperiment).run();
 		    try {
 				new GenerateReferenceParetoSetAndFrontFromDoubleSolutions(doubleExperiment).run();
-				new ComputeQualityIndicators<>(doubleExperiment).run() ;
-				new GenerateLatexTablesWithStatistics(doubleExperiment).run() ;
-				new GenerateBoxplotsWithR<>(doubleExperiment).setRows(1).setColumns(1).run() ;
+				new ComputeQualityIndicators<>(doubleExperiment).run();
+				new GenerateLatexTablesWithStatistics(doubleExperiment).run();
+				new GenerateBoxplotsWithR<>(doubleExperiment).setRows(1).setColumns(1).run();
+				successful = true;
 		    } catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -142,9 +146,10 @@ public class Experiments {
 			new ExecuteAlgorithms<>(integerExperiment).run();
 		    try {
 				new GenerateReferenceParetoSetAndFrontFromDoubleSolutions(integerExperiment).run();
-				new ComputeQualityIndicators<>(integerExperiment).run() ;
-				new GenerateLatexTablesWithStatistics(integerExperiment).run() ;
-				new GenerateBoxplotsWithR<>(integerExperiment).setRows(1).setColumns(1).run() ;
+				new ComputeQualityIndicators<>(integerExperiment).run();
+				new GenerateLatexTablesWithStatistics(integerExperiment).run();
+				new GenerateBoxplotsWithR<>(integerExperiment).setRows(1).setColumns(1).run();
+				successful = true;
 		    } catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -312,6 +317,10 @@ public class Experiments {
 
 	public VariableType getProblemVarType()	{
 		return varType;
+	}
+
+	public boolean wasSuccessfull() {
+		return successful;
 	}
 }
 
