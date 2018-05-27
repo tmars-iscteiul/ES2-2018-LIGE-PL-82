@@ -39,9 +39,8 @@ public abstract class ReadFromURL {
 	            outputStream.close();
 	            inputStream.close();
 	 
-	            System.out.println("File downloaded");
 	        } else {
-	            System.out.println("No file to download. Server replied HTTP code: " + responseCode);
+	            System.err.println("No file to download. Server replied HTTP code: " + responseCode);
 	        }
 	        httpConn.disconnect();
 	        

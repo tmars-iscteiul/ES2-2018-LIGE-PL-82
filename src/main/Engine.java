@@ -21,7 +21,6 @@ import utilities.ConsoleLogger;
 @Service
 public class Engine extends Thread	{
 	
-	//private Administrator admin; TODO Why do we need this?
 	private BlockingQueue<Problem> problemQueue;
 	private Submission problem;
 	private ConsoleLogger engineLogger;
@@ -48,8 +47,6 @@ public class Engine extends Thread	{
 		engineLogger.writeConsoleLog("Engine is running and awaiting inputs...");
 		while(true) {
 			try {
-				// TODO We are not checking how many workers are running, and have no control over them on the Engine.
-				// TODO Do they even die when finished?
 				new ProcessManager(new JMetalWorker(problemQueue.take()));
 				engineLogger.writeConsoleLog("Submission received. Starting problem process.");
 			} catch (InterruptedException e) {
