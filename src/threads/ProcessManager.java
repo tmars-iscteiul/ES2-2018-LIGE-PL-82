@@ -57,33 +57,16 @@ public class ProcessManager extends Thread	{
 	}
 	
 	private int getAproxTimeLeft() {
-		if(worker.getExperiment().getProblemVarType().equals(VariableType.varBoolean))
-			return (int) ((getRunTime()/worker.getExperiment().getMyBinaryProblem().getCalculatedConfigurations()) * 
-					(worker.getExperiment().getTotalConfigurations()-worker.getExperiment().getMyBinaryProblem().getCalculatedConfigurations()));
-		if(worker.getExperiment().getProblemVarType().equals(VariableType.varDouble))
-			return (int) ((getRunTime()/worker.getExperiment().getMyDoubleProblem().getCalculatedConfigurations()) * 
-					(worker.getExperiment().getTotalConfigurations()-worker.getExperiment().getMyDoubleProblem().getCalculatedConfigurations()));
-		if(worker.getExperiment().getProblemVarType().equals(VariableType.varInt))
-			return (int) ((getRunTime()/worker.getExperiment().getMyIntegerProblem().getCalculatedConfigurations()) * 
-					(worker.getExperiment().getTotalConfigurations()-worker.getExperiment().getMyIntegerProblem().getCalculatedConfigurations()));
-		return -1;
+		return (int)(getRunTime()/worker.getExperiment().getCompletedRuns()) * (worker.getExperiment().getTotalRuns()-worker.getExperiment().getCompletedRuns());
 	}
 
 	private double getRunTime()	{
 		return System.currentTimeMillis() - startTime;
 	}
-	
-	private double getProblemAverageMaxRatio()	{
-		return (worker.getProblem().getIntroduction().getAverageDuration().getValue("ms")/worker.getProblem().getIntroduction().getMaxDuration().getValue("ms"));
-	}
+
 	
 	private float getProgress()	{
-		if(worker.getExperiment().getProblemVarType().equals(VariableType.varBoolean))
-			return ((float)worker.getExperiment().getMyBinaryProblem().getCalculatedConfigurations()/worker.getExperiment().getTotalConfigurations());
-		else if(worker.getExperiment().getProblemVarType().equals(VariableType.varDouble))
-			return ((float)worker.getExperiment().getMyDoubleProblem().getCalculatedConfigurations()/worker.getExperiment().getTotalConfigurations());
-		else
-			return ((float)worker.getExperiment().getMyIntegerProblem().getCalculatedConfigurations()/worker.getExperiment().getTotalConfigurations());
+		return ((float)worker.getExperiment().getCompletedRuns()/worker.getExperiment().getTotalRuns());
 	}
 
 	private void checkMaxTimeLimit()	{
@@ -96,11 +79,6 @@ public class ProcessManager extends Thread	{
 			new EmailSender().sendMail(email);
 			worker.stop();// TODO Replace with a safer stop of JMETAL.
 		}
-		
-		if(getRunTime() > worker.getProblem().getIntroduction().getAverageDuration().getValue("ms"))	{
-			if(getProgress() < getProblemAverageMaxRatio())	{
-				// TODO Run time reached average duration, but progress isn't high enough. It might exceed max duration
-			}
-		}
+
 	}
 }
