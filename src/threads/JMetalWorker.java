@@ -123,13 +123,14 @@ public class JMetalWorker extends Thread {
 	}
 	
 	public void compileResultsJSON()	{
+		System.out.println("RunTime: " + finishedRunTime);
 		ResultsOptimizer.optimize(problem.getIntroduction().getName(), 5);
 		JSONResultsGenerator.convertResultsAndSolutionsToJSON(
 				problem.getIntroduction().getName(), 
 				problem.getIntroduction().getFullDescription(),
 				problem.getIntroduction().getUserEmail(),
 				problem.getFitnessApp().getFitnessAppName(),
-				(int)finishedRunTime,
+				(int)(finishedRunTime/1000),
 				problem.getFitnessApp().getFitnessOutputsAsArray(),
 				problem.getInputs().getConfigList().get(0).getVariablesNames(),
 				problem.getInputs().getConfigList().get(0).getVariablesNames().length);
@@ -144,7 +145,7 @@ public class JMetalWorker extends Thread {
 		return problem;
 	}
 	
-	public void finishRunTime(double runTime)	{
+	public void setRunTime(double runTime)	{
 		finishedRunTime = runTime;
 	}
 }

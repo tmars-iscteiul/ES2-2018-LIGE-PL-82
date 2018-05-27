@@ -12,7 +12,6 @@ import utilities.VariableType;
 public class ProcessManager extends Thread	{
 	
 	private final double startTime;
-	private double stopTime;
 	private final int updateTimer;
 	private JMetalWorker worker;
 	private ConsoleLogger logger;
@@ -36,6 +35,7 @@ public class ProcessManager extends Thread	{
 		}
 		int progressEmailingCheckpoint = 25;
 		while(worker.isAlive())	{
+			worker.setRunTime(getRunTime());
 			logger.writeConsoleLog(worker.getProblem().getIntroduction().getName() + "'s progress: " + String.format("%.2f", getProgress()*100) + "%");
 			checkMaxTimeLimit();
 			if(getProgress()*100 > progressEmailingCheckpoint && progressEmailingCheckpoint != 100)	{
@@ -52,8 +52,7 @@ public class ProcessManager extends Thread	{
 			}
 		}
 		logger.writeConsoleLog("Worker has stopped running. Terminating manager.");
-		stopTime = System.currentTimeMillis();
-		worker.finishRunTime(getRunTime());
+		worker.setRunTime(getRunTime());
 	}
 	
 	private int getAproxTimeLeft() {
@@ -70,10 +69,7 @@ public class ProcessManager extends Thread	{
 	}
 
 	private double getRunTime()	{
-		if(isAlive())
-			return System.currentTimeMillis() - startTime;
-		else
-			return stopTime - startTime;
+		return System.currentTimeMillis() - startTime;
 	}
 	
 	private double getProblemAverageMaxRatio()	{
@@ -92,6 +88,7 @@ public class ProcessManager extends Thread	{
 	private void checkMaxTimeLimit()	{
 		if(getRunTime() > worker.getProblem().getIntroduction().getMaxDuration().getValue("ms"))	{
 			logger.writeConsoleLog("Process has reached the time limit of " + worker.getProblem().getIntroduction().getMaxDuration().getValue("sec") + "sec.");
+			worker.setRunTime(getRunTime());
 			worker.compileResultsJSON();
 			Email email = new Email(worker.getProblem());
 			email.time_exceeded((int)getProgress()*100);
