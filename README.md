@@ -1,7 +1,8 @@
 # ES2-2018-LIGE-PL-82
 Nêmesis - Decision Support and Optimization Software
 
-    ##    link para o vídeo de demonstração da aplicação desenvolvida
+### Nêmesis presentation video:
+https://youtu.be/MjpPWpRHTGA
 
 The main features of the software are working.
 The following features are still on beta version:
