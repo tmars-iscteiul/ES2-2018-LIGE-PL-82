@@ -1,0 +1,88 @@
+####GOD CLASS####
+junit.tests.ProblemTester	[junit.tests.ProblemTester::data.submission.Introduction subintroduction, junit.tests.ProblemTester::data.submission.MainInformation submainInformation, junit.tests.ProblemTester::data.submission.Inputs subinputs, junit.tests.ProblemTester::data.submission.FitnessApp subfitnessApp, junit.tests.ProblemTester::data.submission.Optimization suboptimization, junit.tests.ProblemTester::data.submission.Feedback subfeedback, junit.tests.ProblemTester::data.submission.Faqs subfaqs, junit.tests.ProblemTester::submission():void, junit.tests.ProblemTester::submissionSolo():void]
+junit.tests.ProblemTester	[junit.tests.ProblemTester::data.problem.ProblemIntroduction introduction, junit.tests.ProblemTester::data.problem.ProblemOptimization optimization, junit.tests.ProblemTester::data.problem.ProblemInputs inputs, junit.tests.ProblemTester::problemInputsSolo():void, junit.tests.ProblemTester::data.problem.ProblemFitnessApp fitnessApp, junit.tests.ProblemTester::fitnessAppSolo():void, junit.tests.ProblemTester::problem():void]
+data.problem.Configuration	[data.problem.Configuration::double upperLimit, data.problem.Configuration::double lowerLimit, data.problem.Configuration::setLimits(double, double):void]
+data.jmetal.Experiments	[data.jmetal.Experiments::int algorithmsSelected, data.jmetal.Experiments::configureBinaryAlgorithmList(java.util.List<org.uma.jmetal.util.experiment.util.ExperimentProblem<org.uma.jmetal.solution.BinarySolution>>, java.util.ArrayList<utilities.Algorithm>):java.util.List<org.uma.jmetal.util.experiment.util.ExperimentAlgorithm<org.uma.jmetal.solution.BinarySolution,java.util.List<org.uma.jmetal.solution.BinarySolution>>>, data.jmetal.Experiments::configureDoubleAlgorithmList(java.util.List<org.uma.jmetal.util.experiment.util.ExperimentProblem<org.uma.jmetal.solution.DoubleSolution>>, java.util.ArrayList<utilities.Algorithm>):java.util.List<org.uma.jmetal.util.experiment.util.ExperimentAlgorithm<org.uma.jmetal.solution.DoubleSolution,java.util.List<org.uma.jmetal.solution.DoubleSolution>>>, data.jmetal.Experiments::configureIntegerAlgorithmList(java.util.List<org.uma.jmetal.util.experiment.util.ExperimentProblem<org.uma.jmetal.solution.IntegerSolution>>, java.util.ArrayList<utilities.Algorithm>):java.util.List<org.uma.jmetal.util.experiment.util.ExperimentAlgorithm<org.uma.jmetal.solution.IntegerSolution,java.util.List<org.uma.jmetal.solution.IntegerSolution>>>, data.jmetal.Experiments::getTotalConfigurations():int]
+data.jmetal.Experiments	[data.jmetal.Experiments::org.uma.jmetal.util.experiment.Experiment<org.uma.jmetal.solution.BinarySolution,java.util.List<org.uma.jmetal.solution.BinarySolution>> binaryExperiment, data.jmetal.Experiments::org.uma.jmetal.util.experiment.Experiment<org.uma.jmetal.solution.DoubleSolution,java.util.List<org.uma.jmetal.solution.DoubleSolution>> doubleExperiment, data.jmetal.Experiments::org.uma.jmetal.util.experiment.Experiment<org.uma.jmetal.solution.IntegerSolution,java.util.List<org.uma.jmetal.solution.IntegerSolution>> integerExperiment, data.jmetal.Experiments::start():void, data.jmetal.Experiments::boolean successful]
+main.Engine	[main.Engine::java.util.concurrent.BlockingQueue<data.problem.Problem> problemQueue, main.Engine::addProblemToQueue(data.submission.Submission):void, main.Engine::getStatus():java.lang.String]
+
+####LONG METHOD####
+threads.JMetalWorker	public synchronized void run() 	experiments	B1	0/17
+threads.JMetalWorker	public synchronized void run() 	experiments	B2	0/14
+threads.JMetalWorker	public synchronized void run() 	experiments	B9	0/7
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	topResults	B7	0/12
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	topResults	B9	0/10
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	topResults	B10	0/6
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	topSolutions	B19	0/9
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	topSolutions	B20	0/6
+junit.tests.ProblemTester	public void problemInputsSolo() 	inputs	B1	0/6
+junit.tests.ProblemTester	public void submission() 	lfol	B1	0/6
+junit.tests.ProblemTester	public void submission() 	create	B1	0/5
+spring.controller.SpringController	public ResponseEntity<java.lang.String> sendResults(java.lang.String) 	jsonTxt	B1	0/5
+junit.tests.ProblemTester	public void submission() 	fol	B1	0/4
+junit.tests.ProblemTester	public void submission() 	subfeedback	B1	0/4
+data.jmetal.MyProblemBinaryExternalViaJAR	public void evaluate(org.uma.jmetal.solution.BinarySolution) 	solutionString	B1	0/3
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	score	B4	0/3
+junit.tests.ProblemTester	public void submission() 	lit	B1	0/3
+junit.tests.ProblemTester	public void submission() 	tilt	B1	0/3
+junit.tests.ResultsTester	public void results() 	lfol	B1	0/3
+utilities.JSONResultsGenerator	private static void convertResultsToJSON(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String[], int) 	varLabel	B9	0/3
+utilities.JSONResultsGenerator	private static void convertSolutionsToJSON(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String[], java.lang.String[], int) 	solutionsList	B4	0/3
+utilities.JSONResultsGenerator	private static void convertSolutionsToJSON(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String[], java.lang.String[], int) 	solutionsList	B4	0/3
+utilities.JSONResultsGenerator	private static void convertResultsToJSON(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String[], int) 	globalLabels	B15	0/3
+utilities.JSONResultsGenerator	private static void convertResultsToJSON(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String[], int) 	globalLabels	B16	0/2
+data.jmetal.MyProblemDoubleExternalViaJAR	public void evaluate(org.uma.jmetal.solution.DoubleSolution) 	solutionString	B1	0/3
+data.jmetal.MyProblemDoubleExternalViaJAR	public void evaluate(org.uma.jmetal.solution.DoubleSolution) 	solutionString	B2	0/2
+data.jmetal.MyProblemIntegerExternalViaJAR	public void evaluate(org.uma.jmetal.solution.IntegerSolution) 	solutionString	B1	0/3
+data.jmetal.MyProblemIntegerExternalViaJAR	public void evaluate(org.uma.jmetal.solution.IntegerSolution) 	solutionString	B2	0/2
+utilities.JSONResultsGenerator	private static void convertResultsToJSON(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String[], int) 	data	B9	0/3
+utilities.JSONResultsGenerator	private static void convertResultsToJSON(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String[], int) 	data	B12	0/2
+threads.ProcessManager	private void checkMaxTimeLimit() 	email	B2	0/3
+utilities.ReadFromURL	public static void downloadFile(java.lang.String, java.lang.String) 	outputStream	B2	0/3
+data.jmetal.MyProblemBinaryExternalViaJAR	public void evaluate(org.uma.jmetal.solution.BinarySolution) 	evaluationResultString	B2	0/2
+data.jmetal.MyProblemIntegerExternalViaJAR	public void evaluate(org.uma.jmetal.solution.IntegerSolution) 	evaluationResultString	B5	0/2
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	max_results	B7	0/2
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	values	B4	0/2
+utilities.JSONResultsGenerator	private static void convertResultsToJSON(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String[], int) 	values	B4	0/2
+utilities.JSONResultsGenerator	private static void convertSolutionsToJSON(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String[], java.lang.String[], int) 	values	B4	0/2
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	solutionsWriter	B20	1/11
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	solutionsWriter	B24	1/6
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	solutionsWriter	B27	0/2
+utilities.JSONResultsGenerator	private static void convertSolutionsToJSON(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String[], java.lang.String[], int) 	solutions	B1	1/11
+threads.JMetalWorker	public synchronized void run() 	counterBinary	B1	1/4
+threads.JMetalWorker	public synchronized void run() 	counterBinary	B2	1/3
+threads.JMetalWorker	public synchronized void run() 	counterBinary	B7	0/2
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	resultsWriter	B24	1/6
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	resultsWriter	B25	0/2
+threads.JMetalWorker	public synchronized void run() 	counterInteger	B1	1/4
+threads.JMetalWorker	public synchronized void run() 	counterInteger	B2	1/3
+threads.JMetalWorker	public synchronized void run() 	counterInteger	B5	0/2
+threads.JMetalWorker	public synchronized void run() 	counterDouble	B1	1/4
+threads.JMetalWorker	public synchronized void run() 	counterDouble	B2	1/3
+threads.JMetalWorker	public synchronized void run() 	counterDouble	B3	0/2
+data.jmetal.MyProblemDoubleExternalViaJAR	public void evaluate(org.uma.jmetal.solution.DoubleSolution) 	brinput	B4	3/5
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	resultsWriter	B24	1/4
+data.results.ResultsOptimizer	public static void optimize(java.lang.String, int) 	solutionsWriter	B24	1/4
+threads.ProcessManager	public synchronized void run() 	worker	B2	1/4
+utilities.JSONResultsGenerator	private static void convertResultsToJSON(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String[], int) 	dir	B18	1/4
+utilities.JSONResultsGenerator	private static void convertSolutionsToJSON(java.lang.String, java.lang.String, java.lang.String, java.lang.String, int, java.lang.String[], java.lang.String[], int) 	dir	B7	1/4
+data.jmetal.MyProblemDoubleExternalViaJAR	public void evaluate(org.uma.jmetal.solution.DoubleSolution) 	evaluationResultString	B1	5/11
+data.jmetal.MyProblemDoubleExternalViaJAR	public void evaluate(org.uma.jmetal.solution.DoubleSolution) 	evaluationResultString	B2	4/9
+data.jmetal.MyProblemDoubleExternalViaJAR	public void evaluate(org.uma.jmetal.solution.DoubleSolution) 	evaluationResultString	B4	1/6
+data.jmetal.MyProblemDoubleExternalViaJAR	public void evaluate(org.uma.jmetal.solution.DoubleSolution) 	evaluationResultString	B5	0/3
+main.Engine	public synchronized void run() 	problemQueue	B2	1/3
+spring.controller.SpringController	public ResponseEntity<java.lang.String> sendResults(java.lang.String) 	is	B1	1/3
+utilities.ReadFromURL	public static void downloadFile(java.lang.String, java.lang.String) 	url	B1	1/3
+threads.ProcessManager	private void checkMaxTimeLimit() 	worker	B1	1/2
+utilities.XmlReader	public stakeholders.Administrator load_administrator() 	adminEmail	B2	2/3
+utilities.XmlReader	public stakeholders.Administrator load_administrator() 	adminEmail	B3	1/2
+utilities.XmlReader	public stakeholders.Administrator load_administrator() 	adminName	B2	2/3
+utilities.XmlReader	public stakeholders.Administrator load_administrator() 	adminName	B3	1/2
+junit.tests.ProblemTester	public void configurationSolo() 	tester	B1	3/4
+junit.tests.ProblemTester	public void problem() 	tester	B1	4/5
+
+####TYPE CHECKING####
+data.jmetal.Experiments::public void start()
+
+####FEATURE ENVY####
+(none)

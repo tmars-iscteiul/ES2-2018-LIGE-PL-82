@@ -1,0 +1,121 @@
+##########Sprint Retrospective##############
+O que estamos a fazer bem 
+Os prazos estão a ser respeitados e as partes do projecto que nos tinhamos proposto fazer ficaram concluídas. Os Daily SCRUM Meetings contribuiram para que toda a equipa estivesse em sintonia e soubessemos exactamente em que ponto estava cada elemento a durante todo o Sprint.
+
+O que podemos fazer melhor 
+Maior âmbição no âmbito de cada Sprint, para produzir mais funcionalidades durante cada período. Para isso é necessário uma melhor compreensão dos requisitos definidos para o trabalho.
+
+O que devemos começar a fazer
+O assumir de tarefas pode ser mais autonomo, respeitando o espirito dos métodos ageis em que as tarefas não são imputadas a ninguém e que todos concorrem por todas os trabalhos.
+
+O que devemos deixar de fazer
+Começar tarefas sem perceber concretamente o que é desejado que essa parte da especificação.
+
+O que devemos continuar a fazer 
+Continuar a ter em atenção os prazos a que nos propomos em cada Sprint. As comunicações estabelecidas de forma regular com as Daily SCRUM Meetings serão de manter, uma vez que permitem a sintonia entre os elementos da equipa e uma melhor noção de como está o trabalho a decorrer em relação aos prazos.
+
+Elementos da equipa presente:
+Catarina Carriço, 68958
+Rodolfo Arnaldo, 69565
+Rui Tomé, 73553 
+Tiago Rodrigues, 65345
+
+Elementos do cliente presente:
+Prof. Vitor Basto Fernandes
+
+Data da reunião:
+16 de Março de 2018
+
+
+
+##########Sprint Retrospective##############
+O que estamos a fazer bem
+Gestão eficiente do tempo, realizando trabalho de qualidade com o tempo dedicado ao projecto.
+Utilização eficiente das potencialidades das plataformas de apoio ao trabalho colaborativo que nos permite saber o avanço do trabalho da equipa e evitar duplicação de trabalho na correção de problemas introduzidos por conflitos de código.
+
+O que podemos fazer melhor
+Compreensão das especificações e código sobre o qual o projecto se apoia deverá ser maior. Algumas funcionalidades estão directamente interligadas com código previamente fornecido, isto dificulta a execução de algumas tarefas.
+
+O que devemos começar a fazer
+Análise e compreensão do código pré-existente, bem como esclarecer junto do cliente alguns promenores da especificação recebida.
+
+O que devemos deixar de fazer
+Assunções sobre o que se pretende nalguns requisitos, em vez de esclarecer directamente com o cliente.
+
+O que devemos continuar a fazer
+Utilizar as plataformas de forma a facilitar o trabalho colaborativo à distância, de forma eficiente.
+
+
+Elementos da equipa presente:
+Catarina Carriço, 68958
+Rodolfo Arnaldo, 69565
+Rui Tomé, 73553 
+Tiago Rodrigues, 65345
+
+Elementos do cliente presente:
+Prof. Vitor Basto Fernandes
+
+Data da reunião:
+13 de Abril de 2018
+
+
+
+##########Sprint Retrospective##############
+O que estamos a fazer bem
+A comunicação entre a equipa é boa, ajudando para isso as reuniões diárias e o uso correcto das plataformas de trabalho colaborativo.
+
+O que podemos fazer melhor
+Algumas parte do código recebido continuam a ser obscuras, sendo necessário dedicar mais tempo à sua compreensão, para que haja um desbloqueio geral projecto.
+
+O que devemos começar a fazer
+Dedicar mais tempo à compreensão de código, para que as funcionalidade desenvolvidas tenham um objectivo e direcção mais claras.
+
+O que devemos deixar de fazer
+Implementar sem perceber como integrar as diferentes partes do projecto, levam a ineficiências e a duplicação de trabalho, pois muitas vezes estamos a modificar bastante funcionalidades, supostamente já concluidas.
+
+O que devemos continuar a fazer
+Trabalho colaborativo nas plataformas está a decorrer sem problemas de maior, tendo se verificado uma menor necessidade de reset ao repositório local. Algo que acontecia quando existiam muitos conflitos entre commits.
+
+Elementos da equipa presente:
+Catarina Carriço, 68958
+Rodolfo Arnaldo, 69565
+Rui Tomé, 73553 
+Tiago Rodrigues, 65345
+
+Elementos do cliente presente:
+Prof. Vitor Basto Fernandes
+
+Data da reunião:
+11 de Maio de 2018
+
+
+
+##########Sprint Retrospective##############
+O que estamos a fazer bem
+Trabalho em equipa e divisão de tarefas decorrem de forma automática e o conflito de código minimizou-se.
+
+O que podemos fazer melhor
+A integração de todas as funcionalidades está a requer a alteração de muitas partes do projecto consideradas como concluídas.
+
+O que devemos começar a fazer
+A comunicação na fase final do projecto é essencial, pois é necessário que todos os elementos da equipa compreendam perfeitamente o que foi feito para trás, mesmo quando esse trabalho não foi feito pelo próprio.
+Quando se precisa de informação de montante ou a forma de apresentar algo a jusante devem ser usados exemplos estáticos para que depois o trabalho seja facilmente transferivel para a versão final. 
+
+O que devemos deixar de fazer
+Deadlock por se estar a espera do que devia estar feito a montante ou porque se precisa saber como fica algum tipo de informação a jusante. Isto pode levar a atrasos na produção de código que deveria ser mais modular.
+
+O que devemos continuar a fazer
+Comunicar de forma eficiente e a entreajuda dos elementos da equipa é fundamental, principalmente nesta fase de culminar do trabalho de um semestre, dois aspectos que o grupo tem tido em consideração e apresentado de forma exemplar.
+
+
+Elementos da equipa presente:
+Catarina Carriço, 68958
+Rodolfo Arnaldo, 69565
+Rui Tomé, 73553 
+Tiago Rodrigues, 65345
+
+Elementos do cliente presente:
+Prof. Vitor Basto Fernandes
+
+Data da reunião:
+28 de Maio de 2018

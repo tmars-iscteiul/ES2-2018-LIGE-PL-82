@@ -1,25 +1,15 @@
 package main;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 import org.springframework.stereotype.Service;
 
-import data.comm.Email;
-import data.comm.EmailSender;
-import data.problem.Configuration;
 import data.problem.Problem;
-import data.problem.Restriction;
-import data.submission.Introduction;
 import data.submission.Submission;
 import threads.JMetalWorker;
 import threads.ProcessManager;
-import utilities.Algorithm;
 import utilities.ConsoleLogger;
-import utilities.TimeVariable;
 
 /**
  * The engine is the main worker of the software. It will be in charge of following the software's logical process.
