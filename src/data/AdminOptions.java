@@ -1,6 +1,6 @@
 package data;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * Class that will hold information imported from config.json, that will configure general settings for the software.

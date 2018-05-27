@@ -38,7 +38,7 @@ public class Engine extends Thread	{
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			adminOptions = mapper.readValue(new File("./config.json"), AdminOptions.class);
-			engineLogger.writeConsoleLog("config.json loaded: " + adminOptions.toString());
+			engineLogger.writeConsoleLog("config.json loaded.");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
