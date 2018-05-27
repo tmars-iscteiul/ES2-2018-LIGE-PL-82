@@ -1,0 +1,26 @@
+{
+  "problemName" : "NMMin",
+  "problemDescription" : "Minimização de problema do tipo Integer",
+  "userEmail" : "tm.alves.rodrigues@gmail.com",
+  "outputsFunction" : null,
+  "solutionVariablesNumber" : 10,
+  "processTime" : 78,
+  "optimizationDate" : "2018/05/27 15:41:28",
+  "variablesName" : [ "Variavel 1", " Variavel 2", " Variavel 3", " Variavel 4", " Variavel 5", " Variavel 6", " Variavel 7", " Variavel 8", " Variavel 9", " Variavel 10" ],
+  "solutionsList" : [ {
+    "label" : "Solution 1",
+    "values" : [ 4.0, 0.0, -2.0, -1.0, -4.0, -1.0, -4.0, 3.0, 5.0, 3.0 ]
+  }, {
+    "label" : "Solution 2",
+    "values" : [ -5.0, 5.0, 2.0, -4.0, 0.0, -2.0, 3.0, 4.0, -2.0, -1.0 ]
+  }, {
+    "label" : "Solution 3",
+    "values" : [ -2.0, 2.0, 3.0, 2.0, 5.0, 0.0, 0.0, 1.0, -3.0, -4.0 ]
+  }, {
+    "label" : "Solution 4",
+    "values" : [ 5.0, 0.0, -5.0, -1.0, 5.0, -2.0, -1.0, -2.0, 1.0, -1.0 ]
+  }, {
+    "label" : "Solution 5",
+    "values" : [ 5.0, 0.0, -3.0, 1.0, -1.0, -1.0, 5.0, 3.0, -4.0, -3.0 ]
+  } ]
+}

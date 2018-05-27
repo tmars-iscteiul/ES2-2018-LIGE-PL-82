@@ -51,7 +51,7 @@ export class AppComponent {
       console.log(response)
 
       this.chartTitle = response.problemName;
-      this.chartDescription = response.problemDescription;
+      this.chartDescription = decodeURIComponent(escape(response.problemDescription));
       this.userEmail = response.userEmail;
       this.optimizationDate = response.optimizationDate;
       this.outputsFunction = response.outputsFunction;

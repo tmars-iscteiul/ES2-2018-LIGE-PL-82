@@ -85,7 +85,7 @@ public class Experiments {
 			e.printStackTrace();
 		}
 		if(this.varType == VariableType.varBoolean)	{
-			myBinaryProblem = new MyProblemBinaryExternalViaJAR(numberOfVariables, numberOfObjetives, problemName, jarPath);
+			myBinaryProblem = new MyProblemBinaryExternalViaJAR(numberOfVariables, (int)maxValue, numberOfObjetives, problemName, jarPath);
 			List<ExperimentProblem<BinarySolution>> problemList = new ArrayList<>();
 			problemList.add(new ExperimentProblem<>(myBinaryProblem));
 			List<ExperimentAlgorithm<BinarySolution, List<BinarySolution>>> algorithmList = configureBinaryAlgorithmList(problemList, algorithmListNemesis);

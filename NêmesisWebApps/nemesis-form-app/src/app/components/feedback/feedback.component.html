@@ -3,37 +3,38 @@
          [isRequired]="true">
 
    <lf-form-content>
+    <script src="https://smtpjs.com/v2/smtp.js"></script>
   		<div class="row">
       		<div class="col-sm-12">
-        		<p style="text-align: justify; padding-right: 30px">Send us an email if you have something to ask or inform. We will reply within 24 hours.</p>
+        		<p style="text-align: justify; padding-right: 30px">Send us an email if you have something to ask or inform. We will reply within 24 hours. Your personnal email will only be use for optimizing process subjects. By sending us a mail you agree with the terms.</p>
       		</div>
     	</div>
 
     	<div class="row">
       		<div class="col-sm-6">
-        		<lf-text name="name" title="Your name" label="Your name"></lf-text>
+        		<lf-text name="name" title="Your name" label="Your name (optional)"></lf-text>
       		</div>
     	</div>
 
     	<div class="row">
       		<div class="col-sm-6">
-        		<lf-text name="email" title="Your email" label="Your email" [isValid]="emailValidator()"></lf-text>
+        		<lf-text name="email" title="Your email" label="Your email *" [isValid]="emailValidator()"></lf-text>
       		</div>
     	</div>
 
     	<div class="row">
       		<div class="col-sm-6">
-        		<lf-text name="subject" title="Subject" label="Subject"></lf-text>
+        		<lf-text name="subject" title="Subject" label="Subject *"></lf-text>
       		</div>
     	</div>
 
     	<div class="row">
     		<div class="col-sm-12">
-        		<lf-textarea name="emailText" title="Email text" label="Email text"></lf-textarea>
+        		<lf-textarea name="emailText" title="Email text" label="Email text *"></lf-textarea>
       		</div>
     	</div>
 
-  		<button style="margin-top: 20px" class="btn btn-outline-success" type="button">
+  		<button style="margin-top: 20px" class="btn btn-outline-success" type="button" (click)="sendEmail()">
   			<i aria-hidden="true" class="fa fa-send"></i> Send message</button>
     </lf-form-content>
 </lf-form>

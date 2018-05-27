@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AppService } from '../../services/app.service';
+import { Component, OnInit, ViewChild} from '@angular/core';
+//import { AppService } from '../../services/app.service';
+import {AppController, AppService} from '@lightweightform/core';
 
 @Component({
   selector: 'sc-feedback',
@@ -7,13 +8,34 @@ import { AppService } from '../../services/app.service';
   styleUrls: ['./feedback.component.scss']
 })
 export class FeedbackComponent implements OnInit {
+  @ViewChild('lfApp') lfApp: AppController;
 
   constructor(private appService: AppService) { }
 
   ngOnInit() {
   }
 
-  emailValidator() {
-    return (email: string) => this.appService.isValidEmail(email);
+  emailValidator(email: string) {
+    const emailRegExp =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    return emailRegExp.test(email);
+  }
+
+  sendEmail() {
+      fetch('http://localhost:8080/send_feedback', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.appService.value),
+        mode: 'cors'
+      }).then((response) => {
+        console.log(response);
+        alert('The feedback email was sent with success. We will reply soon.');
+      }).catch((ex) => {
+        console.log(ex);
+        alert(ex);
+      });
   }
 }

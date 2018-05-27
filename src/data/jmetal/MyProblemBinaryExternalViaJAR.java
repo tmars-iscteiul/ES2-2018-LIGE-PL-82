@@ -20,20 +20,17 @@ public class MyProblemBinaryExternalViaJAR extends AbstractBinaryProblem {
 	  private String jarPath;
 	  private int calculatedConfigurations;
 	  
-	  public MyProblemBinaryExternalViaJAR(int numberOfVariables, int numberOfObjetives, String problemName, String jarPath) throws JMetalException{
+	  public MyProblemBinaryExternalViaJAR(int numberOfVariables, int nrBits, int numberOfObjetives, String problemName, String jarPath) throws JMetalException{
 		  this.jarPath= jarPath;
 		  calculatedConfigurations = 0;
-		  setNumberOfVariables(1);
+		  setNumberOfVariables(numberOfVariables);
 		  setNumberOfObjectives(2);
 		  setName(problemName);
-		  bits= 10;
+		  bits= nrBits;
 		}
 
-	@Override
+	  @Override
 	  protected int getBitsPerVariable(int index) {
-	  	if (index != 0) {
-	  		throw new JMetalException("Problem MyBinaryProblem has only a variable. Index = " + index) ;
-	  	}
 	  	return bits ;
 	  }
 

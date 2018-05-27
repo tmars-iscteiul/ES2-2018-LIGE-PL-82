@@ -1,0 +1,17 @@
+{
+  "problemName" : "OneZeroMax",
+  "problemDescription" : "Maximização de 0s e 1s",
+  "userEmail" : "tm.alves.rodrigues@gmail.com",
+  "outputsFunction" : null,
+  "solutionVariablesNumber" : 1,
+  "processTime" : 68,
+  "optimizationDate" : "2018/05/27 15:59:46",
+  "labels" : [ "Solution 1", "Solution 2" ],
+  "fitnessOutputList" : [ {
+    "label" : "numeroZeros",
+    "data" : [ -0.0, -1.0 ]
+  }, {
+    "label" : "numeroUns",
+    "data" : [ -3.0, -2.0 ]
+  } ]
+}
