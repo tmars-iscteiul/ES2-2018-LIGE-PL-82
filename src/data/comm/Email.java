@@ -74,8 +74,19 @@ public class Email {
 		subject = "Optimization process time exceeded: " + problemName + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Nêmesis - Optimization process time exceeded</h1>"
 				+ "<p>Your optimization process ended due to reaching the maximum time limit.<br /><br />"
-				+ "If you want to get your results, we suggest increasing the process time, or choosing less optimizer algorithms."
+				+ "If you want to get your results, we suggest increasing the process time, or choosing less optimizer algorithms. <br /><br />"
 				+ "Our best regards, <br/>Nêmesis Team</p></body></html>";
+	}
+	
+	public void feedback(data.submission.Feedback feedback)	{
+		currentType = 5;
+		// TODO Finish feedback
+		subject = "User Feedback: " + problemName + " - " + LocalDateTime.now();
+		messageBody = "<html><body><h1>Nêmesis - User Feedback</h1>"
+				+ "<p>An user identified by \"" + feedback.getName() + "\" has provided feedback:<br /><br />"
+				+ feedback.getSubject() + " <br /><br />"
+				+ feedback.getEmailText() + " <br /><br />"
+				+ "</p></body></html>";
 	}
 	
 	public String getFrom() {

@@ -2,6 +2,7 @@ package threads;
 
 import java.util.ArrayList;
 
+import data.AdminOptions;
 import data.comm.Email;
 import data.comm.EmailSender;
 import data.jmetal.Experiments;
@@ -29,9 +30,11 @@ public class JMetalWorker extends Thread {
 	private double minValue;
 	private double maxValue ;
 	private ArrayList<Algorithm> algorithmList;
+	private AdminOptions options;
 	
-	public JMetalWorker(Problem problem)	{
+	public JMetalWorker(Problem problem, AdminOptions options)	{
 		this.problem = problem;
+		this.options = options;
 		// We are assuming however, that the JMETALWORKER is working over one configList array ONLY
 		// This means we must NORMALIZE the arrays
 		// Until we do so, we will use and test only ONE configuration per submission/problem. Only the first config list will be considered
@@ -83,7 +86,8 @@ public class JMetalWorker extends Thread {
 					problem.getFitnessApp().getFitnessOutputList().size(), minValue,  maxValue,  
 					problem.getIntroduction().getName(), 
 					problem.getFitnessApp().getLocalJarPath(), 
-					problem.getOptimization().getAlgorithmList());
+					problem.getOptimization().getAlgorithmList(),
+					options);
 		}
 		if(counterInteger == problem.getInputs().getConfigList().size()) {
 			experiments = new Experiments(
@@ -92,7 +96,8 @@ public class JMetalWorker extends Thread {
 					problem.getFitnessApp().getFitnessOutputList().size(),  minValue,  maxValue,  
 					problem.getIntroduction().getName(), 
 					problem.getFitnessApp().getLocalJarPath(), 
-					problem.getOptimization().getAlgorithmList());
+					problem.getOptimization().getAlgorithmList(),
+					options);
 		}
 		if(counterBinary == problem.getInputs().getConfigList().size()) {
 			experiments = new Experiments(
@@ -101,7 +106,8 @@ public class JMetalWorker extends Thread {
 					problem.getFitnessApp().getFitnessOutputList().size(), 0, 0, 
 					problem.getIntroduction().getName(), 
 					problem.getFitnessApp().getLocalJarPath(), 
-					problem.getOptimization().getAlgorithmList());
+					problem.getOptimization().getAlgorithmList(),
+					options);
 		}
 		try	{
 			experiments.start();

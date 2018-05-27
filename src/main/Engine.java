@@ -1,10 +1,15 @@
 package main;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 import org.springframework.stereotype.Service;
 
+import org.codehaus.jackson.map.ObjectMapper;
+
+import data.AdminOptions;
 import data.problem.Problem;
 import data.submission.Submission;
 import threads.JMetalWorker;
@@ -25,10 +30,18 @@ public class Engine extends Thread	{
 	private Submission problem;
 	private ConsoleLogger engineLogger;
 	
+	private AdminOptions adminOptions;
+	
 	public Engine()	{
 		problemQueue = new ArrayBlockingQueue<Problem>(1024);
 		engineLogger = new ConsoleLogger("ENGINE");
-		engineLogger.writeConsoleLog("Engine has been created.");
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			adminOptions = mapper.readValue(new File("./config.json"), AdminOptions.class);
+			engineLogger.writeConsoleLog("config.json loaded: " + adminOptions.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		start();
 	}
 	
@@ -47,7 +60,7 @@ public class Engine extends Thread	{
 		engineLogger.writeConsoleLog("Engine is running and awaiting inputs...");
 		while(true) {
 			try {
-				new ProcessManager(new JMetalWorker(problemQueue.take()));
+				new ProcessManager(new JMetalWorker(problemQueue.take(), adminOptions));
 				engineLogger.writeConsoleLog("Submission received. Starting problem process.");
 			} catch (InterruptedException e) {
 				e.printStackTrace();
