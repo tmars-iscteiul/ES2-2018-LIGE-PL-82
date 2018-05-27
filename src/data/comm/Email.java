@@ -32,7 +32,7 @@ public class Email {
 		// TODO The estimated time provided in this is the one put by the user and not the calculated one. To Change
 	}
 
-	public void progression_email(double progress, int minutesLeft) {
+	public void progression_email(int progress, int minutesLeft) {
 		currentType = 1;
 		subject = "Optimization progress: " + problemName + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Nêmesis - Optimization progress status</h1>"
@@ -65,7 +65,7 @@ public class Email {
 				+ "Our best regards, <br/>Nêmesis Team</p></body></html>";
 	}
 	
-	public void time_exceeded(double progress)	{
+	public void time_exceeded(int progress)	{
 		currentType = 4;
 		subject = "Optimization process time exceeded: " + problemName + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Nêmesis - Optimization process time exceeded</h1>"

@@ -34,9 +34,17 @@ public class ProcessManager extends Thread	{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		int progressEmailingCheckpoint = 25;
 		while(worker.isAlive())	{
-			logger.writeConsoleLog("Progress: " + String.format("%.2f", getProgress()*100) + "%");
+			logger.writeConsoleLog(worker.getProblem().getIntroduction().getName() + "'s progress: " + String.format("%.2f", getProgress()*100) + "%");
 			checkMaxTimeLimit();
+			if(getProgress()*100 > progressEmailingCheckpoint && progressEmailingCheckpoint != 100)	{
+				// Sends progress emails every 25%
+				Email email = new Email(worker.getProblem());
+				email.progression_email((int)(getProgress()*100), getAproxTimeLeft()/60000);
+				new EmailSender().sendMail(email);
+				progressEmailingCheckpoint += progressEmailingCheckpoint;
+			}
 			try {
 				sleep(updateTimer * 1000);
 			} catch (InterruptedException e) {
@@ -48,6 +56,19 @@ public class ProcessManager extends Thread	{
 		worker.finishRunTime(getRunTime());
 	}
 	
+	private int getAproxTimeLeft() {
+		if(worker.getExperiment().getProblemVarType().equals(VariableType.varBoolean))
+			return (int) ((getRunTime()/worker.getExperiment().getMyBinaryProblem().getCalculatedConfigurations()) * 
+					(worker.getExperiment().getTotalConfigurations()-worker.getExperiment().getMyBinaryProblem().getCalculatedConfigurations()));
+		if(worker.getExperiment().getProblemVarType().equals(VariableType.varDouble))
+			return (int) ((getRunTime()/worker.getExperiment().getMyDoubleProblem().getCalculatedConfigurations()) * 
+					(worker.getExperiment().getTotalConfigurations()-worker.getExperiment().getMyDoubleProblem().getCalculatedConfigurations()));
+		if(worker.getExperiment().getProblemVarType().equals(VariableType.varInt))
+			return (int) ((getRunTime()/worker.getExperiment().getMyIntegerProblem().getCalculatedConfigurations()) * 
+					(worker.getExperiment().getTotalConfigurations()-worker.getExperiment().getMyIntegerProblem().getCalculatedConfigurations()));
+		return -1;
+	}
+
 	private double getRunTime()	{
 		if(isAlive())
 			return System.currentTimeMillis() - startTime;
@@ -71,7 +92,7 @@ public class ProcessManager extends Thread	{
 	private void checkMaxTimeLimit()	{
 		if(getRunTime() > worker.getProblem().getIntroduction().getMaxDuration().getValue("ms"))	{
 			Email email = new Email(worker.getProblem());
-			email.time_exceeded(getProgress());
+			email.time_exceeded((int)getProgress()*100);
 			new EmailSender().sendMail(email);
 			logger.writeConsoleLog("Process has reached the time limit of " + worker.getProblem().getIntroduction().getMaxDuration().getValue("sec") + "sec.");
 			worker.stop();// TODO Replace with a safer stop of JMETAL.

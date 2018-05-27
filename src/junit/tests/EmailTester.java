@@ -33,7 +33,7 @@ public class EmailTester {
         assertNotNull(tester.getTo());
         
         tester.fail_email();
-        tester.progression_email(75.0, 10);
+        tester.progression_email(75, 10);
         tester.welcome_email();
         tester.success_email();
         assertNotNull(tester.getCurrentType());
