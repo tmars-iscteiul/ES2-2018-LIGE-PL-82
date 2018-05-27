@@ -1,0 +1,17 @@
+{
+  "problemName" : "antiSpamProblemTest",
+  "problemDescription" : "heyey eyeyey",
+  "userEmail" : "ruitome_slb2@hotmail.com",
+  "outputsFunction" : null,
+  "solutionVariablesNumber" : 336,
+  "processTime" : 0,
+  "optimizationDate" : "2018/05/27 10:59:13",
+  "labels" : [ "Solution 1", "Solution 2", "Solution 3", "Solution 4", "Solution 5" ],
+  "fitnessOutputList" : [ {
+    "label" : "FP",
+    "data" : [ 16.0, 15.0, 14.0, 12.0, 13.0 ]
+  }, {
+    "label" : "FN",
+    "data" : [ 2.0, 4.0, 7.0, 16.0, 12.0 ]
+  } ]
+}

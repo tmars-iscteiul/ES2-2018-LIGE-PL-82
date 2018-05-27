@@ -95,7 +95,6 @@ public class JMetalWorker extends Thread {
 					problem.getOptimization().getAlgorithmList());
 		}
 		if(counterBinary == problem.getInputs().getConfigList().size()) {
-			//TODO: put the parameter numberOfBits on nemesis-app
 			experiments = new Experiments(
 					"boolean",
 					problem.getInputs().getConfigList().get(0).getValueArray().length,
@@ -117,6 +116,13 @@ public class JMetalWorker extends Thread {
 		if(experiments.wasSuccessfull())	{
 			logger.writeConsoleLog("Process was successful. Generating results files.");
 		}
+		compileResultsJSON();
+		Email email = new Email(this.problem);
+		email.success_email();
+		new EmailSender().sendMail(email);
+	}
+	
+	public void compileResultsJSON()	{
 		ResultsOptimizer.optimize(problem.getIntroduction().getName(), 5);
 		JSONResultsGenerator.convertResultsAndSolutionsToJSON(
 				problem.getIntroduction().getName(), 
@@ -127,9 +133,6 @@ public class JMetalWorker extends Thread {
 				problem.getFitnessApp().getFitnessOutputsAsArray(),
 				problem.getInputs().getConfigList().get(0).getVariablesNames(),
 				problem.getInputs().getConfigList().get(0).getVariablesNames().length);
-		Email email = new Email(this.problem);
-		email.success_email();
-		new EmailSender().sendMail(email);
 	}
 	
 	public Experiments getExperiment()	{
