@@ -24,31 +24,32 @@ public class Email {
 
 	public void welcome_email() {
 		currentType = 0;
-		subject = "Beginning of Optimization: " + problemName + " - " + LocalDateTime.now();
+		subject = "Optimization process started: " + problemName + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Welcome to Nêmesis</h1><p>Thank you for choosing this optimization platform.<br />"
-				+ "Your optimization problem started with success. You will be inform about the progression of the process.<br/><br/>"
-				+ "Estimated optimization time: " + problem.getIntroduction().getAverageDuration().getValue("min") + " minutes <br /><br />"
+				+ "Your optimization problem has launched with success. You will be informed about its progression as it happens.<br/><br/>"
+				+ "Estimated optimization time: " + problem.getIntroduction().getAverageDuration().getValue("min") + " minutes. <br /><br />"
 				+ "Our best regards, <br/>Nêmesis Team</p></body></html>";
+		// TODO The estimated time provided in this is the one put by the user and not the calculated one. To Change
 	}
 
 	public void progression_email(double progress, int minutesLeft) {
 		currentType = 1;
 		subject = "Optimization progress: " + problemName + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Nêmesis - Optimization progress status</h1>"
-				+ "<p>The optimization process is " + progress + "% complete.<br /><br />"
-				+ "Estimated optimization time left: " + minutesLeft + " minutes<br /><br />"
+				+ "<p>The optimization process is " + progress + "% completed.<br /><br />"
+				+ "Estimated optimization time left: " + minutesLeft + " minutes.<br /><br />"
 				+ "Our best regards, <br/>Nêmesis Team</p></body></html>";
 	}
 
 	public void success_email() {
 		currentType = 2;
-		subject = "Optimization process complete: " + problemName + " - " + LocalDateTime.now();
+		subject = "Optimization process completed: " + problemName + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Nêmesis - Optimization process complete</h1>"
-				+ "<p>Your optimization problem was finished with success.<br /><br />"
-				+ "To check the optimization results go to the link below:<br />"
+				+ "<p>Your optimization problem has successfully finished.<br /><br />"
+				+ "You can view the optimization results by following the link below:<br />"
 				+ "<a href=\"http://localhost:4100/?problemName=" + problemName + "\">"
 				+ "http://localhost:4100/?problemName=" + problemName + "</a><br/><br/>"
-				+ "You can see the variables final results in the file attached.<br/><br/>"
+				+ "You can also see the variables' final results in the attached file.<br/><br/>"
 				+ "See you next time, <br/>Nêmesis Team</p></body></html>";
 	}
 
@@ -60,7 +61,7 @@ public class Email {
 				+ "1 - Check if the information of the inputs is correct and congruent with the optimizers.<br />"
 				+ "2 - Assure that the fitness jar application or the given URL are valid;<br />"
 				+ "3 - If any of these steps are correct, send us the feedback for us to analyse.<br /><br />"
-				+ "Sorry about the incovinience.<br /><br />" 
+				+ "Sorry about the inconvenience.<br /><br />" 
 				+ "Our best regards, <br/>Nêmesis Team</p></body></html>";
 	}
 	

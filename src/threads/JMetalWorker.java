@@ -116,7 +116,6 @@ public class JMetalWorker extends Thread {
 			logger.writeConsoleLog("Process was successful. Generating results files.");
 		}
 		ResultsOptimizer.optimize(problem.getIntroduction().getName(), 5);
-		// TODO JSONResultsGenerator
 		JSONResultsGenerator.convertResultsAndSolutionsToJSON(
 				problem.getIntroduction().getName(), 
 				problem.getIntroduction().getFullDescription(),
