@@ -3,14 +3,37 @@ Nêmesis - Decision Support and Optimization Software
 
     ##    link para o vídeo de demonstração da aplicação desenvolvida
 
-    ##    Indicação se o trabalho se encontra completo ou quais as funcionalidades não implementadas/completas ou que contém erros
+The main features of the software are working.
+The following features are still on beta version:
+1. Multi-type of inputs in a process;
+2. Enable restrictions to the values;
+3. Auto-selection of the optimizer algorithms;
+4. Output results considering R plots and Latex;
+5. Administrator main configurations.
 
-    ##    número estudante 1, nome estudante 1, email estudante 1 (iscte)
+### Nêmesis Team:
 
-    ##   número estudante 2, nome estudante 2, email estudante 2 (iscte)
+65345 - Tiago Rodrigues - tmars@iscte-iul.pt;
+68958 - Catarina Carriço - cdpco@iscte-iul.pt;
+69565 - Rodolfo Arnaldo - rgnsa@iscte-iul.pt;
+73553 - Rui Tomé - rmnte@iscte-iul.pt.
 
-    ##    número estudante 3, nome estudante 3, email estudante 3 (iscte)
-        
-    69565, Rodolfo Arnaldo, rgnsa@iscte-iul.pt
 
-    ##    Os grupos que desenvolveram uma aplicação web deverão incluir aqui (no ficheiro README.md) as instruções completas para a instalação e execução da aplicação.
+# INSTALLATION SETUP
+## NodeJS - Download and Installation
+Go to the URL https://nodejs.org/ and download the NodeJS software and install it.
+Confirm the installation going to the commandline and typing "npm".
+If the commandline returns an unknown command then go to system variables and add the npm path.
+
+## NêmesisForm - Serving
+Open a commandline and go to the path ./NêmesisWebApps/nemesis-form-app/
+Type "npm install" and wait for the finish of the installation.
+After the installation, type "ng serve", open your browser and go to: http://localhost:4200
+
+## NêmesisResults - Serving
+Open a commandline and go to the path ./NêmesisWebApps/nemesis-results-app/
+Type "npm install" and wait for the finish of the installation.
+After the installation, type "ng serve --port=4100", open your browser and go to: http://localhost:4100
+
+## Nêmesis Spring Server - Serving
+Open a commandline and in the root folder type "java -jar ESII-2018-LIGE-PL-82.jar"
