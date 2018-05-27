@@ -1,0 +1,28 @@
+Sprint Retrospective
+
+O que estamos a fazer bem 
+Os prazos estão a ser respeitados e as partes do projecto que nos tinhamos proposto fazer ficaram concluídas. Os Daily SCRUM Meetings contribuiram para que toda a equipa estivesse em sintonia e soubessemos exactamente em que ponto estava cada elemento a durante todo o Sprint.
+
+O que podemos fazer melhor 
+Maior âmbição no âmbito de cada Sprint, para produzir mais funcionalidades durante cada período. Para isso é necessário uma melhor compreensão dos requisitos definidos para o trabalho.
+
+O que devemos começar a fazer
+O assumir de tarefas pode ser mais autonomo, respeitando o espirito dos métodos ageis em que as tarefas não são imputadas a ninguém e que todos concorrem por todas os trabalhos.
+
+O que devemos deixar de fazer
+Começar tarefas sem perceber concretamente o que é desejado que essa parte da especificação.
+
+O que devemos continuar a fazer 
+Continuar a ter em atenção os prazos a que nos propomos em cada Sprint. As comunicações estabelecidas de forma regular com as Daily SCRUM Meetings serão de manter, uma vez que permitem a sintonia entre os elementos da equipa e uma melhor noção de como está o trabalho a decorrer em relação aos prazos.
+
+Elementos da equipa presente:
+Catarina Carriço, 68958
+Rodolfo Arnaldo, 69565
+Rui Tomé, 73553 
+Tiago Rodrigues, 65345
+
+Elementos do cliente presente:
+Prof. Vitor Basto Fernandes
+
+Data da reunião:
+16 de Março de 2018
