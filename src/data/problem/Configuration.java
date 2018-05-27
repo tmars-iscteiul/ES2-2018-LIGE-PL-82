@@ -78,7 +78,7 @@ public class Configuration {
 		}
 		else if(type.equals("boolean")) {
 			varType = VariableType.varBoolean;
-		}else {
+		}	else {
 			varType = VariableType.varUndefined;
 		}
 	}

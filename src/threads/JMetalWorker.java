@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import data.comm.Email;
 import data.comm.EmailSender;
+import data.jmetal.Experiments;
 import data.jmetal.ExperimentsBinaryExternalViaJAR;
 import data.jmetal.ExperimentsDoubleExternalViaJAR;
 import data.jmetal.ExperimentsIntegerExternalViaJAR;
@@ -27,9 +28,7 @@ public class JMetalWorker extends Thread {
 
 	private Problem problem;
 	private ConsoleLogger workerLogger;
-	private ExperimentsDoubleExternalViaJAR eDouble;
-	private ExperimentsIntegerExternalViaJAR eInteger;
-	private ExperimentsBinaryExternalViaJAR eBinary;
+	private Experiments experiments;
 	
 	private double minValue;
 	private double maxValue ;
@@ -80,48 +79,42 @@ public class JMetalWorker extends Thread {
 				counterBinary++;
 			}
 		}
-		/*
-		 * NORMALIZE ALL OF THISISISISISI 
-		 */
-		if( counterDouble == problem.getInputs().getConfigList().size()) {
-			eDouble = new ExperimentsDoubleExternalViaJAR(
+
+		if(counterDouble == problem.getInputs().getConfigList().size()) {
+			experiments = new Experiments(
+					"double", 
 					problem.getInputs().getConfigList().get(0).getValueArray().length,
 					problem.getFitnessApp().getFitnessOutputList().size(), minValue,  maxValue,  
 					problem.getIntroduction().getName(), 
 					problem.getFitnessApp().getLocalJarPath(), 
 					problem.getOptimization().getAlgorithmList());
-			eDouble.start();
 		}
 		if(counterInteger == problem.getInputs().getConfigList().size()) {
-			eInteger = new ExperimentsIntegerExternalViaJAR(
+			experiments = new Experiments(
+					"int",
 					problem.getInputs().getConfigList().get(0).getValueArray().length, 
 					problem.getFitnessApp().getFitnessOutputList().size(),  minValue,  maxValue,  
 					problem.getIntroduction().getName(), 
 					problem.getFitnessApp().getLocalJarPath(), 
 					problem.getOptimization().getAlgorithmList());
-			eInteger.start();
 		}
 		if(counterBinary == problem.getInputs().getConfigList().size()) {
 			//TODO: put the parameter numberOfBits on nemesis-app
-			eBinary = new ExperimentsBinaryExternalViaJAR(
+			experiments = new Experiments(
+					"boolean",
 					problem.getInputs().getConfigList().get(0).getValueArray().length,
-					problem.getFitnessApp().getFitnessOutputList().size(),
+					problem.getFitnessApp().getFitnessOutputList().size(), 0, 0, 
 					problem.getIntroduction().getName(), 
 					problem.getFitnessApp().getLocalJarPath(), 
 					problem.getOptimization().getAlgorithmList());
-			eBinary.start();
 		}
+		experiments.start();
 	}
 	
-	public ExperimentsDoubleExternalViaJAR getExperimentDouble()	{
-		return eDouble;
+	public Experiments getExperiment()	{
+		return experiments;
 	}
-	public ExperimentsIntegerExternalViaJAR getExperimentInteger()	{
-		return eInteger;
-	}
-	public ExperimentsBinaryExternalViaJAR getExperimentBinary()	{
-		return eBinary;
-	}
+
 	
 	public Problem getProblem()	{
 		return problem;

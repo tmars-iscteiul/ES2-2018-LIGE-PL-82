@@ -3,6 +3,7 @@ package threads;
 import data.comm.Email;
 import data.comm.EmailSender;
 import utilities.ConsoleLogger;
+import utilities.VariableType;
 
 /**
  * @author skner
@@ -53,7 +54,12 @@ public class ProcessManager extends Thread	{
 	}
 	
 	private float getProgress()	{
-		return ((float)worker.getExperimentDouble().getMyProblem().getCalculatedConfigurations()/worker.getExperimentDouble().getTotalConfigurations());
+		if(worker.getExperiment().getProblemVarType().equals(VariableType.varBoolean))
+			return ((float)worker.getExperiment().getMyBinaryProblem().getCalculatedConfigurations()/worker.getExperiment().getTotalConfigurations());
+		else if(worker.getExperiment().getProblemVarType().equals(VariableType.varDouble))
+			return ((float)worker.getExperiment().getMyDoubleProblem().getCalculatedConfigurations()/worker.getExperiment().getTotalConfigurations());
+		else
+			return ((float)worker.getExperiment().getMyIntegerProblem().getCalculatedConfigurations()/worker.getExperiment().getTotalConfigurations());
 	}
 
 	private void checkMaxTimeLimit()	{

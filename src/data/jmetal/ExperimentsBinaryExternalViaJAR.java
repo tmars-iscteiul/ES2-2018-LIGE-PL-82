@@ -16,8 +16,6 @@ import org.uma.jmetal.operator.impl.selection.RankingAndCrowdingSelection;
 import org.uma.jmetal.problem.BinaryProblem;
 import org.uma.jmetal.qualityindicator.impl.hypervolume.PISAHypervolume;
 import org.uma.jmetal.solution.BinarySolution;
-import org.uma.jmetal.solution.DoubleSolution;
-import org.uma.jmetal.util.JMetalException;
 import org.uma.jmetal.util.evaluator.impl.SequentialSolutionListEvaluator;
 import org.uma.jmetal.util.experiment.Experiment;
 import org.uma.jmetal.util.experiment.ExperimentBuilder;
@@ -48,9 +46,8 @@ public class ExperimentsBinaryExternalViaJAR {
 	  problemList.add(new ExperimentProblem<>(myProblem));
 
 
-	  List<ExperimentAlgorithm<BinarySolution, List<BinarySolution>>> algorithmList =
-			  configureAlgorithmList(problemList, algorithmListNemesis);
-
+	  List<ExperimentAlgorithm<BinarySolution, List<BinarySolution>>> algorithmList = configureAlgorithmList(problemList, algorithmListNemesis);
+	  
 
 	  experiment= new ExperimentBuilder<BinarySolution, List<BinarySolution>>(problemName)
 			  .setAlgorithmList(algorithmList)
