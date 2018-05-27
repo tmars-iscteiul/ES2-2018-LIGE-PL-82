@@ -11,6 +11,6 @@ Nêmesis - Decision Support and Optimization Software
 
     ##    número estudante 3, nome estudante 3, email estudante 3 (iscte)
         
-    ##    69565, Rodolfo Arnaldo, rgnsa@iscte-iul.pt
+    69565, Rodolfo Arnaldo, rgnsa@iscte-iul.pt
 
     ##    Os grupos que desenvolveram uma aplicação web deverão incluir aqui (no ficheiro README.md) as instruções completas para a instalação e execução da aplicação.
