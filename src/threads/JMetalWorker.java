@@ -31,59 +31,33 @@ public class JMetalWorker extends Thread {
 	private ExperimentsIntegerExternalViaJAR eInteger;
 	private ExperimentsBinaryExternalViaJAR eBinary;
 	
-	
-	private int configListSize;
-	private int numberOfObjetives ;
-	private int numberOfVariables ;
 	private double minValue;
 	private double maxValue ;
-	private String problemName;
-	private String jarPath;
 	private ArrayList<Algorithm> algorithmList;
 	
 	public JMetalWorker(Problem problem)	{
-		// Possible TODO: Remove redundant fields
 		this.problem = problem;
-		configListSize= problem.getInputs().getConfigList().size();
-		numberOfObjetives = problem.getFitnessApp().getFitnessOutputList().size();
 		// We are assuming however, that the JMETALWORKER is working over one configList array ONLY
 		// This means we must NORMALIZE the arrays
 		// Until we do so, we will use and test only ONE configuration per submission/problem. Only the first config list will be considered
-		numberOfVariables = problem.getInputs().getConfigList().get(0).getValueArray().length;
 		setBounds();
-		problemName= problem.getIntroduction().getName();
-		jarPath= problem.getFitnessApp().getLocalJarPath();
-		algorithmList = problem.getOptimization().getAlgorithmList();
-		
 		workerLogger = new ConsoleLogger("JMETAL-WORKER");
 		Email email = new Email(this.problem);
 		email.welcome_email();
 		new EmailSender().sendMail(email);
-		
-		//To test
-		email.progression_email(50, 78);
-		new EmailSender().sendMail(email);
-		
-		email.success_email();
-		new EmailSender().sendMail(email);
-
 		start();
 	}
 	
 	private void setBounds() {
 		double minValueAux = 0.0;
 		double maxValueAux = 0.0;
-		for( int i=0;i < configListSize; i++) { 
-			
-				minValueAux = problem.getInputs().getConfigList().get(i).getLowerLimit();
-				maxValueAux = problem.getInputs().getConfigList().get(i).getUpperLimit();
-			
-				if(minValue> minValueAux) {
-					minValue = minValueAux;
-				}
-				if(maxValue< maxValueAux) {
-					maxValue = maxValueAux;
-				}
+		for(int i = 0; i < problem.getInputs().getConfigList().size(); i++) { 
+			minValueAux = problem.getInputs().getConfigList().get(i).getLowerLimit();
+			maxValueAux = problem.getInputs().getConfigList().get(i).getUpperLimit();
+			if(minValue> minValueAux)
+				minValue = minValueAux;
+			if(maxValue< maxValueAux)
+				maxValue = maxValueAux;
 		}
 	}
 	
@@ -91,11 +65,10 @@ public class JMetalWorker extends Thread {
 	public synchronized void run()	{
 		//Here is where the algorithm calls will be made.
 		workerLogger.writeConsoleLog("Received problem \"" + problem.getIntroduction().getName() + "\" from " + problem.getIntroduction().getUserEmail());
-		
 		int counterDouble=0;
 		int counterInteger=0;
 		int counterBinary=0;
-		for( int i=0;i < configListSize; i++) {
+		for(int i = 0; i < problem.getInputs().getConfigList().size(); i++) {
 			if( problem.getInputs().getConfigList().get(i).getVarType() == VariableType.varDouble) {
 				counterDouble++;
 			}
@@ -106,21 +79,35 @@ public class JMetalWorker extends Thread {
 				counterBinary++;
 			}
 		}
-		
-		if( counterDouble== configListSize) {
-			eDouble = new ExperimentsDoubleExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath, algorithmList);
+		/*
+		 * NORMALIZE ALL OF THISISISISISI 
+		 */
+		if( counterDouble == problem.getInputs().getConfigList().size()) {
+			eDouble = new ExperimentsDoubleExternalViaJAR(
+					problem.getInputs().getConfigList().get(0).getValueArray().length,
+					problem.getFitnessApp().getFitnessOutputList().size(), minValue,  maxValue,  
+					problem.getIntroduction().getName(), 
+					problem.getFitnessApp().getLocalJarPath(), 
+					problem.getOptimization().getAlgorithmList());
 			eDouble.start();
-			
-			
 		}
-		if(counterInteger== configListSize) {
-			eInteger = new ExperimentsIntegerExternalViaJAR(numberOfVariables,  numberOfObjetives,  minValue,  maxValue,  problemName, jarPath, algorithmList);
+		if(counterInteger == problem.getInputs().getConfigList().size()) {
+			eInteger = new ExperimentsIntegerExternalViaJAR(
+					problem.getInputs().getConfigList().get(0).getValueArray().length, 
+					problem.getFitnessApp().getFitnessOutputList().size(),  minValue,  maxValue,  
+					problem.getIntroduction().getName(), 
+					problem.getFitnessApp().getLocalJarPath(), 
+					problem.getOptimization().getAlgorithmList());
 			eInteger.start();
-			
 		}
-		if(counterBinary== configListSize) {
-			//TODO : put the parameter numberOfBits on nemesis-app
-			eBinary = new ExperimentsBinaryExternalViaJAR(numberOfVariables,  numberOfObjetives,  problemName, jarPath, algorithmList);
+		if(counterBinary == problem.getInputs().getConfigList().size()) {
+			//TODO: put the parameter numberOfBits on nemesis-app
+			eBinary = new ExperimentsBinaryExternalViaJAR(
+					problem.getInputs().getConfigList().get(0).getValueArray().length,
+					problem.getFitnessApp().getFitnessOutputList().size(),
+					problem.getIntroduction().getName(), 
+					problem.getFitnessApp().getLocalJarPath(), 
+					problem.getOptimization().getAlgorithmList());
 			eBinary.start();
 		}
 	}
