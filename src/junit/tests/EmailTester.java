@@ -36,6 +36,8 @@ public class EmailTester {
         tester.progression_email(75.0, 10);
         tester.welcome_email();
         tester.success_email();
+        assertNotNull(tester.getCurrentType());
+        assertNotNull(tester.getProblemName());
 	}
 	
 	@Test
