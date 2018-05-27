@@ -297,7 +297,7 @@ public class Experiments {
 	}
 	
 	public int getTotalConfigurations()	{
-		return (int) (Math.ceil(250.0/100)*INDEPENDENT_RUNS*populationSize*algorithmsSelected);
+		return (int) (Math.ceil(maxEvaluations/populationSize)*INDEPENDENT_RUNS*populationSize*algorithmsSelected);
 	}
 	
 	public MyProblemBinaryExternalViaJAR getMyBinaryProblem()	{
