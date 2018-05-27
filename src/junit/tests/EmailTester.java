@@ -11,9 +11,13 @@ import data.problem.ProblemFitnessApp;
 import data.problem.ProblemInputs;
 import data.problem.ProblemIntroduction;
 import data.problem.ProblemOptimization;
-import data.submission.Submission;
 import utilities.TimeVariable;
 
+/**
+ * JUnit tests the email sender
+ * @author skner
+ *
+ */
 public class EmailTester {
 	private ProblemIntroduction introduction = new ProblemIntroduction("name", "fullDescription", new TimeVariable (2.0, "sec"), new TimeVariable (10.0, "min"), "test@gmail.com");
 	private ProblemInputs inputs = new ProblemInputs(); 

@@ -1,5 +1,10 @@
 package utilities;
 
+/**
+ * List of JMetal algorithms
+ * @author skner
+ *
+ */
 public enum Algorithm {
     coralReefOptimization,
     diferencialEvolution, 

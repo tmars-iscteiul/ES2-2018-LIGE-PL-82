@@ -20,6 +20,11 @@ import data.results.Solutions;
 import data.results.SolutionsList;
 import utilities.Paths;
 
+/**
+ * Compiles results and converts them into a JSON file, that will be handed to the chart service.
+ * @author skner
+ *
+ */
 public abstract class JSONResultsGenerator {
 	
 	public static void convertResultsAndSolutionsToJSON(String problemName, String description,

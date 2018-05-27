@@ -10,6 +10,11 @@ import org.junit.Test;
 import data.results.FitnessOutputList;
 import data.results.Results;
 
+/**
+ * JUnit tests results
+ * @author skner
+ *
+ */
 public class ResultsTester {
 	
 	private double values[] = {2.0, 3.0};

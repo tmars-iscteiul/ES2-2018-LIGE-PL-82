@@ -2,6 +2,11 @@ package utilities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Problem name. Spring boot support class
+ * @author skner
+ *
+ */
 public class ProblemName {
 	@JsonProperty("problemName") private String problemName;
 

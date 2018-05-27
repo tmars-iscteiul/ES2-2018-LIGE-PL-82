@@ -17,6 +17,11 @@ import data.submission.MainInformation;
 import data.submission.Restrictions;
 import data.submission.RestrictionsList;
 
+/**
+ * Junits Tests data submission
+ * @author skner
+ *
+ */
 public class DataSubmissionTester {
 
 	@Test

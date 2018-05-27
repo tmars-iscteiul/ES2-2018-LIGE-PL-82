@@ -10,8 +10,6 @@ import utilities.VariableType;
 
 import org.junit.Test;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import data.problem.Configuration;
 import data.problem.Problem;
 import data.problem.ProblemFitnessApp;
@@ -31,8 +29,12 @@ import data.submission.Introduction;
 import data.submission.MainInformation;
 import data.submission.Optimization;
 import data.submission.Submission;
-import utilities.TimeVariable;
 
+/**
+ * JUnit tests the class problem
+ * @author skner
+ *
+ */
 public class ProblemTester {
 	private ProblemIntroduction introduction = new ProblemIntroduction("name", "fullDescription", new TimeVariable (2.0, "sec"), new TimeVariable (10.0, "min"), "test@gmail.com");
 	private ProblemInputs inputs = new ProblemInputs(); 
@@ -68,6 +70,7 @@ public class ProblemTester {
 		assertNotNull(tester.getOptimization().getAlgorithmList());
 	}
 	
+	@SuppressWarnings("unused")
 	@Test
 	public void submission() {
 		CreateInputItems create = new CreateInputItems();

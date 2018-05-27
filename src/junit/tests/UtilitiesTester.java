@@ -7,6 +7,11 @@ import org.junit.Test;
 import utilities.ProblemName;
 import utilities.XmlReader;
 
+/**
+ * JUnit tests utilities 
+ * @author skner
+ *
+ */
 public class UtilitiesTester {
 
 	@Test

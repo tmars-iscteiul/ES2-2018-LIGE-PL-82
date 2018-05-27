@@ -4,6 +4,11 @@ import java.net.*;
 
 import java.io.*;
 
+/**
+ * Class that read JAR and downloads it, by given URL
+ * @author skner
+ *
+ */
 public abstract class ReadFromURL {
 	
 	public static void downloadFile(String fileURL, String fileName) {

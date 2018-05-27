@@ -1,8 +1,6 @@
 package utilities;
 
 import java.io.File;
-import java.util.ArrayList;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
@@ -15,6 +13,11 @@ import org.w3c.dom.NodeList;
 
 import stakeholders.Administrator;
 
+/**
+ * Reads XML files
+ * @author skner
+ *
+ */
 public class XmlReader {
 	
 	private File config;

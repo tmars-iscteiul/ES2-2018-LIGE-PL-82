@@ -1,6 +1,7 @@
 package utilities;
 
 /**
+ * Public paths to be used by the entire software
  * @author skner
  *
  */

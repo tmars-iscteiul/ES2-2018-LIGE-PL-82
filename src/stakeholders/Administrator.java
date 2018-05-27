@@ -1,5 +1,10 @@
 package stakeholders;
 
+/**
+ * Class representing the administrator
+ * @author skner
+ *
+ */
 public class Administrator {
 	private String name;
 	private String email;

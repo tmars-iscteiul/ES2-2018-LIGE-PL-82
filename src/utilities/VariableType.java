@@ -1,7 +1,7 @@
 package utilities;
 
 /**
- * 
+ * List of possible variable types
  * @author skner
  *
  */

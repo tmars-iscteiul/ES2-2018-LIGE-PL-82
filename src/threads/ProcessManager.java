@@ -6,6 +6,7 @@ import utilities.ConsoleLogger;
 import utilities.VariableType;
 
 /**
+ * This class will support each JMetalWorker, verifying certain situations while JMetalWorker is busy running the algorithms.
  * @author skner
  *
  */

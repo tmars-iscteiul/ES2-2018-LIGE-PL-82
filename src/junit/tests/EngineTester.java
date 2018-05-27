@@ -6,6 +6,11 @@ import org.junit.Test;
 
 import main.Engine;
 
+/**
+ * Junit tests the engine
+ * @author skner
+ *
+ */
 public class EngineTester {
 
 	@Test
