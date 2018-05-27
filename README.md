@@ -14,10 +14,10 @@ The following features are still on beta version:
 5. Administrator main configurations.
 
 ### Nêmesis Team:
-65345 - Tiago Rodrigues - tmars@iscte-iul.pt;
-68958 - Catarina Carriço - cdpco@iscte-iul.pt;
-69565 - Rodolfo Arnaldo - rgnsa@iscte-iul.pt;
-73553 - Rui Tomé - rmnte@iscte-iul.pt.
+* 65345 - Tiago Rodrigues - tmars@iscte-iul.pt;
+* 68958 - Catarina Carriço - cdpco@iscte-iul.pt;
+* 69565 - Rodolfo Arnaldo - rgnsa@iscte-iul.pt;
+* 73553 - Rui Tomé - rmnte@iscte-iul.pt.
 
 
 ## INSTALLATION SETUP
