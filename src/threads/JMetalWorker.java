@@ -40,7 +40,7 @@ public class JMetalWorker extends Thread {
 		// Until we do so, we will use and test only ONE configuration per submission/problem. Only the first config list will be considered
 		setBounds();
 		logger = new ConsoleLogger("JMETAL-WORKER");
-		Email email = new Email(this.problem);
+		Email email = new Email(this.problem, options);
 		email.welcome_email();
 		new EmailSender().sendMail(email);
 		start();
@@ -113,7 +113,7 @@ public class JMetalWorker extends Thread {
 			experiments.start();
 		} catch (ArrayIndexOutOfBoundsException e) {
 			logger.writeConsoleLog("Process was interruped. There were inconcistencies on the JSON submission or the given JAR evaluator.");
-			Email email = new Email(this.problem);
+			Email email = new Email(this.problem, options);
 			email.fail_email();
 			new EmailSender().sendMail(email);
 			return;
@@ -123,7 +123,7 @@ public class JMetalWorker extends Thread {
 			logger.writeConsoleLog("Process was successful. Generating results files.");
 		}
 		compileResultsJSON();
-		Email email = new Email(this.problem);
+		Email email = new Email(this.problem, options);
 		email.success_email();
 		new EmailSender().sendMail(email);
 	}
@@ -152,5 +152,9 @@ public class JMetalWorker extends Thread {
 	
 	public void setRunTime(double runTime)	{
 		finishedRunTime = runTime;
+	}
+	
+	public AdminOptions getAdminOptions()	{
+		return options;
 	}
 }

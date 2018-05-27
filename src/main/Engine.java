@@ -32,14 +32,14 @@ public class Engine extends Thread	{
 	private BlockingQueue<Problem> problemQueue;
 	private ConsoleLogger logger;
 	
-	private AdminOptions adminOptions;
+	private AdminOptions options;
 	
 	public Engine()	{
 		problemQueue = new ArrayBlockingQueue<Problem>(1024);
 		logger = new ConsoleLogger("ENGINE");
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			adminOptions = mapper.readValue(new File("./config.json"), AdminOptions.class);
+			options = mapper.readValue(new File("./config.json"), AdminOptions.class);
 			logger.writeConsoleLog("config.json loaded.");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -62,7 +62,7 @@ public class Engine extends Thread	{
 		logger.writeConsoleLog("Engine is running and awaiting inputs...");
 		while(true) {
 			try {
-				new ProcessManager(new JMetalWorker(problemQueue.take(), adminOptions));
+				new ProcessManager(new JMetalWorker(problemQueue.take(), options));
 				logger.writeConsoleLog("Submission received. Starting problem process.");
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -76,14 +76,14 @@ public class Engine extends Thread	{
 	public void addProblemToQueue(Submission submission)	{
 		// TODO Add submission_feedback email sender
 		if(submission.getFeedback().getEmail() != "") {
-			logger.writeConsoleLog("User sent feedback. Sending to admin: " + adminOptions.getAdminEmail() + ".");
+			logger.writeConsoleLog("User sent feedback. Sending to admin: " + options.getAdminEmail() + ".");
 			sendFeedbackToAdmin(submission);
 		}
 		problemQueue.add(new Problem(submission));
 	}
 
 	public void sendFeedbackToAdmin(Submission submission) {
-		Email email = new Email(new Problem(submission));
+		Email email = new Email(new Problem(submission), options);
 		email.feedback(submission.getFeedback());
 		new EmailSender().sendMail(email);
 	}

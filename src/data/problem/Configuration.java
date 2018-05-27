@@ -35,7 +35,6 @@ public class Configuration {
 
 	public Configuration(data.submission.InputListTable input)	{
 		name = input.getListName();
-		System.out.println("classe Configuration - input.getMinValue / input.getMaxValue ="+ input.getMinValue()+ "/"+ input.getMaxValue());
 		setLimits(input.getMinValue(), input.getMaxValue());// como e que o os gets devolvem um int e a função recebe um double?
 		setArrayType(input.getType());
 		valueArray = new Object[input.getNumberVar()];

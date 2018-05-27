@@ -41,7 +41,7 @@ public class ProcessManager extends Thread	{
 			checkMaxTimeLimit();
 			if(getProgress()*100 > progressEmailingCheckpoint && progressEmailingCheckpoint != 100)	{
 				// Sends progress emails every 25%
-				Email email = new Email(worker.getProblem());
+				Email email = new Email(worker.getProblem(), worker.getAdminOptions());
 				email.progression_email((int)(getProgress()*100), getAproxTimeLeft()/60000);
 				new EmailSender().sendMail(email);
 				progressEmailingCheckpoint += progressEmailingCheckpoint;
@@ -73,7 +73,7 @@ public class ProcessManager extends Thread	{
 		if(getRunTime() > worker.getProblem().getIntroduction().getMaxDuration().getValue("ms"))	{
 			logger.writeConsoleLog("Process has reached the time limit of " + worker.getProblem().getIntroduction().getMaxDuration().getValue("sec") + "sec.");
 			worker.setRunTime(getRunTime());
-			Email email = new Email(worker.getProblem());
+			Email email = new Email(worker.getProblem(), worker.getAdminOptions());
 			email.time_exceeded((int)getProgress()*100);
 			new EmailSender().sendMail(email);
 			worker.stop();// TODO Replace with a safer stop of JMETAL.

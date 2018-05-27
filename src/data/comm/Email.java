@@ -1,6 +1,7 @@
 package data.comm;
 import java.time.LocalDateTime;
 
+import data.AdminOptions;
 import data.problem.Problem;
 
 /**
@@ -19,10 +20,10 @@ public class Email {
 	private String problemName;
 	private int currentType;
 
-	public Email(Problem problem) {
+	public Email(Problem problem, AdminOptions options) {
 		this.problem = problem;
-		from = "geral.nemesis@gmail.com";
-		admin = "geral.nemesis@gmail.com";
+		from = options.getAdminEmail();
+		admin = options.getAdminEmail();
 		to = problem.getIntroduction().getUserEmail();
 		problemName = problem.getIntroduction().getName();
 	}
@@ -80,11 +81,10 @@ public class Email {
 	
 	public void feedback(data.submission.Feedback feedback)	{
 		currentType = 5;
-		// TODO Finish feedback
 		to = admin;
 		subject = "User Feedback: " + problemName + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Nêmesis - User Feedback</h1>"
-				+ "<p>An user identified by \"" + feedback.getName() + "\" has provided feedback:<br /><br />"
+				+ "<p>An user identified by \"" + feedback.getName() + "\" has provided feedback: <br /><br />"
 				+ feedback.getSubject() + " <br /><br />"
 				+ feedback.getEmailText() + " <br /><br />"
 				+ "</p></body></html>";

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import data.AdminOptions;
 import data.comm.Email;
 import data.comm.EmailSender;
 import data.problem.Problem;
@@ -27,7 +28,7 @@ public class EmailTester {
 	@Test
 	public void emailAttributes() {
 		Problem prob = new Problem(introduction, inputs, optimization, fitnessApp);
-		Email tester = new Email(prob);
+		Email tester = new Email(prob, new AdminOptions());
 		tester.setTo("rodolfo.afa@gmail.com");
         assertNotNull(tester.getAdmin());
         assertNotNull(tester.getFrom());
