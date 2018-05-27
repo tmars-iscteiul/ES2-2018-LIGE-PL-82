@@ -74,11 +74,7 @@ public class Email {
 		subject = "Optimization process time exceeded: " + problemName + " - " + LocalDateTime.now();
 		messageBody = "<html><body><h1>Nêmesis - Optimization process time exceeded</h1>"
 				+ "<p>Your optimization process ended due to reaching the maximum time limit.<br /><br />"
-				+ "To check the last optimization results go to the link below:<br />"
-				+ "<a href=\"http://localhost:4100/?problemName=" + problemName + "\">"
-				+ "http://localhost:4100/?problemName=" + problemName + "</a><br/><br/>"
-				+ "You can see the variables final results in the file attached.<br/><br/>"
-				+ "If you want to get better results we suggest increasing the process time, or choosing less optimizer algorithms."
+				+ "If you want to get your results, we suggest increasing the process time, or choosing less optimizer algorithms."
 				+ "Our best regards, <br/>Nêmesis Team</p></body></html>";
 	}
 	

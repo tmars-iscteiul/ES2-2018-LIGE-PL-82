@@ -73,7 +73,6 @@ public class ProcessManager extends Thread	{
 		if(getRunTime() > worker.getProblem().getIntroduction().getMaxDuration().getValue("ms"))	{
 			logger.writeConsoleLog("Process has reached the time limit of " + worker.getProblem().getIntroduction().getMaxDuration().getValue("sec") + "sec.");
 			worker.setRunTime(getRunTime());
-			worker.compileResultsJSON();
 			Email email = new Email(worker.getProblem());
 			email.time_exceeded((int)getProgress()*100);
 			new EmailSender().sendMail(email);
