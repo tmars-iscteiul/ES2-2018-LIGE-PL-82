@@ -55,6 +55,16 @@ public class SpringController {
 	}
 	
 	/**
+	 * Sends feedback's fields only, ignoring the user's submission. 
+	 * @param submission The submission object, converted directly from the user's submitted JSON.
+	 */
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(method = RequestMethod.POST, value = "/send_feedback", consumes = "application/json")
+	public void sendFeedback(@RequestBody Submission submission)	{
+		engine.sendFeedbackToAdmin(submission);
+	}
+	
+	/**
 	 * Adds the submission sent by the user to the @see Engine, so it can start the algorithm processes. This method accepts inputs from any testing origin.
 	 * @param submission The @see Submission object, converted directly from the user's submitted JSON.
 	 */
