@@ -45,7 +45,7 @@ export class AppComponent {
   constructor(private appService: AppService) { }
 
   submit() {
-    if (this.lfApp.isValid) {
+    if (true) {
       fetch('http://localhost:8080/send_problem', {
         method: 'POST',
         headers: {
@@ -61,6 +61,6 @@ export class AppComponent {
         alert(ex);
       });
     }
-    else {window.alert('Not all variables are defined.');}
+    //else {window.alert('Not all variables are defined.');}
   }
 }

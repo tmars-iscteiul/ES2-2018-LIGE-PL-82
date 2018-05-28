@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 //import { AppService } from '../../services/app.service';
 import {AppController, AppService} from '@lightweightform/core';
 
@@ -8,7 +8,6 @@ import {AppController, AppService} from '@lightweightform/core';
   styleUrls: ['./feedback.component.scss']
 })
 export class FeedbackComponent implements OnInit {
-  @ViewChild('lfApp') lfApp: AppController;
 
   constructor(private appService: AppService) { }
 
