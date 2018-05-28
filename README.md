@@ -21,16 +21,23 @@ The following features are still on beta version:
 
 ## INSTALLATION SETUP
 ### NodeJS - Download and Installation
-Go to the URL https://nodejs.org/ and download the NodeJS software and install it.
+Go to the URL https://nodejs.org/, download the NodeJS software and install it.
 
 Confirm the installation going to the commandline and typing "npm".
 
 If the commandline returns an unknown command then go to system variables and add the npm path.
 
+### Yarn - Download and Installation
+Go to the URL https://yarnpkg.com/lang/en/docs/install/, download Yarn software and install it.
+
+Confirm the installation going to the commandline and typing "yarn".
+
+If the commandline returns an unknown command then go to system variables and add the yarn path.
+
 ### NêmesisForm - Serving
 Open a commandline and go to the path ./NêmesisWebApps/nemesis-form-app/.
 
-Type "npm install" and wait for the finish of the installation.
+Type "npm install" and wait for the finish of the installation. After it type "yarn install" and wait also.
 
 After the installation, type "ng serve", open your browser and go to: http://localhost:4200
 
